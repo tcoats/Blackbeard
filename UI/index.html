@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>Blackbeard</title>
+	
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/jquery.gridster.min.css">
+	<link rel="stylesheet/less" type="text/css" href="/css/dragdealer.less">
+	<link rel="stylesheet/less" type="text/css" href="/css/blackbeard.less">
+</head>
+
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>Blackbeard <small>social piracy&hellip;</small></h1>
+		</div>
+		
+		<div class="row">
+		  <!-- ko foreach: projects -->
+			<div class="span4">
+        <h3 data-bind="text: name"></h3>
+      </div>
+      <!-- /ko -->
+		</div>
+		
+		<div id="my-slider" class="dragdealer">
+      <div class="handle">
+        <div class="slide"></div>
+      </div>
+    </div>
+	</div>
+	<script src="/js/jquery-1.8.0.min.js"></script>
+	<script src="/js/less-1.3.0.min.js"></script>
+	<script src="/js/coffee-script.js"></script>
+	<script src="/js/underscore-min.js"></script>
+	<script src="/js/knockout-2.1.0.js"></script>
+	<script src="/js/backbone-min.js"></script>
+	<script src="/js/backbone-modelref.min.js"></script>
+	<script src="/js/backbone-relational.js"></script>
+	<script src="/js/knockback.min.js"></script>
+	<script src="/js/jquery.gridster.min.js"></script>
+	<script src="/js/dragdealer.js"></script>
+	<script type="text/coffeescript" src="/js/pminject.coffee"></script>
+	<script type="text/coffeescript" src="/js/util.coffee"></script>
+	<script type="text/coffeescript" src="/js/blackbeard.coffee"></script>
+</body>
+</html>
