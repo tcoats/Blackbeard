@@ -292,10 +292,12 @@ Dragdealer.prototype =
 	},
 	setValue: function(x, y, snap)
 	{
+	  self = this
 		this.setTargetValue([x, y || 0]);
 		if(snap)
 		{
 			this.groupCopy(this.value.current, this.value.target);
+			this.update();
 		}
 	},
 	startTap: function(target)
