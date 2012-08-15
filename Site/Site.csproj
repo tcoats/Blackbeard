@@ -17,9 +17,9 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -191,6 +191,12 @@
     <Compile Include="Security\OpenIdMembershipService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery.gridster.css" />
+    <Content Include="Content\jquery.gridster.min.css" />
     <Content Include="Content\openid-shadow.css" />
     <Content Include="Content\openid.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -222,18 +228,43 @@
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Content\blackbeard.less" />
+    <Content Include="Content\dragdealer.less" />
+    <Content Include="Content\gridster.less" />
+    <Content Include="Scripts\blackbeard.coffee" />
+    <None Include="Properties\PublishProfiles\DropboxDeploy.pubxml" />
     <None Include="Scripts\jquery-1.6.2-vsdoc.js" />
+    <Content Include="Images\glyphicons-halflings-white.png" />
+    <Content Include="Images\glyphicons-halflings.png" />
     <Content Include="Images\openid-inputicon.gif" />
     <Content Include="Images\openid-providers-en.png" />
     <Content Include="Images\openid-providers-ru.png" />
+    <Content Include="Scripts\backbone-min.js" />
+    <Content Include="Scripts\backbone-modelref.js" />
+    <Content Include="Scripts\backbone-modelref.min.js">
+      <DependentUpon>backbone-modelref.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\backbone-relational.js" />
+    <Content Include="Scripts\backbone.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js">
+      <DependentUpon>bootstrap.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\coffee-script.js" />
+    <Content Include="Scripts\dragdealer.js" />
     <Content Include="Scripts\jquery-1.6.2.js" />
     <Content Include="Scripts\jquery-1.6.2.min.js">
       <DependentUpon>jquery-1.6.2.js</DependentUpon>
     </Content>
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.min.js">
       <DependentUpon>jquery-ui-1.8.11.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.gridster.js" />
+    <Content Include="Scripts\jquery.gridster.min.js">
+      <DependentUpon>jquery.gridster.js</DependentUpon>
     </Content>
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js">
@@ -247,12 +278,23 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js">
       <DependentUpon>jquery.validate.unobtrusive.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\knockback.js" />
+    <Content Include="Scripts\knockback.min.js">
+      <DependentUpon>knockback.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\knockout-2.0.0.debug.js" />
     <Content Include="Scripts\knockout-2.0.0.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\less-1.3.0.min.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
     <Content Include="Scripts\openid-en.js" />
     <Content Include="Scripts\openid-jquery.js" />
-    <Content Include="Web.config" />
+    <Content Include="Scripts\underscore-min.js" />
+    <Content Include="Scripts\underscore.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -292,6 +334,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Scripts\pminject.coffee" />
+    <Content Include="Scripts\util.coffee" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
