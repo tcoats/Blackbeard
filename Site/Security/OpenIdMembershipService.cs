@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using DotNetOpenAuth.OpenId;
+using DotNetOpenAuth.OpenId.Extensions.AttributeExchange;
 using DotNetOpenAuth.OpenId.Extensions.SimpleRegistration;
 using DotNetOpenAuth.OpenId.RelyingParty;
 using SocialPirates.Blackbeard.Site.Models;
@@ -22,15 +23,17 @@ namespace SocialPirates.Blackbeard.Site.Security
         public IAuthenticationRequest ValidateAtOpenIdProvider(string openIdIdentifier)
         {
             IAuthenticationRequest openIdRequest = openId.CreateRequest(Identifier.Parse(openIdIdentifier));
+			
+            var fetch = new FetchRequest();
 
-            var fields = new ClaimsRequest()
-            {
-                Email = DemandLevel.Require,
-                FullName = DemandLevel.Require,
-                Nickname = DemandLevel.Require
-            };
-            openIdRequest.AddExtension(fields);
+			fetch.Attributes.Add(new AttributeRequest(WellKnownAttributes.Contact.Email,true,1));
+			fetch.Attributes.Add(new AttributeRequest(WellKnownAttributes.Name.FullName, true, 1));
+			fetch.Attributes.Add(new AttributeRequest(WellKnownAttributes.Name.First, true,1));
+			fetch.Attributes.Add(new AttributeRequest(WellKnownAttributes.Name.Last, true,1));
+			fetch.Attributes.Add(new AttributeRequest(WellKnownAttributes.Name.Alias, true, 1));
 
+
+            openIdRequest.AddExtension(fetch);
             return openIdRequest;
         }
 
@@ -50,8 +53,8 @@ namespace SocialPirates.Blackbeard.Site.Security
         private OpenIdUser ResponseIntoUser(IAuthenticationResponse response)
         {
             OpenIdUser user = null;
-            var claimResponseUntrusted = response.GetUntrustedExtension<ClaimsResponse>();
-            var claimResponse = response.GetExtension<ClaimsResponse>();
+            var claimResponseUntrusted = response.GetUntrustedExtension<FetchResponse>();
+			var claimResponse = response.GetExtension<FetchResponse>();
 
             if (claimResponse != null)
             {

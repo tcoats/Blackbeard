@@ -42,6 +42,7 @@
 	border: 1px solid #DDD;
 	margin: 3px;
 	float: left;
+	padding:0px;
 }
 
 .openid_small_btn {
@@ -54,6 +55,7 @@
 	border: 1px solid #DDD;
 	margin: 3px;
 	float: left;
+	padding:0px;
 }
 
 a.openid_large_btn:focus {
