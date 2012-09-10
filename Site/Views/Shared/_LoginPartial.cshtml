@@ -7,7 +7,7 @@
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-                @Html.ActionLink("Log off", "LogOff", "Account")
+                <li>@Html.ActionLink("Log off", "LogOff", "Account")</li>
             </ul>
         </li>
     }
@@ -18,7 +18,7 @@
             <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-                @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
             </ul>
         </li>
     }
