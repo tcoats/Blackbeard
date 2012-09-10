@@ -1,58 +1,42 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <link rel="stylesheet" href="/Content/bootstrap.min.css">
-	    <link rel="stylesheet" href="/Content/jquery.gridster.min.css">
-	    <link rel="stylesheet/less" type="text/css" href="/Content/dragdealer.less">
-	    <link rel="stylesheet/less" type="text/css" href="/Content/blackbeard.less">
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/themes/base/css", "~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("Your logo here", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
-        </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
-                </div>
-                <div class="float-right">
-                    <ul id="social">
-                        <li><a href="http://facebook.com" class="facebook">Facebook</a></li>
-                        <li><a href="http://twitter.com" class="twitter">Twitter</a></li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
+<head>
+    <meta charset="utf-8" />
+    <title>Blackbeard - @ViewBag.Title </title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+    <link rel="stylesheet" href="/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="/Content/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="/Content/jquery.gridster.min.css">
+    <link rel="stylesheet/less" type="text/css" href="/Content/dragdealer.less">
+    <link rel="stylesheet/less" type="text/css" href="/Content/blackbeard.less">
+    @*<meta name="viewport" content="width=device-width" />*@
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="#">Blackbeard <small>social piracy&hellip;</small></a>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/less")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/coffeescript")
+    @Scripts.Render("~/bundles/underscore")
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/backbone")
+    @Scripts.Render("~/bundles/knockback")
+    @Scripts.Render("~/bundles/gridster")
+    @Scripts.Render("~/bundles/dragdealer")
+    @Scripts.Render("~/bundles/pminject")
+    @RenderSection("scripts", required: false)
+</body>
 </html>

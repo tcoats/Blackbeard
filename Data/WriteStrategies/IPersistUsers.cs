@@ -6,7 +6,7 @@ using SocialPirates.Blackbeard.Data.Entities;
 
 namespace SocialPirates.Blackbeard.Data.WriteStrategies
 {
-	public interface IWriteUsers
+	public interface IPersistUsers
 	{
 		void EnsureUser(User user);
 	}

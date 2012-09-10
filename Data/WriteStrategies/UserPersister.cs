@@ -7,7 +7,7 @@ using StaticVoid.Core.Repository;
 
 namespace SocialPirates.Blackbeard.Data.WriteStrategies
 {
-	public class UserPersister : IWriteUsers
+	public class UserPersister : IPersistUsers
 	{
 		private readonly IRepository<User>  _userRepository;
 		public UserPersister(IRepository<User> userRepository)

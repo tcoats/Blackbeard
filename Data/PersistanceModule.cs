@@ -17,7 +17,7 @@ namespace SocialPirates.Blackbeard.Data
 			Bind(typeof(IRepositoryDataSource<>)).To(typeof(DbContextRepositoryDataSource<>));
 			Bind(typeof(IRepository<>)).To(typeof(SimpleRepository<>));
 
-			Bind<IWriteUsers>().To<UserPersister>();
+			Bind<IPersistUsers>().To<UserPersister>();
 		}
 	}
 }

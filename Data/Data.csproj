@@ -57,7 +57,7 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="PersistanceModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WriteStrategies\IWriteUsers.cs" />
+    <Compile Include="WriteStrategies\IPersistUsers.cs" />
     <Compile Include="WriteStrategies\UserPersister.cs" />
   </ItemGroup>
   <ItemGroup>

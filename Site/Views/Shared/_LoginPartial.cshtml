@@ -1,10 +1,25 @@
-﻿@if (Request.IsAuthenticated) {
-    <p>
-        Hello, @( (User.Identity as SocialPirates.Blackbeard.Site.Security.OpenIdIdentity).OpenIdUser.Nickname)
-        @Html.ActionLink("Log off", "LogOff", "Account")
-    </p>
-} else {
-    <ul>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
-}
+﻿<ul class="nav pull-right">
+    @if (Request.IsAuthenticated)
+    {
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                @( (User.Identity as SocialPirates.Blackbeard.Site.Security.OpenIdIdentity).OpenIdUser.Nickname)
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                @Html.ActionLink("Log off", "LogOff", "Account")
+            </ul>
+        </li>
+    }
+    else
+    {
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login
+            <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+            </ul>
+        </li>
+    }
+</ul>

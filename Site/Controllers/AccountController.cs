@@ -17,8 +17,8 @@ namespace SocialPirates.Blackbeard.Site.Controllers
     public class AccountController : Controller
     {
         private readonly OpenIdMembershipService _openIdMembership;
-		private readonly IWriteUsers _userPersister;
-        public AccountController(OpenIdMembershipService membershipService, IWriteUsers userPersister)
+		private readonly IPersistUsers _userPersister;
+        public AccountController(OpenIdMembershipService membershipService, IPersistUsers userPersister)
         {
             _openIdMembership = membershipService;
 			_userPersister = userPersister;
