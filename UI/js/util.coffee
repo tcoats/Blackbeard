@@ -15,6 +15,21 @@ String::toTitleCase = () ->
 		else
 			match.charAt(0).toUpperCase() + match.substr(1)
 
+Math.clamp = (value, min, max) ->
+  Math.max(Math.min(value, max), min)
+
+Math.lerp = (value, start, end) ->
+  Math.clamp((value * (end - start)) + start, 0, 1)
+
+Math.clerp = (value, start, end) ->
+  Math.clamp((value - start) / (end - start), 0, 1)
+  
+Math.clerpy = (value, start, middle, end) ->
+  if value <= middle
+    return Math.clamp((value - start) / (middle - start), 0, 1)
+  Math.clamp((value - end) / (middle - end), 0, 1)
+
+
 # http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
 window.S4 = () ->
 	(((1+Math.random())*0x10000)|0).toString(16).substring(1)

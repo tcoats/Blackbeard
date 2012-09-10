@@ -1,54 +1,39 @@
+class App extends Backbone.Model
 
-model = new Backbone.Model {
-  projects: new Backbone.Collection [
-    new Backbone.Model {
-      name: "Project 1"
-    }
-    new Backbone.Model {
-      name: "Project 2"
-    }
-    new Backbone.Model {
-      name: "Project 3"
-    }
-  ]
-}
+class EvaluationCollection extends Backbone.Collection
+  model: Evaluation
+
+class Evaluation extends Backbone.Model
+  initialize: ->
+    @set
+      Skill: 0.05
+      Output: 0.05
+      Group: 0.05
+      Deliver: 0.05
+  
+
+
+class ViewApp extends kb.ViewModel
+  EditEvaluation: (evaluation) =>
+    @EditingEvaluation evaluation
+      
+  SaveEvaluation: =>
+    @EditingEvaluation undefined
+    
+  EditingEvaluation: ko.observable null
 
 
 $ () ->
-  ko.applyBindings new kb.ViewModel model
+  window.model = new App {
+    Evaluations: new EvaluationCollection [
+      new Evaluation {
+        Name: 'Thomas Coats'
+      }
+      new Evaluation {
+        Name: 'Mathew'
+      }
+    ]
+  }
+  ko.applyBindings(new ViewApp window.model)
   
-  # todo - scale not offset the difference
-  sliders = []
-  _.each $('.slider'), (silder) ->
-    sliders.push new Dragdealer(silder, {
-      vertical: true
-      horizontal: false
-      y: 0.3333333
-      animationCallback: (x, y) ->
-        current = @
-        others = _.filter(sliders, (s) -> s isnt current)
-        
-        # how much do we have in the sliders that aren't moving
-        otherstotal = _.reduce(
-          others,
-          (memo, s) -> memo + s.value.current[1],
-          0)
-        alltotal = otherstotal + y
-        totaldifference = alltotal - 1.0
-        
-        # we should distribute by portion if we can't scale
-        if otherstotal is 0
-          split = totaldifference / others.length
-          _.each(others, (s) ->
-            currenty = s.value.current[1]
-            s.setValue x, currenty - split, true
-          )
-          return
-        
-        # we should scale if the other sliders have amount
-        _.each(others, (s) ->
-          currenty = s.value.current[1]
-          scale = currenty / otherstotal
-          s.setValue x, currenty - scale * totaldifference, true
-        )
-    })
+  $('.wizard').wizard();

@@ -1,7 +1,15 @@
-@silder-width: 60px;
-@slider-height: 400px;
+@silder-width: 40px;
+@slider-height: 200px;
+
+.slider-box {
+	float: left;
+  margin: 0 5px;
+  text-align: center;
+}
 
 .slider {
+	position: relative;
+	
   -webkit-box-shadow: inset 0 0 8px 0 #ccc;
   -moz-box-shadow: inset 0 0 8px 0 #ccc;
   box-shadow: inner 0 0 8px 0 #ccc;
@@ -13,15 +21,72 @@
   overflow: hidden;
   
   .handle {
+    position: absolute;
+    cursor: pointer;
     width: @silder-width;
     height: @slider-height * 2;
-    
-    .slide {
-      position: absolute;
-      bottom: 0px;
-      width: @silder-width;
-      height: @slider-height;
-      background: #c00;
-    }
   }
+  
+  .slide {
+    position: absolute;
+    bottom: 0px;
+    width: @silder-width;
+    height: @slider-height;
+    background: #c00;
+  }
+}
+
+.slider.slider-skill {
+  .slide {
+    background: #f92e59;
+  }
+}
+
+.slider.slider-output {
+  .slide {
+    background: #ff703f;
+  }
+}
+
+.slider.slider-deliver {
+  .slide {
+    background: #f6bc03;
+  }
+}
+
+.slider.slider-group {
+  .slide {
+    background: #dfd487;
+  }
+}
+
+
+.wizard section 
+{
+	clear: none;
+}
+
+.wizard,
+.wizard > .inner > .pane {
+	padding: 0px;
+	width: 560px;
+	overflow: hidden;
+}
+
+	.wizard > .inner {
+		/* a huge width so we can fit all the panes */
+		overflow: hidden;
+		width: 9999px;
+	}
+
+		.wizard > .inner > .pane {
+			padding: 0px;
+			float: left;
+			position: relative;
+			min-height: 300px;
+		}
+
+
+.modal-footer .prev {
+  float: left;
 }
