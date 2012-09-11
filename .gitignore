@@ -63,3 +63,7 @@ packages/
 # NCrunch #
 ###########
 *.ncrunch*
+
+# Public Script #
+#################
+PublishProfiles
