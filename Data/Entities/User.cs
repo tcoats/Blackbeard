@@ -7,7 +7,7 @@ namespace SocialPirates.Blackbeard.Data.Entities
 {
 	public class User
 	{
-		//PK
+		public int Id { get; set; }
 		public string ClaimedIdentifier { get; set; }
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
