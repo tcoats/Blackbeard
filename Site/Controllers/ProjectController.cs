@@ -14,7 +14,13 @@ namespace SocialPirates.Blackbeard.Site.Controllers
 		}
 
 		[OpenIdAuthorize]
-        public ActionResult Index(int? userId)
+		public ActionResult Index()
+		{
+			return View();
+		}
+
+		[OpenIdAuthorize]
+        public ActionResult MyProjects(int userId)
         {
             return View();
         }

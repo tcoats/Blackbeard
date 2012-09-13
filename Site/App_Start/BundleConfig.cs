@@ -1,5 +1,7 @@
-﻿using System.Web;
+﻿using System.Linq;
+using System.Web;
 using System.Web.Optimization;
+using SocialPirates.Blackbeard.Site.App_Start.BundleTransforms;
 
 namespace SocialPirates.Blackbeard.Site
 {
@@ -8,14 +10,15 @@ namespace SocialPirates.Blackbeard.Site
 		public static void RegisterBundles(BundleCollection bundles)
 		{
 			bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-						"~/Scripts/jquery-1.*"));
+						"~/Scripts/jquery-1.8.1.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-						"~/Scripts/jquery-ui*"));
+						"~/Scripts/jquery-ui-1.8.11.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-						"~/Scripts/jquery.unobtrusive*",
-						"~/Scripts/jquery.validate*"));
+						"~/Scripts/jquery.unobtrusive-ajax.js",
+						"~/Scripts/jquery.validate.js",
+						"~/Scripts/jquery.validate.unobtrusive.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
 						"~/Scripts/modernizr-*"));
@@ -23,27 +26,24 @@ namespace SocialPirates.Blackbeard.Site
 			bundles.Add(new ScriptBundle("~/bundles/openid").Include(
 						"~/Scripts/openid-jquery.js",
 						"~/Scripts/openid-en.js"));
-
-			bundles.Add(new ScriptBundle("~/bundles/less").Include(
-						"~/Scripts/less-1.*"));
-
+			
 			bundles.Add(new ScriptBundle("~/bundles/coffeescript").Include(
 						"~/Scripts/coffee-script.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/underscore").Include(
-						"~/Scripts/underscore-min.js"));
+						"~/Scripts/underscore.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
-						"~/Scripts/knockout-2.*"));
+						"~/Scripts/knockout-2.1.0.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/backbone").Include(
-						"~/Scripts/backbone-*"));
+						"~/Scripts/backbone.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/knockback").Include(
-						"~/Scripts/knockback.min.js"));
+						"~/Scripts/knockback.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/gridster").Include(
-						"~/Scripts/jquery.gridster.min.js"));
+						"~/Scripts/jquery.gridster.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/dragdealer").Include(
 						"~/Scripts/dragdealer.js"));
@@ -52,36 +52,23 @@ namespace SocialPirates.Blackbeard.Site
 						"~/Scripts/pminject.coffee"));
 
 			bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-						"~/Scripts/bootstrap.min.js"));
+						"~/Scripts/bootstrap.js"));
 
 			bundles.Add(new StyleBundle("~/Content/css/openid").Include(
 						"~/Content/openid-shadow.css",
 						"~/Content/openid.css"));
 
 			bundles.Add(new StyleBundle("~/Content/sliders").Include(
-						"~/Content/jquery.gridster.min.css",
+						"~/Content/jquery.gridster.css",
 						"~/Content/dragdealer.less"));
+			bundles.Single(b => b.Path == "~/Content/sliders").Transforms.Add(new LessTransform());
 
 			bundles.Add(new StyleBundle("~/Content/style").Include(
 						"~/Content/blackbeard.less",
-						"~/Content/bootstrap.min.css",
-						"~/Content/bootstrap-responsive.min.css"));
+						"~/Content/bootstrap.css",
+						"~/Content/bootstrap-responsive.css"));
+			bundles.Single(b => b.Path == "~/Content/style").Transforms.Add(new LessTransform());
 
-			bundles.Add(new StyleBundle("~/Content/style").Include("~/Content/blackbeard.less"));
-
-			bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
-						"~/Content/themes/base/jquery.ui.core.css",
-						"~/Content/themes/base/jquery.ui.resizable.css",
-						"~/Content/themes/base/jquery.ui.selectable.css",
-						"~/Content/themes/base/jquery.ui.accordion.css",
-						"~/Content/themes/base/jquery.ui.autocomplete.css",
-						"~/Content/themes/base/jquery.ui.button.css",
-						"~/Content/themes/base/jquery.ui.dialog.css",
-						"~/Content/themes/base/jquery.ui.slider.css",
-						"~/Content/themes/base/jquery.ui.tabs.css",
-						"~/Content/themes/base/jquery.ui.datepicker.css",
-						"~/Content/themes/base/jquery.ui.progressbar.css",
-						"~/Content/themes/base/jquery.ui.theme.css"));
 		}
 	}
 }

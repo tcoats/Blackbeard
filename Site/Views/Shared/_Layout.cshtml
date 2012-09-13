@@ -5,11 +5,8 @@
     <title>Blackbeard - @ViewBag.Title </title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
-    <link rel="stylesheet" href="/Content/bootstrap.min.css">    
-    <link rel="stylesheet" href="/Content/jquery.gridster.min.css">
-    <link rel="stylesheet/less" type="text/css" href="/Content/dragdealer.less">
-    <link rel="stylesheet/less" type="text/css" href="/Content/blackbeard.less">
-    <link rel="stylesheet" href="/Content/bootstrap-responsive.min.css">
+    @Styles.Render("~/Content/style")
+    @Styles.Render("~/Content/sliders")
 
     @*<meta name="viewport" content="width=device-width" />*@
     @Scripts.Render("~/bundles/modernizr")
@@ -28,7 +25,6 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/less")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/coffeescript")
     @Scripts.Render("~/bundles/underscore")
