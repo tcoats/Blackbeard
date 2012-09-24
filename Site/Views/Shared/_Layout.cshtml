@@ -16,10 +16,15 @@
         <div class="navbar-inner">
             <div class="container">
                 <a class="brand" href="#">Blackbeard <small>social piracy&hellip;</small></a>
+                <ul class="nav">
+                    <li class="divider-vertical"></li>
+                    <li>@Html.ActionLink("My Projects","MyProjects","Project",new{ userId = 1 },new{})</li>
+                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+    @RenderSection("masthead",false)
     <div class="container">
         @RenderBody()
     </div>

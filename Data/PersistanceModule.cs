@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using Ninject.Modules;
+using SocialPirates.Blackbeard.Data.ReadStrategies;
 using SocialPirates.Blackbeard.Data.WriteStrategies;
 using StaticVoid.Core.Repository;
 
@@ -18,6 +19,7 @@ namespace SocialPirates.Blackbeard.Data
 			Bind(typeof(IRepository<>)).To(typeof(SimpleRepository<>));
 
 			Bind<IPersistUsers>().To<UserPersister>();
+			Bind<IFindProjects>().To<ProjectFinder>();
 		}
 	}
 }

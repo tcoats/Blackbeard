@@ -61,13 +61,14 @@ namespace SocialPirates.Blackbeard.Site
 			bundles.Add(new StyleBundle("~/Content/sliders").Include(
 						"~/Content/jquery.gridster.css",
 						"~/Content/dragdealer.less"));
-			bundles.Single(b => b.Path == "~/Content/sliders").Transforms.Add(new LessTransform());
 
 			bundles.Add(new StyleBundle("~/Content/style").Include(
 						"~/Content/blackbeard.less",
 						"~/Content/bootstrap.css",
 						"~/Content/bootstrap-responsive.css"));
-			bundles.Single(b => b.Path == "~/Content/style").Transforms.Add(new LessTransform());
+
+			foreach (var bundle in bundles.Where(b => typeof(StyleBundle).IsAssignableFrom(b.GetType())))
+				bundle.Transforms.Add(new LessTransform());
 
 		}
 	}

@@ -22,7 +22,9 @@ namespace SocialPirates.Blackbeard.Data.ReadStrategies
 
 		public IEnumerable<Project> FindByUser(int userId)
 		{
-			return _projectRepository.GetAll().Where(p => p.Conceivers.Any(c => c.Id == userId) || p.Contributors.Any(c => c.Id == userId)).AsEnumerable();
+			return _projectRepository.GetAll()
+				.Where(p => p.Conceivers.Any(c => c.Id == userId) || p.Contributors.Any(c => c.Id == userId))
+				.AsEnumerable();
 		}
 	}
 }

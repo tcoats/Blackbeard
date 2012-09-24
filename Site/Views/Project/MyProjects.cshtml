@@ -1,0 +1,14 @@
+﻿@model SocialPirates.Blackbeard.Site.Models.ProjectsModel
+
+@{
+    ViewBag.Title = "My Projects";
+}
+
+<h2>My Projects</h2>
+
+@{ var needsNewline = false; }
+@foreach (var project in Model.Projects){
+    <div class="span6">
+        @project.Name
+    </div>
+}
