@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Optimization;
 using SocialPirates.Blackbeard.Site.App_Start.BundleTransforms;
@@ -59,17 +60,25 @@ namespace SocialPirates.Blackbeard.Site
 						"~/Content/openid.css"));
 
 			bundles.Add(new StyleBundle("~/Content/sliders").Include(
-						"~/Content/jquery.gridster.css",
-						"~/Content/dragdealer.less"));
+						"~/Content/jquery.gridster.css"
+						));
 
 			bundles.Add(new StyleBundle("~/Content/style").Include(
-						"~/Content/blackbeard.less",
 						"~/Content/bootstrap.css",
 						"~/Content/bootstrap-responsive.css"));
 
-			foreach (var bundle in bundles.Where(b => typeof(StyleBundle).IsAssignableFrom(b.GetType())))
-				bundle.Transforms.Add(new LessTransform());
+			var less = new StyleBundle("~/Content/less").Include(
+				"~/Content/blackbeard.less",
+				"~/Content/dragdealer.less"
+				);
+			less.Transforms.Add(new LessTransform());
+			less.Transforms.Add(new CssMinify());
+			bundles.Add(less);
 
+			//foreach (var bundle in bundles.Where(b => typeof(StyleBundle).IsAssignableFrom(b.GetType())))
+			//{
+			//	bundle.Transforms.Insert(0, new LessTransform() );
+			//}
 		}
 	}
 }
