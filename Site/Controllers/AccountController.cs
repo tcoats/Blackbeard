@@ -7,8 +7,8 @@ using System.Web.Security;
 using SocialPirates.Blackbeard.Site.Models;
 using SocialPirates.Blackbeard.Site.Security;
 using DotNetOpenAuth.Messaging;
-using SocialPirates.Blackbeard.Data.WriteStrategies;
-using SocialPirates.Blackbeard.Data.Entities;
+using SocialPirates.Blackbeard.Data;
+using StaticVoid.Core.Repository;
 
 namespace SocialPirates.Blackbeard.Site.Controllers
 {
@@ -17,11 +17,12 @@ namespace SocialPirates.Blackbeard.Site.Controllers
     public class AccountController : Controller
     {
         private readonly OpenIdMembershipService _openIdMembership;
-		private readonly IPersistUsers _userPersister;
-        public AccountController(OpenIdMembershipService membershipService, IPersistUsers userPersister)
+		private readonly IRepository<User> _userRepository;
+
+        public AccountController(OpenIdMembershipService membershipService, IRepository<User> userRepository)
         {
             _openIdMembership = membershipService;
-			_userPersister = userPersister;
+			_userRepository = userRepository;
         }
 
         [AllowAnonymous]
@@ -30,7 +31,7 @@ namespace SocialPirates.Blackbeard.Site.Controllers
             var user = _openIdMembership.GetUser();
             if (user != null)
             {
-				_userPersister.EnsureUser(new User
+				_userRepository.EnsureUser(new User
 				{
 					ClaimedIdentifier = user.ClaimedIdentifier,
 					Email = user.Email,

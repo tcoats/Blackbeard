@@ -1,0 +1,22 @@
+﻿@model SocialPirates.Blackbeard.Site.Models.ProjectModel
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>Display</h2>
+
+<fieldset>
+    <legend>ProjectModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

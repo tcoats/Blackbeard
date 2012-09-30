@@ -3,51 +3,102 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SocialPirates.Blackbeard.Data.ReadStrategies;
+using SocialPirates.Blackbeard.Data;
 using SocialPirates.Blackbeard.Site.Models;
 using SocialPirates.Blackbeard.Site.Security;
+using StaticVoid.Core.Repository;
 
 namespace SocialPirates.Blackbeard.Site.Controllers
 {
-    public class ProjectController : Controller
+	public class ProjectController : Controller
 	{
-		private readonly IFindProjects _projectFinder;
-		public ProjectController(IFindProjects projectFinder)
+		private readonly IRepository<Project> _projectRepository;
+		public ProjectController(IRepository<Project> projectRepository)
 		{
-			_projectFinder = projectFinder;
+			_projectRepository = projectRepository;
 		}
 
 		[OpenIdAuthorize]
 		public ActionResult Index()
 		{
-			return View();
-		}
-
-		[OpenIdAuthorize]
-        public ActionResult MyProjects(int userId)
-        {
 			return View(new ProjectsModel
 			{
-				 Projects = _projectFinder.FindByUser(userId).Select(p=> new ProjectModel{ Id= p.Id, Name = p.Name})
+				Projects = _projectRepository.GetAll().Select(p => new ProjectModel { Id = p.Id, Name = p.Name })
 			});
-        }
+		}
 
 		[OpenIdAuthorize]
-		public ActionResult New()
+		public ActionResult Display(int id)
+		{
+			var proj = _projectRepository.GetById(id);
+
+			if (proj == null)
+			{
+				return new HttpNotFoundResult();
+			}
+
+			return View(new ProjectModel { Id = proj.Id, Name = proj.Name });
+		}
+
+		[OpenIdAuthorize]
+		public ActionResult MyProjects(int userId)
+		{
+			return View(new ProjectsModel
+			{
+				Projects = _projectRepository.GetByUser(userId).Select(p => new ProjectModel { Id = p.Id, Name = p.Name })
+			});
+		}
+
+		[OpenIdAuthorize]
+		public ActionResult Create()
 		{
 			return View();
 		}
 
+		[HttpPost]
 		[OpenIdAuthorize]
-		public ActionResult Edit(int projectId)
+		public ActionResult Create(ProjectModel project)
 		{
-			return View();
+			if (ModelState.IsValid)
+			{
+				var proj = new Project { Name = project.Name, Conception = DateTime.Now, Conceivers = new List<User> { } };
+				_projectRepository.Create(proj);
+				return RedirectToAction("Display", new { id = proj.Id });
+			}
+			return View(project);
 		}
 
 		[OpenIdAuthorize]
-		public ActionResult Delete(int projectId)
+		public ActionResult Edit(int id)
+		{
+			var proj = _projectRepository.GetById(id);
+
+			if (proj == null)
+			{
+				return new HttpNotFoundResult();
+			}
+
+			return View(new ProjectModel { Id = proj.Id, Name = proj.Name });
+		}
+
+		[HttpPost]
+		[OpenIdAuthorize]
+		public ActionResult Edit(ProjectModel model)
+		{
+			if (ModelState.IsValid)
+			{
+				var proj = _projectRepository.GetById(model.Id);
+				proj.Name = model.Name;
+				_projectRepository.Update(proj);
+				return RedirectToAction("Display", new { id = proj.Id });
+			}
+			return View(model);
+		}
+
+		[OpenIdAuthorize]
+		public ActionResult Delete(int id)
 		{
 			return View();
 		}
-    }
+	}
 }
