@@ -12,7 +12,7 @@ namespace SocialPirates.Blackbeard.Site.App_Start.BundleTransforms
 			: base(virtualPath)
 		{
 			this.Transforms.Add(new LessTransform());
-			this.Transforms.Add(new CssMinify());
+			//this.Transforms.Add(new CssMinify());
 		}
 	}
 }
