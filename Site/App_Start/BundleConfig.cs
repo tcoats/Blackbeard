@@ -59,26 +59,16 @@ namespace SocialPirates.Blackbeard.Site
 						"~/Content/openid-shadow.css",
 						"~/Content/openid.css"));
 
-			bundles.Add(new StyleBundle("~/Content/sliders").Include(
-						"~/Content/jquery.gridster.css"
+			bundles.Add(new LessBundle("~/Content/sliders").Include(
+						"~/Content/jquery.gridster.css",
+						"~/Content/dragdealer.less"
 						));
 
-			bundles.Add(new StyleBundle("~/Content/style").Include(
+			bundles.Add(new LessBundle("~/Content/style").Include(		
+						"~/Content/blackbeard.less",
 						"~/Content/bootstrap.css",
 						"~/Content/bootstrap-responsive.css"));
 
-			var less = new StyleBundle("~/Content/less").Include(
-				"~/Content/blackbeard.less",
-				"~/Content/dragdealer.less"
-				);
-			less.Transforms.Add(new LessTransform());
-			less.Transforms.Add(new CssMinify());
-			bundles.Add(less);
-
-			//foreach (var bundle in bundles.Where(b => typeof(StyleBundle).IsAssignableFrom(b.GetType())))
-			//{
-			//	bundle.Transforms.Insert(0, new LessTransform() );
-			//}
 		}
 	}
 }

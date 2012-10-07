@@ -195,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\BundleTransforms\LessBundle.cs" />
     <Compile Include="App_Start\BundleTransforms\LessTransform.cs" />
     <Compile Include="App_Start\EntityFrameworkConfiguration.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
