@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Blackbeard - @ViewBag.Title </title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    
+
     @Styles.Render("~/Content/less")
     @Styles.Render("~/Content/style")
     @Styles.Render("~/Content/sliders")
@@ -19,16 +19,24 @@
                 <a class="brand" href="#">Blackbeard <small>social piracy&hellip;</small></a>
                 <ul class="nav">
                     <li class="divider-vertical"></li>
-                    <li>@Html.ActionLink("My Projects","MyProjects","Project",new{ userId = 1 },new{})</li>
+                    <li>@Html.ActionLink("My Projects", "MyProjects", "Project", new { userId = 1 }, new { })</li>
+                    <li>@Html.ActionLink("Create Project", "Create", "Project", null, new { id = "create-project"})</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    @RenderSection("masthead",false)
+    <div id='create-project-modal' class='modal hide fade in' data-url='@Url.Action("Create", "Project")'>
+        <div id='create-project-container'>
+        </div>
+    </div>
+
+    @RenderSection("masthead", false)
     <div class="container">
         @RenderBody()
     </div>
+
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -41,5 +49,43 @@
     @Scripts.Render("~/bundles/dragdealer")
     @Scripts.Render("~/bundles/pminject")
     @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        $(function () {
+
+            $('#create-project').click(function () {
+                $('#create-project-container').load(this.href, function () {
+                    $('#create-project-modal').modal({
+                        backdrop: 'static',
+                        keyboard: true
+                    }, 'show');
+                    bindForm(this);
+                });
+                return false;
+            });
+        });
+
+        function bindForm(dialog) {
+            $('form', dialog).submit(function () {
+                $.ajax({
+                    url: this.action,
+                    type: this.method,
+                    data: $(this).serialize(),
+                    success: function (result) {
+                        if (result.success) {
+                            $('#create-project-modal').modal('hide');
+                            // Refresh:
+                            // location.reload();
+                        } else {
+                            $('#create-project-container').html(result);
+                            bindForm();
+                        }
+                    }
+                });
+                return false;
+            });
+        }
+    </script>
+
 </body>
 </html>

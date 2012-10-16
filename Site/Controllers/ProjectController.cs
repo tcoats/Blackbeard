@@ -52,7 +52,7 @@ namespace SocialPirates.Blackbeard.Site.Controllers
 		[OpenIdAuthorize]
 		public ActionResult Create()
 		{
-			return View();
+            return PartialView();
 		}
 
 		[HttpPost]
@@ -63,9 +63,9 @@ namespace SocialPirates.Blackbeard.Site.Controllers
 			{
 				var proj = new Project { Name = project.Name, Conception = DateTime.Now, Conceivers = new List<User> { } };
 				_projectRepository.Create(proj);
-				return RedirectToAction("Display", new { id = proj.Id });
+                return Json(new { success = true });
 			}
-			return View(project);
+            return PartialView(project);
 		}
 
 		[OpenIdAuthorize]
