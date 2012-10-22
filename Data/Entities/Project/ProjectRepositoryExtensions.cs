@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StaticVoid.Core.Repository;
+using System.Linq.Expressions;
 
 namespace SocialPirates.Blackbeard.Data
 {
@@ -16,9 +17,9 @@ namespace SocialPirates.Blackbeard.Data
 				.AsEnumerable();
 		}
 
-		public static Project GetById(this IRepository<Project> repository, int id)
+        public static Project GetById(this IRepository<Project> repository, int id, params Expression<Func<Project, object>>[] includes)
 		{
-			return repository.GetAll().SingleOrDefault(p=>p.Id == id);
+            return repository.GetBy(p => p.Id == id, includes);
 		}
 	}
 }

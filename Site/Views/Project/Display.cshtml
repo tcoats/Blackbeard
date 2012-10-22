@@ -1,22 +1,34 @@
-﻿@model SocialPirates.Blackbeard.Site.Models.ProjectModel
+﻿@model SocialPirates.Blackbeard.Site.Models.ProjectDisplayModel
 
 @{
-    ViewBag.Title = "Display";
+    ViewBag.Title = Model.Name;
 }
 
-<h2>Display</h2>
-
-<fieldset>
-    <legend>ProjectModel</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Name)
+<div class="row">
+    <div class="span6"></div>
+    <div class="span6">
+        <div class="inline">
+            <h2>@Model.Name</h2>
+            @Html.ActionLink("Edit", "Edit", "Project", new { id = @Model.Id }, new { id = "edit-project", @class = "btn" })
+            <small>@Model.Conception.ToShortDateString()</small>
+            @foreach (var conceiver in Model.Conceivers)
+            {
+                Html.RenderPartial("~/Views/User/UserFlair.cshtml", conceiver);
+            }
+        </div>
+        <div>
+            @Html.Raw(Model.Description)
+        </div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
+</div>
+
+<div id='edit-project-modal' class='modal hide fade in modal-editor' data-url='@Url.Action("Edit", "Project")'>
+    <div id='edit-project-container'>
     </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        setupModal('edit-project');
+    });
+</script>

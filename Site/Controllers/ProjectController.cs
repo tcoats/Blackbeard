@@ -10,95 +10,113 @@ using StaticVoid.Core.Repository;
 
 namespace SocialPirates.Blackbeard.Site.Controllers
 {
-	public class ProjectController : Controller
-	{
-		private readonly IRepository<Project> _projectRepository;
-		public ProjectController(IRepository<Project> projectRepository)
-		{
-			_projectRepository = projectRepository;
-		}
+    public class ProjectController : Controller
+    {
+        private readonly IRepository<Project> _projectRepository;
+        public ProjectController(IRepository<Project> projectRepository)
+        {
+            _projectRepository = projectRepository;
+        }
 
-		[OpenIdAuthorize]
-		public ActionResult Index()
-		{
-			return View(new ProjectsModel
-			{
-				Projects = _projectRepository.GetAll().Select(p => new ProjectModel { Id = p.Id, Name = p.Name })
-			});
-		}
+        [OpenIdAuthorize]
+        public ActionResult Index()
+        {
+            return View(_projectRepository.GetAll().Select(p => new ProjectDisplayModel { Id = p.Id, Name = p.Name }));
+        }
 
-		[OpenIdAuthorize]
-		public ActionResult Display(int id)
-		{
-			var proj = _projectRepository.GetById(id);
+        [OpenIdAuthorize]
+        public ActionResult Display(int id)
+        {
+            var proj = _projectRepository.GetById(id,p=>p.Conceivers);
 
-			if (proj == null)
-			{
-				return new HttpNotFoundResult();
-			}
+            if (proj == null)
+            {
+                return new HttpNotFoundResult();
+            }
 
-			return View(new ProjectModel { Id = proj.Id, Name = proj.Name });
-		}
+            return View(new ProjectDisplayModel
+            {
+                Id = proj.Id,
+                Name = proj.Name,
+                Description = proj.Description,
+                Conception = proj.Conception,
+                Conceivers = proj.Conceivers.Select(u => new UserFlairModel(u)).ToList()
+            });
+        }
 
-		[OpenIdAuthorize]
-		public ActionResult MyProjects(int userId)
-		{
-			return View(new ProjectsModel
-			{
-				Projects = _projectRepository.GetByUser(userId).Select(p => new ProjectModel { Id = p.Id, Name = p.Name })
-			});
-		}
+        [OpenIdAuthorize]
+        public ActionResult MyProjects(int userId)
+        {
+            return View(_projectRepository.GetByUser(userId).Select(p => new ProjectDisplayModel { Id = p.Id, Name = p.Name }));
+        }
 
-		[OpenIdAuthorize]
-		public ActionResult Create()
-		{
-            return PartialView();
-		}
+        [OpenIdAuthorize]
+        public ActionResult Create()
+        {
+            return PartialView("EditModal");
+        }
 
-		[HttpPost]
-		[OpenIdAuthorize]
-		public ActionResult Create(ProjectModel project)
-		{
-			if (ModelState.IsValid)
-			{
-				var proj = new Project { Name = project.Name, Conception = DateTime.Now, Conceivers = new List<User> { } };
-				_projectRepository.Create(proj);
+        [HttpPost, ValidateInput(false)]
+        [OpenIdAuthorize]
+        public ActionResult Create(ProjectEditModel project)
+        {
+            if (ModelState.IsValid)
+            {
+                var md = new MarkdownSharp.Markdown();
+                var proj = new Project
+                {
+                    Name = project.Name,
+                    Description = md.Transform(project.DescriptionMarkdown),//TODO sanitise, see jeff atwoods sanitizer http://refactormycode.com/codes/333-sanitize-html (its currently offline)
+                    DescriptionMarkdown = project.DescriptionMarkdown,
+                    Conception = DateTime.Now,
+                    Conceivers = new List<User> { }
+                };
+                _projectRepository.Create(proj);
                 return Json(new { success = true });
-			}
-            return PartialView(project);
-		}
+            }
+            return PartialView("EditModal", project);
+        }
 
-		[OpenIdAuthorize]
-		public ActionResult Edit(int id)
-		{
-			var proj = _projectRepository.GetById(id);
+        [OpenIdAuthorize]
+        public ActionResult Edit(int id)
+        {
+            var proj = _projectRepository.GetById(id);
 
-			if (proj == null)
-			{
-				return new HttpNotFoundResult();
-			}
+            if (proj == null)
+            {
+                return new HttpNotFoundResult();
+            }
 
-			return View(new ProjectModel { Id = proj.Id, Name = proj.Name });
-		}
+            return PartialView("EditModal", new ProjectEditModel
+            {
+                Id = proj.Id,
+                Name = proj.Name,
+                DescriptionMarkdown = proj.DescriptionMarkdown,
+            });
+        }
 
-		[HttpPost]
-		[OpenIdAuthorize]
-		public ActionResult Edit(ProjectModel model)
-		{
-			if (ModelState.IsValid)
-			{
-				var proj = _projectRepository.GetById(model.Id);
-				proj.Name = model.Name;
-				_projectRepository.Update(proj);
-				return RedirectToAction("Display", new { id = proj.Id });
-			}
-			return View(model);
-		}
+        [HttpPost, ValidateInput(false)]
+        [OpenIdAuthorize]
+        public ActionResult Edit(ProjectEditModel model)
+        {
+            var md = new MarkdownSharp.Markdown();
+            if (ModelState.IsValid)
+            {
+                var proj = _projectRepository.GetById(model.Id);
+                proj.Name = model.Name;
+                //TODO sanitise, see Jeff Atwoods sanitizer http://refactormycode.com/codes/333-sanitize-html (its currently offline)
+                proj.Description = md.Transform(model.DescriptionMarkdown);
+                proj.DescriptionMarkdown = model.DescriptionMarkdown;
+                _projectRepository.Update(proj);
+                return Json(new { success = true });
+            }
+            return PartialView("EditModal", model);
+        }
 
-		[OpenIdAuthorize]
-		public ActionResult Delete(int id)
-		{
-			return View();
-		}
-	}
+        [OpenIdAuthorize]
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+    }
 }

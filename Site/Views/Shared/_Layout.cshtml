@@ -11,6 +11,8 @@
 
     @*<meta name="viewport" content="width=device-width" />*@
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modals")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -26,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div id='create-project-modal' class='modal hide fade in' data-url='@Url.Action("Create", "Project")'>
+    <div id='create-project-modal' class='modal hide fade in modal-editor' data-url='@Url.Action("Create", "Project")'>
         <div id='create-project-container'>
         </div>
     </div>
@@ -36,9 +38,6 @@
         @RenderBody()
     </div>
 
-
-
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/coffeescript")
     @Scripts.Render("~/bundles/underscore")
@@ -48,43 +47,13 @@
     @Scripts.Render("~/bundles/gridster")
     @Scripts.Render("~/bundles/dragdealer")
     @Scripts.Render("~/bundles/pminject")
+    @Scripts.Render("~/bundles/pagedown")
     @RenderSection("scripts", required: false)
 
     <script type="text/javascript">
         $(function () {
-
-            $('#create-project').click(function () {
-                $('#create-project-container').load(this.href, function () {
-                    $('#create-project-modal').modal({
-                        backdrop: 'static',
-                        keyboard: true
-                    }, 'show');
-                    bindForm(this);
-                });
-                return false;
-            });
+            setupModal('create-project');
         });
-
-        function bindForm(dialog) {
-            $('form', dialog).submit(function () {
-                $.ajax({
-                    url: this.action,
-                    type: this.method,
-                    data: $(this).serialize(),
-                    success: function (result) {
-                        if (result.success) {
-                            $('#create-project-modal').modal('hide');
-                            // Refresh:
-                            // location.reload();
-                        } else {
-                            $('#create-project-container').html(result);
-                            bindForm();
-                        }
-                    }
-                });
-                return false;
-            });
-        }
     </script>
 
 </body>

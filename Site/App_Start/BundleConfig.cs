@@ -37,8 +37,13 @@ namespace SocialPirates.Blackbeard.Site
 			bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
 						"~/Scripts/knockout-2.1.0.js"));
 
-			bundles.Add(new ScriptBundle("~/bundles/backbone").Include(
-						"~/Scripts/backbone.js"));
+            bundles.Add(new ScriptBundle("~/bundles/backbone").Include(
+                        "~/Scripts/backbone.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/pagedown").Include(
+                        "~/Scripts/Markdown.Converter.js",
+                        "~/Scripts/Markdown.Editor.js",
+                        "~/Scripts/Markdown.Sanitizer.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/knockback").Include(
 						"~/Scripts/knockback.js"));
@@ -55,6 +60,9 @@ namespace SocialPirates.Blackbeard.Site
 			bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
 						"~/Scripts/bootstrap.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/modals").Include(
+                        "~/Scripts/modals.js"));
+
 			bundles.Add(new StyleBundle("~/Content/css/openid").Include(
 						"~/Content/openid-shadow.css",
 						"~/Content/openid.css"));
@@ -69,7 +77,8 @@ namespace SocialPirates.Blackbeard.Site
 
 			var less = new StyleBundle("~/Content/less").Include(
 				"~/Content/blackbeard.less",
-				"~/Content/dragdealer.less"
+				"~/Content/dragdealer.less",
+                "~/Content/pagedown.less"
 				);
 			less.Transforms.Add(new LessTransform());
 			less.Transforms.Add(new CssMinify());

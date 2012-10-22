@@ -1,4 +1,4 @@
-﻿@model SocialPirates.Blackbeard.Site.Models.ProjectsModel
+﻿@model IEnumerable< SocialPirates.Blackbeard.Site.Models.ProjectDisplayModel>
 
 @{
     ViewBag.Title = "All Projects";
@@ -7,7 +7,7 @@
 <h2>All Projects</h2>
 
 @{ var needsNewline = false; }
-@foreach (var project in Model.Projects){
+@foreach (var project in Model){
     <div class="span6">
         @project.Name
     </div>

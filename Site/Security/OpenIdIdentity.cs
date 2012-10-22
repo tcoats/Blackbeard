@@ -6,6 +6,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Web;
 using SocialPirates.Blackbeard.Site.Models;
+using SocialPirates.Blackbeard.Site.Gravitar;
 
 namespace SocialPirates.Blackbeard.Site.Security
 {
@@ -17,11 +18,7 @@ namespace SocialPirates.Blackbeard.Site.Security
         public OpenIdIdentity(OpenIdUser user)
         {
             _user = user;
-
-			var md5 = MD5.Create();
-			var hashedEmail = BitConverter.ToString(md5.ComputeHash(new UTF8Encoding().GetBytes(user.Email.Trim().ToLower()))).Replace("-","").ToLower();
-
-			_gravatarUrl = String.Format("http://www.gravatar.com/avatar/{0}", hashedEmail);
+            _gravatarUrl = user.Email.GravitarUrlFromEmail();
         }
 
         public OpenIdUser OpenIdUser

@@ -1,4 +1,4 @@
-﻿@model SocialPirates.Blackbeard.Site.Models.ProjectsModel
+﻿@model IEnumerable<SocialPirates.Blackbeard.Site.Models.ProjectDisplayModel>
 
 @{
     ViewBag.Title = "My Projects";
@@ -6,9 +6,13 @@
 
 <h2>My Projects</h2>
 
-@{ var needsNewline = false; }
-@foreach (var project in Model.Projects){
-    <div class="span6">
-        @project.Name
-    </div>
-}
+<table class="table table-hover">
+    @foreach (var project in Model)
+    {   
+        <tr>
+            <td>
+                @Html.ActionLink(project.Name,"Display",new{id=project.Id})
+            </td>
+        </tr>
+    }
+</table>
