@@ -13,9 +13,12 @@ namespace SocialPirates.Blackbeard.Site.Controllers
     public class ProjectController : Controller
     {
         private readonly IRepository<Project> _projectRepository;
-        public ProjectController(IRepository<Project> projectRepository)
+        private readonly IRepository<User> _userRepository;
+
+        public ProjectController(IRepository<Project> projectRepository, IRepository<User> userRepository)
         {
             _projectRepository = projectRepository;
+            _userRepository = userRepository;
         }
 
         [OpenIdAuthorize]
@@ -69,7 +72,7 @@ namespace SocialPirates.Blackbeard.Site.Controllers
                     Description = md.Transform(project.DescriptionMarkdown),//TODO sanitise, see jeff atwoods sanitizer http://refactormycode.com/codes/333-sanitize-html (its currently offline)
                     DescriptionMarkdown = project.DescriptionMarkdown,
                     Conception = DateTime.Now,
-                    Conceivers = new List<User> { }
+                    Conceivers = new List<User> { _userRepository.GetCurrentUser() }
                 };
                 _projectRepository.Create(proj);
                 return Json(new { success = true });

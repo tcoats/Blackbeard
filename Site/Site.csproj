@@ -209,6 +209,7 @@
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Extensions\GravatarExtensions.cs" />
     <Compile Include="Extensions\OpenIdExtensions.cs" />
+    <Compile Include="Extensions\UserRepositoryExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -220,6 +221,7 @@
     <Compile Include="Security\OpenIdAuthorizeAttribute.cs" />
     <Compile Include="Security\OpenIdIdentity.cs" />
     <Compile Include="Security\OpenIdMembershipService.cs" />
+    <Compile Include="Security\SecurityHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\blackbeard.css">
