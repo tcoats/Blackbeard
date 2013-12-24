@@ -4,7 +4,7 @@
     return {
       init: function(requirejs, config) {
         if (config.slider) {
-          return requirejs(['dragdealer'], function(Dragdealer) {
+          return requirejs(['slider'], function(Slider) {
             return ko.bindingHandlers.slider = {
               init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
                 return setTimeout(function() {
@@ -12,7 +12,7 @@
                   $(element).append($('<div/>').addClass('handle').append($('<div />').addClass('slide')));
                   slider = $(element).data('slider');
                   if (slider == null) {
-                    slider = new Dragdealer(element, {
+                    slider = new Slider(element, {
                       vertical: true,
                       horizontal: false,
                       y: valueAccessor()()

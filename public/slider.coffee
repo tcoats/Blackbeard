@@ -50,8 +50,8 @@ define [], ->
 		[curleft, curtop]
 
 
-	# Dragdealer 
-	Dragdealer = (wrapper, options) ->
+	# Slider 
+	Slider = (wrapper, options) ->
 		wrapper = document.getElementById(wrapper) if typeof (wrapper) is "string"
 		return unless wrapper
 		handle = wrapper.getElementsByTagName("div")[0]
@@ -60,7 +60,7 @@ define [], ->
 		@setup()
 		return
 
-	Dragdealer:: =
+	Slider:: =
 		init: (wrapper, handle, options) ->
 			@wrapper = wrapper
 			@handle = handle
@@ -366,7 +366,7 @@ define [], ->
 		preventDefaults: (e, selection) ->
 			e = window.event  unless e
 			e.preventDefault()  if e.preventDefault
-			e.returnValue = false
+			e.preventDefault()
 			document.selection.empty()  if selection and document.selection
 
 		cancelEvent: (e) ->
@@ -374,4 +374,4 @@ define [], ->
 			e.stopPropagation()  if e.stopPropagation
 			e.cancelBubble = true
 	
-	Dragdealer
+	Slider

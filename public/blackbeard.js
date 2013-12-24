@@ -16,7 +16,7 @@
       components: 'odo/durandal/components',
       odo: 'odo',
       q: 'q/q',
-      dragdealer: 'dragdealer'
+      slider: 'slider'
     },
     shim: {
       bootstrap: {

@@ -10,7 +10,7 @@
     	http://legal.ovidiu.ch/licenses/MIT
     */
 
-    var Cursor, Dragdealer, Position;
+    var Cursor, Position, Slider;
     Cursor = {
       x: 0,
       y: 0,
@@ -65,7 +65,7 @@
         return [curleft, curtop];
       }
     };
-    Dragdealer = function(wrapper, options) {
+    Slider = function(wrapper, options) {
       var handle;
       if (typeof wrapper === "string") {
         wrapper = document.getElementById(wrapper);
@@ -80,7 +80,7 @@
       this.init(wrapper, handle, options || {});
       this.setup();
     };
-    Dragdealer.prototype = {
+    Slider.prototype = {
       init: function(wrapper, handle, options) {
         this.wrapper = wrapper;
         this.handle = handle;
@@ -445,7 +445,7 @@
         if (e.preventDefault) {
           e.preventDefault();
         }
-        e.returnValue = false;
+        e.preventDefault();
         if (selection && document.selection) {
           return document.selection.empty();
         }
@@ -460,7 +460,7 @@
         return e.cancelBubble = true;
       }
     };
-    return Dragdealer;
+    return Slider;
   });
 
 }).call(this);

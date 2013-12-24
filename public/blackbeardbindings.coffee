@@ -1,9 +1,10 @@
 ﻿define ['knockout', 'jquery'], (ko, $) ->
 	init: (requirejs, config) ->
 		if config.slider
-			requirejs ['dragdealer'], (Dragdealer) ->
+			requirejs ['slider'], (Slider) ->
 				ko.bindingHandlers.slider =
 					init: (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) ->
+						# setTimeout the whole thing. Feels like a hack
 						setTimeout(->
 							$(element).append(
 								$('<div/>')
@@ -15,7 +16,7 @@
 							slider = $(element).data 'slider'
 							
 							if !slider?
-								slider = new Dragdealer element, {
+								slider = new Slider element, {
 									vertical: true
 									horizontal: false
 									y: valueAccessor()()
