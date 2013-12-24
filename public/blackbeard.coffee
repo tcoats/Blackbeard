@@ -15,7 +15,7 @@
 		components: 'odo/durandal/components'
 		odo: 'odo'
 		q: 'q/q'
-		slider: 'slider'
+		slider: 'bindings/slider'
 
 	shim:
 		bootstrap:
@@ -31,7 +31,7 @@
 	# don't cache in development
 	urlArgs: 'v=' + (new Date()).getTime()
 
-define ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal/bindings', 'blackbeardbindings'], (system, app, locator, bindings, blackbeardbindings) ->
+define ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal/bindings', 'bindings/blackbeardbindings'], (system, app, locator, bindings, blackbeardbindings) ->
 		system.debug yes
 		app.title = 'Blackbeard'
 		app.configurePlugins
