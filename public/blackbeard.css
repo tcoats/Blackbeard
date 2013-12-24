@@ -59,3 +59,41 @@ body {
   -o-animation-duration: 0.3s;
   animation-duration: 0.3s;
 }
+.slider-box {
+  float: left;
+  margin: 0 10px;
+  text-align: center;
+}
+.slider {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.06);
+  z-index: 100;
+  width: 40px;
+  height: 200px;
+  overflow: hidden;
+}
+.slider .handle {
+  position: absolute;
+  cursor: pointer;
+  width: 40px;
+  height: 400px;
+}
+.slider .slide {
+  position: absolute;
+  bottom: 0px;
+  width: 40px;
+  height: 200px;
+  background: #c00;
+}
+.slider.slider-skill .slide {
+  background: #f92e59;
+}
+.slider.slider-output .slide {
+  background: #ff703f;
+}
+.slider.slider-deliver .slide {
+  background: #f6bc03;
+}
+.slider.slider-group .slide {
+  background: #dfd487;
+}

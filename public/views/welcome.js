@@ -8,6 +8,10 @@
       function Search() {
         this.activate = __bind(this.activate, this);
         this.isAuth = ko.observable(false);
+        this.skill = ko.observable(0.3);
+        this.output = ko.observable(0.4);
+        this.delivery = ko.observable(0.5);
+        this.group = ko.observable(0.6);
       }
 
       Search.prototype.activate = function() {

@@ -15,7 +15,8 @@
       transitions: 'odo/durandal/transitions',
       components: 'odo/durandal/components',
       odo: 'odo',
-      q: 'q/q'
+      q: 'q/q',
+      dragdealer: 'dragdealer'
     },
     shim: {
       bootstrap: {
@@ -35,7 +36,7 @@
     urlArgs: 'v=' + (new Date()).getTime()
   });
 
-  define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal/bindings'], function(system, app, locator, bindings) {
+  define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal/bindings', 'blackbeardbindings'], function(system, app, locator, bindings, blackbeardbindings) {
     system.debug(true);
     app.title = 'Blackbeard';
     app.configurePlugins({
@@ -48,6 +49,9 @@
       q: true,
       bootstrap: true,
       marked: true
+    });
+    blackbeardbindings.init(requirejs, {
+      slider: true
     });
     return app.start().then(function() {
       locator.useConvention('views');

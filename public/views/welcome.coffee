@@ -2,6 +2,11 @@
 	class Search
 		constructor: ->
 			@isAuth = ko.observable false
+			
+			@skill = ko.observable 0.3
+			@output = ko.observable 0.4
+			@delivery = ko.observable 0.5
+			@group = ko.observable 0.6
 		
 		activate: =>
 			dfd = Q.defer()

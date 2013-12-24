@@ -15,6 +15,7 @@
 		components: 'odo/durandal/components'
 		odo: 'odo'
 		q: 'q/q'
+		dragdealer: 'dragdealer'
 
 	shim:
 		bootstrap:
@@ -30,7 +31,7 @@
 	# don't cache in development
 	urlArgs: 'v=' + (new Date()).getTime()
 
-define ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal/bindings'], (system, app, locator, bindings) ->
+define ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal/bindings', 'blackbeardbindings'], (system, app, locator, bindings, blackbeardbindings) ->
 		system.debug yes
 		app.title = 'Blackbeard'
 		app.configurePlugins
@@ -43,6 +44,9 @@ define ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal
 			q: yes
 			bootstrap: yes
 			marked: yes
+		
+		blackbeardbindings.init requirejs,
+			slider: yes
 
 		app.start().then ->
 			#Replace 'viewmodels' in the moduleId with 'views' to locate the view.
