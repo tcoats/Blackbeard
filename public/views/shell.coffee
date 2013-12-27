@@ -5,7 +5,12 @@
 			{
 				route: ''
 				moduleId: 'views/welcome'
-				nav: false
+				nav: no
+			}
+			{
+				route: 'givefeedback/:id'
+				moduleId: 'views/feedback-give/feedback-give'
+				nav: no
 			}
 		]).buildNavigationModel()
 		router.activate()

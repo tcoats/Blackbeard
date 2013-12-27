@@ -1,14 +1,22 @@
-﻿<div class="panel panel-default" data-bind="shortcuts: { 'esc': close, 'left': back, 'right': forward }">
+﻿<div class="panel panel-default" data-bind="shortcuts: { 'left': back, 'right': forward }">
 	<div class="panel-heading">
-		<button data-bind="click: close" type="button" class="close btn btn-default">&times;</button>
 		<h2 class="panel-title" data-bind="text: feedback().description"></h2>
 	</div>
 	<div class="panel-body">
-		<div class="slider-box">
-			<div class="slider slider-delivery" data-bind="slider: delivery"></div>
-			<small>Delivery</small>
+		<div class="row">
+			<div class="col-md-2">
+				<div class="slider-box">
+					<div class="slider slider-delivery" data-bind="slider: delivery"></div>
+					<small>Delivery</small>
+				</div>
+			</div>
+			<div class="col-md-10">
+				<p>test</p>
+			</div>
 		</div>
-		<p>Delivery is x, y, z</p>
+		<h3>Delivery Contribution</h3>
+		<p>How much do they contribute at a larger scope than their core skill? How much of their work matters to the deliverable? How much did they influence correct prioritisation of work or resource trade-offs by others? Are they good at communicating with customers to assist guiding the project to success?</p>
+		<p>Things like being great at finding bugs would fall into this category.</p>
 	</div>
 	<div class="panel-body">
 		<ul class="actions">

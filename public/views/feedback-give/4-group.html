@@ -1,14 +1,22 @@
-﻿<div class="panel panel-default" data-bind="shortcuts: { 'esc': close, 'left': back, 'right': forward }">
+﻿<div class="panel panel-default" data-bind="shortcuts: { 'left': back, 'right': forward }">
 	<div class="panel-heading">
-		<button data-bind="click: close" type="button" class="close btn btn-default">&times;</button>
 		<h2 class="panel-title" data-bind="text: feedback().description"></h2>
 	</div>
 	<div class="panel-body">
-		<div class="slider-box">
-			<div class="slider slider-group" data-bind="slider: group"></div>
-			<small>Group</small>
+		<div class="row">
+			<div class="col-md-2">
+				<div class="slider-box">
+					<div class="slider slider-group" data-bind="slider: group"></div>
+					<small>Group</small>
+				</div>
+			</div>
+			<div class="col-md-10">
+				<p>test</p>
+			</div>
 		</div>
-		<p>Group is x, y, z</p>
+		<h3>Group Contribution</h3>
+		<p>How much do they contribute to company process, hiring, integrating people into the team, improving workflow, amplifying their colleagues, or writing tools used by others? Generally, being a group contributor means that they are making a tradeoff versus an individual contribution.</p>
+		<p>Contributions to culture, and the wellbeing of others would be included in this category.</p>
 	</div>
 	<div class="panel-body">
 		<ul class="actions">

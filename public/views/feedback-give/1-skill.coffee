@@ -5,15 +5,12 @@
 			@skill = ko.observable null
 		
 		activate: (options) =>
-			{ @wizard, @dialog, activationData } = options
+			{ @wizard, activationData } = options
 			@feedback activationData
 			if @feedback().feedback.skill?
 				@skill @feedback().feedback.skill
 			else
 				@skill 0.05
-			
-		close: =>
-			@dialog.close()
 		
 		back: =>
 			@feedback().feedback.skill = @skill()

@@ -8,7 +8,6 @@
       function Skill() {
         this.forward = __bind(this.forward, this);
         this.back = __bind(this.back, this);
-        this.close = __bind(this.close, this);
         this.activate = __bind(this.activate, this);
         this.feedback = ko.observable(null);
         this.skill = ko.observable(null);
@@ -16,17 +15,13 @@
 
       Skill.prototype.activate = function(options) {
         var activationData;
-        this.wizard = options.wizard, this.dialog = options.dialog, activationData = options.activationData;
+        this.wizard = options.wizard, activationData = options.activationData;
         this.feedback(activationData);
         if (this.feedback().feedback.skill != null) {
           return this.skill(this.feedback().feedback.skill);
         } else {
           return this.skill(0.05);
         }
-      };
-
-      Skill.prototype.close = function() {
-        return this.dialog.close();
       };
 
       Skill.prototype.back = function() {

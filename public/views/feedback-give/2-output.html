@@ -1,14 +1,22 @@
-﻿<div class="panel panel-default" data-bind="shortcuts: { 'esc': close, 'left': back, 'right': forward }">
+﻿<div class="panel panel-default" data-bind="shortcuts: { 'left': back, 'right': forward }">
 	<div class="panel-heading">
-		<button data-bind="click: close" type="button" class="close btn btn-default">&times;</button>
 		<h2 class="panel-title" data-bind="text: feedback().description"></h2>
 	</div>
 	<div class="panel-body">
-		<div class="slider-box">
-			<div class="slider slider-output" data-bind="slider: output"></div>
-			<small>Output</small>
+		<div class="row">
+			<div class="col-md-2">
+				<div class="slider-box">
+					<div class="slider slider-output" data-bind="slider: output"></div>
+					<small>Output</small>
+				</div>
+			</div>
+			<div class="col-md-10">
+				<p>test</p>
+			</div>
 		</div>
-		<p>Output is x, y, z</p>
+		<h3>Productivity / Output</h3>
+		<p>How much delivered (not necessarily to customers), valuable, finished work did they get done?</p>
+		<p>Working a lot of hours is generally not related to productivity and, after a certain point, indicates inefficiency. It is more valuable if they are able to maintain a sensible work/life balance and use their time in the office efficiently, rather than working around the clock.</p>
 	</div>
 	<div class="panel-body">
 		<ul class="actions">

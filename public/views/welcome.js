@@ -6,7 +6,6 @@
     var Search;
     return Search = (function() {
       function Search() {
-        this.launch = __bind(this.launch, this);
         this.activate = __bind(this.activate, this);
         this.isAuth = ko.observable(false);
         this.skill = ko.observable(0.3);
@@ -26,33 +25,6 @@
           return dfd.resolve(false);
         });
         return dfd.promise;
-      };
-
-      Search.prototype.launch = function() {
-        var options,
-          _this = this;
-        options = {
-          model: 'components/wizard',
-          activationData: {
-            model: 'views/feedback-give/0-introduction',
-            activationData: {
-              id: 'testtesttest',
-              type: 'classic4',
-              options: {},
-              description: 'Feedback for Nigel for the last three months of his work at Company X',
-              reviewer: {
-                id: 'ttttttt',
-                name: 'Bob Fergerson',
-                email: 'bob.fergerson@gmail.com'
-              },
-              feedback: {}
-            }
-          }
-        };
-        new Dialog(options).show().then(function(feedback) {
-          return console.log(feedback);
-        });
-        return false;
       };
 
       return Search;

@@ -9,6 +9,10 @@
             route: '',
             moduleId: 'views/welcome',
             nav: false
+          }, {
+            route: 'givefeedback/:id',
+            moduleId: 'views/feedback-give/feedback-give',
+            nav: false
           }
         ]).buildNavigationModel();
         return router.activate();

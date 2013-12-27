@@ -5,15 +5,12 @@
 			@delivery = ko.observable null
 		
 		activate: (options) =>
-			{ @wizard, @dialog, activationData } = options
+			{ @wizard, activationData } = options
 			@feedback activationData
 			if @feedback().feedback.delivery?
 				@delivery @feedback().feedback.delivery
 			else
 				@delivery 0.05
-			
-		close: =>
-			@dialog.close()
 		
 		back: =>
 			@feedback().feedback.delivery = @delivery()

@@ -5,15 +5,12 @@
 			@group = ko.observable null
 		
 		activate: (options) =>
-			{ @wizard, @dialog, activationData } = options
+			{ @wizard, activationData } = options
 			@feedback activationData
 			if @feedback().feedback.group?
 				@group @feedback().feedback.group
 			else
 				@group 0.05
-			
-		close: =>
-			@dialog.close()
 		
 		back: =>
 			@feedback().feedback.group = @group()

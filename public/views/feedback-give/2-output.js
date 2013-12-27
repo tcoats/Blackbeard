@@ -8,7 +8,6 @@
       function Output() {
         this.forward = __bind(this.forward, this);
         this.back = __bind(this.back, this);
-        this.close = __bind(this.close, this);
         this.activate = __bind(this.activate, this);
         this.feedback = ko.observable(null);
         this.output = ko.observable(null);
@@ -16,17 +15,13 @@
 
       Output.prototype.activate = function(options) {
         var activationData;
-        this.wizard = options.wizard, this.dialog = options.dialog, activationData = options.activationData;
+        this.wizard = options.wizard, activationData = options.activationData;
         this.feedback(activationData);
         if (this.feedback().feedback.output != null) {
           return this.output(this.feedback().feedback.output);
         } else {
           return this.output(0.05);
         }
-      };
-
-      Output.prototype.close = function() {
-        return this.dialog.close();
       };
 
       Output.prototype.back = function() {

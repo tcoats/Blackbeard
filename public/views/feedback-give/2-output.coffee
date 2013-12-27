@@ -5,15 +5,12 @@
 			@output = ko.observable null
 		
 		activate: (options) =>
-			{ @wizard, @dialog, activationData } = options
+			{ @wizard, activationData } = options
 			@feedback activationData
 			if @feedback().feedback.output?
 				@output @feedback().feedback.output
 			else
 				@output 0.05
-			
-		close: =>
-			@dialog.close()
 		
 		back: =>
 			@feedback().feedback.output = @output()
