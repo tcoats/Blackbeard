@@ -1,0 +1,21 @@
+﻿<div class="panel panel-default" data-bind="shortcuts: { 'esc': close, 'left': back, 'right': forward }">
+	<div class="panel-heading">
+		<button data-bind="click: close" type="button" class="close btn btn-default">&times;</button>
+		<h2 class="panel-title" data-bind="text: feedback().description"></h2>
+	</div>
+	<div class="panel-body">
+		<div class="slider-box">
+			<div class="slider slider-group" data-bind="slider: group"></div>
+			<small>Group</small>
+		</div>
+		<p>Group is x, y, z</p>
+	</div>
+	<div class="panel-body">
+		<ul class="actions">
+			<li>
+				<button data-bind="click: back" class="back btn btn-default">&larr; Back</button>
+				<button data-bind="click: forward" class="forward btn btn-default">Next &rarr;</button>
+			</li>
+		</ul>
+	</div>
+</div>

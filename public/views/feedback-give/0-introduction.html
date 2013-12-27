@@ -1,0 +1,16 @@
+﻿<div class="panel panel-default" data-bind="shortcuts: { 'esc': close, 'right': wizard.forward({ model: 'views/feedback-give/1-skill', activationData: feedback() }) }">
+	<div class="panel-heading">
+		<button data-bind="click: close" type="button" class="close btn btn-default">&times;</button>
+		<h2 class="panel-title" data-bind="text: feedback().description"></h2>
+	</div>
+	<div class="panel-body">
+		<p>Feedback is given in four steps and there is an opportunity for comments at each step.</p>
+	</div>
+	<div class="panel-body">
+		<ul class="actions">
+			<li>
+				<button data-bind="click: wizard.forward({ model: 'views/feedback-give/1-skill', activationData: feedback() })" class="forward btn btn-default">Next &rarr;</button>
+			</li>
+		</ul>
+	</div>
+</div>

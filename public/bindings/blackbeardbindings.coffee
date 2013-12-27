@@ -4,8 +4,7 @@
 			requirejs ['slider'], (Slider) ->
 				ko.bindingHandlers.slider =
 					init: (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) ->
-						# setTimeout the whole thing. Feels like a hack
-						setTimeout(->
+						bind = ->
 							$(element).append(
 								$('<div/>')
 									.addClass('handle')
@@ -69,7 +68,16 @@
 									currenty = other.value.current[1]
 									scale = currenty / otherstotal
 									other.setValue x, currenty - scale * totaldifference, true
-						, 1)
+						
+						# setTimeout the whole thing. Feels like a hack
+						wait = ->
+							setTimeout(->
+								if $(element).is(':visible')
+									bind()
+								else
+									wait()
+							, 10)
+						wait()
 					
 					update: (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) ->
 						slider = $(element).data('slider')

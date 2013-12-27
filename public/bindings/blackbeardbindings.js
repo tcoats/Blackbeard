@@ -7,7 +7,8 @@
           return requirejs(['slider'], function(Slider) {
             return ko.bindingHandlers.slider = {
               init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
-                return setTimeout(function() {
+                var bind, wait;
+                bind = function() {
                   var slider, slidergroup, sliders;
                   $(element).append($('<div/>').addClass('handle').append($('<div />').addClass('slide')));
                   slider = $(element).data('slider');
@@ -64,7 +65,17 @@
                     }
                     return _results;
                   };
-                }, 1);
+                };
+                wait = function() {
+                  return setTimeout(function() {
+                    if ($(element).is(':visible')) {
+                      return bind();
+                    } else {
+                      return wait();
+                    }
+                  }, 10);
+                };
+                return wait();
               },
               update: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
                 var slider, value;
