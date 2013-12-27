@@ -74,7 +74,7 @@ body {
 }
 .slider .handle {
   position: absolute;
-  cursor: pointer;
+  cursor: ns-resize;
   width: 40px;
   height: 400px;
 }
@@ -91,7 +91,7 @@ body {
 .slider.slider-output .slide {
   background: #ff703f;
 }
-.slider.slider-deliver .slide {
+.slider.slider-delivery .slide {
   background: #f6bc03;
 }
 .slider.slider-group .slide {

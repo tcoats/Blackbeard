@@ -14,8 +14,8 @@
 
   requirejs(['odo/express'], function(express) {
     var app;
-    process.env.PORT = 80;
-    return app = express([requirejs('./odo/plugins/peek'), requirejs('./odo/plugins/bower'), requirejs('./odo/plugins/durandal'), requirejs('./odo/plugins/handlebars'), requirejs('./odo/plugins/twitterauth'), requirejs('./odo/plugins/sendcommand'), requirejs('./blackbeard/plugins/public')]);
+    process.env.PORT = 4834;
+    return app = express([requirejs('./odo/plugins/peek'), requirejs('./odo/plugins/bower'), requirejs('./odo/plugins/durandal'), requirejs('./odo/plugins/handlebars'), requirejs('./odo/plugins/twitterauth'), requirejs('./odo/plugins/sendcommand'), requirejs('./blackbeard/plugins/public'), requirejs('./blackbeard/projections/feedbackforreviewer')]);
   });
 
 }).call(this);

@@ -14,7 +14,7 @@ requirejs.config {
 
 requirejs [
 	'odo/hub'
-	'blackbeard/domain/articlecommands'
+	'blackbeard/domain/feedbackcommands'
 	# add more command handlers here
 ], (hub, handlers...) ->
 		

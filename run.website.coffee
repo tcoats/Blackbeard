@@ -14,7 +14,7 @@ requirejs.config {
 
 requirejs ['odo/express'], (express) ->
 	
-	process.env.PORT = 80
+	process.env.PORT = 4834
 	
 	app = express [
 		requirejs './odo/plugins/peek'
@@ -24,7 +24,7 @@ requirejs ['odo/express'], (express) ->
 		requirejs './odo/plugins/twitterauth'
 		requirejs './odo/plugins/sendcommand'
 		requirejs './blackbeard/plugins/public'
-		#requirejs './blackbeard/projections/articlecontent'
+		requirejs './blackbeard/projections/feedbackforreviewer'
 		#requirejs './blackbeard/projections/articleownership'
 		#requirejs './blackbeard/projections/publicarticles'
 	]

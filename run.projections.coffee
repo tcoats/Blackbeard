@@ -14,9 +14,7 @@ requirejs.config {
 
 requirejs [
 	'odo/hub'
-	'blackbeard/projections/articlecontent'
-	'blackbeard/projections/articleownership'
-	'blackbeard/projections/publicarticles'
+	'blackbeard/projections/feedbackforreviewer'
 	# add more event listeners here
 ], (hub, listeners...) ->
 		

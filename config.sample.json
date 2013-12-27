@@ -1,0 +1,14 @@
+{
+	"express": {
+		"session key": "xyz",
+		"cookie secret": "123",
+		"session secret": "456"
+	},
+	"passport": {
+		"twitter": {
+			"consumer key": "xxxx",
+			"consumer secret": "xxxx",
+			"host": "http://thomascoats.com"
+		}
+	}
+}
