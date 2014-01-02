@@ -6,19 +6,45 @@ body {
 	padding-top: 20px;
 }
 
+#loading-space {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	
+	width: 300px;
+	height: 300px;
+	
+	margin-top: -200px;
+	margin-left: -150px;
+	
+	text-align: center;
+	
+	img {
+		animation-iteration-count: infinite;
+		-webkit-animation-iteration-count: infinite;
+	}
+}
+
 #site-nav {
 	position: absolute;
-	top: 20px;
+	top: 10px;
 	left: 10px;
 	
 	button {
 		margin: 0;
-		padding: 0;
+		padding: 5px;
 		border: 0;
-		width: 64px;
-		height: 64px;
+		border-radius: 9999px;
+		width: 74px;
+		height: 74px;
 		background-image: url("blackbeard64.png");
 		background-color: transparent;
+		background-position: 5px 5px;
+		background-repeat: no-repeat;
+		
+		&:focus {
+			background-color: rgba(0, 0, 0, 0.2);
+		}
 	}
 }
 
@@ -214,14 +240,40 @@ a:hover {
 }
 
 // remove animation
-.form-control {
+.form-control,
+.img-thumbnail,
+.collapsing,
+.thumbnail {
 	-webkit-transition: none;
 	transition: none;
 }
 // remove fuzzy border
-.form-control:focus {
+.form-control:focus,
+.has-warning .form-control,
+.has-warning .form-control:focus,
+.has-error .form-control,
+.has-error .form-control:focus,
+.has-success .form-control,
+.has-success .form-control:focus,
+.btn:active,
+.btn.active,
+.navbar-form,
+.navbar-collapse {
 	box-shadow: none;
 	-webkit-box-shadow: none;
+}
+a:focus,
+a:active,
+.btn:focus,
+.btn:active,
+button:focus,
+button:active,
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+	-webkit-appearance: none;
+	outline: none;
+	box-shadow: none;
 }
 
 // panel title is bigger
