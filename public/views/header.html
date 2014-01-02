@@ -1,32 +1,14 @@
-<header id="nav-main" class="navbar navbar-default navbar-fixed-top" role="banner">
-	<div class="container">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand tooltip-toggle" href="#" data-toggle="tooltip" data-placement="bottom" title="Blackbeard"><span class="glyphicon glyphicon-comment"></span></a>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<nav class="collapse navbar-collapse">
-			<ul class="nav navbar-nav navbar-right" data-bind="visible: !user()">
-				<li>
-					<a href="/auth/twitter" class="tooltip-toggle" data-toggle="tooltip" data-placement="bottom" title="Sign in">Sign in</a>
-				</li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right" data-bind="if: user()">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <span data-bind="text: user().displayName"></span> <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Profile</a></li>
-					</ul>
-				</li>
-				<li><a href="/auth/signout" class="tooltip-toggle" data-toggle="tooltip" data-placement="bottom" title="Sign out"><span class="glyphicon glyphicon-eject"></span></a></li>
-			</ul>
-		</nav>
-	</div>
-</header>
+<nav id="site-nav">
+	<button data-toggle="dropdown"></button>
+	<ul class="dropdown-menu" role="menu">
+		<li><a href="#"><span class="glyphicon glyphicon-home"></span> Blackbeard</a></li>
+		<li class="divider"></li>
+		<!-- ko if: !user() -->
+		<li><a href="/auth/twitter"><span class="glyphicon glyphicon-check"></span> Sign in</a></li>
+		<!-- /ko -->
+		<!-- ko if: user() -->
+		<li><a href="#"><span class="glyphicon glyphicon-user"></span> <span data-bind="text: user().displayName"></span></a></li>
+		<li><a href="/auth/signout"><span class="glyphicon glyphicon-eject"></span> Sign out</a></li>
+		<!-- /ko -->
+	</ul>
+</nav>

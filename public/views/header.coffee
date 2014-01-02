@@ -13,9 +13,3 @@ define ['q', 'knockout', 'odo/auth/twitter'], (Q, ko, twitterauth) ->
 			dfd.promise
 		
 		user: ko.observable null
-		
-		compositionComplete: () ->
-			$('#nav-main').tooltip {
-				selector: '.tooltip-toggle'
-				container: 'body'
-			}

@@ -3,21 +3,22 @@ body {
 	position: relative;
 	
 	// Reserve space because the navbar is fixed and doesn't take up space, so we have to make sure we leave enough room for it.
-	padding-top: 50px;
+	padding-top: 20px;
 }
 
-// blackbeard specific adjustments
-#nav-main {
-	min-height: 30px;
+#site-nav {
+	position: absolute;
+	top: 20px;
+	left: 10px;
 	
-	.navbar-nav > li > a {
-		padding: 10px 15px;
-	}
-	.navbar-brand {
-		// make padding smaller
-		padding: 3px 15px;
-		// so the font size can be bigger
-		font-size: 32px;
+	button {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		width: 64px;
+		height: 64px;
+		background-image: url("blackbeard64.png");
+		background-color: transparent;
 	}
 }
 
@@ -147,4 +148,140 @@ body {
 	.slide {
 		background: #dfd487;
 	}
+}
+
+// new fonts and sizes
+body {
+	font-family: "Coming Soon", serif;
+	font-size: 18px;
+}
+b, strong, dt, label, .badge, .alert .alert-link, .close, th,
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: 'Patrick Hand', verdana, sans-serif;
+}
+b, strong, dt, label, .badge, .alert .alert-link, .close, th {
+	font-size: 1.3em;
+}
+
+// labels keep original font
+.label {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+// headings are bigger
+h1, .h1 {
+	font-size: 42px;
+}
+h2, .h2 {
+	font-size: 36px;
+}
+h3, .h3 {
+	font-size: 30px;
+}
+h4, .h4 {
+	font-size: 24px;
+}
+h5, .h5 {
+	font-size: 18px;
+}
+h6, .h6 {
+	font-size: 14px;
+}
+
+// cool underline for links
+a {
+	color: inherit;
+	background: url('underline.png') repeat-x 0% 100%;
+}
+a:hover {
+	color: inherit;
+	text-decoration: none;
+}
+// special a elements don't get the style
+.nav-pills>li>a,
+.pagination>li>a,
+.breadcrumb a,
+.navbar-brand,
+.navbar-nav>li>a,
+.dropdown-menu > li > a  {
+	background: none;
+}
+
+// fix dropdowns
+.dropdown-menu > li > a {
+	padding-bottom: 1px;
+}
+
+// remove animation
+.form-control {
+	-webkit-transition: none;
+	transition: none;
+}
+// remove fuzzy border
+.form-control:focus {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+// panel title is bigger
+.panel-title {
+	font-size: 28px;
+}
+
+// fix components
+.list-group-item,
+.breadcrumb,
+.nav-pills>li>a,
+.btn,
+.form-control,
+.pagination>li>a, .pagination>li>span {
+	padding-bottom: 3px;
+}
+
+// fix nav
+.navbar-nav>li>a,
+.navbar-brand {
+	padding-bottom: 10px;
+}
+.navbar {
+	min-height: 45px;
+}
+.navbar-form {
+	margin-top: 6px;
+	margin-bottom: 5px;
+}
+.navbar-text {
+	margin-top: 12px;
+	margin-bottom: 8px;
+}
+
+// fix form items
+input[type="file"]{
+	line-height: 1.2em;
+}
+input[type="checkbox"] {
+	margin-top: 10px;
+}
+
+// larger borders
+.navbar,
+.panel,
+.panel-heading,
+.panel>.panel-body+.table, .panel>.panel-body+.table-responsive,
+.dropdown-menu,
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+	border-width: 2px;
+}
+.dropdown-menu .divider {
+	height: 2px;
+}
+.panel>.list-group .list-group-item {
+	border-width: 2px;
+	margin-top: -2px;
+	margin-left: -2px;
+	margin-right: -2px;
+}
+.table>thead>tr>th {
+	border-width: 4px;
 }

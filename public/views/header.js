@@ -24,13 +24,6 @@
 
       Header.prototype.user = ko.observable(null);
 
-      Header.prototype.compositionComplete = function() {
-        return $('#nav-main').tooltip({
-          selector: '.tooltip-toggle',
-          container: 'body'
-        });
-      };
-
       return Header;
 
     })();
