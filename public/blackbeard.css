@@ -1,6 +1,7 @@
 body {
   position: relative;
-  padding-top: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 #loading-space {
   position: fixed;
@@ -33,8 +34,20 @@ body {
   background-position: 5px 5px;
   background-repeat: no-repeat;
 }
+#site-nav button.visible-xs {
+  background-image: url("blackbeard48.png");
+  width: 58px;
+  height: 58px;
+  margin-top: -5px;
+  margin-left: -5px;
+}
 #site-nav button:focus {
   background-color: rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 767px) {
+  body {
+    padding-top: 70px;
+  }
 }
 .close {
   line-height: 0.7;
@@ -232,7 +245,8 @@ button:focus,
 button:active,
 input[type="file"]:focus,
 input[type="radio"]:focus,
-input[type="checkbox"]:focus {
+input[type="checkbox"]:focus,
+.well {
   -webkit-appearance: none;
   outline: none;
   box-shadow: none;
@@ -295,4 +309,13 @@ input[type="checkbox"] {
 }
 .table > thead > tr > th {
   border-width: 4px;
+}
+.jumbotron {
+  background-color: inherit;
+  border: 2px dashed #999;
+  font-size: 24px;
+}
+.well {
+  background-color: inherit;
+  border: 2px dashed #999;
 }

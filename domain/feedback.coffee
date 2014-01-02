@@ -6,9 +6,15 @@ define [], () ->
 			@type = ''
 			@options = {}
 			@description = ''
+			@reviewee =
+				id: null
+				name: ''
+				short: ''
+				email: ''
 			@reviewer =
 				id: null
 				name: ''
+				short: ''
 				email: ''
 			@feedback = {}
 		
@@ -23,6 +29,7 @@ define [], () ->
 				options: command.options
 				description: command.description
 				
+				reviewee: command.reviewee
 				reviewer: command.reviewer
 			callback null
 			
@@ -33,6 +40,7 @@ define [], () ->
 				options: @options
 				description: @description
 				
+				reviewee: @reviewee
 				reviewer: @reviewer
 				
 				feedback: @feedback
@@ -51,6 +59,7 @@ define [], () ->
 				options: @options
 				description: @description
 				
+				reviewee: @reviewee
 				reviewer: @reviewer
 				
 				feedback: @feedback
@@ -62,6 +71,7 @@ define [], () ->
 			@options = event.payload.options
 			@description = event.payload.description
 			
+			@reviewee = event.payload.reviewee
 			@reviewer = event.payload.reviewer
 			
 		_feedbackCancelled: (event) =>
@@ -69,4 +79,5 @@ define [], () ->
 			
 		_feedbackCompleted: (event) =>
 			@_destroy = yes
+			@feedback = event.payload.feedback
 			

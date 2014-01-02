@@ -1,29 +1,32 @@
-﻿<div class="panel panel-default" data-bind="shortcuts: { 'left': back, 'right': forward }">
-	<div class="panel-heading">
-		<h2 class="panel-title" data-bind="text: feedback().description"></h2>
-	</div>
-	<div class="panel-body">
-		<div class="row">
-			<div class="col-md-2">
-				<div class="slider-box">
-					<div class="slider slider-output" data-bind="slider: output"></div>
-					<small>Output</small>
-				</div>
-			</div>
-			<div class="col-md-10">
-				<p>test</p>
+﻿<div class="container" data-bind="shortcuts: { 'left': back, 'right': forward }">
+
+	<h2 data-bind="text: feedback().description"></h2>
+	
+	<div class="row">
+		<div class="col-md-2">
+			<div class="slider-box">
+				<div class="slider slider-output" data-bind="slider: output"></div>
+				<small>Output</small>
 			</div>
 		</div>
-		<h3>Productivity / Output</h3>
-		<p>How much delivered (not necessarily to customers), valuable, finished work did they get done?</p>
-		<p>Working a lot of hours is generally not related to productivity and, after a certain point, indicates inefficiency. It is more valuable if they are able to maintain a sensible work/life balance and use their time in the office efficiently, rather than working around the clock.</p>
+		<div class="col-md-10">
+			<p>test</p>
+		</div>
 	</div>
-	<div class="panel-body">
-		<ul class="actions">
-			<li>
-				<button data-bind="click: back" class="back btn btn-default">&larr; Back</button>
-				<button data-bind="click: forward" class="forward btn btn-default">Next &rarr;</button>
-			</li>
-		</ul>
+	
+	<h3>Productivity / Output</h3>
+	<p>How much delivered (not necessarily to customers), valuable, finished work did they get done?</p>
+	<p>Working a lot of hours is generally not related to productivity and, after a certain point, indicates inefficiency. It is more valuable if they are able to maintain a sensible work/life balance and use their time in the office efficiently, rather than working around the clock.</p>
+	
+	<div class="form-group">
+		<label for="outputcomments">Comments</label>
+		<textarea id="outputcomments" class="form-control" rows="8" data-bind="attr: { placeholder: 'Anything you would like to let ' + feedback().reviewee.short + ' know about his output?' }"></textarea>
 	</div>
+	
+	<ul class="actions">
+		<li>
+			<button data-bind="click: back" class="back btn btn-default">&larr; Back</button>
+			<button data-bind="click: forward" class="forward btn btn-default">Next &rarr;</button>
+		</li>
+	</ul>
 </div>

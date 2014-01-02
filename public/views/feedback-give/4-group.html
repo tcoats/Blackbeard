@@ -1,29 +1,32 @@
-﻿<div class="panel panel-default" data-bind="shortcuts: { 'left': back, 'right': forward }">
-	<div class="panel-heading">
-		<h2 class="panel-title" data-bind="text: feedback().description"></h2>
-	</div>
-	<div class="panel-body">
-		<div class="row">
-			<div class="col-md-2">
-				<div class="slider-box">
-					<div class="slider slider-group" data-bind="slider: group"></div>
-					<small>Group</small>
-				</div>
-			</div>
-			<div class="col-md-10">
-				<p>test</p>
+﻿<div class="container" data-bind="shortcuts: { 'left': back, 'right': forward }">
+
+	<h2 data-bind="text: feedback().description"></h2>
+	
+	<div class="row">
+		<div class="col-md-2">
+			<div class="slider-box">
+				<div class="slider slider-group" data-bind="slider: group"></div>
+				<small>Group</small>
 			</div>
 		</div>
-		<h3>Group Contribution</h3>
-		<p>How much do they contribute to company process, hiring, integrating people into the team, improving workflow, amplifying their colleagues, or writing tools used by others? Generally, being a group contributor means that they are making a tradeoff versus an individual contribution.</p>
-		<p>Contributions to culture, and the wellbeing of others would be included in this category.</p>
+		<div class="col-md-10">
+			<p>test</p>
+		</div>
 	</div>
-	<div class="panel-body">
-		<ul class="actions">
-			<li>
-				<button data-bind="click: back" class="back btn btn-default">&larr; Back</button>
-				<button data-bind="click: forward" class="forward btn btn-default">Next &rarr;</button>
-			</li>
-		</ul>
+	
+	<h3>Group Contribution</h3>
+	<p>How much do they contribute to company process, hiring, integrating people into the team, improving workflow, amplifying their colleagues, or writing tools used by others? Generally, being a group contributor means that they are making a tradeoff versus an individual contribution.</p>
+	<p>Contributions to culture, and the wellbeing of others would be included in this category.</p>
+	
+	<div class="form-group">
+		<label for="groupcomments">Comments</label>
+		<textarea id="groupcomments" class="form-control" rows="8" data-bind="attr: { placeholder: 'Anything you would like to let ' + feedback().reviewee.short + ' know about his delivery?' }"></textarea>
 	</div>
+	
+	<ul class="actions">
+		<li>
+			<button data-bind="click: back" class="back btn btn-default">&larr; Back</button>
+			<button data-bind="click: forward" class="forward btn btn-default">Next &rarr;</button>
+		</li>
+	</ul>
 </div>

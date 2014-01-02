@@ -17,9 +17,16 @@
         this.type = '';
         this.options = {};
         this.description = '';
+        this.reviewee = {
+          id: null,
+          name: '',
+          short: '',
+          email: ''
+        };
         this.reviewer = {
           id: null,
           name: '',
+          short: '',
           email: ''
         };
         this.feedback = {};
@@ -35,6 +42,7 @@
           type: command.type,
           options: command.options,
           description: command.description,
+          reviewee: command.reviewee,
           reviewer: command.reviewer
         });
         return callback(null);
@@ -46,6 +54,7 @@
           type: this.type,
           options: this.options,
           description: this.description,
+          reviewee: this.reviewee,
           reviewer: this.reviewer,
           feedback: this.feedback,
           by: command.by
@@ -63,6 +72,7 @@
           type: this.type,
           options: this.options,
           description: this.description,
+          reviewee: this.reviewee,
           reviewer: this.reviewer,
           feedback: this.feedback,
           by: command.by
@@ -73,6 +83,7 @@
         this.type = event.payload.type;
         this.options = event.payload.options;
         this.description = event.payload.description;
+        this.reviewee = event.payload.reviewee;
         return this.reviewer = event.payload.reviewer;
       };
 
@@ -81,7 +92,8 @@
       };
 
       Feedback.prototype._feedbackCompleted = function(event) {
-        return this._destroy = true;
+        this._destroy = true;
+        return this.feedback = event.payload.feedback;
       };
 
       return Feedback;

@@ -2,8 +2,9 @@ body {
 	// This is needed so scrollyspy knows where things are located.
 	position: relative;
 	
-	// Reserve space because the navbar is fixed and doesn't take up space, so we have to make sure we leave enough room for it.
-	padding-top: 20px;
+	// Reserve space for padding so things don't look crampt
+	padding-top: 15px;
+	padding-bottom: 15px;
 }
 
 #loading-space {
@@ -42,9 +43,22 @@ body {
 		background-position: 5px 5px;
 		background-repeat: no-repeat;
 		
+		&.visible-xs {
+			background-image: url("blackbeard48.png");
+			width: 58px;
+			height: 58px;
+			margin-top: -5px;
+			margin-left: -5px;
+		}
+		
 		&:focus {
 			background-color: rgba(0, 0, 0, 0.2);
 		}
+	}
+}
+@media (max-width: 767px) {
+	body {
+		padding-top: 70px;
 	}
 }
 
@@ -270,7 +284,8 @@ button:focus,
 button:active,
 input[type="file"]:focus,
 input[type="radio"]:focus,
-input[type="checkbox"]:focus {
+input[type="checkbox"]:focus,
+.well {
 	-webkit-appearance: none;
 	outline: none;
 	box-shadow: none;
@@ -336,4 +351,15 @@ input[type="checkbox"] {
 }
 .table>thead>tr>th {
 	border-width: 4px;
+}
+
+// cooler jumbotron
+.jumbotron {
+	background-color: inherit;
+	border: 2px dashed #999;
+	font-size: 24px;
+}
+.well {
+	background-color: inherit;
+	border: 2px dashed #999;
 }

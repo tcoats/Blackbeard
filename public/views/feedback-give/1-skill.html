@@ -1,28 +1,28 @@
-﻿<div class="panel panel-default" data-bind="shortcuts: {'left': back, 'right': forward }">
-	<div class="panel-heading">
-		<h2 class="panel-title" data-bind="text: feedback().description"></h2>
-	</div>
-	<div class="panel-body">
-		<div class="row">
-			<div class="col-md-2">
-				<div class="slider-box">
-					<div class="slider slider-skill" data-bind="slider: skill"></div>
-					<small>Skill</small>
-				</div>
-			</div>
-			<div class="col-md-10">
-				<p>test</p>
+﻿<div class="container" data-bind="shortcuts: {'left': back, 'right': forward }">
+
+	<h2 data-bind="text: feedback().description"></h2>
+	
+	<div class="row">
+		<div class="col-md-2 col-md-offset-5">
+			<div class="slider-box">
+				<div class="slider slider-skill" data-bind="slider: skill"></div>
+				<small>Skill</small>
 			</div>
 		</div>
-		<h3>Skill level / Technical ability</h3>
-		<p>How difficult and valuable are the kinds of problems they solve? How important/critical of a problem can they be given? Are they uniquely capable (in the company? industry?) of solving a certain class of problem, delivering a certain type of design, contributing to writing, or quoting, or training, etc.?</p>
 	</div>
-	<div class="panel-body">
-		<ul class="actions">
-			<li>
-				<button data-bind="click: back" class="back btn btn-default">&larr; Back</button>
-				<button data-bind="click: forward" class="forward btn btn-default">Next &rarr;</button>
-			</li>
-		</ul>
+	
+	<h3>Skill level / Technical ability</h3>
+	<p>How difficult and valuable are the kinds of problems they solve? How important/critical of a problem can they be given? Are they uniquely capable (in the company? industry?) of solving a certain class of problem, delivering a certain type of design, contributing to writing, or quoting, or training, etc.?</p>
+	
+	<div class="form-group">
+		<label for="skillcomments">Comments</label>
+		<textarea id="skillcomments" class="form-control" rows="8" data-bind="attr: { placeholder: 'Anything you would like to let ' + feedback().reviewee.short + ' know about his skill?' }"></textarea>
 	</div>
+	
+	<ul class="actions">
+		<li>
+			<button data-bind="click: back" class="back btn btn-default">&larr; Back</button>
+			<button data-bind="click: forward" class="forward btn btn-default">Next &rarr;</button>
+		</li>
+	</ul>
 </div>
