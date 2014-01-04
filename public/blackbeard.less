@@ -6,37 +6,25 @@ body {
 	padding-top: 90px;
 	padding-bottom: 15px;
 }
-@media (max-width: 991px) {
-	body {
-		padding-top: 65px;
-	}
-}
 
 textarea {
 	resize: vertical;
 }
 
-#loading-space {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	
-	width: 300px;
-	height: 300px;
-	
-	margin-top: -200px;
-	margin-left: -150px;
-	
-	text-align: center;
-	
-	img {
-		animation-iteration-count: infinite;
-		-webkit-animation-iteration-count: infinite;
-	}
+#site-title {
+	margin-left: 95px;
+	margin-top: -80px;
+	margin-bottom: 30px;
 }
-
-.btn-paragraph {
-	margin: 0 0 10px;
+@media (max-width: 991px) {
+	body {
+		padding-top: 65px;
+	}
+	
+	#site-title {
+	margin-left: 70px;
+	margin-top: -70px;
+	}
 }
 
 #site-nav {
@@ -68,6 +56,39 @@ textarea {
 			background-color: rgba(0, 0, 0, 0.2);
 		}
 	}
+}
+
+#loading-space {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	
+	width: 300px;
+	height: 300px;
+	
+	margin-top: -130px;
+	margin-left: -150px;
+	
+	text-align: center;
+	
+	img {
+		animation-iteration-count: infinite;
+		-webkit-animation-iteration-count: infinite;
+	}
+}
+
+.avatar {
+	padding: 3px;
+
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	
+	border: 1px solid #999;
+}
+
+.btn-paragraph {
+	margin: 0 0 10px;
 }
 
 // for some reason close elements are automatically huge, this makes them get their size from where they are
@@ -135,7 +156,7 @@ textarea {
 					animation-duration: 0.3s;
 }
 
-@silder-width: 40px;
+@silder-width: 60px;
 @slider-height: 200px;
 
 .slider-box {
@@ -222,6 +243,35 @@ b, strong, dt, label, .badge, .alert .alert-link, .close, th {
 // labels keep original font
 .label {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small,
+.h1 small,
+.h2 small,
+.h3 small,
+.h4 small,
+.h5 small,
+.h6 small,
+h1 .small,
+h2 .small,
+h3 .small,
+h4 .small,
+h5 .small,
+h6 .small,
+.h1 .small,
+.h2 .small,
+.h3 .small,
+.h4 .small,
+.h5 .small,
+.h6 .small {
+	font-family: "Coming Soon", serif;
+	color: #333;
+	font-size: 50%;
 }
 
 // headings are bigger

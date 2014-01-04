@@ -8,6 +8,25 @@
       function FeedbackGive() {
         this.activate = __bind(this.activate, this);
         this.composeOptions = ko.observable(null);
+        this.feedback = {
+          id: 'testtesttest',
+          type: 'classic4',
+          options: {},
+          description: 'Feedback for the last three months of Nigel\'s work at Company X',
+          reviewee: {
+            id: 'ffffff',
+            name: 'Nigel Matterson',
+            short: 'Nigel',
+            email: 'nigel.matterson@gmail.com'
+          },
+          reviewer: {
+            id: 'ttttttt',
+            name: 'Bob Fergerson',
+            short: 'Bob',
+            email: 'bob.fergerson@gmail.com'
+          },
+          feedback: {}
+        };
       }
 
       FeedbackGive.prototype.activate = function(id) {
@@ -15,25 +34,7 @@
           model: 'components/wizard',
           activationData: {
             model: 'views/feedback-give/0-introduction',
-            activationData: {
-              id: 'testtesttest',
-              type: 'classic4',
-              options: {},
-              description: 'Feedback for the last three months of Nigel\'s work at Company X',
-              reviewee: {
-                id: 'ffffff',
-                name: 'Nigel Matterson',
-                short: 'Nigel',
-                email: 'nigel.matterson@gmail.com'
-              },
-              reviewer: {
-                id: 'ttttttt',
-                name: 'Bob Fergerson',
-                short: 'Bob',
-                email: 'bob.fergerson@gmail.com'
-              },
-              feedback: {}
-            }
+            activationData: this.feedback
           }
         });
       };

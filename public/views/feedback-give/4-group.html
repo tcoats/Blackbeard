@@ -1,10 +1,8 @@
 ﻿<div class="container" data-bind="shortcuts: { 'left': back, 'right': forward, 'enter': forward }">
-
-	<h2 data-bind="text: feedback().description"></h2>
 	
 	<div class="slider-box center-block">
 		<div class="slider slider-group" data-bind="slider: group"></div>
-		<small>Group</small>
+		<h4>Group</h4>
 	</div>
 	
 	<button class="btn-paragraph btn btn-default" data-bind="click: showInfo, visible: !isShowingInfo()">Tell me about group contribution</button>

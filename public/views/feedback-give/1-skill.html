@@ -1,13 +1,11 @@
 ﻿<div class="container" data-bind="shortcuts: {'left': back, 'right': forward, 'enter': forward }">
-
-	<h2 data-bind="text: feedback().description"></h2>
 	
 	<div class="slider-box center-block">
 		<div class="slider slider-skill" data-bind="slider: skill"></div>
-		<small>Skill</small>
+		<h4>Skill</h4>
 	</div>
 	
-	<button class="btn-paragraph btn btn-default" data-bind="click: showInfo, visible: !isShowingInfo()">Tell me about skill level and technical ability</button>
+	<button class="btn-paragraph btn btn-default" data-bind="click: showInfo, visible: !isShowingInfo()">Tell me about skill and technical ability</button>
 	
 	<div data-bind="visible: isShowingInfo()">
 		<h3>Skill level / Technical ability</h3>
@@ -16,7 +14,7 @@
 		<p>Are they uniquely capable (in the company? industry?) of solving a certain class of problem, delivering a certain type of design, contributing to writing, or quoting, or training, etc.?</p>
 	</div>
 	
-	<textarea class="form-control" rows="3" data-bind="attr: { placeholder: 'Anything you would like to let ' + feedback().reviewee.short + ' know about his skill level and technical ability?' }"></textarea>
+	<textarea class="form-control" rows="3" data-bind="attr: { placeholder: 'Anything you would like to let ' + feedback().reviewee.short + ' know about his skill and technical ability?' }"></textarea>
 	
 	<ul class="actions">
 		<li>
