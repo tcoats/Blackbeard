@@ -2,18 +2,21 @@
 
 	<h2 data-bind="text: feedback().description"></h2>
 	
-	<h3>Skill level / Technical ability</h3>
-	<p>How difficult and valuable are the kinds of problems they solve? How important/critical of a problem can they be given? Are they uniquely capable (in the company? industry?) of solving a certain class of problem, delivering a certain type of design, contributing to writing, or quoting, or training, etc.?</p>
-	
 	<div class="slider-box center-block">
 		<div class="slider slider-skill" data-bind="slider: skill"></div>
 		<small>Skill</small>
 	</div>
 	
-	<div class="form-group">
-		<label for="skillcomments">Comments</label>
-		<textarea id="skillcomments" class="form-control" rows="8" data-bind="attr: { placeholder: 'Anything you would like to let ' + feedback().reviewee.short + ' know about his skill?' }"></textarea>
+	<button class="btn-paragraph btn btn-default" data-bind="click: showInfo, visible: !isShowingInfo()">Tell me about skill level and technical ability</button>
+	
+	<div data-bind="visible: isShowingInfo()">
+		<h3>Skill level / Technical ability</h3>
+		<p>How difficult and valuable are the kinds of problems they solve?</p>
+		<p>How important/critical of a problem can they be given?</p>
+		<p>Are they uniquely capable (in the company? industry?) of solving a certain class of problem, delivering a certain type of design, contributing to writing, or quoting, or training, etc.?</p>
 	</div>
+	
+	<textarea class="form-control" rows="3" data-bind="attr: { placeholder: 'Anything you would like to let ' + feedback().reviewee.short + ' know about his skill level and technical ability?' }"></textarea>
 	
 	<ul class="actions">
 		<li>

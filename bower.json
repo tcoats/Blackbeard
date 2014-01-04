@@ -16,7 +16,8 @@
 		"node-uuid": "*",
 		"q": "*",
 		"odo": "*",
-		"marked": "*"
+		"marked": "*",
+		"pace": "*"
 	},
 	"ignore": [
 		"node_modules/",

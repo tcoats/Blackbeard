@@ -8,6 +8,9 @@ body {
     padding-top: 65px;
   }
 }
+textarea {
+  resize: vertical;
+}
 #loading-space {
   position: fixed;
   top: 50%;
@@ -21,6 +24,9 @@ body {
 #loading-space img {
   animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
+}
+.btn-paragraph {
+  margin: 0 0 10px;
 }
 #site-nav {
   position: absolute;

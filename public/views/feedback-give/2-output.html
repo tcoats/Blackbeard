@@ -2,19 +2,20 @@
 
 	<h2 data-bind="text: feedback().description"></h2>
 	
-	<h3>Productivity / Output</h3>
-	<p>How much delivered (not necessarily to customers), valuable, finished work did they get done?</p>
-	<p>Working a lot of hours is generally not related to productivity and, after a certain point, indicates inefficiency. It is more valuable if they are able to maintain a sensible work/life balance and use their time in the office efficiently, rather than working around the clock.</p>
-	
 	<div class="slider-box center-block">
 		<div class="slider slider-output" data-bind="slider: output"></div>
 		<small>Output</small>
 	</div>
 	
-	<div class="form-group">
-		<label for="outputcomments">Comments</label>
-		<textarea id="outputcomments" class="form-control" rows="8" data-bind="attr: { placeholder: 'Anything you would like to let ' + feedback().reviewee.short + ' know about his output?' }"></textarea>
+	<button class="btn-paragraph btn btn-default" data-bind="click: showInfo, visible: !isShowingInfo()">Tell me about productivity and output</button>
+	
+	<div data-bind="visible: isShowingInfo()">
+		<h3>Productivity / Output</h3>
+		<p>How much delivered (not necessarily to customers), valuable, finished work did they get done?</p>
+		<p>Working a lot of hours is generally not related to productivity and, after a certain point, indicates inefficiency. It is more valuable if they are able to maintain a sensible work/life balance and use their time in the office efficiently, rather than working around the clock.</p>
 	</div>
+	
+	<textarea class="form-control" rows="3" data-bind="attr: { placeholder: 'Anything you would like to let ' + feedback().reviewee.short + ' know about his output?' }"></textarea>
 	
 	<ul class="actions">
 		<li>

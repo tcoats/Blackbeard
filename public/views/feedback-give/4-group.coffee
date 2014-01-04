@@ -3,6 +3,7 @@
 		constructor: ->
 			@feedback = ko.observable null
 			@group = ko.observable null
+			@isShowingInfo = ko.observable no
 		
 		activate: (options) =>
 			{ @wizard, activationData } = options
@@ -27,3 +28,6 @@
 				activationData: @feedback()
 			}
 			@wizard.forward(options)()
+		
+		showInfo: =>
+			@isShowingInfo yes

@@ -2,19 +2,22 @@
 
 	<h2 data-bind="text: feedback().description"></h2>
 	
-	<h3>Delivery Contribution</h3>
-	<p>How much do they contribute at a larger scope than their core skill? How much of their work matters to the deliverable? How much did they influence correct prioritisation of work or resource trade-offs by others? Are they good at communicating with customers to assist guiding the project to success?</p>
-	<p>Things like being great at finding bugs would fall into this category.</p>
-	
 	<div class="slider-box center-block">
 		<div class="slider slider-delivery" data-bind="slider: delivery"></div>
 		<small>Delivery</small>
 	</div>
 	
-	<div class="form-group">
-		<label for="deliverycomments">Comments</label>
-		<textarea id="deliverycomments" class="form-control" rows="8" data-bind="attr: { placeholder: 'Anything you would like to let ' + feedback().reviewee.short + ' know about his delivery?' }"></textarea>
+	<button class="btn btn-default" data-bind="click: showInfo, visible: !isShowingInfo()">Tell me about delivery contribution</button>
+	
+	<div data-bind="visible: isShowingInfo()">
+		<h3>Delivery Contribution</h3>
+		<p>How much do they contribute at a larger scope than their core skill? How much of their work matters to the deliverable?</p>
+		<p>How much did they influence correct prioritisation of work or resource trade-offs by others?</p>
+		<p>Are they good at communicating with customers to assist guiding the project to success?</p>
+		<p>Things like being great at finding bugs would fall into this category.</p>
 	</div>
+	
+	<textarea class="form-control" rows="3" data-bind="attr: { placeholder: 'Anything you would like to let ' + feedback().reviewee.short + ' know about his delivery contribution?' }"></textarea>
 	
 	<ul class="actions">
 		<li>

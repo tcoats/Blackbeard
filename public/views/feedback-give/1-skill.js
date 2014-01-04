@@ -6,11 +6,13 @@
     var Skill;
     return Skill = (function() {
       function Skill() {
+        this.showInfo = __bind(this.showInfo, this);
         this.forward = __bind(this.forward, this);
         this.back = __bind(this.back, this);
         this.activate = __bind(this.activate, this);
         this.feedback = ko.observable(null);
         this.skill = ko.observable(null);
+        this.isShowingInfo = ko.observable(false);
       }
 
       Skill.prototype.activate = function(options) {
@@ -42,6 +44,10 @@
           activationData: this.feedback()
         };
         return this.wizard.forward(options)();
+      };
+
+      Skill.prototype.showInfo = function() {
+        return this.isShowingInfo(true);
       };
 
       return Skill;

@@ -6,11 +6,13 @@
     var Output;
     return Output = (function() {
       function Output() {
+        this.showInfo = __bind(this.showInfo, this);
         this.forward = __bind(this.forward, this);
         this.back = __bind(this.back, this);
         this.activate = __bind(this.activate, this);
         this.feedback = ko.observable(null);
         this.output = ko.observable(null);
+        this.isShowingInfo = ko.observable(false);
       }
 
       Output.prototype.activate = function(options) {
@@ -42,6 +44,10 @@
           activationData: this.feedback()
         };
         return this.wizard.forward(options)();
+      };
+
+      Output.prototype.showInfo = function() {
+        return this.isShowingInfo(true);
       };
 
       return Output;
