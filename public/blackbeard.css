@@ -1,7 +1,12 @@
 body {
   position: relative;
-  padding-top: 15px;
+  padding-top: 90px;
   padding-bottom: 15px;
+}
+@media (max-width: 991px) {
+  body {
+    padding-top: 65px;
+  }
 }
 #loading-space {
   position: fixed;
@@ -43,11 +48,6 @@ body {
 }
 #site-nav button:focus {
   background-color: rgba(0, 0, 0, 0.2);
-}
-@media (max-width: 767px) {
-  body {
-    padding-top: 70px;
-  }
 }
 .close {
   line-height: 0.7;
@@ -100,6 +100,12 @@ body {
   float: left;
   margin: 0 10px;
   text-align: center;
+  width: 40px;
+  overflow: visible;
+}
+.slider-box.center-block {
+  float: none;
+  margin: inherit;
 }
 .slider {
   position: relative;

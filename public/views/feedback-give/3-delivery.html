@@ -1,22 +1,15 @@
-﻿<div class="container" data-bind="shortcuts: { 'left': back, 'right': forward }">
+﻿<div class="container" data-bind="shortcuts: { 'left': back, 'right': forward, 'enter': forward }">
 
 	<h2 data-bind="text: feedback().description"></h2>
-	
-	<div class="row">
-		<div class="col-md-2">
-			<div class="slider-box">
-				<div class="slider slider-delivery" data-bind="slider: delivery"></div>
-				<small>Delivery</small>
-			</div>
-		</div>
-		<div class="col-md-10">
-			<p>test</p>
-		</div>
-	</div>
 	
 	<h3>Delivery Contribution</h3>
 	<p>How much do they contribute at a larger scope than their core skill? How much of their work matters to the deliverable? How much did they influence correct prioritisation of work or resource trade-offs by others? Are they good at communicating with customers to assist guiding the project to success?</p>
 	<p>Things like being great at finding bugs would fall into this category.</p>
+	
+	<div class="slider-box center-block">
+		<div class="slider slider-delivery" data-bind="slider: delivery"></div>
+		<small>Delivery</small>
+	</div>
 	
 	<div class="form-group">
 		<label for="deliverycomments">Comments</label>
@@ -26,7 +19,7 @@
 	<ul class="actions">
 		<li>
 			<button data-bind="click: back" class="back btn btn-default">&larr; Back</button>
-			<button data-bind="click: forward" class="forward btn btn-default">Next &rarr;</button>
+			<button data-bind="click: forward" class="forward btn btn-primary">Next &rarr;</button>
 		</li>
 	</ul>
 </div>
