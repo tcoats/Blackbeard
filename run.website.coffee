@@ -23,7 +23,7 @@ requirejs ['odo/express'], (express) ->
 		requirejs './odo/plugins/handlebars'
 		requirejs './odo/plugins/auth'
 		requirejs './odo/plugins/sendcommand'
-		requirejs './blackbeard/plugins/public'
+		requirejs './odo/plugins/public'
 		requirejs './blackbeard/projections/feedbackforreviewer'
 		#requirejs './blackbeard/projections/articleownership'
 		#requirejs './blackbeard/projections/publicarticles'
