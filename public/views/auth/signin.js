@@ -2,10 +2,11 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'odo/auth'], function(Q, auth) {
+  define(['q', 'odo/auth', 'components/dialog'], function(Q, auth, Dialog) {
     var Signin;
     return Signin = (function() {
       function Signin() {
+        this.signinlocal = __bind(this.signinlocal, this);
         this.canActivate = __bind(this.canActivate, this);
       }
 
@@ -21,6 +22,15 @@
           return dfd.resolve(true);
         });
         return dfd.promise;
+      };
+
+      Signin.prototype.signinlocal = function() {
+        var options;
+        options = {
+          model: 'views/auth/local'
+        };
+        new Dialog(options).show();
+        return false;
       };
 
       return Signin;

@@ -23,6 +23,7 @@ requirejs ['odo/express'], (express) ->
 		requirejs './odo/plugins/handlebars'
 		requirejs './odo/plugins/auth'
 		requirejs './odo/plugins/auth/twitter'
+		requirejs './odo/plugins/auth/facebook'
 		requirejs './odo/plugins/auth/local'
 		requirejs './odo/plugins/sendcommand'
 		requirejs './odo/plugins/public'

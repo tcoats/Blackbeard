@@ -15,7 +15,11 @@
             nav: false
           }, {
             route: 'signin',
-            moduleId: 'views/signin',
+            moduleId: 'views/auth/signin',
+            nav: false
+          }, {
+            route: '_=_',
+            moduleId: 'views/auth/facebook',
             nav: false
           }
         ]).buildNavigationModel();

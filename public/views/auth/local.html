@@ -1,0 +1,25 @@
+﻿<div class="panel panel-default" data-bind="shortcuts: { 'esc': close }">
+	<div class="panel-heading">
+		<button data-bind="click: close" type="button" class="close btn btn-default">&times;</button>
+		<h2 class="panel-title">Signin with blackbeard</h2>
+	</div>
+	<form class="form-inline signin" role="form" method="post" action="/auth/local">
+	<div class="panel-body">
+			<div class="form-group">
+				<label class="sr-only" for="username">Email address</label>
+				<input type="email" class="form-control" id="username" name="username" placeholder="Enter email">
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="password">Password</label>
+				<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+			</div>
+	</div>
+	<div class="panel-body">
+		<ul class="actions">
+			<li>
+				<button type="submit" class="forward btn btn-primary">Sign in</button>
+			</li>
+		</ul>
+	</div>
+	</form>
+</div>

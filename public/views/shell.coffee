@@ -14,7 +14,12 @@
 			}
 			{
 				route: 'signin'
-				moduleId: 'views/signin'
+				moduleId: 'views/auth/signin'
+				nav: no
+			}
+			{
+				route: '_=_'
+				moduleId: 'views/auth/facebook'
 				nav: no
 			}
 		]).buildNavigationModel()

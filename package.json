@@ -14,6 +14,7 @@
 		"passport": "*",
 		"passport-twitter": "*",
 		"passport-local": "*",
+		"passport-facebook": "*",
 		"redis": "*",
 		"handlebars": "*",
 		"eventstore": "*",

@@ -1,5 +1,5 @@
 ﻿define ['q', 'odo/auth'], (Q, auth) ->
-	class Signin
+	class SigninLocal
 		canActivate: =>
 			dfd = Q.defer()
 			
@@ -14,3 +14,10 @@
 				)
 				
 			dfd.promise
+						
+		activate: (options) =>
+			{ @dialog } = options
+		
+		close: =>
+			@dialog.close()
+			
