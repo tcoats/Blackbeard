@@ -9,11 +9,11 @@
     nodeRequire: require,
     paths: {
       odo: './bower_components/odo',
-      'blackbeard': './'
+      blackbeard: './'
     }
   });
 
-  requirejs(['odo/hub', 'blackbeard/projections/feedbackforreviewer'], function() {
+  requirejs(['odo/hub', 'blackbeard/projections/feedbackforreviewer', 'odo/projections/userprofile', 'odo/projections/usertwitter'], function() {
     var bindEvents, hub, listener, listeners, _i, _len, _results;
     hub = arguments[0], listeners = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
     listeners = listeners.map(function(listener) {

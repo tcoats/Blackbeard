@@ -11,7 +11,7 @@
 			"host": "http://thomascoats.com"
 		}
 	},
-	"hub": {
-		"channel": "blackbeard"
+	"odo": {
+		"domain": "blackbeard"
 	}
 }

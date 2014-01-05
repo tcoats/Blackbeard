@@ -8,13 +8,14 @@ requirejs.config {
 		nodeRequire: require
 		paths: {
 			odo: './bower_components/odo'
-			'blackbeard': './'
+			blackbeard: './'
 		}
 }
 
 requirejs [
 	'odo/hub'
 	'blackbeard/domain/feedbackcommands'
+	'odo/domain/usercommands'
 	# add more command handlers here
 ], (hub, handlers...) ->
 		
