@@ -2,12 +2,11 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'knockout', 'plugins/router', 'components/dialog', 'odo/auth/twitter'], function(Q, ko, router, Dialog, twitterauth) {
+  define(['q', 'knockout', 'plugins/router', 'components/dialog', 'odo/auth'], function(Q, ko, router, Dialog, auth) {
     var Search;
     return Search = (function() {
       function Search() {
         this.activate = __bind(this.activate, this);
-        this.isAuth = ko.observable(false);
         this.skill = ko.observable(0.3);
         this.output = ko.observable(0.4);
         this.delivery = ko.observable(0.5);
@@ -18,11 +17,10 @@
         var dfd,
           _this = this;
         dfd = Q.defer();
-        twitterauth.getUser().then(function(user) {
-          _this.isAuth(true);
-          return dfd.resolve(true);
+        auth.getUser().then(function(user) {
+          return dfd.resolve();
         }).fail(function(err) {
-          return dfd.resolve(false);
+          return dfd.resolve();
         });
         return dfd.promise;
       };

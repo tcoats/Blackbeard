@@ -21,7 +21,7 @@ requirejs ['odo/express'], (express) ->
 		requirejs './odo/plugins/bower'
 		requirejs './odo/plugins/durandal'
 		requirejs './odo/plugins/handlebars'
-		requirejs './odo/plugins/twitterauth'
+		requirejs './odo/plugins/auth'
 		requirejs './odo/plugins/sendcommand'
 		requirejs './blackbeard/plugins/public'
 		requirejs './blackbeard/projections/feedbackforreviewer'

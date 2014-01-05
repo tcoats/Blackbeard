@@ -1,8 +1,8 @@
-define ['q', 'knockout', 'odo/auth/twitter'], (Q, ko, twitterauth) ->
+define ['q', 'knockout', 'odo/auth'], (Q, ko, auth) ->
 	class Header
 		activate: =>
 			dfd = Q.defer()
-			twitterauth.getUser()
+			auth.getUser()
 				.then((user) =>
 					@user user
 					dfd.resolve yes

@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'knockout', 'odo/auth/twitter'], function(Q, ko, twitterauth) {
+  define(['q', 'knockout', 'odo/auth'], function(Q, ko, auth) {
     var Header;
     return Header = (function() {
       function Header() {
@@ -13,7 +13,7 @@
         var dfd,
           _this = this;
         dfd = Q.defer();
-        twitterauth.getUser().then(function(user) {
+        auth.getUser().then(function(user) {
           _this.user(user);
           return dfd.resolve(true);
         }).fail(function() {
