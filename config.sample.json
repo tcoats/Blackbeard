@@ -10,5 +10,8 @@
 			"consumer secret": "xxxx",
 			"host": "http://thomascoats.com"
 		}
+	},
+	"hub": {
+		"channel": "blackbeard"
 	}
 }
