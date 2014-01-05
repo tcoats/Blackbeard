@@ -3,9 +3,9 @@
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   define(['q', 'knockout', 'plugins/router', 'components/dialog', 'odo/auth'], function(Q, ko, router, Dialog, auth) {
-    var Search;
-    return Search = (function() {
-      function Search() {
+    var Welcome;
+    return Welcome = (function() {
+      function Welcome() {
         this.activate = __bind(this.activate, this);
         this.skill = ko.observable(0.3);
         this.output = ko.observable(0.4);
@@ -13,7 +13,7 @@
         this.group = ko.observable(0.6);
       }
 
-      Search.prototype.activate = function() {
+      Welcome.prototype.activate = function() {
         var dfd,
           _this = this;
         dfd = Q.defer();
@@ -25,7 +25,7 @@
         return dfd.promise;
       };
 
-      return Search;
+      return Welcome;
 
     })();
   });

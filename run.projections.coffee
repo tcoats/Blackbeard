@@ -16,7 +16,8 @@ requirejs [
 	'odo/hub'
 	'blackbeard/projections/feedbackforreviewer'
 	'odo/projections/userprofile'
-	'odo/projections/usertwitter'
+	'odo/plugins/auth/twitter'
+	'odo/plugins/auth/local'
 	# add more event listeners here
 ], (hub, listeners...) ->
 		

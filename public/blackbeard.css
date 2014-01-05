@@ -63,6 +63,9 @@ textarea {
   animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
 }
+form.signin .form-group {
+  width: 200px;
+}
 .avatar {
   padding: 3px;
   -webkit-border-radius: 50%;

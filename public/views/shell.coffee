@@ -12,6 +12,11 @@
 				moduleId: 'views/feedback-give/feedback-give'
 				nav: no
 			}
+			{
+				route: 'signin'
+				moduleId: 'views/signin'
+				nav: no
+			}
 		]).buildNavigationModel()
 		router.activate()
 	compositionComplete: () ->

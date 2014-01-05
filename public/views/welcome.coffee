@@ -1,5 +1,5 @@
 ﻿define ['q', 'knockout', 'plugins/router', 'components/dialog', 'odo/auth'], (Q, ko, router, Dialog, auth) ->
-	class Search
+	class Welcome
 		constructor: ->
 			@skill = ko.observable 0.3
 			@output = ko.observable 0.4

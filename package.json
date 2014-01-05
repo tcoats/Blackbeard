@@ -13,6 +13,7 @@
 		"moment": "*",
 		"passport": "*",
 		"passport-twitter": "*",
+		"passport-local": "*",
 		"redis": "*",
 		"handlebars": "*",
 		"eventstore": "*",

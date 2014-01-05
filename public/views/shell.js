@@ -13,6 +13,10 @@
             route: 'givefeedback/:id',
             moduleId: 'views/feedback-give/feedback-give',
             nav: false
+          }, {
+            route: 'signin',
+            moduleId: 'views/signin',
+            nav: false
           }
         ]).buildNavigationModel();
         return router.activate();
