@@ -5,6 +5,10 @@
 		<h4>Skill</h4>
 	</div>
 	
+	<div data-bind="foreach: descriptions">
+		<p data-bind="visible: $parent.shouldShow($data, $parent.skill()), text: text"></p>
+	</div>
+	
 	<button class="btn-paragraph btn btn-default" data-bind="click: showInfo, visible: !isShowingInfo()">Tell me about skill and technical ability</button>
 	
 	<div data-bind="visible: isShowingInfo()">

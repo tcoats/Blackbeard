@@ -17,12 +17,14 @@
             id: 'ffffff',
             name: 'Nigel Matterson',
             short: 'Nigel',
+            gender: 'male',
             email: 'nigel.matterson@gmail.com'
           },
           reviewer: {
             id: 'ttttttt',
             name: 'Bob Fergerson',
             short: 'Bob',
+            gender: 'male',
             email: 'bob.fergerson@gmail.com'
           },
           feedback: {}
