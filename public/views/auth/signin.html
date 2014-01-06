@@ -5,9 +5,14 @@
 	
 	<div class="container">
 		<div class="row authentication-mechanisms">
-			<a class="facebook" href="/auth/facebook"><img src="facebook200.png" /></a>
-			<a class="twitter" href="/auth/twitter"><img src="twitter200.png" /></a>
-			<a data-bind="click: signinlocal" class="local" href="#"><img src="blackbeard200.png" /></a>
+			<div>
+				<a data-bind="click: signinlocal" href="#"><img src="blackbeard200.png" /></a>
+				<a href="/auth/google"><img src="google200.png" /></a></a>
+			</div>
+			<div>
+				<a href="/auth/facebook"><img src="facebook200.png" />
+				<a href="/auth/twitter"><img src="twitter200.png" /></a>
+			</div>
 		</div>
 	</div>
 </div>

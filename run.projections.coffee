@@ -18,6 +18,7 @@ requirejs [
 	'odo/projections/userprofile'
 	'odo/plugins/auth/twitter'
 	'odo/plugins/auth/facebook'
+	'odo/plugins/auth/google'
 	'odo/plugins/auth/local'
 	# add more event listeners here
 ], (hub, listeners...) ->

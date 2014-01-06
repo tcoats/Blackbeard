@@ -87,6 +87,10 @@ form.signin .form-group {
 	
 	text-align: center;
 	
+	div {
+		display: inline-block;
+	}
+	
 	a {
 		display: inline-block;
 		width: 220px;
@@ -327,11 +331,11 @@ h6, .h6 {
 }
 
 // cool underline for links
-a {
+a:not(.btn) {
 	color: inherit;
 	background: url('underline.png') repeat-x 0% 100%;
 }
-a:hover {
+a:not(.btn):hover {
 	color: inherit;
 	text-decoration: none;
 }
@@ -341,7 +345,8 @@ a:hover {
 .breadcrumb a,
 .navbar-brand,
 .navbar-nav>li>a,
-.dropdown-menu > li > a  {
+.dropdown-menu > li > a,
+.authentication-mechanisms a {
 	background: none;
 }
 

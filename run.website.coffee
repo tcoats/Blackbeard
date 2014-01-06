@@ -12,22 +12,22 @@ requirejs.config {
 		}
 }
 
-requirejs ['odo/express'], (express) ->
+requirejs [
+	'odo/express'
+	'odo/plugins/peek'
+	'odo/plugins/bower'
+	'odo/plugins/durandal'
+	'odo/plugins/handlebars'
+	'odo/plugins/auth'
+	'odo/plugins/auth/twitter'
+	'odo/plugins/auth/facebook'
+	'odo/plugins/auth/google'
+	'odo/plugins/auth/local'
+	'odo/plugins/sendcommand'
+	'odo/plugins/public'
+	'blackbeard/projections/feedbackforreviewer'
+], (express, plugins...) ->
 	
 	process.env.PORT = 4834
 	
-	app = express [
-		requirejs './odo/plugins/peek'
-		requirejs './odo/plugins/bower'
-		requirejs './odo/plugins/durandal'
-		requirejs './odo/plugins/handlebars'
-		requirejs './odo/plugins/auth'
-		requirejs './odo/plugins/auth/twitter'
-		requirejs './odo/plugins/auth/facebook'
-		requirejs './odo/plugins/auth/local'
-		requirejs './odo/plugins/sendcommand'
-		requirejs './odo/plugins/public'
-		requirejs './blackbeard/projections/feedbackforreviewer'
-		#requirejs './blackbeard/projections/articleownership'
-		#requirejs './blackbeard/projections/publicarticles'
-	]
+	app = express plugins
