@@ -63,9 +63,6 @@ textarea {
   animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
 }
-form.signin .form-group {
-  width: 200px;
-}
 .authentication-mechanisms {
   text-align: center;
 }
@@ -224,6 +221,9 @@ label,
 .close,
 th {
   font-size: 1.3em;
+}
+.tooltip {
+  font-size: 16px;
 }
 .label {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

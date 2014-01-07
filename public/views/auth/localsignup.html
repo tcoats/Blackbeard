@@ -1,0 +1,31 @@
+﻿<div id="local-signup" class="panel panel-default" data-bind="shortcuts: { 'esc': close }">
+	<div class="panel-heading">
+		<button data-bind="click: close" type="button" class="close btn btn-default">&times;</button>
+		<h2 class="panel-title">Signup to Blackbeard</h2>
+	</div>
+	<div class="panel-body">
+		<form class="signup" role="form" method="post" action="/auth/local/signup">
+			<div class="form-group">
+				<label for="displayName">Full name</label>
+				<input type="text" class="form-control" id="displayName" name="displayName">
+			</div>
+			<div class="form-group">
+				<label for="username">Email address</label>
+				<input type="email" class="form-control" id="username" name="username">
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" class="form-control" id="password" name="password">
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="passwordconfirm">Confirm password</label>
+				<input type="password" class="form-control" id="passwordconfirm" name="passwordconfirm" placeholder="Confirm password">
+			</div>
+			<ul class="actions">
+				<li>
+					<button data-bind="click: signup" type="submit" class="forward btn btn-primary">Sign up</button>
+				</li>
+			</ul>
+		</form>
+	</div>
+</div>

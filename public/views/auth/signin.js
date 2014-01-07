@@ -2,22 +2,24 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'odo/auth', 'components/dialog'], function(Q, auth, Dialog) {
+  define(['q', 'knockout', 'jquery', 'odo/auth', 'components/dialog'], function(Q, ko, $, auth, Dialog) {
     var Signin;
     return Signin = (function() {
       function Signin() {
+        this.compositionComplete = __bind(this.compositionComplete, this);
         this.signinlocal = __bind(this.signinlocal, this);
-        this.canActivate = __bind(this.canActivate, this);
+        this.activate = __bind(this.activate, this);
       }
 
-      Signin.prototype.canActivate = function() {
+      Signin.prototype.user = ko.observable(null);
+
+      Signin.prototype.activate = function() {
         var dfd,
           _this = this;
         dfd = Q.defer();
         auth.getUser().then(function(user) {
-          return dfd.resolve({
-            redirect: '#'
-          });
+          _this.user(user);
+          return dfd.resolve(true);
         }).fail(function(err) {
           return dfd.resolve(true);
         });
@@ -26,11 +28,25 @@
 
       Signin.prototype.signinlocal = function() {
         var options;
-        options = {
-          model: 'views/auth/local'
-        };
+        if (this.user() != null) {
+          options = {
+            model: 'views/auth/localsignup'
+          };
+        } else {
+          options = {
+            model: 'views/auth/localsignin'
+          };
+        }
         new Dialog(options).show();
         return false;
+      };
+
+      Signin.prototype.compositionComplete = function() {
+        return $('.authentication-mechanisms').tooltip({
+          selector: 'a',
+          container: 'body',
+          placement: 'bottom'
+        });
       };
 
       return Signin;
