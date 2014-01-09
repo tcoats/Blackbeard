@@ -1,197 +1,4 @@
 body {
-  position: relative;
-  padding-top: 90px;
-  padding-bottom: 15px;
-}
-textarea {
-  resize: vertical;
-}
-#site-title {
-  margin-left: 95px;
-  margin-top: -80px;
-  margin-bottom: 30px;
-}
-@media (max-width: 991px) {
-  body {
-    padding-top: 65px;
-  }
-  #site-title {
-    margin-left: 70px;
-    margin-top: -70px;
-  }
-}
-#site-nav {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-#site-nav button {
-  margin: 0;
-  padding: 5px;
-  border: 0;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  width: 74px;
-  height: 74px;
-  background-image: url("blackbeard64.png");
-  background-color: transparent;
-  background-position: 5px 5px;
-  background-repeat: no-repeat;
-}
-#site-nav button.visible-xs {
-  background-image: url("blackbeard48.png");
-  width: 58px;
-  height: 58px;
-  margin-top: -5px;
-  margin-left: -5px;
-}
-#site-nav button:focus {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-#loading-space {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 300px;
-  height: 300px;
-  margin-top: -130px;
-  margin-left: -150px;
-  text-align: center;
-}
-#loading-space img {
-  animation-iteration-count: infinite;
-  -webkit-animation-iteration-count: infinite;
-}
-.authentication-mechanisms {
-  text-align: center;
-}
-.authentication-mechanisms div {
-  display: inline-block;
-}
-.authentication-mechanisms a {
-  display: inline-block;
-  width: 220px;
-  height: 220px;
-  margin: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  border: 2px dashed #999;
-}
-.authentication-mechanisms a:hover {
-  background-color: #eee;
-}
-.authentication-mechanisms a img {
-  padding: 10px;
-}
-.avatar {
-  padding: 3px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  border: 1px solid #999;
-}
-.btn-paragraph {
-  margin: 0 0 10px;
-}
-.close {
-  line-height: 0.7;
-}
-.actions {
-  padding-left: 0;
-  margin: 20px 0;
-  height: 0px;
-  overflow: visible;
-  text-align: center;
-  list-style: none;
-}
-.actions li {
-  height: 0px;
-  overflow: visible;
-}
-.actions .forward {
-  float: right;
-}
-.actions .back {
-  float: left;
-}
-.panel-heading .actions,
-.modal-heading .actions {
-  margin: -6px -12px -6px 0;
-  text-align: left;
-  float: right;
-  height: auto;
-}
-.panel-heading .actions li,
-.modal-heading .actions li {
-  height: auto;
-}
-.modal-footer .actions {
-  margin-top: 0;
-}
-.modal-dialog > .wizard > .panel-default {
-  border-color: #999;
-  border-color: rgba(0, 0, 0, 0.3);
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  outline: none;
-  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-}
-.wizard .animated {
-  -webkit-animation-duration: 0.3s;
-  -moz-animation-duration: 0.3s;
-  -o-animation-duration: 0.3s;
-  animation-duration: 0.3s;
-}
-.slider-box {
-  float: left;
-  margin: 0 10px;
-  text-align: center;
-  width: 60px;
-  overflow: visible;
-}
-.slider-box.center-block {
-  float: none;
-  margin: inherit;
-}
-.slider {
-  position: relative;
-  background-color: rgba(0, 0, 0, 0.06);
-  z-index: 100;
-  width: 60px;
-  height: 200px;
-  overflow: hidden;
-}
-.slider .handle {
-  position: absolute;
-  cursor: ns-resize;
-  width: 60px;
-  height: 400px;
-}
-.slider .slide {
-  position: absolute;
-  bottom: 0px;
-  width: 60px;
-  height: 200px;
-  background: #c00;
-}
-.slider.slider-skill .slide {
-  background: #f92e59;
-}
-.slider.slider-output .slide {
-  background: #ff703f;
-}
-.slider.slider-delivery .slide {
-  background: #f6bc03;
-}
-.slider.slider-group .slide {
-  background: #dfd487;
-}
-body {
   font-family: "Coming Soon", serif;
   font-size: 18px;
 }
@@ -413,4 +220,151 @@ input[type="checkbox"] {
 .well {
   background-color: inherit;
   border: 2px dashed #999;
+}
+body {
+  position: relative;
+  padding-top: 90px;
+  padding-bottom: 15px;
+}
+textarea {
+  resize: vertical;
+}
+#site-title {
+  margin-left: 95px;
+  margin-top: -80px;
+  margin-bottom: 30px;
+}
+#site-title small {
+  line-height: 10px;
+}
+@media (max-width: 991px) {
+  body {
+    padding-top: 65px;
+  }
+  #site-title {
+    margin-left: 70px;
+    margin-top: -70px;
+  }
+}
+#site-nav {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+#site-nav button {
+  margin: 0;
+  padding: 5px;
+  border: 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 74px;
+  height: 74px;
+  background-image: url("blackbeard64.png");
+  background-color: transparent;
+  background-position: 5px 5px;
+  background-repeat: no-repeat;
+}
+#site-nav button.visible-xs {
+  background-image: url("blackbeard48.png");
+  width: 58px;
+  height: 58px;
+  margin-top: -5px;
+  margin-left: -5px;
+}
+#site-nav button:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+#loading-space {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  margin-top: -130px;
+  margin-left: -150px;
+  text-align: center;
+}
+#loading-space img {
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+.authentication-mechanisms {
+  text-align: center;
+}
+.authentication-mechanisms div {
+  display: inline-block;
+}
+.authentication-mechanisms a {
+  display: inline-block;
+  width: 220px;
+  height: 220px;
+  margin: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 2px dashed #999;
+}
+.authentication-mechanisms a:hover {
+  background-color: #eee;
+}
+.authentication-mechanisms a img {
+  padding: 10px;
+}
+.avatar {
+  padding: 3px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 1px solid #999;
+}
+.btn-paragraph {
+  margin: 0 0 10px;
+}
+.close {
+  line-height: 0.7;
+}
+.slider-box {
+  float: left;
+  margin: 0 10px;
+  text-align: center;
+  width: 60px;
+  overflow: visible;
+}
+.slider-box.center-block {
+  float: none;
+  margin: inherit;
+}
+.slider {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.06);
+  z-index: 100;
+  width: 60px;
+  height: 200px;
+  overflow: hidden;
+}
+.slider .handle {
+  position: absolute;
+  cursor: ns-resize;
+  width: 60px;
+  height: 400px;
+}
+.slider .slide {
+  position: absolute;
+  bottom: 0px;
+  width: 60px;
+  height: 200px;
+  background: #c00;
+}
+.slider.slider-skill .slide {
+  background: #f92e59;
+}
+.slider.slider-output .slide {
+  background: #ff703f;
+}
+.slider.slider-delivery .slide {
+  background: #f6bc03;
+}
+.slider.slider-group .slide {
+  background: #dfd487;
 }
