@@ -48,7 +48,8 @@
       mousetrap: true,
       q: true,
       bootstrap: true,
-      marked: true
+      marked: true,
+      dialog: true
     });
     blackbeardbindings.init(requirejs, {
       slider: true

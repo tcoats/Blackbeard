@@ -153,7 +153,8 @@ textarea {
 	}
 }
 
-.panel-heading .actions {
+.panel-heading .actions,
+.modal-heading .actions {
 	margin: -6px -12px -6px 0;
 	text-align: left;
 	float: right;
@@ -163,6 +164,9 @@ textarea {
 	li {
 		height: auto;
 	}
+}
+.modal-footer .actions {
+	margin-top: 0;
 }
 
 // a wizard just inside a modal dialog should look cool!
@@ -391,7 +395,8 @@ input[type="checkbox"]:focus,
 }
 
 // panel title is bigger
-.panel-title {
+.panel-title,
+.modal-title {
 	font-size: 28px;
 }
 
@@ -435,6 +440,9 @@ input[type="checkbox"] {
 .panel,
 .panel-heading,
 .panel>.panel-body+.table, .panel>.panel-body+.table-responsive,
+.modal-dialog,
+.modal-heading,
+.modal>.modal-body+.table, .modal>.modal-body+.table-responsive,
 .dropdown-menu,
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
 	border-width: 2px;
@@ -442,7 +450,8 @@ input[type="checkbox"] {
 .dropdown-menu .divider {
 	height: 2px;
 }
-.panel>.list-group .list-group-item {
+.panel>.list-group .list-group-item,
+.modal>.list-group .list-group-item {
 	border-width: 2px;
 	margin-top: -2px;
 	margin-left: -2px;

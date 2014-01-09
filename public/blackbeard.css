@@ -116,14 +116,19 @@ textarea {
 .actions .back {
   float: left;
 }
-.panel-heading .actions {
+.panel-heading .actions,
+.modal-heading .actions {
   margin: -6px -12px -6px 0;
   text-align: left;
   float: right;
   height: auto;
 }
-.panel-heading .actions li {
+.panel-heading .actions li,
+.modal-heading .actions li {
   height: auto;
+}
+.modal-footer .actions {
+  margin-top: 0;
 }
 .modal-dialog > .wizard > .panel-default {
   border-color: #999;
@@ -335,7 +340,8 @@ input[type="checkbox"]:focus,
   outline: none;
   box-shadow: none;
 }
-.panel-title {
+.panel-title,
+.modal-title {
   font-size: 28px;
 }
 .list-group-item,
@@ -373,6 +379,10 @@ input[type="checkbox"] {
 .panel-heading,
 .panel > .panel-body + .table,
 .panel > .panel-body + .table-responsive,
+.modal-dialog,
+.modal-heading,
+.modal > .modal-body + .table,
+.modal > .modal-body + .table-responsive,
 .dropdown-menu,
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -385,7 +395,8 @@ input[type="checkbox"] {
 .dropdown-menu .divider {
   height: 2px;
 }
-.panel > .list-group .list-group-item {
+.panel > .list-group .list-group-item,
+.modal > .list-group .list-group-item {
   border-width: 2px;
   margin-top: -2px;
   margin-left: -2px;

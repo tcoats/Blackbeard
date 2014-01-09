@@ -44,6 +44,7 @@ define ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal
 			q: yes
 			bootstrap: yes
 			marked: yes
+			dialog: yes
 		
 		blackbeardbindings.init requirejs,
 			slider: yes
