@@ -29,10 +29,3 @@
 			new Dialog(options).show()
 			
 			no
-		
-		compositionComplete: =>
-			$('.authentication-mechanisms').tooltip {
-				selector: 'a'
-				container: 'body'
-				placement: 'bottom'
-			}

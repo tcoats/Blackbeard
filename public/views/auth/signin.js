@@ -6,7 +6,6 @@
     var Signin;
     return Signin = (function() {
       function Signin() {
-        this.compositionComplete = __bind(this.compositionComplete, this);
         this.signinlocal = __bind(this.signinlocal, this);
         this.activate = __bind(this.activate, this);
       }
@@ -39,14 +38,6 @@
         }
         new Dialog(options).show();
         return false;
-      };
-
-      Signin.prototype.compositionComplete = function() {
-        return $('.authentication-mechanisms').tooltip({
-          selector: 'a',
-          container: 'body',
-          placement: 'bottom'
-        });
       };
 
       return Signin;
