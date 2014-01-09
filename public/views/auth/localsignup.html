@@ -7,23 +7,23 @@
 		<form class="signup" role="form" method="post" action="/odo/auth/local/signup">
 			<div class="form-group">
 				<label for="displayName">Full name</label>
-				<input type="text" class="form-control" id="displayName" name="displayName">
+				<input type="text" class="form-control" id="displayName" name="displayName" placeholder="So Blackbeard can greet you">
 			</div>
 			<div class="form-group">
 				<label for="username">Email address</label>
-				<input type="email" class="form-control" id="username" name="username">
+				<input type="email" class="form-control" id="username" name="username" placeholder="So Blackbeard can send reminders">
 			</div>
 			<div class="form-group">
 				<label for="password">Password</label>
-				<input type="password" class="form-control" id="password" name="password">
+				<input type="password" class="form-control" id="password" name="password" placeholder="Longer phrases are good here">
 			</div>
 			<div class="form-group">
 				<label class="sr-only" for="passwordconfirm">Confirm password</label>
-				<input type="password" class="form-control" id="passwordconfirm" name="passwordconfirm" placeholder="Confirm password">
+				<input type="password" class="form-control" id="passwordconfirm" name="passwordconfirm" placeholder="Confirm password for accuracy">
 			</div>
 			<ul class="actions">
 				<li>
-					<button data-bind="click: signup" type="submit" class="forward btn btn-primary">Sign up</button>
+					<button data-bind="click: signup" type="submit" class="forward btn btn-success">Sign up</button>
 				</li>
 			</ul>
 		</form>
