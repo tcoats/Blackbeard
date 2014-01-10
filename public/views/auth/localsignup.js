@@ -2,19 +2,30 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['knockout'], function(ko) {
+  define(['knockout', 'odo/auth/local'], function(ko, localauth) {
     var LocalSignup;
     return LocalSignup = (function() {
       function LocalSignup() {
         this.signup = __bind(this.signup, this);
         this.close = __bind(this.close, this);
         this.activate = __bind(this.activate, this);
+        var _this = this;
         this.displayName = ko.observable('').extend({
           required: true
         });
         this.username = ko.observable('').extend({
           required: true,
-          email: true
+          validation: {
+            async: true,
+            validator: function(val, params, callback) {
+              return localauth.getUsernameAvailability(val).then(function(availibility) {
+                return callback({
+                  isValid: availibility.isAvailable,
+                  message: availibility.message
+                });
+              });
+            }
+          }
         });
         this.password = ko.observable('').extend({
           required: true,
@@ -42,6 +53,7 @@
 
       LocalSignup.prototype.signup = function() {
         if (!this.isValid()) {
+          this.dialog.shake();
           this.errors.showAllMessages();
           return false;
         }

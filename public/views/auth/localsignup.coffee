@@ -1,4 +1,4 @@
-﻿define ['knockout'], (ko) ->
+﻿define ['knockout', 'odo/auth/local'], (ko, localauth) ->
 	class LocalSignup
 		constructor: ->
 			@displayName = ko.observable('')
@@ -7,7 +7,14 @@
 			@username = ko.observable('')
 				.extend
 					required: yes
-					email: yes
+					validation:
+						async: yes
+						validator: (val, params, callback) =>
+							localauth.getUsernameAvailability(val).then (availibility) =>
+								callback
+									isValid: availibility.isAvailable
+									message: availibility.message
+						
 			@password = ko.observable('')
 				.extend
 					required: yes
@@ -31,6 +38,7 @@
 		signup: =>
 			# validate here!
 			if !@isValid()
+				@dialog.shake()
 				@errors.showAllMessages()
 				return no
 				

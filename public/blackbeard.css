@@ -40,8 +40,13 @@ th {
 .help-block {
   font-size: 14px;
 }
-.label {
+.label,
+.input-group-addon {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+small {
+  font-family: "Coming Soon", serif;
+  font-size: 50%;
 }
 h1 small,
 h2 small,
@@ -54,22 +59,8 @@ h6 small,
 .h3 small,
 .h4 small,
 .h5 small,
-.h6 small,
-h1 .small,
-h2 .small,
-h3 .small,
-h4 .small,
-h5 .small,
-h6 .small,
-.h1 .small,
-.h2 .small,
-.h3 .small,
-.h4 .small,
-.h5 .small,
-.h6 .small {
-  font-family: "Coming Soon", serif;
+.h6 small {
   color: #333;
-  font-size: 50%;
 }
 h1,
 .h1 {

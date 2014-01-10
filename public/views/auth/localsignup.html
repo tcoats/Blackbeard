@@ -6,20 +6,26 @@
 	<div class="panel-body">
 		<form class="signup" role="form" method="post" action="/odo/auth/local/signup" autocomplete="off">
 			<div class="form-group" data-bind="css: {'has-error': displayName.isModified() && !displayName.isValid() }">
-				<label for="displayName">Full name</label>
-				<input data-bind="value: displayName, valueUpdate: 'afterkeydown'" type="text" class="form-control" id="displayName" name="displayName" placeholder="So Blackbeard can greet you">
+				<label class="control-label" for="displayName">Full name <small data-bind="validationMessage: displayName"></small></label>
+				<div class="input-group">
+ 					<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+					<input data-bind="value: displayName" type="text" class="form-control" id="displayName" name="displayName" placeholder="So Blackbeard can greet you">
+				</div>
 			</div>
 			<div class="form-group" data-bind="css: {'has-error': username.isModified() && !username.isValid() }">
-				<label for="username">Email address</label>
-				<input data-bind="value: username, valueUpdate: 'afterkeydown'" type="email" class="form-control" id="username" name="username" placeholder="So Blackbeard can send reminders">
+				<label class="control-label" for="username">Username <small data-bind="visible: username.isValidating">validating&hellip;</small><small data-bind="validationMessage: username"></small></label>
+				<div class="input-group">
+ 					<span class="input-group-addon">@</span>
+					<input data-bind="value: username" type="text" class="form-control" id="username" name="username" placeholder="How you are known in Blackbeard">
+				</div>
 			</div>
 			<div class="form-group" data-bind="css: {'has-error': password.isModified() && !password.isValid() }">
-				<label for="password">Password</label>
-				<input data-bind="value: password, valueUpdate: 'afterkeydown'" type="password" class="form-control" id="password" name="password" placeholder="Longer phrases are good here">
+				<label class="control-label" for="password">Password <small data-bind="validationMessage: password"></small></label>
+				<input data-bind="value: password" type="password" class="form-control" id="password" name="password" placeholder="Longer phrases are good here">
 			</div>
 			<div class="form-group" data-bind="css: {'has-error': confirmPassword.isModified() && !confirmPassword.isValid() }">
-				<label class="sr-only" for="passwordconfirm">Confirm password</label>
-				<input data-bind="value: confirmPassword, valueUpdate: 'afterkeydown'" type="password" class="form-control" id="passwordconfirm" name="passwordconfirm" placeholder="Confirm password for accuracy">
+				<label class="control-label" for="passwordconfirm">Confirm password <small data-bind="validationMessage: confirmPassword"></small></label>
+				<input data-bind="value: confirmPassword" type="password" class="form-control" id="passwordconfirm" name="passwordconfirm" placeholder="Confirm password for accuracy">
 			</div>
 			<ul class="actions">
 				<li>

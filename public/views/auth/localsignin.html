@@ -1,16 +1,19 @@
 ﻿<div id="local-signin" class="panel panel-default" data-bind="shortcuts: { 'esc': close }">
 	<div class="panel-heading">
 		<button data-bind="click: close" type="button" class="close btn btn-default">&times;</button>
-		<h2 class="panel-title">Manually signin with an email and password</h2>
+		<h2 class="panel-title">Manually signin with a username and password</h2>
 	</div>
 	<div class="panel-body">
 		<form class="signin" role="form" method="post" action="/odo/auth/local">
 			<div class="form-group">
-				<label class="sr-only" for="username">Email address</label>
-				<input type="email" class="form-control" id="username" name="username" placeholder="Email address">
+				<label for="username">Username</label>
+				<div class="input-group">
+ 					<span class="input-group-addon">@</span>
+					<input type="text" class="form-control" id="username" name="username" placeholder="Username">
+				</div>
 			</div>
 			<div class="form-group">
-				<label class="sr-only" for="password">Password</label>
+				<label for="password">Password</label>
 				<input type="password" class="form-control" id="password" name="password" placeholder="Password">
 			</div>
 			<ul class="actions">
