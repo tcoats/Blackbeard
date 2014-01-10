@@ -2,13 +2,34 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'knockout', 'odo/auth', 'components/dialog'], function(Q, ko, auth, Dialog) {
+  define(['knockout'], function(ko) {
     var LocalSignup;
     return LocalSignup = (function() {
       function LocalSignup() {
         this.signup = __bind(this.signup, this);
         this.close = __bind(this.close, this);
         this.activate = __bind(this.activate, this);
+        this.displayName = ko.observable('').extend({
+          required: true
+        });
+        this.username = ko.observable('').extend({
+          required: true,
+          email: true
+        });
+        this.password = ko.observable('').extend({
+          required: true,
+          pattern: {
+            params: '^.{8,}$',
+            message: 'A good password is probably eight or more letters'
+          }
+        });
+        this.confirmPassword = ko.observable('').extend({
+          equal: {
+            params: this.password,
+            message: 'Type the same password here'
+          }
+        });
+        this.errors = ko.validation.group(this);
       }
 
       LocalSignup.prototype.activate = function(options) {
@@ -20,6 +41,11 @@
       };
 
       LocalSignup.prototype.signup = function() {
+        if (!this.isValid()) {
+          this.errors.showAllMessages();
+          return false;
+        }
+        return false;
         return true;
       };
 

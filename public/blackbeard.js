@@ -6,6 +6,7 @@
       durandal: 'durandal/js',
       plugins: 'durandal/js/plugins',
       knockout: 'knockout.js/knockout',
+      'ko.validation': 'ko-validation/dist/knockout.validation.min',
       bootstrap: 'bootstrap/dist/js/bootstrap.min',
       jquery: 'jquery/jquery.min',
       underscore: 'underscore/underscore-min',
@@ -31,6 +32,9 @@
       },
       marked: {
         exports: 'marked'
+      },
+      'ko.validation': {
+        deps: ['knockout']
       }
     },
     urlArgs: 'v=' + (new Date()).getTime()
@@ -49,7 +53,8 @@
       q: true,
       bootstrap: true,
       marked: true,
-      dialog: true
+      dialog: true,
+      validation: true
     });
     blackbeardbindings.init(requirejs, {
       slider: true
