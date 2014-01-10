@@ -10,10 +10,10 @@
         this.close = __bind(this.close, this);
         this.activate = __bind(this.activate, this);
         var _this = this;
-        this.displayName = ko.observable('').extend({
+        this.displayName = ko.observable(''.extend({
           required: true
-        });
-        this.username = ko.observable('').extend({
+        }));
+        this.username = ko.observable(''.extend({
           required: true,
           validation: {
             async: true,
@@ -26,12 +26,12 @@
               });
             }
           }
-        });
+        }));
         this.password = ko.observable('').extend({
           required: true,
           pattern: {
             params: '^.{8,}$',
-            message: 'A good password is probably eight or more letters'
+            message: 'Eight or more letters for security'
           }
         });
         this.confirmPassword = ko.observable('').extend({
