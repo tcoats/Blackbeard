@@ -1,10 +1,11 @@
 ﻿define ['knockout', 'odo/auth/local'], (ko, localauth) ->
 	class LocalSignup
 		constructor: ->
-			@displayName = ko.observable ''
+			@displayName = ko.observable('')
 				.extend
 					required: yes
-			@username = ko.observable ''
+					
+			@username = ko.observable('')
 				.extend
 					required: yes
 					validation:
@@ -21,6 +22,7 @@
 					pattern:
 						params: '^.{8,}$'
 						message: 'Eight or more letters for security'
+						
 			@confirmPassword = ko.observable('')
 				.extend
 					equal:
@@ -36,11 +38,9 @@
 			@dialog.close()
 			
 		signup: =>
-			# validate here!
 			if !@isValid()
 				@dialog.shake()
 				@errors.showAllMessages()
 				return no
 				
-			return no
 			yes
