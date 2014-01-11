@@ -21,6 +21,10 @@
             route: '_=_',
             moduleId: 'views/auth/facebook',
             nav: false
+          }, {
+            route: 'user/profile',
+            moduleId: 'views/user/profile',
+            nav: false
           }
         ]).buildNavigationModel();
         return router.activate();

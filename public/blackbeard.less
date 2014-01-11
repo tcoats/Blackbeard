@@ -57,7 +57,6 @@ h6, .h6 {
 
 // cool underline for links
 a:not(.btn) {
-	color: inherit;
 	background: url('underline.png') repeat-x 0% 100%;
 }
 a:not(.btn):hover {
@@ -71,7 +70,8 @@ a:not(.btn):hover {
 .navbar-brand,
 .navbar-nav>li>a,
 .dropdown-menu > li > a,
-.authentication-mechanisms a {
+.authentication-mechanisms a,
+a.list-group-item {
 	background: none;
 }
 
@@ -132,6 +132,10 @@ input[type="checkbox"]:focus,
 .form-control,
 .pagination>li>a, .pagination>li>span {
 	padding-bottom: 3px;
+}
+
+.list-group-item .btn {
+	margin-top: -5px;
 }
 
 // fix nav

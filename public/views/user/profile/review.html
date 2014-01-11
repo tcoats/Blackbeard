@@ -1,0 +1,20 @@
+﻿<div id="user-profile" class="panel panel-default" data-bind="shortcuts: { 'esc': close }">
+	<div class="panel-heading">
+		<button data-bind="click: close" type="button" class="close btn btn-default">&times;</button>
+		<h2 class="panel-title">Complete or update your profile in Blackbeard</h2>
+	</div>
+	<div class="panel-body">
+		<ul class="list-group">
+			<li class="list-group-item">
+				<span data-bind="text: user().displayName"></span>
+				<span class="pull-right"><a href="#" class="btn btn-default btn-sm">Change <span class="glyphicon glyphicon-chevron-right"></span></a></span>
+			</li>
+			<li class="list-group-item">
+				<span data-bind="text: user().username"></span>
+			</li>
+			<li class="list-group-item">
+				<span data-bind="text: user().email"></span>
+			</li>
+		</ul>
+	</div>
+</div>

@@ -1,5 +1,7 @@
-define ['q', 'knockout', 'odo/auth'], (Q, ko, auth) ->
+define ['q', 'knockout', 'odo/auth', 'components/dialog'], (Q, ko, auth, Dialog) ->
 	class Header
+		user: ko.observable null
+		
 		activate: =>
 			dfd = Q.defer()
 			auth.getUser()
@@ -12,4 +14,10 @@ define ['q', 'knockout', 'odo/auth'], (Q, ko, auth) ->
 				)
 			dfd.promise
 		
-		user: ko.observable null
+		showProfile: =>
+			options = {
+				model: 'views/user/profile'
+			}
+			
+			new Dialog(options).show()
+			

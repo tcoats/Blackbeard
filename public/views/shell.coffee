@@ -9,7 +9,7 @@
 			}
 			{
 				route: 'givefeedback/:id'
-				moduleId: 'views/feedback-give/feedback-give'
+				moduleId: 'views/feedback/give'
 				nav: no
 			}
 			{
@@ -20,6 +20,11 @@
 			{
 				route: '_=_'
 				moduleId: 'views/auth/facebook'
+				nav: no
+			}
+			{
+				route: 'user/profile'
+				moduleId: 'views/user/profile'
 				nav: no
 			}
 		]).buildNavigationModel()

@@ -2,12 +2,15 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'knockout', 'odo/auth'], function(Q, ko, auth) {
+  define(['q', 'knockout', 'odo/auth', 'components/dialog'], function(Q, ko, auth, Dialog) {
     var Header;
     return Header = (function() {
       function Header() {
+        this.showProfile = __bind(this.showProfile, this);
         this.activate = __bind(this.activate, this);
       }
+
+      Header.prototype.user = ko.observable(null);
 
       Header.prototype.activate = function() {
         var dfd,
@@ -22,7 +25,13 @@
         return dfd.promise;
       };
 
-      Header.prototype.user = ko.observable(null);
+      Header.prototype.showProfile = function() {
+        var options;
+        options = {
+          model: 'views/user/profile'
+        };
+        return new Dialog(options).show();
+      };
 
       return Header;
 

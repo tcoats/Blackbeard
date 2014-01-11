@@ -9,7 +9,7 @@
 				<label class="control-label" for="username">Username <small data-bind="visible: username.isValidating">validating&hellip;</small><small data-bind="validationMessage: username"></small></label>
 				<div class="input-group">
  					<span class="input-group-addon">@</span>
-					<input data-bind="value: username" type="text" class="form-control" name="username" placeholder="How you are known in Blackbeard" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+					<input data-bind="value: username" type="text" class="form-control" name="username" placeholder="How you are known in Blackbeard" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus>
 				</div>
 			</div>
 			<div class="form-group" data-bind="css: {'has-error': password.isModified() && !password.isValid() }">

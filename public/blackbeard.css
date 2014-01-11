@@ -87,7 +87,6 @@ h6,
   font-size: 14px;
 }
 a:not(.btn) {
-  color: inherit;
   background: url('underline.png') repeat-x 0% 100%;
 }
 a:not(.btn):hover {
@@ -100,7 +99,8 @@ a:not(.btn):hover {
 .navbar-brand,
 .navbar-nav > li > a,
 .dropdown-menu > li > a,
-.authentication-mechanisms a {
+.authentication-mechanisms a,
+a.list-group-item {
   background: none;
 }
 .dropdown-menu > li > a {
@@ -153,6 +153,9 @@ input[type="checkbox"]:focus,
 .pagination > li > a,
 .pagination > li > span {
   padding-bottom: 3px;
+}
+.list-group-item .btn {
+  margin-top: -5px;
 }
 .navbar-nav > li > a,
 .navbar-brand {
