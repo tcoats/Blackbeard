@@ -23,6 +23,7 @@
 		"node-uuid": "*",
 		"async": "*",
 		"socket.io": "*",
-		"q": "*"
+		"q": "*",
+		"mandrill-api": "*"
 	}
 }
