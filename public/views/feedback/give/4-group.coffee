@@ -16,7 +16,7 @@
 		back: =>
 			@feedback().feedback.group = @group()
 			options = {
-				model: 'views/feedback-give/3-delivery'
+				model: 'views/feedback/give/3-delivery'
 				activationData: @feedback()
 			}
 			@wizard.back(options)()
@@ -24,7 +24,7 @@
 		forward: =>
 			@feedback().feedback.group = @group()
 			options = {
-				model: 'views/feedback-give/5-review'
+				model: 'views/feedback/give/5-review'
 				activationData: @feedback()
 			}
 			@wizard.forward(options)()

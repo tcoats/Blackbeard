@@ -2,29 +2,29 @@
 	class Output
 		constructor: ->
 			@feedback = ko.observable null
-			@output = ko.observable null
+			@delivery = ko.observable null
 			@isShowingInfo = ko.observable no
 		
 		activate: (options) =>
 			{ @wizard, activationData } = options
 			@feedback activationData
-			if @feedback().feedback.output?
-				@output @feedback().feedback.output
+			if @feedback().feedback.delivery?
+				@delivery @feedback().feedback.delivery
 			else
-				@output 0.05
+				@delivery 0.05
 		
 		back: =>
-			@feedback().feedback.output = @output()
+			@feedback().feedback.delivery = @delivery()
 			options = {
-				model: 'views/feedback-give/1-skill'
+				model: 'views/feedback/give/2-output'
 				activationData: @feedback()
 			}
 			@wizard.back(options)()
 		
 		forward: =>
-			@feedback().feedback.output = @output()
+			@feedback().feedback.delivery = @delivery()
 			options = {
-				model: 'views/feedback-give/3-delivery'
+				model: 'views/feedback/give/4-group'
 				activationData: @feedback()
 			}
 			@wizard.forward(options)()

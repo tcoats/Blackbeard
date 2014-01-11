@@ -104,7 +104,7 @@
 		back: =>
 			@feedback().feedback.skill = @skill()
 			options = {
-				model: 'views/feedback-give/0-introduction'
+				model: 'views/feedback/give/0-introduction'
 				activationData: @feedback()
 			}
 			@wizard.back(options)()
@@ -112,7 +112,7 @@
 		forward: =>
 			@feedback().feedback.skill = @skill()
 			options = {
-				model: 'views/feedback-give/2-output'
+				model: 'views/feedback/give/2-output'
 				activationData: @feedback()
 			}
 			@wizard.forward(options)()

@@ -8,8 +8,9 @@
       function Introduction() {
         this.close = __bind(this.close, this);
         this.activate = __bind(this.activate, this);
-        this.feedback = ko.observable(null);
       }
+
+      Introduction.prototype.feedback = ko.observable(null);
 
       Introduction.prototype.activate = function(options) {
         var activationData;

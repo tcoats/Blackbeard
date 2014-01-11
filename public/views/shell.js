@@ -11,7 +11,7 @@
             nav: false
           }, {
             route: 'givefeedback/:id',
-            moduleId: 'views/feedback-give/feedback-give',
+            moduleId: 'views/feedback/give',
             nav: false
           }, {
             route: 'signin',

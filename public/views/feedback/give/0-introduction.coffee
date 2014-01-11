@@ -1,7 +1,6 @@
 ﻿define ['knockout'], (ko) ->
 	class Introduction
-		constructor: ->
-			@feedback = ko.observable null
+		feedback: ko.observable null
 		
 		activate: (options) =>
 			{ @wizard, @dialog, activationData } = options

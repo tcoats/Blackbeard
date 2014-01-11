@@ -30,7 +30,7 @@
         var options;
         this.feedback().feedback.delivery = this.delivery();
         options = {
-          model: 'views/feedback-give/2-output',
+          model: 'views/feedback/give/2-output',
           activationData: this.feedback()
         };
         return this.wizard.back(options)();
@@ -40,7 +40,7 @@
         var options;
         this.feedback().feedback.delivery = this.delivery();
         options = {
-          model: 'views/feedback-give/4-group',
+          model: 'views/feedback/give/4-group',
           activationData: this.feedback()
         };
         return this.wizard.forward(options)();

@@ -107,7 +107,7 @@
         var options;
         this.feedback().feedback.skill = this.skill();
         options = {
-          model: 'views/feedback-give/0-introduction',
+          model: 'views/feedback/give/0-introduction',
           activationData: this.feedback()
         };
         return this.wizard.back(options)();
@@ -117,7 +117,7 @@
         var options;
         this.feedback().feedback.skill = this.skill();
         options = {
-          model: 'views/feedback-give/2-output',
+          model: 'views/feedback/give/2-output',
           activationData: this.feedback()
         };
         return this.wizard.forward(options)();

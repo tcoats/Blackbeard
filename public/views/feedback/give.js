@@ -35,7 +35,7 @@
         return this.composeOptions({
           model: 'components/wizard',
           activationData: {
-            model: 'views/feedback-give/0-introduction',
+            model: 'views/feedback/give/0-introduction',
             activationData: this.feedback
           }
         });

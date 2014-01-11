@@ -11,7 +11,7 @@
         this.back = __bind(this.back, this);
         this.activate = __bind(this.activate, this);
         this.feedback = ko.observable(null);
-        this.output = ko.observable(null);
+        this.group = ko.observable(null);
         this.isShowingInfo = ko.observable(false);
       }
 
@@ -19,18 +19,18 @@
         var activationData;
         this.wizard = options.wizard, activationData = options.activationData;
         this.feedback(activationData);
-        if (this.feedback().feedback.output != null) {
-          return this.output(this.feedback().feedback.output);
+        if (this.feedback().feedback.group != null) {
+          return this.group(this.feedback().feedback.group);
         } else {
-          return this.output(0.05);
+          return this.group(0.05);
         }
       };
 
       Output.prototype.back = function() {
         var options;
-        this.feedback().feedback.output = this.output();
+        this.feedback().feedback.group = this.group();
         options = {
-          model: 'views/feedback-give/1-skill',
+          model: 'views/feedback/give/3-delivery',
           activationData: this.feedback()
         };
         return this.wizard.back(options)();
@@ -38,9 +38,9 @@
 
       Output.prototype.forward = function() {
         var options;
-        this.feedback().feedback.output = this.output();
+        this.feedback().feedback.group = this.group();
         options = {
-          model: 'views/feedback-give/3-delivery',
+          model: 'views/feedback/give/5-review',
           activationData: this.feedback()
         };
         return this.wizard.forward(options)();
