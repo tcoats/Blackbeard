@@ -12,7 +12,12 @@
 						async: yes
 						params: @password
 						validator: (username, password, callback) =>
-							localauth.testAuthentication(username, password).then (result) =>
+							# don't validate if there is no password yet
+							if password() is ''
+								callback
+									isValid: yes
+								return
+							localauth.testAuthentication(username, password()).then (result) =>
 								callback
 									isValid: result.isValid
 									message: result.message
