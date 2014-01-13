@@ -1,15 +1,46 @@
+/*
+@font-face {
+	font-family: 'LunchBoxSlab';
+	src: url('lunchboxslabbold/lunchboxslabbold.eot');
+	src: url('lunchboxslabbold/lunchboxslabbold.eot?#iefix') format('embedded-opentype'),
+			 url('lunchboxslabbold/lunchboxslabbold.woff') format('woff'),
+			 url('lunchboxslabbold/lunchboxslabbold.ttf') format('truetype'),
+			 url('lunchboxslabbold/lunchboxslabbold.svg#lunchboxslabbold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'LunchBoxSlab';
+	src: url('lunchboxslab/lunchboxslab.eot');
+	src: url('lunchboxslab/lunchboxslab.eot?#iefix') format('embedded-opentype'),
+			 url('lunchboxslab/lunchboxslab.woff') format('woff'),
+			 url('lunchboxslab/lunchboxslab.ttf') format('truetype'),
+			 url('lunchboxslab/lunchboxslab.svg#lunchboxslab') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'LunchBoxSlab';
+	src: url('lunchboxslablight/lunchboxslablight.eot');
+	src: url('lunchboxslablight/lunchboxslablight.eot?#iefix') format('embedded-opentype'),
+			 url('lunchboxslablight/lunchboxslablight.woff') format('woff'),
+			 url('lunchboxslablight/lunchboxslablight.ttf') format('truetype'),
+			 url('lunchboxslablight/lunchboxslablight.svg#lunchboxslablight') format('svg');
+	font-weight: lighter;
+	font-style: normal;
+}*/
+@media (min-width: 1200px) {
+  .container {
+    max-width: 970px;
+  }
+}
+body,
+small {
+  font-family: 'Coming Soon', serif;
+}
 body {
-  font-family: "Coming Soon", serif;
   font-size: 18px;
 }
-b,
-strong,
-dt,
-label,
-.badge,
-.alert .alert-link,
-.close,
-th,
 h1,
 h2,
 h3,
@@ -32,6 +63,7 @@ label,
 .alert .alert-link,
 .close,
 th {
+  font-family: 'Patrick Hand', verdana, sans-serif;
   font-size: 1.3em;
 }
 .tooltip {
@@ -45,7 +77,6 @@ th {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 small {
-  font-family: "Coming Soon", serif;
   font-size: 50%;
 }
 h1 small,
@@ -87,7 +118,7 @@ h6,
   font-size: 14px;
 }
 a:not(.btn) {
-  background: url('underline.png') repeat-x 0% 100%;
+  background: url('/images/underline.png') repeat-x 0% 100%;
 }
 a:not(.btn):hover {
   color: inherit;
@@ -145,6 +176,9 @@ input[type="checkbox"]:focus,
 .modal-title {
   font-size: 28px;
 }
+.panel-title {
+  color: rgba(0, 0, 0, 0.4);
+}
 .list-group-item,
 .breadcrumb,
 .nav-pills > li > a,
@@ -156,6 +190,9 @@ input[type="checkbox"]:focus,
 }
 .list-group-item .btn {
   margin-top: -5px;
+}
+.list-group-item {
+  overflow: auto;
 }
 .navbar-nav > li > a,
 .navbar-brand {
@@ -227,43 +264,49 @@ textarea {
   resize: vertical;
 }
 #site-title {
-  margin-left: 95px;
+  padding-left: 95px;
+  padding-bottom: 20px;
   margin-top: -80px;
   margin-bottom: 30px;
+  background: url('/images/underline.png') repeat-x 0% 100%;
+}
+#site-title h1 {
+  font-weight: bold;
 }
 #site-title small {
   line-height: 10px;
+  font-size: 22px;
+  color: inherit;
 }
 @media (max-width: 991px) {
   body {
     padding-top: 65px;
   }
   #site-title {
-    margin-left: 70px;
+    padding-left: 70px;
     margin-top: -70px;
   }
 }
 #site-nav {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  position: relative;
 }
 #site-nav button {
   margin: 0;
   padding: 5px;
+  margin-left: 5px;
   border: 0;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
   width: 74px;
   height: 74px;
-  background-image: url("blackbeard64.png");
+  background-image: url('/images/blackbeard64.png');
   background-color: transparent;
   background-position: 5px 5px;
   background-repeat: no-repeat;
 }
 #site-nav button.visible-xs {
-  background-image: url("blackbeard48.png");
+  background-image: url('/images/blackbeard48.png');
   width: 58px;
   height: 58px;
   margin-top: -5px;

@@ -1,21 +1,19 @@
-﻿<div>
+﻿<div class="container">
 	<div id="site-title">
 		<h1>Blackbeard <small>Tell Blackbeard who you are in your favourite way</small></h1>
 	</div>
 	
-	<div class="container">
-		<ul class="list-unstyled">
-			<li data-bind="click: signinlocal, visible: user() && user().local">Manual login with Blackbeard <span class="glyphicon glyphicon-ok"></span></li>
-			<li data-bind="click: signinlocal, visible: user() && user().google">Connected with Google <span class="glyphicon glyphicon-ok"></span></li>
-			<li data-bind="click: signinlocal, visible: user() && user().facebook">Connected with Facebook <span class="glyphicon glyphicon-ok"></span></li>
-			<li data-bind="click: signinlocal, visible: user() && user().twitter">Connected with Twitter <span class="glyphicon glyphicon-ok"></span></li>
-		</ul>
-	
-		<div class="row authentication-mechanisms">
-			<a data-bind="click: signinlocal, visible: !user() || !user().local" title="Manually signup or signin with an email and password" href="#"><img src="blackbeard200.png" /></a>
-			<a data-bind="visible: !user() || !user().google" title="Signin with your google account" href="/odo/auth/google"><img src="google200.png" /></a></a>
-			<a data-bind="visible: !user() || !user().facebook" title="Signin with your facebook account" href="/odo/auth/facebook"><img src="facebook200.png" />
-			<a data-bind="visible: !user() || !user().twitter" title="Signin with your twitter account" href="/odo/auth/twitter"><img src="twitter200.png" /></a>
-		</div>
+	<ul class="list-unstyled">
+		<li data-bind="click: signinlocal, visible: user() && user().local">Manual login with Blackbeard <span class="glyphicon glyphicon-ok"></span></li>
+		<li data-bind="click: signinlocal, visible: user() && user().google">Connected with Google <span class="glyphicon glyphicon-ok"></span></li>
+		<li data-bind="click: signinlocal, visible: user() && user().facebook">Connected with Facebook <span class="glyphicon glyphicon-ok"></span></li>
+		<li data-bind="click: signinlocal, visible: user() && user().twitter">Connected with Twitter <span class="glyphicon glyphicon-ok"></span></li>
+	</ul>
+
+	<div class="row authentication-mechanisms">
+		<a data-bind="click: signinlocal, visible: !user() || !user().local" title="Manually signup or signin with an email and password" href="#"><img src="/images/blackbeard200.png" /></a>
+		<a data-bind="visible: !user() || !user().google" title="Signin with your google account" href="/odo/auth/google"><img src="/images/google200.png" /></a></a>
+		<a data-bind="visible: !user() || !user().facebook" title="Signin with your facebook account" href="/odo/auth/facebook"><img src="/images/facebook200.png" />
+		<a data-bind="visible: !user() || !user().twitter" title="Signin with your twitter account" href="/odo/auth/twitter"><img src="/images/twitter200.png" /></a>
 	</div>
 </div>

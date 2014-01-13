@@ -6,14 +6,21 @@
 	<div class="panel-body">
 		<ul class="list-group">
 			<li class="list-group-item">
+				<span class="glyphicon glyphicon-user"></span>
 				<span data-bind="text: user().displayName"></span>
-				<span class="pull-right"><a href="#" class="btn btn-default btn-sm">Change <span class="glyphicon glyphicon-chevron-right"></span></a></span>
+				<span class="pull-right"><a href="#" class="btn btn-default btn-sm">Change full name <span class="glyphicon glyphicon-chevron-right"></span></a></span>
 			</li>
 			<li class="list-group-item">
+				<span class="glyphicon">@</span>
+				<em data-bind="visible: !user().username">No username yet</em>
 				<span data-bind="text: user().username"></span>
+				<span class="pull-right"><a href="#" class="btn btn-default btn-sm">Change username <span class="glyphicon glyphicon-chevron-right"></span></a></span>
 			</li>
 			<li class="list-group-item">
+				<span class="glyphicon glyphicon-envelope"></span>
+				<em data-bind="visible: !user().username">No email address yet</em>
 				<span data-bind="text: user().email"></span>
+				<span class="pull-right"><a href="#" class="btn btn-default btn-sm">Change email address <span class="glyphicon glyphicon-chevron-right"></span></a></span>
 			</li>
 		</ul>
 	</div>
