@@ -4,7 +4,7 @@
 		<h2 class="panel-title">Sign in with your Blackbeard username and password</h2>
 	</div>
 	<div class="panel-body">
-		<form class="signin" role="form" method="post" action="/odo/auth/local" autocomplete="off">
+		<form data-bind="submit: signin" class="signin" role="form" method="post" action="/odo/auth/local" autocomplete="off">
 			<div class="form-group" data-bind="css: {'has-error': username.isModified() && !username.isValid() }">
 				<label class="control-label" for="username">Username <small data-bind="visible: username.isValidating">validating&hellip;</small><small data-bind="validationMessage: username"></small></label>
 				<div class="input-group">

@@ -4,7 +4,7 @@
 		<h2 class="panel-title">Signup to Blackbeard</h2>
 	</div>
 	<div class="panel-body">
-		<form class="signup" role="form" method="post" action="/odo/auth/local/signup" autocomplete="off">
+		<form  data-bind="submit: signup" class="signup" role="form" method="post" action="/odo/auth/local/signup" autocomplete="off">
 			<div class="form-group" data-bind="css: {'has-error': displayName.isModified() && !displayName.isValid() }">
 				<label class="control-label" for="displayName">Full name <small data-bind="validationMessage: displayName"></small></label>
 				<div class="input-group">
