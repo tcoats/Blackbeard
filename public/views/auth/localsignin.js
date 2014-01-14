@@ -56,8 +56,7 @@
       };
 
       LocalSignin.prototype.signin = function() {
-        if (!this.isValid()) {
-          console.log(this.username() + ' ' + this.password());
+        if (!this.isValid() || this.isValidating()) {
           this.dialog.shake();
           this.errors.showAllMessages();
           return false;

@@ -5,7 +5,9 @@
 		durandal: 'durandal/js'
 		plugins: 'durandal/js/plugins'
 		knockout: 'knockout.js/knockout'
-		'ko.validation': 'ko-validation/dist/knockout.validation.min'
+		# I've made a change to this library so it's copied locally. A pull request is in :)
+		#'ko.validation': 'ko-validation/dist/knockout.validation.min'
+		'ko.validation': 'lib/knockout.validation.min'
 		bootstrap: 'bootstrap/dist/js/bootstrap.min'
 		jquery: 'jquery/jquery.min'
 		underscore: 'underscore/underscore-min'

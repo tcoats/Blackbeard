@@ -40,8 +40,7 @@
 			new Dialog(options).show()
 		
 		signin: =>
-			if !@isValid()
-				console.log @username() + ' ' + @password()
+			if !@isValid() || @isValidating()
 				@dialog.shake()
 				@errors.showAllMessages()
 				return no
