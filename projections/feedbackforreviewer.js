@@ -10,7 +10,7 @@
         this.init = __bind(this.init, this);
         var _this = this;
         this.receive = {
-          feedbackBegun: function(event) {
+          feedbackBegun: function(event, cb) {
             var feedback;
             feedback = {
               id: event.payload.id,
@@ -19,17 +19,23 @@
               description: event.payload.name,
               reviewer: event.payload.reviewer
             };
-            return db.set("feedbackforreviewer:" + feedback.id, JSON.stringify(feedback));
+            return db.set("feedbackforreviewer:" + feedback.id, JSON.stringify(feedback, function() {
+              return cb();
+            }));
           },
-          feedbackCancelled: function(event) {
+          feedbackCancelled: function(event, cb) {
             var id;
             id = event.payload.id;
-            return db.del("feedbackforreviewer:" + id);
+            return db.del("feedbackforreviewer:" + id, function() {
+              return cb();
+            });
           },
-          feedbackCompleted: function(event) {
+          feedbackCompleted: function(event, cb) {
             var id;
             id = event.payload.id;
-            return db.del("feedbackforreviewer:" + id);
+            return db.del("feedbackforreviewer:" + id, function() {
+              return cb();
+            });
           }
         };
       }

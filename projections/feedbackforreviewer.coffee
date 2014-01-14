@@ -4,7 +4,7 @@ define ['redis'], (redis) ->
 	class FeedbackContent
 		constructor: ->
 			@receive =
-				feedbackBegun: (event) =>
+				feedbackBegun: (event, cb) =>
 					feedback =
 						id: event.payload.id
 						type: event.payload.type
@@ -13,15 +13,18 @@ define ['redis'], (redis) ->
 						
 						reviewer: event.payload.reviewer
 					
-					db.set "feedbackforreviewer:#{feedback.id}", JSON.stringify feedback
+					db.set "feedbackforreviewer:#{feedback.id}", JSON.stringify feedback, ->
+						cb()
 
-				feedbackCancelled: (event) =>
+				feedbackCancelled: (event, cb) =>
 					id = event.payload.id
-					db.del "feedbackforreviewer:#{id}"
+					db.del "feedbackforreviewer:#{id}", ->
+						cb()
 
-				feedbackCompleted: (event) =>
+				feedbackCompleted: (event, cb) =>
 					id = event.payload.id
-					db.del "feedbackforreviewer:#{id}"
+					db.del "feedbackforreviewer:#{id}", ->
+						cb()
 		
 		init: (app) =>
 			app.get '/feedbackforreviewer/:id', (req, res) =>
