@@ -21,6 +21,11 @@
                     $(element).data('slider', slider);
                   }
                   slidergroup = $(element).parents('.slider-group');
+                  setTimeout(function() {
+                    slider.setWrapperOffset();
+                    slider.setBounds();
+                    return slider.update();
+                  }, 100);
                   if (!slidergroup.length) {
                     slider.animationCallback = function(x, y) {
                       return valueAccessor()(slider.value.target[1]);

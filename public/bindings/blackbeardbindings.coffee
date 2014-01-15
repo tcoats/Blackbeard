@@ -24,6 +24,13 @@
 							
 							slidergroup = $(element).parents '.slider-group'
 							
+							# wait awhile then make sure we've recorded the proper offsets
+							setTimeout(->
+								slider.setWrapperOffset()
+								slider.setBounds()
+								slider.update()
+							, 100)
+							
 							# if we aren't in a group updating is easy
 							if !slidergroup.length
 								slider.animationCallback = (x, y) ->
