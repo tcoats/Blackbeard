@@ -8,4 +8,7 @@
 			
 		close: =>
 			@dialog.close()
+		
+		forward: =>
+			@wizard.forward({ model: 'views/feedback/give/1-skill', activationData: @feedback() })()
 			

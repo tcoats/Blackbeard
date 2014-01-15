@@ -6,6 +6,7 @@
     var Introduction;
     return Introduction = (function() {
       function Introduction() {
+        this.forward = __bind(this.forward, this);
         this.close = __bind(this.close, this);
         this.activate = __bind(this.activate, this);
       }
@@ -20,6 +21,13 @@
 
       Introduction.prototype.close = function() {
         return this.dialog.close();
+      };
+
+      Introduction.prototype.forward = function() {
+        return this.wizard.forward({
+          model: 'views/feedback/give/1-skill',
+          activationData: this.feedback()
+        })();
       };
 
       return Introduction;

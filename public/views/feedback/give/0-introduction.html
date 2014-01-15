@@ -1,8 +1,8 @@
-﻿<div class="container" data-bind="shortcuts: { 'right': wizard.forward({ model: 'views/feedback/give/1-skill', activationData: feedback() }), 'enter': wizard.forward({ model: 'views/feedback/give/1-skill', activationData: feedback() }) }">
+﻿<div class="container" data-bind="shortcuts: { 'right': forward, 'enter': forward">
 	<p>Feedback is given in four steps and there is an opportunity for comments at each step.</p>
 	<ul class="actions">
 		<li>
-			<button data-bind="click: wizard.forward({ model: 'views/feedback/give/1-skill', activationData: feedback() })" class="forward btn btn-primary">Next &rarr;</button>
+			<button data-bind="click: forward" class="forward btn btn-primary">Next &rarr;</button>
 		</li>
 	</ul>
 </div>
