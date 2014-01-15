@@ -366,9 +366,8 @@ textarea {
 }
 .slider-box {
   float: left;
-  margin: 0 10px;
   text-align: center;
-  width: 60px;
+  width: 100px;
   overflow: visible;
 }
 .slider-box.center-block {
@@ -382,6 +381,9 @@ textarea {
   width: 60px;
   height: 200px;
   overflow: hidden;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 .slider .handle {
   position: absolute;
