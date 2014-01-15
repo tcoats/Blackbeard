@@ -361,6 +361,9 @@ textarea {
 .btn-paragraph {
   margin: 0 0 10px;
 }
+.placeholder {
+  opacity: 0.5;
+}
 .close {
   line-height: 0.7;
 }
