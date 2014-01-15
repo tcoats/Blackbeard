@@ -13,7 +13,6 @@
 						params: @password
 						validator: (username, password, callback) =>
 							# don't validate if there is no password yet
-							console.log password
 							if password is ''
 								callback
 									isValid: yes

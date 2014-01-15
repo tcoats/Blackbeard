@@ -20,7 +20,6 @@
             async: true,
             params: this.password,
             validator: function(username, password, callback) {
-              console.log(password);
               if (password === '') {
                 callback({
                   isValid: true
