@@ -20,13 +20,14 @@
             async: true,
             params: this.password,
             validator: function(username, password, callback) {
-              if (password() === '') {
+              console.log(password);
+              if (password === '') {
                 callback({
                   isValid: true
                 });
                 return;
               }
-              return localauth.testAuthentication(username, password()).then(function(result) {
+              return localauth.testAuthentication(username, password).then(function(result) {
                 return callback({
                   isValid: result.isValid,
                   message: result.message

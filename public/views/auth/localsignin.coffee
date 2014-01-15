@@ -13,11 +13,12 @@
 						params: @password
 						validator: (username, password, callback) =>
 							# don't validate if there is no password yet
-							if password() is ''
+							console.log password
+							if password is ''
 								callback
 									isValid: yes
 								return
-							localauth.testAuthentication(username, password()).then (result) =>
+							localauth.testAuthentication(username, password).then (result) =>
 								callback
 									isValid: result.isValid
 									message: result.message
