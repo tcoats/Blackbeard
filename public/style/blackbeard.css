@@ -413,3 +413,33 @@ textarea {
 .slider.slider-group .slide {
   background: #dfd487;
 }
+@font-face {
+  font-family: 'LunchBoxSlab Ornaments';
+  src: url('lunchboxslabornaments/lunchbox_slab_ornaments-webfont.eot');
+  src: url('lunchboxslabornaments/lunchbox_slab_ornaments-webfont.eot?#iefix') format('embedded-opentype'), url('lunchboxslabornaments/lunchbox_slab_ornaments-webfont.woff') format('woff'), url('lunchboxslabornaments/lunchbox_slab_ornaments-webfont.ttf') format('truetype'), url('lunchboxslabornaments/lunchbox_slab_ornaments-webfont.svg#lunchbox_slab_ornaments-webfont') format('svg');
+  font-weight: lighter;
+  font-style: normal;
+}
+.lunchboxicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'LunchBoxSlab Ornaments';
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+}
+.lunchboxicon:empty {
+  width: 1em;
+}
+.lunchboxicon-moustache:before {
+  content: "\00EF";
+}
+.lunchboxicon-forward:before {
+  content: "\004D";
+}
+.lunchboxicon-back:before {
+  content: "\004E";
+}
