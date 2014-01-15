@@ -240,12 +240,14 @@ define [], ->
 			@result()
 
 		startDrag: ->
-			return  if @disabled
+			return if @disabled
 			@offset.mouse = [Cursor.x - Position.get(@handle)[0], Cursor.y - Position.get(@handle)[1]]
+			#console.log "+ c#{Cursor.x},#{Cursor.y} w#{@offset.wrapper}, m#{@offset.mouse} h#{Position.get(@handle)}"
 			@dragging = true
 
 		stopDrag: ->
 			return  if @disabled or not @dragging
+			#console.log "- c#{Cursor.x},#{Cursor.y} w#{@offset.wrapper}, m#{@offset.mouse} h#{Position.get(@handle)}"
 			@dragging = false
 			target = @groupClone(@value.current)
 			if @slide
@@ -270,9 +272,10 @@ define [], ->
 			if @dragging
 				prevTarget = @groupClone(@value.target)
 				offset = [Cursor.x - @offset.wrapper[0] - @offset.mouse[0], Cursor.y - @offset.wrapper[1] - @offset.mouse[1]]
+				#console.log ". c#{Cursor.x},#{Cursor.y} w#{@offset.wrapper}, m#{@offset.mouse} h#{Position.get(@handle)}"
 				@setTargetOffset offset, @loose
 				@change = [@value.target[0] - prevTarget[0], @value.target[1] - prevTarget[1]]
-			@groupCopy @value.current, @value.target  if @dragging or first
+			@groupCopy @value.current, @value.target if @dragging or first
 			if @dragging or @glide() or first
 				@update()
 				@feedback()
