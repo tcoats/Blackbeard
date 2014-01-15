@@ -17,7 +17,7 @@
           required: true,
           validation: {
             async: true,
-            validator: function(val, params, callback) {
+            validator: function(val, param, callback) {
               return localauth.getUsernameAvailability(val).then(function(availibility) {
                 return callback({
                   isValid: availibility.isAvailable,

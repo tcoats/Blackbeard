@@ -10,7 +10,7 @@
 					required: yes
 					validation:
 						async: yes
-						validator: (val, params, callback) =>
+						validator: (val, param, callback) =>
 							localauth.getUsernameAvailability(val).then (availibility) =>
 								callback
 									isValid: availibility.isAvailable
