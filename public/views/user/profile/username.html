@@ -1,0 +1,24 @@
+﻿<div id="user-profile-username" class="panel panel-default" data-bind="shortcuts: { 'left': back }">
+	<div class="panel-heading">
+		<h2 class="panel-title">Select a username</h2>
+	</div>
+	<div class="panel-body">
+		<form  data-bind="submit: changeUsername" class="signup" role="form" autocomplete="off">
+			<div class="form-group" data-bind="css: {'has-error': username.isModified() && !username.isValid() }">
+				<label class="control-label" for="username">Username <small data-bind="visible: username.isValidating">validating&hellip;</small><small data-bind="validationMessage: username"></small></label>
+				<div class="input-group">
+ 					<span class="input-group-addon">@</span>
+					<input data-bind="value: username" type="text" class="form-control" name="username" placeholder="How you are known in Blackbeard"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+				</div>
+			</div>
+		</form>
+		<ul class="actions">
+			<li>
+				<button data-bind="click: back" class="back btn btn-default">Cancel</button>
+			</li>
+			<li>
+				<button data-bind="click: changeUsername" class="forward btn btn-success">Done</button>
+			</li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,24 @@
+﻿<div id="user-profile-displayname" class="panel panel-default" data-bind="shortcuts: { 'left': back }">
+	<div class="panel-heading">
+		<h2 class="panel-title">Enter your full name</h2>
+	</div>
+	<div class="panel-body">
+		<form  data-bind="submit: changeDisplayName" class="signup" role="form" autocomplete="off">
+			<div class="form-group" data-bind="css: {'has-error': displayName.isModified() && !displayName.isValid() }">
+				<label class="control-label" for="displayName">Full name <small data-bind="validationMessage: displayName"></small></label>
+				<div class="input-group">
+ 					<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+					<input data-bind="value: displayName" type="text" class="form-control" id="displayName" name="displayName" placeholder="So Blackbeard can greet you" autocomplete="off" autocorrect="off" spellcheck="false">
+				</div>
+			</div>
+		</form>
+		<ul class="actions">
+			<li>
+				<button data-bind="click: back" class="back btn btn-default">Cancel</button>
+			</li>
+			<li>
+				<button data-bind="click: changeDisplayName" class="forward btn btn-success">Done</button>
+			</li>
+		</ul>
+	</div>
+</div>

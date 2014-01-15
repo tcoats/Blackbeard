@@ -1,0 +1,24 @@
+﻿<div id="user-profile-email" class="panel panel-default" data-bind="shortcuts: { 'left': back }">
+	<div class="panel-heading">
+		<h2 class="panel-title">Enter your email address</h2>
+	</div>
+	<div class="panel-body">
+		<form  data-bind="submit: changeEmail" class="signup" role="form" autocomplete="off">
+			<div class="form-group" data-bind="css: {'has-error': email.isModified() && !email.isValid() }">
+				<label class="control-label" for="email">Email <small data-bind="validationMessage: email"></small></label>
+				<div class="input-group">
+ 					<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+					<input data-bind="value: email" type="text" class="form-control" id="email" name="email" placeholder="For notifications and reminders" autocomplete="off" autocorrect="off" spellcheck="false">
+				</div>
+			</div>
+		</form>
+		<ul class="actions">
+			<li>
+				<button data-bind="click: back" class="back btn btn-default">Cancel</button>
+			</li>
+			<li>
+				<button data-bind="click: changeEmail" class="forward btn btn-success">Done</button>
+			</li>
+		</ul>
+	</div>
+</div>
