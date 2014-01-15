@@ -6,7 +6,7 @@
       durandal: 'durandal/js',
       plugins: 'durandal/js/plugins',
       knockout: 'knockout.js/knockout',
-      'ko.validation': 'lib/knockout.validation.min',
+      'ko.validation': 'bindings/knockout.validation.min',
       bootstrap: 'bootstrap/dist/js/bootstrap.min',
       jquery: 'jquery/jquery.min',
       underscore: 'underscore/underscore-min',
