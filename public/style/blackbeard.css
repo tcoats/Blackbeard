@@ -426,16 +426,24 @@ textarea {
   overflow: auto;
   height: auto;
 }
-.btn-blackbeard {
+.btn-navigation {
   background-color: none;
   background-color: transparent;
 }
-.btn-blackbeard:hover {
+.btn-navigation:hover {
   color: #f80;
   background-color: rgba(255, 88, 0, 0.05);
 }
-.btn-blackbeard.btn-blackbeard-primary {
+.btn-primary {
+  background-color: none;
+  background-color: transparent;
   border: 2px dashed #f80;
+  color: #333;
+}
+.btn-primary:hover {
+  color: #f80;
+  border-color: #f80;
+  background-color: rgba(255, 88, 0, 0.05);
 }
 @font-face {
   font-family: 'LunchBoxSlab Ornaments';
