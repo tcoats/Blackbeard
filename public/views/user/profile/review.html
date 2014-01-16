@@ -43,25 +43,27 @@
 				<em class="placeholder">Connected with Google</em>
 				<span class="pull-right"><a data-bind="click: wizard.forward({ model: 'views/user/profile/auth/google' })" href="#" class="btn btn-default btn-sm">View Google profile <span class="glyphicon glyphicon-chevron-right"></span></a></span>
 			</li>
+		</ul>
+		<ul class="list-group">
 			<li data-bind="visible: !user().local" class="list-group-item">
 				<span class="glyphicon glyphicon-remove"></span>
 				<em class="placeholder">No local sign in</em>
-				<span class="pull-right"><a data-bind="click: signinlocal" class="btn btn-default btn-sm" href="#">Sign up to Blackbeard</a></span>
+				<span class="pull-right"><a data-bind="click: signinlocal" class="btn btn-default btn-sm" href="#">Create Blackbeard account</a></span>
 			</li>
 			<li data-bind="visible: !user().facebook" class="list-group-item">
 				<span class="glyphicon glyphicon-remove"></span>
 				<em class="placeholder">Not connected with Facebook</em>
-				<span class="pull-right"><a href="/odo/auth/facebook" href="#" class="btn btn-default btn-sm">Sign in with Facebook</a></span>
+				<span class="pull-right"><a href="/odo/auth/facebook" href="#" class="btn btn-default btn-sm">Connect Facebook</a></span>
 			</li>
 			<li data-bind="visible: !user().twitter" class="list-group-item">
 				<span class="glyphicon glyphicon-remove"></span>
 				<em class="placeholder">Not connected with Twitter</em>
-				<span class="pull-right"><a href="/odo/auth/twitter" href="#" class="btn btn-default btn-sm">Sign in with Twitter</a></span>
+				<span class="pull-right"><a href="/odo/auth/twitter" href="#" class="btn btn-default btn-sm">Connect Twitter</a></span>
 			</li>
 			<li data-bind="visible: !user().google" class="list-group-item">
 				<span class="glyphicon glyphicon-remove"></span>
 				<em class="placeholder">Not connected with Google</em>
-				<span class="pull-right"><a href="/odo/auth/google" href="#" class="btn btn-default btn-sm">Sign in with Google</a></span>
+				<span class="pull-right"><a href="/odo/auth/google" href="#" class="btn btn-default btn-sm">Connect Google</a></span>
 			</li>
 		</ul>
 		<ul class="actions">
