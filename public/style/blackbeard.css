@@ -280,7 +280,16 @@ textarea {
 }
 @media (max-width: 991px) {
   body {
-    padding-top: 65px;
+    padding-top: 55px;
+  }
+  #site-title {
+    padding-left: 70px;
+    margin-top: -70px;
+  }
+}
+@media (max-width: 767px) {
+  body {
+    padding-top: 15px;
   }
   #site-title {
     padding-left: 70px;
@@ -418,6 +427,18 @@ textarea {
   font-size: 36px;
   line-height: 1.33;
   border-radius: 12px;
+}
+.actions {
+  overflow: auto;
+  height: auto;
+}
+@media (max-width: 767px) {
+  .btn-xl {
+    padding: 15px 28px;
+    font-size: 24px;
+    line-height: 1.33;
+    border-radius: 8px;
+  }
 }
 .btn-blackbeard {
   background-color: none;
