@@ -117,6 +117,9 @@ h6,
 .h6 {
   font-size: 14px;
 }
+dd {
+  line-height: 2.1;
+}
 a:not(.btn) {
   background: url('/images/underline-orange.png') repeat-x 0% 100%;
 }

@@ -3,17 +3,16 @@
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   define(['q', 'knockout', 'odo/auth'], function(Q, ko, auth) {
-    var ReviewProfile;
-    return ReviewProfile = (function() {
-      function ReviewProfile() {
-        this.signinlocal = __bind(this.signinlocal, this);
-        this.close = __bind(this.close, this);
+    var TwitterProfile;
+    return TwitterProfile = (function() {
+      function TwitterProfile() {
+        this.back = __bind(this.back, this);
         this.activate = __bind(this.activate, this);
       }
 
-      ReviewProfile.prototype.user = ko.observable(null);
+      TwitterProfile.prototype.user = ko.observable(null);
 
-      ReviewProfile.prototype.activate = function(options) {
+      TwitterProfile.prototype.activate = function(options) {
         var dfd,
           _this = this;
         this.wizard = options.wizard, this.dialog = options.dialog;
@@ -27,20 +26,13 @@
         return dfd.promise;
       };
 
-      ReviewProfile.prototype.close = function() {
-        return this.dialog.close();
+      TwitterProfile.prototype.back = function() {
+        return this.wizard.back({
+          model: 'views/user/profile/review'
+        })();
       };
 
-      ReviewProfile.prototype.signinlocal = function() {
-        var options;
-        this.close();
-        options = {
-          model: 'views/auth/localsignin'
-        };
-        return new Dialog(options).show();
-      };
-
-      return ReviewProfile;
+      return TwitterProfile;
 
     })();
   });

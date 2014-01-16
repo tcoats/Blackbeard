@@ -1,5 +1,5 @@
 ﻿define ['q', 'knockout', 'odo/auth'], (Q, ko, auth) ->
-	class ReviewProfile
+	class GoogleProfile
 		user: ko.observable null
 		
 		activate: (options) =>
@@ -17,15 +17,6 @@
 				)
 				
 			dfd.promise
-			
-		close: =>
-			@dialog.close()
 		
-		signinlocal: =>
-			@close()
-			
-			options = {
-				model: 'views/auth/localsignin'
-			}
-			
-			new Dialog(options).show()
+		back: =>
+			@wizard.back({ model: 'views/user/profile/review' })()
