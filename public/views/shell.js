@@ -14,16 +14,20 @@
             moduleId: 'views/feedback/give',
             nav: false
           }, {
-            route: 'signin',
-            moduleId: 'views/auth/signin',
-            nav: false
-          }, {
             route: '_=_',
             moduleId: 'views/auth/facebook',
             nav: false
           }, {
-            route: 'user/profile',
-            moduleId: 'views/user/profile',
+            route: 'auth/facebook/failure',
+            moduleId: 'views/auth/facebook-failure',
+            nav: false
+          }, {
+            route: 'auth/twitter/failure',
+            moduleId: 'views/auth/twitter-failure',
+            nav: false
+          }, {
+            route: 'auth/google/failure',
+            moduleId: 'views/auth/google-failure',
             nav: false
           }
         ]).buildNavigationModel();
