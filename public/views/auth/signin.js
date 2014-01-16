@@ -2,19 +2,21 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'knockout', 'jquery', 'odo/auth', 'components/dialog'], function(Q, ko, $, auth, Dialog) {
+  define(['q', 'knockout', 'odo/auth', 'components/dialog'], function(Q, ko, auth, Dialog) {
     var Signin;
     return Signin = (function() {
       function Signin() {
+        this.close = __bind(this.close, this);
         this.signinlocal = __bind(this.signinlocal, this);
         this.activate = __bind(this.activate, this);
       }
 
       Signin.prototype.user = ko.observable(null);
 
-      Signin.prototype.activate = function() {
+      Signin.prototype.activate = function(options) {
         var dfd,
           _this = this;
+        this.dialog = options.dialog;
         dfd = Q.defer();
         auth.getUser().then(function(user) {
           _this.user(user);
@@ -27,6 +29,7 @@
 
       Signin.prototype.signinlocal = function() {
         var options;
+        this.close();
         if (this.user() != null) {
           options = {
             model: 'views/auth/localsignup'
@@ -38,6 +41,10 @@
         }
         new Dialog(options).show();
         return false;
+      };
+
+      Signin.prototype.close = function() {
+        return this.dialog.close();
       };
 
       return Signin;

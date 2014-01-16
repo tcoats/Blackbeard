@@ -1,19 +1,19 @@
-﻿<div class="container">
-	<div id="site-title">
-		<h1>Blackbeard <small>Tell Blackbeard who you are</small></h1>
+﻿<div id="auth-signin" class="panel panel-default" data-bind="shortcuts: { 'esc': close }">
+	<div class="panel-heading">
+		<button data-bind="click: close" type="button" class="close btn btn-default">&times;</button>
+		<h2 class="panel-title">Tell Blackbeard who you are</h2>
 	</div>
-	
-	<ul class="list-unstyled">
-		<li data-bind="visible: user() && user().local">Manual login with Blackbeard <span class="glyphicon glyphicon-ok"></span></li>
-		<li data-bind="visible: user() && user().google">Connected with Google <span class="glyphicon glyphicon-ok"></span></li>
-		<li data-bind="visible: user() && user().facebook">Connected with Facebook <span class="glyphicon glyphicon-ok"></span></li>
-		<li data-bind="visible: user() && user().twitter">Connected with Twitter <span class="glyphicon glyphicon-ok"></span></li>
-	</ul>
-
-	<div class="row authentication-mechanisms">
-		<a data-bind="click: signinlocal, visible: !user() || !user().local" title="Manually signup or signin with an email and password" href="#"><img src="/images/blackbeard200.png" /></a>
-		<a data-bind="visible: !user() || !user().google" title="Signin with your google account" href="/odo/auth/google"><img src="/images/google200.png" /></a></a>
-		<a data-bind="visible: !user() || !user().facebook" title="Signin with your facebook account" href="/odo/auth/facebook"><img src="/images/facebook200.png" />
-		<a data-bind="visible: !user() || !user().twitter" title="Signin with your twitter account" href="/odo/auth/twitter"><img src="/images/twitter200.png" /></a>
+	<div class="panel-body">
+		<div class="row authentication-mechanisms">
+			<a data-bind="click: signinlocal, visible: !user() || !user().local" title="Manually signup or signin with an email and password" href="#"><img src="/images/blackbeard200.png" /></a>
+			<a data-bind="visible: !user() || !user().google" title="Signin with your google account" href="/odo/auth/google"><img src="/images/google200.png" /></a></a>
+			<a data-bind="visible: !user() || !user().facebook" title="Signin with your facebook account" href="/odo/auth/facebook"><img src="/images/facebook200.png" />
+			<a data-bind="visible: !user() || !user().twitter" title="Signin with your twitter account" href="/odo/auth/twitter"><img src="/images/twitter200.png" /></a>
+		</div>
+		<ul class="actions">
+			<li>
+				<button data-bind="click: close" class="back btn btn-navigation">&larr; Cancel</button>
+			</li>
+		</ul>
 	</div>
 </div>

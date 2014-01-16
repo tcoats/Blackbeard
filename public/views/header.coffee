@@ -20,4 +20,11 @@ define ['q', 'knockout', 'odo/auth', 'components/dialog'], (Q, ko, auth, Dialog)
 			}
 			
 			new Dialog(options).show()
+		
+		showSignIn: =>
+			options = {
+				model: 'views/auth/signin'
+			}
+			
+			new Dialog(options).show()
 			

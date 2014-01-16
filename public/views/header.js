@@ -6,6 +6,7 @@
     var Header;
     return Header = (function() {
       function Header() {
+        this.showSignIn = __bind(this.showSignIn, this);
         this.showProfile = __bind(this.showProfile, this);
         this.activate = __bind(this.activate, this);
       }
@@ -29,6 +30,14 @@
         var options;
         options = {
           model: 'views/user/profile'
+        };
+        return new Dialog(options).show();
+      };
+
+      Header.prototype.showSignIn = function() {
+        var options;
+        options = {
+          model: 'views/auth/signin'
         };
         return new Dialog(options).show();
       };

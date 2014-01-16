@@ -1,8 +1,10 @@
-﻿define ['q', 'knockout', 'jquery', 'odo/auth', 'components/dialog'], (Q, ko, $, auth, Dialog) ->
+﻿define ['q', 'knockout', 'odo/auth', 'components/dialog'], (Q, ko, auth, Dialog) ->
 	class Signin
 		user: ko.observable null
 		
-		activate: =>
+		activate: (options) =>
+			{ @dialog } = options
+			
 			dfd = Q.defer()
 			
 			auth.getUser()
@@ -17,6 +19,8 @@
 			dfd.promise
 		
 		signinlocal: =>
+			@close()
+			
 			if @user()?
 				options = {
 					model: 'views/auth/localsignup'
@@ -29,3 +33,6 @@
 			new Dialog(options).show()
 			
 			no
+		
+		close: =>
+			@dialog.close()
