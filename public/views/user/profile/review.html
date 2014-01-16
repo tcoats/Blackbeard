@@ -22,6 +22,12 @@
 				<span data-bind="text: user().email"></span>
 				<span class="pull-right"><a data-bind="click: wizard.forward({ model: 'views/user/profile/email' })" href="#" class="btn btn-default btn-sm">Change email address <span class="glyphicon glyphicon-chevron-right"></span></a></span>
 			</li>
+			<li data-bind="visible: user().local" class="list-group-item">
+				<span class="glyphicon glyphicon-lock"></span>
+				<em class="placeholder" data-bind="visible: !user().local.profile.password">No password yet</em>
+				<em class="placeholder" data-bind="visible: user().local.profile.password">You have a password</em>
+				<span class="pull-right"><a data-bind="click: wizard.forward({ model: 'views/user/profile/password' })" href="#" class="btn btn-default btn-sm">Change password <span class="glyphicon glyphicon-chevron-right"></span></a></span>
+			</li>
 		</ul>
 		<ul class="actions">
 			<li>
