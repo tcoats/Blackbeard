@@ -1,5 +1,12 @@
 ﻿<div class="container" data-bind="shortcuts: {'left': back, 'right': forward, 'enter': forward }">
 	
+	<ul class="actions">
+		<li>
+			<button data-bind="click: back" class="back btn btn-lg btn-blackbeard btn-blackbeard-default">&larr; Back</button>
+			<button data-bind="click: forward" class="forward btn btn-lg btn-blackbeard btn-blackbeard-primary">Next &rarr;</button>
+		</li>
+	</ul>
+	
 	<div class="slider-box center-block">
 		<div class="slider slider-skill" data-bind="slider: skill"></div>
 		<h4>Skill</h4>
@@ -22,8 +29,7 @@
 	
 	<ul class="actions">
 		<li>
-			<button data-bind="click: back" class="back btn btn-xl btn-blackbeard btn-blackbeard-default">&larr; Back</button>
-			<button data-bind="click: forward" class="forward btn btn-xl btn-blackbeard btn-blackbeard-primary">Next &rarr;</button>
+			<button data-bind="click: forward" class="forward btn btn-lg btn-blackbeard btn-blackbeard-primary">Next &rarr;</button>
 		</li>
 	</ul>
 </div>
