@@ -422,23 +422,9 @@ textarea {
 .slider.slider-group .slide {
   background: #dfd487;
 }
-.btn-xl {
-  padding: 20px 48px;
-  font-size: 36px;
-  line-height: 1.33;
-  border-radius: 12px;
-}
 .actions {
   overflow: auto;
   height: auto;
-}
-@media (max-width: 767px) {
-  .btn-xl {
-    padding: 15px 28px;
-    font-size: 24px;
-    line-height: 1.33;
-    border-radius: 8px;
-  }
 }
 .btn-blackbeard {
   background-color: none;
