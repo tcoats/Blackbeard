@@ -7,6 +7,9 @@
     return TwitterProfile = (function() {
       function TwitterProfile() {
         this.back = __bind(this.back, this);
+        this.disconnect = __bind(this.disconnect, this);
+        this.stopDisconnect = __bind(this.stopDisconnect, this);
+        this.startDisconnect = __bind(this.startDisconnect, this);
         this.activate = __bind(this.activate, this);
       }
 
@@ -24,6 +27,23 @@
           return dfd.resolve(true);
         });
         return dfd.promise;
+      };
+
+      TwitterProfile.prototype.disconnectStarted = ko.observable(false);
+
+      TwitterProfile.prototype.startDisconnect = function() {
+        return this.disconnectStarted(true);
+      };
+
+      TwitterProfile.prototype.stopDisconnect = function() {
+        return this.disconnectStarted(false);
+      };
+
+      TwitterProfile.prototype.disconnect = function() {
+        var _this = this;
+        return auth.disconnectTwitterFromUser(this.user().id, this.user().twitter.profile).then(function() {
+          return _this.back();
+        });
       };
 
       TwitterProfile.prototype.back = function() {

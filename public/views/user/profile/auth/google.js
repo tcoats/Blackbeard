@@ -7,6 +7,9 @@
     return GoogleProfile = (function() {
       function GoogleProfile() {
         this.back = __bind(this.back, this);
+        this.disconnect = __bind(this.disconnect, this);
+        this.stopDisconnect = __bind(this.stopDisconnect, this);
+        this.startDisconnect = __bind(this.startDisconnect, this);
         this.activate = __bind(this.activate, this);
       }
 
@@ -24,6 +27,23 @@
           return dfd.resolve(true);
         });
         return dfd.promise;
+      };
+
+      GoogleProfile.prototype.disconnectStarted = ko.observable(false);
+
+      GoogleProfile.prototype.startDisconnect = function() {
+        return this.disconnectStarted(true);
+      };
+
+      GoogleProfile.prototype.stopDisconnect = function() {
+        return this.disconnectStarted(false);
+      };
+
+      GoogleProfile.prototype.disconnect = function() {
+        var _this = this;
+        return auth.disconnectGoogleFromUser(this.user().id, this.user().google.profile).then(function() {
+          return _this.back();
+        });
       };
 
       GoogleProfile.prototype.back = function() {

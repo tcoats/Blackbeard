@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['knockout', 'odo/auth/local', 'components/dialog'], function(ko, localauth, Dialog) {
+  define(['knockout', 'odo/auth', 'components/dialog'], function(ko, auth, Dialog) {
     var LocalSignin;
     return LocalSignin = (function() {
       function LocalSignin() {
@@ -26,7 +26,7 @@
                 });
                 return;
               }
-              return localauth.testAuthentication(username, password).then(function(result) {
+              return auth.testAuthentication(username, password).then(function(result) {
                 return callback({
                   isValid: result.isValid,
                   message: result.message

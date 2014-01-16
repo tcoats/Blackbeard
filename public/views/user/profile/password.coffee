@@ -1,4 +1,4 @@
-﻿define ['q', 'jquery', 'knockout', 'odo/auth', 'odo/auth/local'], (Q, $, ko, auth, localauth) ->
+﻿define ['q', 'jquery', 'knockout', 'odo/auth'], (Q, $, ko, auth) ->
 	class ChangeDisplayName
 		user: ko.observable null
 		
@@ -9,7 +9,7 @@
 					validation:
 						async: yes
 						validator: (password, param, callback) =>
-							localauth.testAuthentication(@user().username, password).then (result) =>
+							auth.testAuthentication(@user().username, password).then (result) =>
 								callback
 									isValid: result.isValid
 									message: result.message
@@ -55,6 +55,6 @@
 				return
 			
 			# submit here
-			localauth
+			auth
 				.assignPasswordToUser(@user().id, @password())
 				.then => @back()

@@ -1,29 +1,41 @@
-﻿define ['knockout', 'odo/auth/local'], (ko, localauth) ->
+﻿define ['q', 'knockout', 'odo/auth'], (Q, ko, auth) ->
 	class LocalSignup
+		user: ko.observable null
+		
 		constructor: ->
-			@displayName = ko.observable('')
+			@displayName = ko.observable ''
+			@username = ko.observable ''
+			@password = ko.observable ''
+			@confirmPassword = ko.observable ''
+		
+		setup: =>
+			if @user()?
+				@displayName = ko.observable @user().displayName
+				@username = ko.observable @user().username
+				
+			@displayName
 				.extend
 					required: yes
 					
-			@username = ko.observable('')
+			@username
 				.extend
 					required: yes
 					validation:
 						async: yes
 						validator: (val, param, callback) =>
-							localauth.getUsernameAvailability(val).then (availibility) =>
+							auth.getUsernameAvailability(val).then (availibility) =>
 								callback
 									isValid: availibility.isAvailable
 									message: availibility.message
 						
-			@password = ko.observable('')
+			@password
 				.extend
 					required: yes
 					pattern:
 						params: '^.{8,}$'
 						message: 'Eight or more letters for security'
 						
-			@confirmPassword = ko.observable('')
+			@confirmPassword
 				.extend
 					equal:
 						params: @password
@@ -33,6 +45,21 @@
 		
 		activate: (options) =>
 			{ @dialog } = options
+			
+			dfd = Q.defer()
+			
+			auth.getUser()
+				.then((user) =>
+					@user user
+					@setup()
+					dfd.resolve yes
+				)
+				.fail((err) =>
+					@setup()
+					dfd.resolve yes
+				)
+				
+			dfd.promise
 		
 		close: =>
 			@dialog.close()

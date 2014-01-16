@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'jquery', 'knockout', 'odo/auth', 'odo/auth/local'], function(Q, $, ko, auth, localauth) {
+  define(['q', 'jquery', 'knockout', 'odo/auth'], function(Q, $, ko, auth) {
     var ChangeUsername;
     return ChangeUsername = (function() {
       ChangeUsername.prototype.user = ko.observable(null);
@@ -24,7 +24,7 @@
                 });
                 return;
               }
-              return localauth.getUsernameAvailability(val).then(function(availibility) {
+              return auth.getUsernameAvailability(val).then(function(availibility) {
                 return callback({
                   isValid: availibility.isAvailable,
                   message: availibility.message

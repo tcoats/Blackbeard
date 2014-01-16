@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'jquery', 'knockout', 'odo/auth', 'odo/auth/local'], function(Q, $, ko, auth, localauth) {
+  define(['q', 'jquery', 'knockout', 'odo/auth'], function(Q, $, ko, auth) {
     var ChangeDisplayName;
     return ChangeDisplayName = (function() {
       ChangeDisplayName.prototype.user = ko.observable(null);
@@ -17,7 +17,7 @@
           validation: {
             async: true,
             validator: function(password, param, callback) {
-              return localauth.testAuthentication(_this.user().username, password).then(function(result) {
+              return auth.testAuthentication(_this.user().username, password).then(function(result) {
                 return callback({
                   isValid: result.isValid,
                   message: result.message
@@ -69,7 +69,7 @@
           this.errors.showAllMessages();
           return;
         }
-        return localauth.assignPasswordToUser(this.user().id, this.password()).then(function() {
+        return auth.assignPasswordToUser(this.user().id, this.password()).then(function() {
           return _this.back();
         });
       };

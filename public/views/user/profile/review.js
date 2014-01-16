@@ -2,11 +2,11 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'knockout', 'odo/auth'], function(Q, ko, auth) {
+  define(['q', 'knockout', 'odo/auth', 'components/dialog'], function(Q, ko, auth, Dialog) {
     var ReviewProfile;
     return ReviewProfile = (function() {
       function ReviewProfile() {
-        this.signinlocal = __bind(this.signinlocal, this);
+        this.signuplocal = __bind(this.signuplocal, this);
         this.close = __bind(this.close, this);
         this.activate = __bind(this.activate, this);
       }
@@ -31,11 +31,11 @@
         return this.dialog.close();
       };
 
-      ReviewProfile.prototype.signinlocal = function() {
+      ReviewProfile.prototype.signuplocal = function() {
         var options;
         this.close();
         options = {
-          model: 'views/auth/localsignin'
+          model: 'views/auth/localsignup'
         };
         return new Dialog(options).show();
       };

@@ -1,4 +1,4 @@
-﻿define ['q', 'knockout', 'odo/auth'], (Q, ko, auth) ->
+﻿define ['q', 'knockout', 'odo/auth', 'components/dialog'], (Q, ko, auth, Dialog) ->
 	class ReviewProfile
 		user: ko.observable null
 		
@@ -21,11 +21,11 @@
 		close: =>
 			@dialog.close()
 		
-		signinlocal: =>
+		signuplocal: =>
 			@close()
 			
 			options = {
-				model: 'views/auth/localsignin'
+				model: 'views/auth/localsignup'
 			}
 			
 			new Dialog(options).show()

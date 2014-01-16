@@ -1,4 +1,4 @@
-﻿define ['q', 'jquery', 'knockout', 'odo/auth', 'odo/auth/local'], (Q, $, ko, auth, localauth) ->
+﻿define ['q', 'jquery', 'knockout', 'odo/auth'], (Q, $, ko, auth) ->
 	class ChangeUsername
 		user: ko.observable null
 		
@@ -15,7 +15,7 @@
 									message: 'Same username as existing'
 								return
 							
-							localauth.getUsernameAvailability(val).then (availibility) =>
+							auth.getUsernameAvailability(val).then (availibility) =>
 								callback
 									isValid: availibility.isAvailable
 									message: availibility.message

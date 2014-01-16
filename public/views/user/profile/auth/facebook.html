@@ -27,6 +27,15 @@
 			<dt>Verified</dt>
 			<dd data-bind="text: user().facebook.profile._json.verified"></dd>
 		</dl>
+		<a href="#" data-bind="click: startDisconnect, visible: !disconnectStarted()" class="btn btn-default">Disconnect Facebook</a>
+		<div data-bind="visible: disconnectStarted()" class="alert alert-danger alert-dismissable">
+  		<button type="button" class="close" data-bind="click: stopDisconnect">&times;</button>
+			This will disconnect your Facebook account from your Blackbeard account. If you do not have another way to sign in to Blackbeard you will lose access to your account
+			<ul class="actions">
+				<a href="#" data-bind="click: stopDisconnect" class="btn btn-navigation alert-link back">Cancel</a>
+				<a href="#" data-bind="click: disconnect" class="btn btn-danger forward">Disconnect Facebook</a>
+			</ul>
+		</div>
 		<ul class="actions">
 			<li>
 				<button data-bind="click: back" class="forward btn btn-primary">Okay</button>

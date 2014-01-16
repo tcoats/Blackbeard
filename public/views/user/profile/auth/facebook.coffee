@@ -17,6 +17,19 @@
 				)
 				
 			dfd.promise
+			
+		disconnectStarted: ko.observable no
+		
+		startDisconnect: =>
+			@disconnectStarted yes
+			
+		stopDisconnect: =>
+			@disconnectStarted no
+			
+		disconnect: =>
+			auth
+				.disconnectFacebookFromUser(@user().id, @user().facebook.profile)
+				.then => @back()
 		
 		back: =>
 			@wizard.back({ model: 'views/user/profile/review' })()

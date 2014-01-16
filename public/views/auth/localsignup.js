@@ -2,23 +2,37 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['knockout', 'odo/auth/local'], function(ko, localauth) {
+  define(['q', 'knockout', 'odo/auth'], function(Q, ko, auth) {
     var LocalSignup;
     return LocalSignup = (function() {
+      LocalSignup.prototype.user = ko.observable(null);
+
       function LocalSignup() {
         this.signup = __bind(this.signup, this);
         this.close = __bind(this.close, this);
         this.activate = __bind(this.activate, this);
+        this.setup = __bind(this.setup, this);
+        this.displayName = ko.observable('');
+        this.username = ko.observable('');
+        this.password = ko.observable('');
+        this.confirmPassword = ko.observable('');
+      }
+
+      LocalSignup.prototype.setup = function() {
         var _this = this;
-        this.displayName = ko.observable('').extend({
+        if (this.user() != null) {
+          this.displayName = ko.observable(this.user().displayName);
+          this.username = ko.observable(this.user().username);
+        }
+        this.displayName.extend({
           required: true
         });
-        this.username = ko.observable('').extend({
+        this.username.extend({
           required: true,
           validation: {
             async: true,
             validator: function(val, param, callback) {
-              return localauth.getUsernameAvailability(val).then(function(availibility) {
+              return auth.getUsernameAvailability(val).then(function(availibility) {
                 return callback({
                   isValid: availibility.isAvailable,
                   message: availibility.message
@@ -27,24 +41,36 @@
             }
           }
         });
-        this.password = ko.observable('').extend({
+        this.password.extend({
           required: true,
           pattern: {
             params: '^.{8,}$',
             message: 'Eight or more letters for security'
           }
         });
-        this.confirmPassword = ko.observable('').extend({
+        this.confirmPassword.extend({
           equal: {
             params: this.password,
             message: 'Type the same password here'
           }
         });
-        this.errors = ko.validation.group(this);
-      }
+        return this.errors = ko.validation.group(this);
+      };
 
       LocalSignup.prototype.activate = function(options) {
-        return this.dialog = options.dialog, options;
+        var dfd,
+          _this = this;
+        this.dialog = options.dialog;
+        dfd = Q.defer();
+        auth.getUser().then(function(user) {
+          _this.user(user);
+          _this.setup();
+          return dfd.resolve(true);
+        }).fail(function(err) {
+          _this.setup();
+          return dfd.resolve(true);
+        });
+        return dfd.promise;
       };
 
       LocalSignup.prototype.close = function() {

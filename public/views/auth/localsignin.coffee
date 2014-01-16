@@ -1,4 +1,4 @@
-﻿define ['knockout', 'odo/auth/local', 'components/dialog'], (ko, localauth, Dialog) ->
+﻿define ['knockout', 'odo/auth', 'components/dialog'], (ko, auth, Dialog) ->
 	class LocalSignin
 		constructor: ->
 			@password = ko.observable('')
@@ -17,7 +17,7 @@
 								callback
 									isValid: yes
 								return
-							localauth.testAuthentication(username, password).then (result) =>
+							auth.testAuthentication(username, password).then (result) =>
 								callback
 									isValid: result.isValid
 									message: result.message
