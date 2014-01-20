@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['knockout', 'odo/auth'], function(ko, auth) {
+  define(['knockout', 'odo/auth', 'components/dialog'], function(ko, auth, Dialog) {
     var ForgotAuthResult;
     return ForgotAuthResult = (function() {
       function ForgotAuthResult() {

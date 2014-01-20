@@ -1,4 +1,4 @@
-﻿define ['knockout', 'odo/auth'], (ko, auth) ->
+﻿define ['knockout', 'odo/auth', 'components/dialog'], (ko, auth, Dialog) ->
 	class ForgotAuthResult
 		email: ko.observable null
 		result: ko.observable null
