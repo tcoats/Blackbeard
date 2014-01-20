@@ -45,6 +45,10 @@
             route: 'auth/google/success',
             moduleId: 'views/auth/signincheck',
             nav: false
+          }, {
+            route: 'auth/local/success',
+            moduleId: 'views/auth/signincheck',
+            nav: false
           }
         ]).buildNavigationModel();
         return router.activate();

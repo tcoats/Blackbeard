@@ -52,6 +52,11 @@
 				moduleId: 'views/auth/signincheck'
 				nav: no
 			}
+			{
+				route: 'auth/local/success'
+				moduleId: 'views/auth/signincheck'
+				nav: no
+			}
 		]).buildNavigationModel()
 		router.activate()
 	compositionComplete: () ->
