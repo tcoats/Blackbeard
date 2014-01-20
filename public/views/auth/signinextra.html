@@ -1,0 +1,29 @@
+﻿<div class="container animated" data-bind="css: { shake: shouldShake }">
+	<div id="site-title">
+		<h1>Blackbeard <small>Performance reviews done right</small></h1>
+	</div>
+	
+	<h1>Blackbeard works best if you choose a username and enter an email address</h1>
+	
+	<form  data-bind="submit: assignUsernameAndEmailAddress" role="form" autocomplete="off">
+		<div class="form-group" data-bind="css: {'has-error': username.isModified() && !username.isValid() }">
+			<label class="control-label" for="username">Username <small data-bind="visible: username.isValidating">validating&hellip;</small><small data-bind="validationMessage: username"></small></label>
+			<div class="input-group">
+					<span class="input-group-addon">@</span>
+				<input data-bind="value: username" type="text" class="form-control" name="username" placeholder="How you are known in Blackbeard"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+			</div>
+		</div>
+		<div class="form-group" data-bind="css: {'has-error': email.isModified() && !email.isValid() }">
+			<label class="control-label" for="email">Email <small data-bind="validationMessage: email"></small></label>
+			<div class="input-group">
+					<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+				<input data-bind="value: email" type="text" class="form-control" id="email" name="email" placeholder="For notifications and reminders" autocomplete="off" autocorrect="off" spellcheck="false">
+			</div>
+		</div>
+	</form>
+	<ul class="actions">
+		<li>
+			<button data-bind="click: assignUsernameAndEmailAddress" class="forward btn btn-success">Assign Username and Email Address</button>
+		</li>
+	</ul>
+</div>

@@ -18,8 +18,18 @@
 				nav: no
 			}
 			{
+				route: 'signin/extra'
+				moduleId: 'views/auth/signinextra'
+				nav: no
+			}
+			{
 				route: 'auth/facebook/failure'
 				moduleId: 'views/auth/facebook-failure'
+				nav: no
+			}
+			{
+				route: 'auth/facebook/success'
+				moduleId: 'views/auth/signincheck'
 				nav: no
 			}
 			{
@@ -28,8 +38,18 @@
 				nav: no
 			}
 			{
+				route: 'auth/twitter/success'
+				moduleId: 'views/auth/signincheck'
+				nav: no
+			}
+			{
 				route: 'auth/google/failure'
 				moduleId: 'views/auth/google-failure'
+				nav: no
+			}
+			{
+				route: 'auth/google/success'
+				moduleId: 'views/auth/signincheck'
 				nav: no
 			}
 		]).buildNavigationModel()

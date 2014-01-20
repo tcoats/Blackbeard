@@ -18,16 +18,32 @@
             moduleId: 'views/auth/facebook',
             nav: false
           }, {
+            route: 'signin/extra',
+            moduleId: 'views/auth/signinextra',
+            nav: false
+          }, {
             route: 'auth/facebook/failure',
             moduleId: 'views/auth/facebook-failure',
+            nav: false
+          }, {
+            route: 'auth/facebook/success',
+            moduleId: 'views/auth/signincheck',
             nav: false
           }, {
             route: 'auth/twitter/failure',
             moduleId: 'views/auth/twitter-failure',
             nav: false
           }, {
+            route: 'auth/twitter/success',
+            moduleId: 'views/auth/signincheck',
+            nav: false
+          }, {
             route: 'auth/google/failure',
             moduleId: 'views/auth/google-failure',
+            nav: false
+          }, {
+            route: 'auth/google/success',
+            moduleId: 'views/auth/signincheck',
             nav: false
           }
         ]).buildNavigationModel();
