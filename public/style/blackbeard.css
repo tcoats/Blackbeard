@@ -445,7 +445,10 @@ textarea {
   border: 2px dashed #f80;
   color: #333;
 }
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary:focus {
   color: #f80;
   border-color: #f80;
   background-color: rgba(255, 88, 0, 0.05);
