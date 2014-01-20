@@ -36,3 +36,12 @@
 		
 		close: =>
 			@dialog.close()
+		
+		forgot: =>
+			@close()
+			
+			options = {
+				model: 'views/auth/forgot'
+			}
+			
+			new Dialog(options).show()

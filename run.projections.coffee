@@ -16,6 +16,7 @@ requirejs [
 	'odo/hub'
 	'blackbeard/projections/feedbackforreviewer'
 	'odo/projections/userprofile'
+	'odo/plugins/auth'
 	'odo/plugins/auth/twitter'
 	'odo/plugins/auth/facebook'
 	'odo/plugins/auth/google'
