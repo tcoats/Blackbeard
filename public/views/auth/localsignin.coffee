@@ -47,6 +47,15 @@
 				
 			yes
 		
+		forgot: =>
+			@close()
+			
+			options = {
+				model: 'views/auth/forgot'
+			}
+			
+			new Dialog(options).show()
+		
 		# This is a work around for autocomplete / autofill not firing events knockoutjs can see. Currently autocomplete is disabled as this code causes a race condition inside knockout validation. Two changes in quick succession aren't supported.
 		# If you have used 'saved details' the autocomplete="off" attribute is ignored and it will still autocomplete causing the issue.
 		#compositionComplete: (child) =>

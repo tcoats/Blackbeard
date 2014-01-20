@@ -6,6 +6,7 @@
     var LocalSignin;
     return LocalSignin = (function() {
       function LocalSignin() {
+        this.forgot = __bind(this.forgot, this);
         this.signin = __bind(this.signin, this);
         this.signup = __bind(this.signup, this);
         this.close = __bind(this.close, this);
@@ -62,6 +63,15 @@
           return false;
         }
         return true;
+      };
+
+      LocalSignin.prototype.forgot = function() {
+        var options;
+        this.close();
+        options = {
+          model: 'views/auth/forgot'
+        };
+        return new Dialog(options).show();
       };
 
       return LocalSignin;
