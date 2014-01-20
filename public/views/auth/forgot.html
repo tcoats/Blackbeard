@@ -1,32 +1,3 @@
-﻿<div id="forgot" class="panel panel-default" data-bind="shortcuts: { 'esc': close }">
-	<div class="panel-heading">
-		<button data-bind="click: close" type="button" class="close btn btn-default">&times;</button>
-		<h2 class="panel-title">Enter your email address and we'll try and help</h2>
-	</div>
-	<div class="panel-body">
-		<form data-bind="submit: forgot"role="form" autocomplete="off">
-			<div class="form-group" data-bind="css: {'has-error': email.isModified() && !email.isValid() }">
-				<label class="control-label" for="email">Email <small data-bind="validationMessage: email"></small></label>
-				<div class="input-group">
- 					<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-					<input data-bind="value: email" type="text" class="form-control" id="email" name="email" placeholder="The address Blackbeard emails are sent to" autocomplete="off" autocorrect="off" spellcheck="false">
-				</div>
-			</div>
-			<div data-bind="if: result, visible: result">
-				<div data-bind="visible: !result().account">No Blackbeard account found for <a data-bind="text: email, attr: { href: 'mailto:' + email() }"></a></div>
-				<div data-bind="visible: result().twitter">Your account can be accessed through Twitter. <a href="/odo/auth/twitter">Sign in with Twitter</a></div>
-				<div data-bind="visible: result().facebook">Your account can be accessed through Facebook. <a href="/odo/auth/facebook">Sign in with Facebook</a></div>
-				<div data-bind="visible: result().google">Your account can be accessed through Google. <a href="/odo/auth/facebook">Sign in with Google</a></div>
-				<div data-bind="visible: result().local">Your account can be accessed through a Blackbeard username and password. <a data-bind="click: signinlocal" href="#">Sign in with Blackbeard</a><!-- or <a class="btn btn-navigation" href="#">Reset my password</a>--></div>
-			</div>
-			<ul class="actions">
-				<li>
-					<a data-bind="click: back" class="back btn btn-navigation">&larr; Cancel</a>
-				</li>
-				<li>
-					<button data-bind="click: forgot" type="submit" class="forward btn btn-primary">Check this email address</button>
-				</li>
-			</ul>
-		</form>
-	</div>
+﻿<div>
+	<!-- ko compose: composeOptions --><!-- /ko -->
 </div>

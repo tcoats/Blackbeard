@@ -1,0 +1,27 @@
+﻿<div id="forgot-email" class="panel panel-default" data-bind="shortcuts: { 'esc': close }">
+	<div class="panel-heading">
+		<button data-bind="click: close" type="button" class="close btn btn-default">&times;</button>
+		<h2 class="panel-title">Enter your email address and we'll try and help</h2>
+	</div>
+	<div class="panel-body">
+		<form data-bind="submit: forgot"role="form" autocomplete="off">
+			<div class="form-group" data-bind="css: {'has-error': email.isModified() && !email.isValid() }">
+				<label class="control-label" for="email">Email <small data-bind="validationMessage: email"></small></label>
+				<div class="input-group">
+ 					<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+					<input data-bind="value: email" type="text" class="form-control" id="email" name="email" placeholder="The address Blackbeard emails are sent to" autocomplete="off" autocorrect="off" spellcheck="false">
+				</div>
+			</div>
+			<div class="alert alert-warning" data-bind="visible: message, text: message">
+			</div>
+			<ul class="actions">
+				<li>
+					<a data-bind="click: back" class="back btn btn-navigation">&larr; Back</a>
+				</li>
+				<li>
+					<button data-bind="click: forgot" type="submit" class="forward btn btn-primary">Check this email address</button>
+				</li>
+			</ul>
+		</form>
+	</div>
+</div>

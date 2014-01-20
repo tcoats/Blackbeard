@@ -2,60 +2,24 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['knockout', 'odo/auth', 'components/dialog'], function(ko, auth, Dialog) {
+  define(['knockout'], function(ko) {
     var ForgotAuth;
     return ForgotAuth = (function() {
-      ForgotAuth.prototype.result = ko.observable(null);
-
       function ForgotAuth() {
-        this.signinlocal = __bind(this.signinlocal, this);
-        this.forgot = __bind(this.forgot, this);
-        this.back = __bind(this.back, this);
-        this.close = __bind(this.close, this);
         this.activate = __bind(this.activate, this);
-        this.email = ko.observable('').extend({
-          required: true,
-          email: true
-        });
-        this.errors = ko.validation.group(this);
       }
 
+      ForgotAuth.prototype.composeOptions = ko.observable(null);
+
       ForgotAuth.prototype.activate = function(options) {
-        return this.dialog = options.dialog, options;
-      };
-
-      ForgotAuth.prototype.close = function() {
-        return this.dialog.close();
-      };
-
-      ForgotAuth.prototype.back = function() {
-        var options;
-        this.dialog.close();
-        options = {
-          model: 'views/auth/signin'
-        };
-        return new Dialog(options).show();
-      };
-
-      ForgotAuth.prototype.forgot = function() {
-        var _this = this;
-        if (!this.isValid() || this.isValidating()) {
-          this.dialog.shake();
-          this.errors.showAllMessages();
-          return;
-        }
-        return auth.forgotCheckEmailAddress(this.email()).then(function(result) {
-          return _this.result(result);
+        this.dialog = options.dialog;
+        return this.composeOptions({
+          model: 'components/wizard',
+          activationData: {
+            dialog: this.dialog,
+            model: 'views/auth/forgot/email'
+          }
         });
-      };
-
-      ForgotAuth.prototype.signinlocal = function() {
-        var options;
-        this.close();
-        options = {
-          model: 'views/auth/localsignin'
-        };
-        return new Dialog(options).show();
       };
 
       return ForgotAuth;
