@@ -49,6 +49,7 @@
       widget: true
     });
     bindings.init(requirejs, {
+      router: true,
       mousetrap: true,
       q: true,
       bootstrap: true,

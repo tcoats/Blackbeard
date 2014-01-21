@@ -45,6 +45,7 @@ define ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal
 			widget: yes
 		
 		bindings.init requirejs,
+			router: yes
 			mousetrap: yes
 			q: yes
 			bootstrap: yes
