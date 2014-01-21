@@ -10,6 +10,5 @@
 				activationData: {
 					dialog: @dialog
 					model: 'views/user/profile/review'
-					activationData: ''
 				}
 			}

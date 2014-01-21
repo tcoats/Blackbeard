@@ -17,8 +17,7 @@
           model: 'components/wizard',
           activationData: {
             dialog: this.dialog,
-            model: 'views/user/profile/review',
-            activationData: ''
+            model: 'views/user/profile/review'
           }
         });
       };
