@@ -58,7 +58,10 @@
             moduleId: 'views/user/verifyemail',
             nav: false
           }
-        ]).buildNavigationModel();
+        ]);
+        router.mapUnknownRoutes(function(instruction) {
+          return instruction.config.moduleId = 'notfound';
+        });
         return router.activate();
       },
       compositionComplete: function() {

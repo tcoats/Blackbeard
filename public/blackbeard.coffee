@@ -61,4 +61,4 @@ define ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal
 			locator.useConvention 'views'
 			
 			#Show the app by setting the root view model for our application
-			app.setRoot 'views/shell'
+			app.setRoot 'shell'

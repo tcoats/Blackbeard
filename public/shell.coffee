@@ -67,7 +67,10 @@
 				moduleId: 'views/user/verifyemail'
 				nav: no
 			}
-		]).buildNavigationModel()
+		])
+		router.mapUnknownRoutes (instruction) ->
+			instruction.config.moduleId = 'notfound'
+			
 		router.activate()
 	compositionComplete: () ->
 		$('.dropdown-toggle').dropdown()

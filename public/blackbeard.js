@@ -61,7 +61,7 @@
     });
     return app.start().then(function() {
       locator.useConvention('views');
-      return app.setRoot('views/shell');
+      return app.setRoot('shell');
     });
   });
 
