@@ -9,7 +9,7 @@
 				<label class="control-label" for="displayName">Full name <small data-bind="validationMessage: displayName"></small></label>
 				<div class="input-group">
  					<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-					<input data-bind="value: displayName" type="text" class="form-control" id="displayName" name="displayName" placeholder="So Blackbeard can greet you" autocomplete="off" autocorrect="off" spellcheck="false" autofocus>
+					<input data-bind="value: displayName" type="text" class="form-control autofocus" id="displayName" name="displayName" placeholder="So Blackbeard can greet you" autocomplete="off" autocorrect="off" spellcheck="false">
 				</div>
 			</div>
 			<div class="form-group" data-bind="css: {'has-error': username.isModified() && !username.isValid() }">
