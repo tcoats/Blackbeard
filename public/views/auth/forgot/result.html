@@ -9,7 +9,7 @@
 		<div data-bind="visible: result().twitter">Your account can be accessed through Twitter. <a href="/odo/auth/twitter">Sign in with Twitter</a></div>
 		<div data-bind="visible: result().facebook">Your account can be accessed through Facebook. <a href="/odo/auth/facebook">Sign in with Facebook</a></div>
 		<div data-bind="visible: result().google">Your account can be accessed through Google. <a href="/odo/auth/facebook">Sign in with Google</a></div>
-		<div data-bind="visible: result().local">Your account can be accessed through a Blackbeard username and password. <a data-bind="click: signinlocal" href="#">Sign in with Blackbeard</a><!-- or <a class="btn btn-navigation" href="#">Reset my password</a>--></div>
+		<div data-bind="visible: result().local">Your account can be accessed through a Blackbeard username and password. <a data-bind="click: signinlocal" href="#">Sign in with Blackbeard</a> or <a data-bind="click: reset" href="#">Reset my password</a></div>
 		<ul class="actions">
 			<li>
 				<a data-bind="click: back" class="back btn btn-navigation">&larr; Back</a>

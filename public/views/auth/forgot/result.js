@@ -6,6 +6,7 @@
     var ForgotAuthResult;
     return ForgotAuthResult = (function() {
       function ForgotAuthResult() {
+        this.reset = __bind(this.reset, this);
         this.signinlocal = __bind(this.signinlocal, this);
         this.back = __bind(this.back, this);
         this.close = __bind(this.close, this);
@@ -40,6 +41,15 @@
           model: 'views/auth/localsignin'
         };
         return new Dialog(options).show();
+      };
+
+      ForgotAuthResult.prototype.reset = function() {
+        return this.wizard.forward({
+          model: 'views/auth/forgot/reset',
+          activationData: {
+            email: this.email()
+          }
+        })();
       };
 
       return ForgotAuthResult;

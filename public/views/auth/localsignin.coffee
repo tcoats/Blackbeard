@@ -1,11 +1,15 @@
 ﻿define ['knockout', 'odo/auth', 'components/dialog'], (ko, auth, Dialog) ->
 	class LocalSignin
 		constructor: ->
-			@password = ko.observable('')
+			@password = ko.observable ''
+			@username = ko.observable ''
+		
+		setup: =>
+			@password
 				.extend
 					required: yes
 					
-			@username = ko.observable('')
+			@username
 				.extend
 					required: yes
 					validation:
@@ -25,13 +29,18 @@
 			@errors = ko.validation.group @
 		
 		activate: (options) =>
-			{ @dialog } = options
+			{ @dialog, activationData } = options
+			
+			if activationData? and activationData.username?
+				@username activationData.username
+			
+			@setup()
 		
 		close: =>
 			@dialog.close()
 		
 		signup: =>
-			@dialog.close()
+			@close()
 			
 			options = {
 				model: 'views/auth/localsignup'

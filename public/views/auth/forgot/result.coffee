@@ -23,3 +23,10 @@
 			}
 			
 			new Dialog(options).show()
+		
+		reset: =>
+			@wizard.forward({
+				model: 'views/auth/forgot/reset'
+				activationData:
+					email: @email()
+			})()

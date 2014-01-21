@@ -49,6 +49,10 @@
             route: 'auth/local/success',
             moduleId: 'views/auth/signincheck',
             nav: false
+          }, {
+            route: 'auth/local/reset/:token',
+            moduleId: 'views/auth/localreset',
+            nav: false
           }
         ]).buildNavigationModel();
         return router.activate();

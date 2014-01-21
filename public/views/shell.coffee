@@ -57,6 +57,11 @@
 				moduleId: 'views/auth/signincheck'
 				nav: no
 			}
+			{
+				route: 'auth/local/reset/:token'
+				moduleId: 'views/auth/localreset'
+				nav: no
+			}
 		]).buildNavigationModel()
 		router.activate()
 	compositionComplete: () ->

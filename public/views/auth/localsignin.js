@@ -11,11 +11,17 @@
         this.signup = __bind(this.signup, this);
         this.close = __bind(this.close, this);
         this.activate = __bind(this.activate, this);
+        this.setup = __bind(this.setup, this);
+        this.password = ko.observable('');
+        this.username = ko.observable('');
+      }
+
+      LocalSignin.prototype.setup = function() {
         var _this = this;
-        this.password = ko.observable('').extend({
+        this.password.extend({
           required: true
         });
-        this.username = ko.observable('').extend({
+        this.username.extend({
           required: true,
           validation: {
             async: true,
@@ -36,11 +42,16 @@
             }
           }
         });
-        this.errors = ko.validation.group(this);
-      }
+        return this.errors = ko.validation.group(this);
+      };
 
       LocalSignin.prototype.activate = function(options) {
-        return this.dialog = options.dialog, options;
+        var activationData;
+        this.dialog = options.dialog, activationData = options.activationData;
+        if ((activationData != null) && (activationData.username != null)) {
+          this.username(activationData.username);
+        }
+        return this.setup();
       };
 
       LocalSignin.prototype.close = function() {
@@ -49,7 +60,7 @@
 
       LocalSignin.prototype.signup = function() {
         var options;
-        this.dialog.close();
+        this.close();
         options = {
           model: 'views/auth/localsignup'
         };
