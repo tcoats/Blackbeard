@@ -1,4 +1,4 @@
-﻿define ['plugins/router', 'durandal/app', 'bootstrap'], (router, app, bootstrap) ->
+﻿define ['plugins/router', 'durandal/app', 'bootstrap', 'knockout'], (router, app, bootstrap, ko) ->
 	router: router
 	activate: ->
 		routes =
@@ -28,7 +28,32 @@
 		router.map routesArray
 		router.mapUnknownRoutes (instruction) ->
 			instruction.config.moduleId = 'notfound'
+		
+		router.updateDocumentTitle = (instance, instruction) ->
+			update = ->
+				parts = []
+				
+				if instance.title?
+					parts.push ko.unwrap instance.title
+					
+				if instruction.config.title?
+					parts.push instruction.config.title
+				
+				if app.title?
+					parts.push app.title
+				
+				# clear out any empty strings
+				parts = parts.filter (part) -> part isnt ''
+				
+				document.title = parts.join ' - ' 
+			update()
 			
+			# changes to an observable title are reflected
+			# TODO: cancel the subscription if we've navigated
+			if instance.title? and ko.isObservable instance.title
+				instance.title.subscribe ->
+					update()
+		
 		router.activate()
 	compositionComplete: () ->
 		$('.dropdown-toggle').dropdown()
