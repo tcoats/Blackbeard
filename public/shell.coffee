@@ -54,10 +54,26 @@
 			update()
 			
 			# changes to an observable title are reflected
-			# TODO: cancel the subscription if we've navigated
 			if instance.title? and ko.isObservable instance.title
 				subscription = instance.title.subscribe ->
 					update()
+		
+		# disable and enable a router
+		isRouterEnabled = yes
+		router.disable = ->
+			isRouterEnabled = no
+		
+		router.enable = ->
+			isRouterEnabled = yes
+		
+		previousInstruction = null
+		router.guardRoute = (instance, instruction) ->
+			if previousInstruction? and !isRouterEnabled
+				return previousInstruction.fragment
+			
+			previousInstruction = instruction
+			
+			yes
 		
 		router.activate()
 	compositionComplete: () ->

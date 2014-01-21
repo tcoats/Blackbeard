@@ -4,7 +4,7 @@
     return {
       router: router,
       activate: function() {
-        var moduleId, route, routes, routesArray, subscription;
+        var isRouterEnabled, moduleId, previousInstruction, route, routes, routesArray, subscription;
         routes = {
           '': 'views/welcome',
           'givefeedback/:id': 'views/feedback/give',
@@ -66,6 +66,21 @@
               return update();
             });
           }
+        };
+        isRouterEnabled = true;
+        router.disable = function() {
+          return isRouterEnabled = false;
+        };
+        router.enable = function() {
+          return isRouterEnabled = true;
+        };
+        previousInstruction = null;
+        router.guardRoute = function(instance, instruction) {
+          if ((previousInstruction != null) && !isRouterEnabled) {
+            return previousInstruction.fragment;
+          }
+          previousInstruction = instruction;
+          return true;
         };
         return router.activate();
       },
