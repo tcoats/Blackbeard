@@ -4,7 +4,7 @@
     return {
       router: router,
       activate: function() {
-        var moduleId, route, routes, routesArray;
+        var moduleId, route, routes, routesArray, subscription;
         routes = {
           '': 'views/welcome',
           'givefeedback/:id': 'views/feedback/give',
@@ -36,8 +36,13 @@
         router.mapUnknownRoutes(function(instruction) {
           return instruction.config.moduleId = 'notfound';
         });
+        subscription = null;
         router.updateDocumentTitle = function(instance, instruction) {
           var update;
+          if (subscription != null) {
+            subscription.dispose();
+            subscription = null;
+          }
           update = function() {
             var parts;
             parts = [];
@@ -57,7 +62,7 @@
           };
           update();
           if ((instance.title != null) && ko.isObservable(instance.title)) {
-            return instance.title.subscribe(function() {
+            return subscription = instance.title.subscribe(function() {
               return update();
             });
           }

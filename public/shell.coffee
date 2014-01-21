@@ -29,7 +29,12 @@
 		router.mapUnknownRoutes (instruction) ->
 			instruction.config.moduleId = 'notfound'
 		
+		subscription = null
 		router.updateDocumentTitle = (instance, instruction) ->
+			if subscription?
+				subscription.dispose()
+				subscription = null
+			
 			update = ->
 				parts = []
 				
@@ -51,7 +56,7 @@
 			# changes to an observable title are reflected
 			# TODO: cancel the subscription if we've navigated
 			if instance.title? and ko.isObservable instance.title
-				instance.title.subscribe ->
+				subscription = instance.title.subscribe ->
 					update()
 		
 		router.activate()
