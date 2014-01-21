@@ -4,61 +4,35 @@
     return {
       router: router,
       activate: function() {
-        router.map([
-          {
-            route: '',
-            moduleId: 'views/welcome',
-            nav: false
-          }, {
-            route: 'givefeedback/:id',
-            moduleId: 'views/feedback/give',
-            nav: false
-          }, {
-            route: '_=_',
-            moduleId: 'views/auth/facebook',
-            nav: false
-          }, {
-            route: 'signin/extra',
-            moduleId: 'views/auth/signinextra',
-            nav: false
-          }, {
-            route: 'auth/facebook/failure',
-            moduleId: 'views/auth/facebook-failure',
-            nav: false
-          }, {
-            route: 'auth/facebook/success',
-            moduleId: 'views/auth/signincheck',
-            nav: false
-          }, {
-            route: 'auth/twitter/failure',
-            moduleId: 'views/auth/twitter-failure',
-            nav: false
-          }, {
-            route: 'auth/twitter/success',
-            moduleId: 'views/auth/signincheck',
-            nav: false
-          }, {
-            route: 'auth/google/failure',
-            moduleId: 'views/auth/google-failure',
-            nav: false
-          }, {
-            route: 'auth/google/success',
-            moduleId: 'views/auth/signincheck',
-            nav: false
-          }, {
-            route: 'auth/local/success',
-            moduleId: 'views/auth/signincheck',
-            nav: false
-          }, {
-            route: 'auth/local/reset/:token',
-            moduleId: 'views/auth/localreset',
-            nav: false
-          }, {
-            route: 'user/verifyemail/:email/:token',
-            moduleId: 'views/user/verifyemail',
-            nav: false
+        var moduleId, route, routes, routesArray;
+        routes = {
+          '': 'views/welcome',
+          'givefeedback/:id': 'views/feedback/give',
+          '_=_': 'views/auth/facebook',
+          'auth/facebook/failure': 'views/auth/facebook-failure',
+          'auth/facebook/success': 'views/auth/signincheck',
+          'auth/twitter/failure': 'views/auth/twitter-failure',
+          'auth/twitter/success': 'views/auth/signincheck',
+          'auth/google/failure': 'views/auth/google-failure',
+          'auth/google/success': 'views/auth/signincheck',
+          'auth/local/success': 'views/auth/signincheck',
+          'auth/local/reset/:token': 'views/auth/localreset',
+          'signin/extra': 'views/auth/signinextra',
+          'user/verifyemail/:email/:token': 'views/user/verifyemail'
+        };
+        routesArray = (function() {
+          var _results;
+          _results = [];
+          for (route in routes) {
+            moduleId = routes[route];
+            _results.push({
+              route: route,
+              moduleId: moduleId
+            });
           }
-        ]);
+          return _results;
+        })();
+        router.map(routesArray);
         router.mapUnknownRoutes(function(instruction) {
           return instruction.config.moduleId = 'notfound';
         });
