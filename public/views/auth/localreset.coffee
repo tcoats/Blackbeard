@@ -1,5 +1,6 @@
 ﻿define ['knockout'], (ko) ->
 	class LocalReset
+		title: "Reset your password"
 		composeOptions: ko.observable null
 		
 		activate: (token) =>

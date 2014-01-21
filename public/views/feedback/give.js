@@ -5,6 +5,8 @@
   define(['knockout'], function(ko) {
     var FeedbackGive;
     return FeedbackGive = (function() {
+      FeedbackGive.prototype.title = ko.observable('');
+
       function FeedbackGive() {
         this.activate = __bind(this.activate, this);
         this.composeOptions = ko.observable(null);
@@ -29,6 +31,7 @@
           },
           feedback: {}
         };
+        this.title(this.feedback.description);
       }
 
       FeedbackGive.prototype.activate = function(id) {

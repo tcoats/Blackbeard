@@ -1,5 +1,7 @@
 ﻿define ['q', 'knockout', 'odo/auth', 'components/dialog'], (Q, ko, auth, Dialog) ->
 	class VerifyEmail
+		title: ko.observable ''
+		
 		isTokenValid: ko.observable no
 		result: ko.observable null
 		email: ko.observable null
@@ -8,6 +10,7 @@
 		activate: (email, token) =>
 			@email email
 			@token token
+			@title "Verifying #{email}"
 			
 			dfd = Q.defer()
 			

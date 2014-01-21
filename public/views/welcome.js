@@ -5,6 +5,8 @@
   define(['q', 'knockout', 'plugins/router', 'components/dialog', 'odo/auth'], function(Q, ko, router, Dialog, auth) {
     var Welcome;
     return Welcome = (function() {
+      Welcome.prototype.title = 'Welcome';
+
       function Welcome() {
         this.activate = __bind(this.activate, this);
         this.skill = ko.observable(0.3);

@@ -4,6 +4,9 @@
 
   define(['components/dialog'], function(Dialog) {
     var TwitterFailure;
+    ({
+      title: "Twitter sign in didn't work"
+    });
     return TwitterFailure = (function() {
       function TwitterFailure() {
         this.signin = __bind(this.signin, this);

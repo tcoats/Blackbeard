@@ -10,6 +10,8 @@
         this.activate = __bind(this.activate, this);
       }
 
+      VerifyEmail.prototype.title = ko.observable('');
+
       VerifyEmail.prototype.isTokenValid = ko.observable(false);
 
       VerifyEmail.prototype.result = ko.observable(null);
@@ -23,6 +25,7 @@
           _this = this;
         this.email(email);
         this.token(token);
+        this.title("Verifying " + email);
         dfd = Q.defer();
         auth.checkEmailVerificationToken(this.email(), this.token()).then(function(result) {
           _this.isTokenValid(result.isValid);

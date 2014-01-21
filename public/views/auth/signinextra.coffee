@@ -1,4 +1,5 @@
 ﻿define ['knockout', 'q', 'odo/auth', 'plugins/router'], (ko, Q, auth, router) ->
+	title: "Username and email address"
 	class SigninExtra
 		user: ko.observable null
 		shouldShake: ko.observable no

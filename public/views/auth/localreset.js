@@ -9,6 +9,8 @@
         this.activate = __bind(this.activate, this);
       }
 
+      LocalReset.prototype.title = "Reset your password";
+
       LocalReset.prototype.composeOptions = ko.observable(null);
 
       LocalReset.prototype.activate = function(token) {

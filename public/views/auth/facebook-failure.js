@@ -4,6 +4,9 @@
 
   define(['components/dialog'], function(Dialog) {
     var FacebookFailure;
+    ({
+      title: "Facebook sign in didn't work"
+    });
     return FacebookFailure = (function() {
       function FacebookFailure() {
         this.signin = __bind(this.signin, this);

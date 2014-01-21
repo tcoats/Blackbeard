@@ -4,6 +4,9 @@
 
   define(['knockout', 'q', 'odo/auth', 'plugins/router'], function(ko, Q, auth, router) {
     var SigninExtra;
+    ({
+      title: "Username and email address"
+    });
     return SigninExtra = (function() {
       SigninExtra.prototype.user = ko.observable(null);
 

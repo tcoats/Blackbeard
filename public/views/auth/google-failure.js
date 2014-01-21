@@ -4,6 +4,9 @@
 
   define(['components/dialog'], function(Dialog) {
     var GoogleFailure;
+    ({
+      title: "Google sign in didn't work"
+    });
     return GoogleFailure = (function() {
       function GoogleFailure() {
         this.signin = __bind(this.signin, this);

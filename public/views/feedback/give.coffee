@@ -1,5 +1,6 @@
 ﻿define ['knockout'], (ko) ->
 	class FeedbackGive
+		title: ko.observable ''
 		constructor: ->
 			@composeOptions = ko.observable null
 			@feedback = {
@@ -24,6 +25,7 @@
 				
 				feedback: {}
 			}
+			@title @feedback.description
 		
 		activate: (id) =>
 			@composeOptions {
