@@ -53,6 +53,10 @@
             route: 'auth/local/reset/:token',
             moduleId: 'views/auth/localreset',
             nav: false
+          }, {
+            route: 'user/verifyemail/:email/:token',
+            moduleId: 'views/user/verifyemail',
+            nav: false
           }
         ]).buildNavigationModel();
         return router.activate();

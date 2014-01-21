@@ -51,8 +51,13 @@
         if (this.user().email === this.email()) {
           this.back();
         }
-        return auth.assignEmailAddressToUser(this.user().id, this.email()).then(function() {
-          return _this.back();
+        return auth.createVerifyEmailAddressToken(this.email()).then(function() {
+          return _this.wizard.forward({
+            model: 'views/user/profile/emailresult',
+            activationData: {
+              email: _this.email()
+            }
+          })();
         });
       };
 

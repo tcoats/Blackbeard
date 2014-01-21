@@ -1,0 +1,25 @@
+﻿<div class="container">
+	<div id="site-title">
+		<h1>Blackbeard <small>Performance reviews done right</small></h1>
+	</div>
+
+	<div data-bind="visible: !isTokenValid()">
+		<p>The link you've used has expired. Use <a href="#" data-bind="click: showProfile">Account settings</a> to change your email address.</p>
+		
+		<ul class="actions">
+			<li>
+				<a href="#" class="forward btn btn-primary">Back to Blackbeard</a>
+			</li>
+		</ul>
+	</div>
+	
+	<div data-bind="visible: isTokenValid()">
+		<p>Your email address has been set to <a data-bind="text: email, attr: { href: email }"></a>.</p>
+		
+		<ul class="actions">
+			<li>
+				<a href="#" class="forward btn btn-primary">Back to Blackbeard</a>
+			</li>
+		</ul>
+	</div>
+</div>

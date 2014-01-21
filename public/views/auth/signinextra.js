@@ -50,8 +50,8 @@
         dfd = Q.defer();
         auth.getUser().then(function(user) {
           _this.user(user);
-          if (user.email != null) {
-            _this.email(user.email);
+          if ((user.google != null) && user.google.profile.emails.length > 0) {
+            _this.email(user.google.profile.emails[0].value);
           }
           if (user.username != null) {
             _this.username(user.username);
@@ -74,7 +74,7 @@
       };
 
       SigninExtra.prototype.assignEmailAddress = function() {
-        return auth.assignEmailAddressToUser(this.user().id, this.email());
+        return auth.createVerifyEmailAddressToken(this.email());
       };
 
       SigninExtra.prototype.assignUsernameAndEmailAddress = function() {

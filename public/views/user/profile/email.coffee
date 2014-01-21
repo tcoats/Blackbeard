@@ -42,5 +42,9 @@
 			
 			# submit here
 			auth
-				.assignEmailAddressToUser(@user().id, @email())
-				.then => @back()
+				.createVerifyEmailAddressToken(@email())
+				.then => @wizard.forward({
+					model: 'views/user/profile/emailresult'
+					activationData:
+						email: @email()
+				})()

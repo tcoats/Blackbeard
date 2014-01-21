@@ -1,11 +1,11 @@
-﻿<div class="container animated" data-bind="css: { shake: shouldShake }">
+﻿<div class="container">
 	<div id="site-title">
 		<h1>Blackbeard <small>Performance reviews done right</small></h1>
 	</div>
 	
 	<h1>Blackbeard works best if you choose a username and enter an email address</h1>
 	
-	<form  data-bind="submit: assignUsernameAndEmailAddress" role="form" autocomplete="off">
+	<form data-bind="submit: assignUsernameAndEmailAddress, css: { shake: shouldShake }" role="form" class="animated" autocomplete="off">
 		<div class="form-group" data-bind="css: {'has-error': username.isModified() && !username.isValid() }">
 			<label class="control-label" for="username">Username <small data-bind="visible: username.isValidating">validating&hellip;</small><small data-bind="validationMessage: username"></small></label>
 			<div class="input-group">

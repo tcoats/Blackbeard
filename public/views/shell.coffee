@@ -62,6 +62,11 @@
 				moduleId: 'views/auth/localreset'
 				nav: no
 			}
+			{
+				route: 'user/verifyemail/:email/:token'
+				moduleId: 'views/user/verifyemail'
+				nav: no
+			}
 		]).buildNavigationModel()
 		router.activate()
 	compositionComplete: () ->

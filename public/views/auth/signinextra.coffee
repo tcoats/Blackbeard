@@ -35,8 +35,8 @@
 				.then (user) =>
 					@user user
 					
-					if user.email?
-						@email user.email
+					if user.google? and user.google.profile.emails.length > 0
+						@email user.google.profile.emails[0].value
 						
 					if user.username?
 						@username user.username
@@ -58,7 +58,7 @@
 		
 		assignEmailAddress: =>
 			auth
-				.assignEmailAddressToUser(@user().id, @email())
+				.createVerifyEmailAddressToken(@email())
 		
 		assignUsernameAndEmailAddress: =>
 			if !@isValid()
