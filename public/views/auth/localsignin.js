@@ -68,7 +68,10 @@
       };
 
       LocalSignin.prototype.signin = function() {
-        if (!this.isValid() || this.isValidating()) {
+        if (this.isValidating()) {
+          return false;
+        }
+        if (!this.isValid()) {
           this.dialog.shake();
           this.errors.showAllMessages();
           return false;

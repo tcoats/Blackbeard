@@ -65,6 +65,9 @@
 			@dialog.close()
 			
 		signup: =>
+			if @isValidating()
+				return no
+			
 			if !@isValid()
 				@dialog.shake()
 				@errors.showAllMessages()

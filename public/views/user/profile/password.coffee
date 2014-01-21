@@ -49,6 +49,9 @@
 			@wizard.back({ model: 'views/user/profile/review' })()
 		
 		changePassword: =>
+			if @isValidating()
+				return
+				
 			if !@isValid()
 				@dialog.shake()
 				@errors.showAllMessages()

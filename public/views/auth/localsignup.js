@@ -78,6 +78,9 @@
       };
 
       LocalSignup.prototype.signup = function() {
+        if (this.isValidating()) {
+          return false;
+        }
         if (!this.isValid()) {
           this.dialog.shake();
           this.errors.showAllMessages();

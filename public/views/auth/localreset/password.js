@@ -60,6 +60,9 @@
 
       LocalResetPassword.prototype.changePassword = function() {
         var _this = this;
+        if (this.isValidating()) {
+          return;
+        }
         if (!this.isValid()) {
           this.shake();
           this.errors.showAllMessages();

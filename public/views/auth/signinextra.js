@@ -80,6 +80,9 @@
       SigninExtra.prototype.assignUsernameAndEmailAddress = function() {
         var tasks,
           _this = this;
+        if (this.isValidating()) {
+          return;
+        }
         if (!this.isValid()) {
           this.shake();
           this.errors.showAllMessages();

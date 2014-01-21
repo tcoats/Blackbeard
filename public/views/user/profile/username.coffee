@@ -44,6 +44,9 @@
 			@wizard.back({ model: 'views/user/profile/review' })()
 		
 		changeUsername: =>
+			if @isValidating()
+				return
+				
 			if !@isValid()
 				@dialog.shake()
 				@errors.showAllMessages()

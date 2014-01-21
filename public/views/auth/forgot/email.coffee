@@ -33,7 +33,10 @@
 			new Dialog(options).show()
 		
 		forgot: =>
-			if !@isValid() || @isValidating()
+			if @isValidating()
+				return
+				
+			if !@isValid()
 				@dialog.shake()
 				@errors.showAllMessages()
 				return

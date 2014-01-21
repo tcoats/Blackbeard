@@ -32,6 +32,9 @@
 			@wizard.back({ model: 'views/user/profile/review' })()
 		
 		changeEmail: =>
+			if @isValidating()
+				return
+				
 			if !@isValid()
 				@dialog.shake()
 				@errors.showAllMessages()

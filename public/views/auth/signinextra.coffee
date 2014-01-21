@@ -61,6 +61,9 @@
 				.createVerifyEmailAddressToken(@email())
 		
 		assignUsernameAndEmailAddress: =>
+			if @isValidating()
+				return
+			
 			if !@isValid()
 				@shake()
 				@errors.showAllMessages()

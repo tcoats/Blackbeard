@@ -43,6 +43,9 @@
 
       ChangeEmail.prototype.changeEmail = function() {
         var _this = this;
+        if (this.isValidating()) {
+          return;
+        }
         if (!this.isValid()) {
           this.dialog.shake();
           this.errors.showAllMessages();

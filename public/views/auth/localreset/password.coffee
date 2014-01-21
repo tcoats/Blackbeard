@@ -48,6 +48,9 @@
 			dfd.promise
 			
 		changePassword: =>
+			if @isValidating()
+				return
+				
 			if !@isValid()
 				@shake()
 				@errors.showAllMessages()

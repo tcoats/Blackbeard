@@ -49,7 +49,10 @@
 			new Dialog(options).show()
 		
 		signin: =>
-			if !@isValid() || @isValidating()
+			if @isValidating()
+				return no
+			
+			if !@isValid()
 				@dialog.shake()
 				@errors.showAllMessages()
 				return no
