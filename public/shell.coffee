@@ -20,6 +20,7 @@
 			
 			'signin/extra': 						'views/auth/signinextra'
 			'user/verifyemail/:email/:token': 'views/user/verifyemail'
+			'user/:username':						'views/user/dashboard'
 		
 		routesArray = for route, moduleId of routes
 			route: route

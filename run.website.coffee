@@ -26,6 +26,7 @@ requirejs [
 	'odo/plugins/sendcommand'
 	'odo/plugins/public'
 	'blackbeard/projections/feedbackforreviewer'
+	'blackbeard/plugins/user'
 ], (express, plugins...) ->
 	
 	process.env.PORT = 4834

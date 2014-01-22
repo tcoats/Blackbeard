@@ -13,7 +13,7 @@
     }
   });
 
-  requirejs(['odo/express', 'odo/plugins/peek', 'odo/plugins/bower', 'odo/plugins/durandal', 'odo/plugins/handlebars', 'odo/plugins/auth', 'odo/plugins/auth/twitter', 'odo/plugins/auth/facebook', 'odo/plugins/auth/google', 'odo/plugins/auth/local', 'odo/plugins/sendcommand', 'odo/plugins/public', 'blackbeard/projections/feedbackforreviewer'], function() {
+  requirejs(['odo/express', 'odo/plugins/peek', 'odo/plugins/bower', 'odo/plugins/durandal', 'odo/plugins/handlebars', 'odo/plugins/auth', 'odo/plugins/auth/twitter', 'odo/plugins/auth/facebook', 'odo/plugins/auth/google', 'odo/plugins/auth/local', 'odo/plugins/sendcommand', 'odo/plugins/public', 'blackbeard/projections/feedbackforreviewer', 'blackbeard/plugins/user'], function() {
     var app, express, plugins;
     express = arguments[0], plugins = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
     process.env.PORT = 4834;

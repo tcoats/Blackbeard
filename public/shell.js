@@ -18,7 +18,8 @@
           'auth/local/success': 'views/auth/signincheck',
           'auth/local/reset/:token': 'views/auth/localreset',
           'signin/extra': 'views/auth/signinextra',
-          'user/verifyemail/:email/:token': 'views/user/verifyemail'
+          'user/verifyemail/:email/:token': 'views/user/verifyemail',
+          'user/:username': 'views/user/dashboard'
         };
         routesArray = (function() {
           var _results;

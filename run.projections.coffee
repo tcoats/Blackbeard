@@ -22,6 +22,7 @@ requirejs [
 	'odo/plugins/auth/local'
 	'blackbeard/projections/feedbackforreviewer'
 	'blackbeard/plugins/email'
+	'blackbeard/plugins/user'
 	# add more event listeners here
 ], (hub, listeners...) ->
 		
