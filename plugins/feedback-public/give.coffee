@@ -1,4 +1,8 @@
-﻿define ['knockout'], (ko) ->
+﻿define ['knockout', 'plugins/router'], (ko, router) ->
+	router.map
+		route: 'givefeedback/:id'
+		moduleId: 'views/feedback/give'
+	
 	class FeedbackGive
 		title: ko.observable ''
 		constructor: ->

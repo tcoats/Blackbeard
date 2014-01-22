@@ -2,8 +2,12 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['knockout'], function(ko) {
+  define(['knockout', 'plugins/router'], function(ko, router) {
     var FeedbackGive;
+    router.map({
+      route: 'givefeedback/:id',
+      moduleId: 'views/feedback/give'
+    });
     return FeedbackGive = (function() {
       FeedbackGive.prototype.title = ko.observable('');
 

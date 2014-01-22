@@ -1,4 +1,4 @@
-define ['redis', 'odo/projections/userprofile'], (redis, UserProfile) ->
+define ['module', 'redis', 'odo/projections/userprofile'], (module, redis, UserProfile) ->
 	db = redis.createClient()
 	
 	class User
@@ -23,6 +23,10 @@ define ['redis', 'odo/projections/userprofile'], (redis, UserProfile) ->
 					callback null,
 						displayName: user.displayName
 						username: user.username
+		
+		configure: (app) ->
+			app.route '/', app.modulepath(module.uri) + '/user-public'
+			app.durandal 'user'
 		
 		init: (app) =>
 			app.get '/blackbeard/user', (req, res) =>

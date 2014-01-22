@@ -4,6 +4,10 @@
 
   define(['q', 'knockout', 'plugins/router', 'components/dialog', 'odo/auth'], function(Q, ko, router, Dialog, auth) {
     var Welcome;
+    router.map({
+      route: '',
+      moduleId: 'views/welcome'
+    });
     return Welcome = (function() {
       Welcome.prototype.title = 'Welcome';
 

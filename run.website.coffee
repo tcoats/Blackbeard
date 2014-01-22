@@ -8,7 +8,7 @@ requirejs.config {
 		nodeRequire: require
 		paths: {
 			odo: './bower_components/odo'
-			blackbeard: './'
+			local: './'
 		}
 }
 
@@ -25,8 +25,11 @@ requirejs [
 	'odo/plugins/auth/local'
 	'odo/plugins/sendcommand'
 	'odo/plugins/public'
-	'blackbeard/projections/feedbackforreviewer'
-	'blackbeard/plugins/user'
+	'local/plugins/welcome'
+	'local/plugins/auth'
+	'local/plugins/email'
+	'local/plugins/user'
+	'local/plugins/feedback'
 ], (express, plugins...) ->
 	
 	process.env.PORT = 4834

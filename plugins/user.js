@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['redis', 'odo/projections/userprofile'], function(redis, UserProfile) {
+  define(['module', 'redis', 'odo/projections/userprofile'], function(module, redis, UserProfile) {
     var User, db;
     db = redis.createClient();
     return User = (function() {
@@ -36,6 +36,11 @@
             });
           });
         });
+      };
+
+      User.prototype.configure = function(app) {
+        app.route('/', app.modulepath(module.uri) + '/user-public');
+        return app.durandal('user');
       };
 
       User.prototype.init = function(app) {

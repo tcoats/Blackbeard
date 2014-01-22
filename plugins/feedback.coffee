@@ -1,7 +1,7 @@
-define ['redis'], (redis) ->
+define ['module', 'redis'], (module, redis) ->
 	db = redis.createClient()
 	
-	class FeedbackContent
+	class Feedback
 		constructor: ->
 			@receive =
 				feedbackBegun: (event, cb) =>
@@ -25,6 +25,10 @@ define ['redis'], (redis) ->
 					id = event.payload.id
 					db.del "feedbackforreviewer:#{id}", ->
 						cb()
+		
+		configure: (app) ->
+			app.route '/views/feedback', app.modulepath(module.uri) + '/feedback-public'
+			app.durandal 'views/feedback/give'
 		
 		init: (app) =>
 			app.get '/feedbackforreviewer/:id', (req, res) =>

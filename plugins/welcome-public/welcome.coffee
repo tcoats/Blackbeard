@@ -1,4 +1,8 @@
 ﻿define ['q', 'knockout', 'plugins/router', 'components/dialog', 'odo/auth'], (Q, ko, router, Dialog, auth) ->
+	router.map
+		route: ''
+		moduleId: 'views/welcome'
+	
 	class Welcome
 		title: 'Welcome'
 		

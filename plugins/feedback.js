@@ -2,11 +2,11 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['redis'], function(redis) {
-    var FeedbackContent, db;
+  define(['module', 'redis'], function(module, redis) {
+    var Feedback, db;
     db = redis.createClient();
-    return FeedbackContent = (function() {
-      function FeedbackContent() {
+    return Feedback = (function() {
+      function Feedback() {
         this.init = __bind(this.init, this);
         var _this = this;
         this.receive = {
@@ -40,7 +40,12 @@
         };
       }
 
-      FeedbackContent.prototype.init = function(app) {
+      Feedback.prototype.configure = function(app) {
+        app.route('/views/feedback', app.modulepath(module.uri) + '/feedback-public');
+        return app.durandal('views/feedback/give');
+      };
+
+      Feedback.prototype.init = function(app) {
         var _this = this;
         return app.get('/feedbackforreviewer/:id', function(req, res) {
           return _this.get(req.params.id, function(err, feedback) {
@@ -57,7 +62,7 @@
         });
       };
 
-      FeedbackContent.prototype.get = function(id, callback) {
+      Feedback.prototype.get = function(id, callback) {
         var _this = this;
         return db.get("feedbackforreviewer:" + id, function(err, data) {
           if (err != null) {
@@ -69,7 +74,7 @@
         });
       };
 
-      return FeedbackContent;
+      return Feedback;
 
     })();
   });

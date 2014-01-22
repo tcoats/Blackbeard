@@ -8,7 +8,7 @@ requirejs.config {
 		nodeRequire: require
 		paths: {
 			odo: './bower_components/odo'
-			blackbeard: './'
+			local: './'
 		}
 }
 
@@ -20,9 +20,9 @@ requirejs [
 	'odo/plugins/auth/facebook'
 	'odo/plugins/auth/google'
 	'odo/plugins/auth/local'
-	'blackbeard/projections/feedbackforreviewer'
-	'blackbeard/plugins/email'
-	'blackbeard/plugins/user'
+	'local/plugins/email'
+	'local/plugins/user'
+	'local/plugins/feedback'
 	# add more event listeners here
 ], (hub, listeners...) ->
 		

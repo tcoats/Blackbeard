@@ -40,7 +40,7 @@
     urlArgs: 'v=' + (new Date()).getTime()
   });
 
-  define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal/bindings', 'bindings/blackbeardbindings'], function(system, app, locator, bindings, blackbeardbindings) {
+  define(['jquery', 'durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal/bindings', 'bindings/blackbeardbindings'], function($, system, app, locator, bindings, blackbeardbindings) {
     system.debug(true);
     app.title = 'Blackbeard';
     app.configurePlugins({
@@ -60,9 +60,13 @@
     blackbeardbindings.init(requirejs, {
       slider: true
     });
-    return app.start().then(function() {
-      locator.useConvention('views');
-      return app.setRoot('shell');
+    return $.get('/odo/components').then(function(components) {
+      return requirejs(components, function() {
+        return app.start().then(function() {
+          locator.useConvention('views');
+          return app.setRoot('shell');
+        });
+      });
     });
   });
 

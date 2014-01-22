@@ -36,7 +36,7 @@
 	# don't cache in development
 	urlArgs: 'v=' + (new Date()).getTime()
 
-define ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal/bindings', 'bindings/blackbeardbindings'], (system, app, locator, bindings, blackbeardbindings) ->
+define ['jquery', 'durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal/bindings', 'bindings/blackbeardbindings'], ($, system, app, locator, bindings, blackbeardbindings) ->
 		system.debug yes
 		app.title = 'Blackbeard'
 		app.configurePlugins
@@ -55,11 +55,13 @@ define ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal
 		
 		blackbeardbindings.init requirejs,
 			slider: yes
-
-		app.start().then ->
-			#Replace 'viewmodels' in the moduleId with 'views' to locate the view.
-			#Look for partial views in a 'views' folder in the root.
-			locator.useConvention 'views'
-			
-			#Show the app by setting the root view model for our application
-			app.setRoot 'shell'
+		
+		$.get('/odo/components').then (components) ->
+			requirejs components, ->
+				app.start().then ->
+					#Replace 'viewmodels' in the moduleId with 'views' to locate the view.
+					#Look for partial views in a 'views' folder in the root.
+					locator.useConvention 'views'
+					
+					#Show the app by setting the root view model for our application
+					app.setRoot 'shell'
