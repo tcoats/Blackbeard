@@ -8,7 +8,7 @@
   requirejs.config({
     nodeRequire: require,
     paths: {
-      odo: './bower_components/odo',
+      odo: './node_modules/odo',
       local: './'
     }
   });

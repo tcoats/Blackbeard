@@ -7,7 +7,7 @@ requirejs.config {
 		# are loaded relative to the top-level JS file.
 		nodeRequire: require
 		paths: {
-			odo: './bower_components/odo'
+			odo: './node_modules/odo'
 			local: './'
 		}
 }

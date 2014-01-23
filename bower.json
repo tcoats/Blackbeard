@@ -16,7 +16,6 @@
 		"mousetrap": "*",
 		"node-uuid": "*",
 		"q": "*",
-		"odo": "*",
 		"marked": "*",
 		"pace": "*",
 		"font-awesome": "*"
