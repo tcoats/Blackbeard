@@ -6,7 +6,7 @@
       function Auth() {}
 
       Auth.prototype.configure = function(app) {
-        app.route('/views/auth', app.modulepath(module.uri) + '/auth-public');
+        app.route('/views/auth', app.modulepath(module.uri) + '/public');
         return app.durandal('views/auth/routes');
       };
 

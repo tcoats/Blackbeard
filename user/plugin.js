@@ -41,7 +41,7 @@
       };
 
       User.prototype.configure = function(app) {
-        app.route('/', app.modulepath(module.uri) + '/user-public');
+        app.route('/', app.modulepath(module.uri) + '/public');
         return app.durandal('user');
       };
 

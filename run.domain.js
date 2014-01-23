@@ -13,7 +13,7 @@
     }
   });
 
-  requirejs(['odo/infra/hub', 'local/domain/feedbackcommands', 'odo/user/usercommands'], function() {
+  requirejs(['odo/infra/hub', 'odo/user/usercommands', 'local/domain/feedbackcommands'], function() {
     var handler, handlers, hub, _i, _len, _results;
     hub = arguments[0], handlers = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
     handlers = handlers.map(function(handler) {

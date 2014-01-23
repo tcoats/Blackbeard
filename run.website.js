@@ -13,7 +13,7 @@
     }
   });
 
-  requirejs(['odo/infra/express', 'odo/peek/plugin', 'odo/bower/plugin', 'odo/durandal/plugin', 'odo/handlebars/plugin', 'odo/auth/plugin', 'odo/auth/twitter', 'odo/auth/facebook', 'odo/auth/google', 'odo/auth/local', 'odo/sendcommand/plugin', 'odo/public/plugin', 'local/plugins/welcome', 'local/plugins/auth', 'local/plugins/email', 'local/plugins/user', 'local/plugins/feedback'], function() {
+  requirejs(['odo/infra/express', 'odo/peek/plugin', 'odo/bower/plugin', 'odo/durandal/plugin', 'odo/handlebars/plugin', 'odo/auth/plugin', 'odo/auth/twitter', 'odo/auth/facebook', 'odo/auth/google', 'odo/auth/local', 'odo/sendcommand/plugin', 'odo/public/plugin', 'local/welcome/plugin', 'local/auth/plugin', 'local/email/plugin', 'local/user/plugin', 'local/feedback/plugin'], function() {
     var app, express, plugins;
     express = arguments[0], plugins = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
     process.env.PORT = 4834;

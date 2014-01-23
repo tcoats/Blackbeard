@@ -6,7 +6,7 @@
       function Welcome() {}
 
       Welcome.prototype.configure = function(app) {
-        app.route('/views', app.modulepath(module.uri) + '/welcome-public');
+        app.route('/views', app.modulepath(module.uri) + '/public');
         return app.durandal('views/welcome');
       };
 

@@ -25,11 +25,11 @@ requirejs [
 	'odo/auth/local'
 	'odo/sendcommand/plugin'
 	'odo/public/plugin'
-	'local/plugins/welcome'
-	'local/plugins/auth'
-	'local/plugins/email'
-	'local/plugins/user'
-	'local/plugins/feedback'
+	'local/welcome/plugin'
+	'local/auth/plugin'
+	'local/email/plugin'
+	'local/user/plugin'
+	'local/feedback/plugin'
 ], (express, plugins...) ->
 	
 	process.env.PORT = 4834

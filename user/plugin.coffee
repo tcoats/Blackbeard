@@ -24,7 +24,7 @@ define ['module', 'redis', 'odo/user/userprofile'], (module, redis, UserProfile)
 						username: user.username
 		
 		configure: (app) ->
-			app.route '/', app.modulepath(module.uri) + '/user-public'
+			app.route '/', app.modulepath(module.uri) + '/public'
 			app.durandal 'user'
 		
 		init: (app) =>

@@ -43,7 +43,7 @@
       };
 
       Feedback.prototype.configure = function(app) {
-        app.route('/views/feedback', app.modulepath(module.uri) + '/feedback-public');
+        app.route('/views/feedback', app.modulepath(module.uri) + '/public');
         return app.durandal('views/feedback/give');
       };
 

@@ -20,9 +20,9 @@ requirejs [
 	'odo/auth/facebook'
 	'odo/auth/google'
 	'odo/auth/local'
-	'local/plugins/email'
-	'local/plugins/user'
-	'local/plugins/feedback'
+	'local/email/plugin'
+	'local/user/plugin'
+	'local/feedback/plugin'
 	# add more event listeners here
 ], (hub, listeners...) ->
 	

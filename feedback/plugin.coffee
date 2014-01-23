@@ -26,7 +26,7 @@ define ['module', 'redis'], (module, redis) ->
 					cb()
 		
 		configure: (app) ->
-			app.route '/views/feedback', app.modulepath(module.uri) + '/feedback-public'
+			app.route '/views/feedback', app.modulepath(module.uri) + '/public'
 			app.durandal 'views/feedback/give'
 		
 		init: (app) =>
