@@ -2,29 +2,28 @@ define ['module', 'redis'], (module, redis) ->
 	db = redis.createClient()
 	
 	class Feedback
-		constructor: ->
-			@receive =
-				feedbackBegun: (event, cb) =>
-					feedback =
-						id: event.payload.id
-						type: event.payload.type
-						options: event.payload.options
-						description: event.payload.name
-						
-						reviewer: event.payload.reviewer
+		receive: (hub) =>
+			hub.receive 'feedbackBegun', (event, cb) =>
+				feedback =
+					id: event.payload.id
+					type: event.payload.type
+					options: event.payload.options
+					description: event.payload.name
 					
-					db.set "feedbackforreviewer:#{feedback.id}", JSON.stringify feedback, ->
-						cb()
+					reviewer: event.payload.reviewer
+				
+				db.set "feedbackforreviewer:#{feedback.id}", JSON.stringify feedback, ->
+					cb()
 
-				feedbackCancelled: (event, cb) =>
-					id = event.payload.id
-					db.del "feedbackforreviewer:#{id}", ->
-						cb()
+			hub.receive 'feedbackCancelled', (event, cb) =>
+				id = event.payload.id
+				db.del "feedbackforreviewer:#{id}", ->
+					cb()
 
-				feedbackCompleted: (event, cb) =>
-					id = event.payload.id
-					db.del "feedbackforreviewer:#{id}", ->
-						cb()
+			hub.receive 'feedbackCompleted', (event, cb) =>
+				id = event.payload.id
+				db.del "feedbackforreviewer:#{id}", ->
+					cb()
 		
 		configure: (app) ->
 			app.route '/views/feedback', app.modulepath(module.uri) + '/feedback-public'

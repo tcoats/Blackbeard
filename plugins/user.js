@@ -8,13 +8,15 @@
     return User = (function() {
       function User() {
         this.init = __bind(this.init, this);
-        var _this = this;
-        this.receive = {
-          userHasUsername: function(event, cb) {
-            return db.hset('blackbeard:username', event.payload.username, event.payload.id, cb);
-          }
-        };
+        this.receive = __bind(this.receive, this);
       }
+
+      User.prototype.receive = function(hub) {
+        var _this = this;
+        return hub.receive('userHasUsername', function(event, cb) {
+          return db.hset('blackbeard:username', event.payload.username, event.payload.id, cb);
+        });
+      };
 
       User.prototype.get = function(username, callback) {
         var _this = this;

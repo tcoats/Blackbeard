@@ -4,7 +4,13 @@ define ['odo/eventstore', 'local/domain/feedback'], (es, Feedback) ->
 		feedback = new Feedback command.payload.id
 		es.extend feedback
 		feedback.applyHistoryThenCommand command
-	
-	beginFeedback: defaultHandler
-	cancelFeedback: defaultHandler
-	completeFeedback: defaultHandler
+		
+	handle: (hub) ->
+		commands = [
+			'beginFeedback'
+			'cancelFeedback'
+			'completeFeedback'
+		]
+		
+		for command in commands
+			hub.handle command, defaultHandler

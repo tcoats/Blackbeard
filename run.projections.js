@@ -14,7 +14,7 @@
   });
 
   requirejs(['odo/hub', 'odo/projections/userprofile', 'odo/plugins/auth', 'odo/plugins/auth/twitter', 'odo/plugins/auth/facebook', 'odo/plugins/auth/google', 'odo/plugins/auth/local', 'local/plugins/email', 'local/plugins/user', 'local/plugins/feedback'], function() {
-    var bindEvents, hub, listener, listeners, _i, _len, _results;
+    var hub, listener, listeners, _i, _len, _results;
     hub = arguments[0], listeners = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
     listeners = listeners.map(function(listener) {
       if (typeof listener === 'function') {
@@ -22,19 +22,14 @@
       }
       return listener;
     });
-    bindEvents = function(listener) {
-      var method, name, _results;
-      _results = [];
-      for (name in listener) {
-        method = listener[name];
-        _results.push(hub.receive(name, method));
-      }
-      return _results;
-    };
     _results = [];
     for (_i = 0, _len = listeners.length; _i < _len; _i++) {
       listener = listeners[_i];
-      _results.push(bindEvents(listener.receive));
+      if (listener.receive != null) {
+        _results.push(listener.receive(hub));
+      } else {
+        _results.push(void 0);
+      }
     }
     return _results;
   });

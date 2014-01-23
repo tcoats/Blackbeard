@@ -8,37 +8,39 @@
     return Feedback = (function() {
       function Feedback() {
         this.init = __bind(this.init, this);
-        var _this = this;
-        this.receive = {
-          feedbackBegun: function(event, cb) {
-            var feedback;
-            feedback = {
-              id: event.payload.id,
-              type: event.payload.type,
-              options: event.payload.options,
-              description: event.payload.name,
-              reviewer: event.payload.reviewer
-            };
-            return db.set("feedbackforreviewer:" + feedback.id, JSON.stringify(feedback, function() {
-              return cb();
-            }));
-          },
-          feedbackCancelled: function(event, cb) {
-            var id;
-            id = event.payload.id;
-            return db.del("feedbackforreviewer:" + id, function() {
-              return cb();
-            });
-          },
-          feedbackCompleted: function(event, cb) {
-            var id;
-            id = event.payload.id;
-            return db.del("feedbackforreviewer:" + id, function() {
-              return cb();
-            });
-          }
-        };
+        this.receive = __bind(this.receive, this);
       }
+
+      Feedback.prototype.receive = function(hub) {
+        var _this = this;
+        hub.receive('feedbackBegun', function(event, cb) {
+          var feedback;
+          feedback = {
+            id: event.payload.id,
+            type: event.payload.type,
+            options: event.payload.options,
+            description: event.payload.name,
+            reviewer: event.payload.reviewer
+          };
+          return db.set("feedbackforreviewer:" + feedback.id, JSON.stringify(feedback, function() {
+            return cb();
+          }));
+        });
+        hub.receive('feedbackCancelled', function(event, cb) {
+          var id;
+          id = event.payload.id;
+          return db.del("feedbackforreviewer:" + id, function() {
+            return cb();
+          });
+        });
+        return hub.receive('feedbackCompleted', function(event, cb) {
+          var id;
+          id = event.payload.id;
+          return db.del("feedbackforreviewer:" + id, function() {
+            return cb();
+          });
+        });
+      };
 
       Feedback.prototype.configure = function(app) {
         app.route('/views/feedback', app.modulepath(module.uri) + '/feedback-public');

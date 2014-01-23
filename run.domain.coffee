@@ -18,15 +18,14 @@ requirejs [
 	'odo/domain/usercommands'
 	# add more command handlers here
 ], (hub, handlers...) ->
-		
+	
+	# construct classes
 	handlers = handlers.map (handler) ->
 		if typeof(handler) is 'function'
 			return new handler
 		handler
 	
-	bindCommands = (handler) ->
-		for name, method of handler
-			hub.handle name, method
-		
+	# let handlers bind
 	for handler in handlers
-		bindCommands handler
+		if handler.handle?
+			handler.handle hub

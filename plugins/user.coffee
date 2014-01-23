@@ -2,10 +2,9 @@ define ['module', 'redis', 'odo/projections/userprofile'], (module, redis, UserP
 	db = redis.createClient()
 	
 	class User
-		constructor: ->
-			@receive =
-				userHasUsername: (event, cb) =>
-					db.hset 'blackbeard:username', event.payload.username, event.payload.id, cb
+		receive: (hub) =>
+			hub.receive 'userHasUsername', (event, cb) =>
+				db.hset 'blackbeard:username', event.payload.username, event.payload.id, cb
 					
 		get: (username, callback) ->
 			db.hget 'blackbeard:username', username, (err, userid) =>
