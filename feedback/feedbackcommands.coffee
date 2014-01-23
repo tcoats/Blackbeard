@@ -1,4 +1,4 @@
-define ['odo/infra/eventstore', 'local/domain/feedback'], (es, Feedback) ->
+define ['odo/infra/eventstore', 'local/feedback/feedback'], (es, Feedback) ->
 	
 	defaultHandler = (command) ->
 		feedback = new Feedback command.payload.id
