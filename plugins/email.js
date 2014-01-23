@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['odo/mandrill', 'odo/projections/userprofile'], function(Mandrill, UserProfile) {
+  define(['odo/infra/mandrill', 'odo/projections/userprofile'], function(Mandrill, UserProfile) {
     var Email;
     return Email = (function() {
       function Email() {

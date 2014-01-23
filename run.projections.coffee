@@ -13,13 +13,13 @@ requirejs.config {
 }
 
 requirejs [
-	'odo/hub'
+	'odo/infra/hub'
 	'odo/projections/userprofile'
-	'odo/plugins/auth'
-	'odo/plugins/auth/twitter'
-	'odo/plugins/auth/facebook'
-	'odo/plugins/auth/google'
-	'odo/plugins/auth/local'
+	'odo/auth/plugin'
+	'odo/auth/twitter'
+	'odo/auth/facebook'
+	'odo/auth/google'
+	'odo/auth/local'
 	'local/plugins/email'
 	'local/plugins/user'
 	'local/plugins/feedback'

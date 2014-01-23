@@ -13,7 +13,7 @@ requirejs.config {
 }
 
 requirejs [
-	'odo/hub'
+	'odo/infra/hub'
 	'local/domain/feedbackcommands'
 	'odo/domain/usercommands'
 	# add more command handlers here

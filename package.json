@@ -8,7 +8,6 @@
 		"underscore": "1.*",
 		"consolidate": "0.*",
 		"peekinto": "*",
-		"injectinto": "*",
 		"requirejs": "*",
 		"moment": "*",
 		"passport": "*",
@@ -21,9 +20,8 @@
 		"eventstore": "*",
 		"eventstore.redis": "*",
 		"node-uuid": "*",
-		"async": "*",
-		"socket.io": "*",
 		"q": "*",
-		"mandrill-api": "*"
+		"mandrill-api": "*",
+		"async": "*"
 	}
 }
