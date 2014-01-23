@@ -1,4 +1,4 @@
-define ['module', 'redis', 'odo/projections/userprofile'], (module, redis, UserProfile) ->
+define ['module', 'redis', 'odo/user/userprofile'], (module, redis, UserProfile) ->
 	db = redis.createClient()
 	
 	class User

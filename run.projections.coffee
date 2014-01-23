@@ -14,7 +14,7 @@ requirejs.config {
 
 requirejs [
 	'odo/infra/hub'
-	'odo/projections/userprofile'
+	'odo/user/userprofile'
 	'odo/auth/plugin'
 	'odo/auth/twitter'
 	'odo/auth/facebook'

@@ -13,7 +13,7 @@
     }
   });
 
-  requirejs(['odo/infra/hub', 'odo/projections/userprofile', 'odo/auth/plugin', 'odo/auth/twitter', 'odo/auth/facebook', 'odo/auth/google', 'odo/auth/local', 'local/plugins/email', 'local/plugins/user', 'local/plugins/feedback'], function() {
+  requirejs(['odo/infra/hub', 'odo/user/userprofile', 'odo/auth/plugin', 'odo/auth/twitter', 'odo/auth/facebook', 'odo/auth/google', 'odo/auth/local', 'local/plugins/email', 'local/plugins/user', 'local/plugins/feedback'], function() {
     var hub, listener, listeners, _i, _len, _results;
     hub = arguments[0], listeners = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
     listeners = listeners.map(function(listener) {
