@@ -9,36 +9,33 @@
 
 		<title>Blackbeard</title>
 
-		<link href='/pace/themes/pace-theme-minimal.css' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Patrick+Hand' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/animate.css/animate.min.css">
-		<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/odo/durandal/odo.css">
-		<link rel="stylesheet" href="/blackbeard.css">
+		<!-- This css is not in blackbeard.coffee because it forms the loading indicator and needs to be loaded immediately -->
+		<link rel='stylesheet' href='/pace/themes/pace-theme-minimal.css'>
+		<script src="/pace/pace.min.js"></script>
+		<link rel='stylesheet' href='/loading.css'>
 	</head>
 
 	<body>
 		<div id="applicationHost">
 			<div id="loading-space">
-				<img class="animated pulse" src="/images/blackbeard128.png" />
+				<img src="/images/blackbeard128.png" />
 				<h1>Loading&hellip;</h1>
 			</div>
 		</div>
-		<script src="/pace/pace.min.js"></script>
 		<script>
-			// manual to bust the cached main
+			// Created manually to bust the cache in development
 			var script   = document.createElement('script');
 			script.type  = 'text/javascript';
 			script.src   = 'requirejs/require.js?bust=' + (new Date()).getTime();
 			script.setAttribute('data-main', 'blackbeard');
 			document.body.appendChild(script);
-		</script>
-		<script>
+			
 			var require = {
 				urlArgs : "bust=" + (new Date()).getTime()
 			};
+			
+			// In production use
+			//<script type="text/javascript" src="requirejs/require.js" data-main="blackbeard"></sc ript>
 		</script>
 	</body>
 </html>

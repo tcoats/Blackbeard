@@ -2,6 +2,15 @@
 	# work out a way for each odo plugin to insert itself here?
 	paths:
 		text: 'requirejs-text/text'
+		async: 'requirejs-plugins/src/async',
+		font: 'requirejs-plugins/src/font',
+		goog: 'requirejs-plugins/src/goog',
+		image: 'requirejs-plugins/src/image',
+		json: 'requirejs-plugins/src/json',
+		noext: 'requirejs-plugins/src/noext',
+		mdown: 'requirejs-plugins/src/mdown',
+		propertyParser : 'requirejs-plugins/src/propertyParser',
+		markdownConverter : 'requirejs-plugins/lib/Markdown.Converter'
 		durandal: 'durandal/js'
 		plugins: 'durandal/js/plugins'
 		transitions: 'odo/durandal/transitions'
@@ -51,6 +60,12 @@ define [
 	'durandal/viewLocator'
 	'odo/durandal/bindings'
 	'bindings/blackbeardbindings'
+	'css!bootstrapcss'
+	'font!google,families:[Coming Soon,Patrick Hand]'
+	'css!fontawesome'
+	'css!odo/durandal/odo'
+	'css!blackbeard'
+	'css!animatecss'
 ], ($, system, app, locator, bindings, blackbeardbindings) ->
 		system.debug yes
 		app.title = 'Blackbeard'
@@ -61,12 +76,12 @@ define [
 		
 		bindings.init requirejs,
 			router: yes
-			mousetrap: yes
-			q: yes
-			bootstrap: yes
-			marked: yes
 			dialog: yes
+			bootstrap: yes
 			validation: yes
+			q: yes
+			mousetrap: yes
+			marked: yes
 		
 		blackbeardbindings.init requirejs,
 			slider: yes

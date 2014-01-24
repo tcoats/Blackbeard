@@ -3,6 +3,15 @@
   requirejs.config({
     paths: {
       text: 'requirejs-text/text',
+      async: 'requirejs-plugins/src/async',
+      font: 'requirejs-plugins/src/font',
+      goog: 'requirejs-plugins/src/goog',
+      image: 'requirejs-plugins/src/image',
+      json: 'requirejs-plugins/src/json',
+      noext: 'requirejs-plugins/src/noext',
+      mdown: 'requirejs-plugins/src/mdown',
+      propertyParser: 'requirejs-plugins/src/propertyParser',
+      markdownConverter: 'requirejs-plugins/lib/Markdown.Converter',
       durandal: 'durandal/js',
       plugins: 'durandal/js/plugins',
       transitions: 'odo/durandal/transitions',
@@ -44,7 +53,7 @@
     urlArgs: 'v=' + (new Date()).getTime()
   });
 
-  define(['jquery', 'durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal/bindings', 'bindings/blackbeardbindings'], function($, system, app, locator, bindings, blackbeardbindings) {
+  define(['jquery', 'durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal/bindings', 'bindings/blackbeardbindings', 'css!bootstrapcss', 'font!google,families:[Coming Soon,Patrick Hand]', 'css!fontawesome', 'css!odo/durandal/odo', 'css!blackbeard', 'css!animatecss'], function($, system, app, locator, bindings, blackbeardbindings) {
     system.debug(true);
     app.title = 'Blackbeard';
     app.configurePlugins({
@@ -54,12 +63,12 @@
     });
     bindings.init(requirejs, {
       router: true,
-      mousetrap: true,
-      q: true,
-      bootstrap: true,
-      marked: true,
       dialog: true,
-      validation: true
+      bootstrap: true,
+      validation: true,
+      q: true,
+      mousetrap: true,
+      marked: true
     });
     blackbeardbindings.init(requirejs, {
       slider: true

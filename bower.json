@@ -11,6 +11,7 @@
 		"requirejs": "2.*",
 		"requirejs-text": "2.*",
 		"require-css": "*",
+		"requirejs-plugins": "*",
 		
 		"node-uuid": "*",
 		"q": "*",
