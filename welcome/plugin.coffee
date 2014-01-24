@@ -1,5 +1,10 @@
-define ['module'], (module) ->
+define [
+	'module'
+	'odo/express/configure'
+	'odo/durandal/plugin'
+], (module, configure, durandal) ->
 	class Welcome
-		configure: (app) ->
-			app.route '/views', app.modulepath(module.uri) + '/public'
-			app.durandal 'views/welcome'
+		web: =>
+			configure.route '/views', configure.modulepath(module.uri) + '/public'
+			
+			durandal.register 'views/welcome'

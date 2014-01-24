@@ -17,15 +17,14 @@ requirejs [
 	'odo/user/usercommands'
 	'local/feedback/feedbackcommands'
 	# add more command handlers here
-], (hub, handlers...) ->
+], (hub, plugins...) ->
 	
 	# construct classes
-	handlers = handlers.map (handler) ->
-		if typeof(handler) is 'function'
-			return new handler
-		handler
+	plugins = plugins.map (plugin) ->
+		if typeof(plugin) is 'function'
+			return new plugin
+		plugin
 	
-	# let handlers bind
-	for handler in handlers
-		if handler.handle?
-			handler.handle hub
+	for plugin in plugins
+		if plugin.domain?
+			plugin.domain()

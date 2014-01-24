@@ -2,14 +2,14 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['odo/infra/mandrill', 'odo/user/userprofile'], function(Mandrill, UserProfile) {
+  define(['odo/infra/hub', 'odo/infra/mandrill', 'odo/user/userprofile'], function(hub, Mandrill, UserProfile) {
     var Email;
     return Email = (function() {
       function Email() {
-        this.receive = __bind(this.receive, this);
+        this.projection = __bind(this.projection, this);
       }
 
-      Email.prototype.receive = function(hub) {
+      Email.prototype.projection = function() {
         var _this = this;
         hub.receive('userHasPasswordResetToken', function(event, cb) {
           console.log('Email userHasPasswordResetToken');

@@ -12,12 +12,12 @@ requirejs.config {
 		}
 }
 
+process.env.PORT = 4834
+
 requirejs [
-	'odo/infra/express'
-	'odo/peek/plugin'
+	'odo/express/plugin'
 	'odo/bower/plugin'
 	'odo/durandal/plugin'
-	'odo/handlebars/plugin'
 	'odo/auth/plugin'
 	'odo/auth/twitter'
 	'odo/auth/facebook'
@@ -30,8 +30,16 @@ requirejs [
 	'local/email/plugin'
 	'local/user/plugin'
 	'local/feedback/plugin'
-], (express, plugins...) ->
+], (Express, plugins...) ->
 	
-	process.env.PORT = 4834
+	# construct plugins
+	plugins = plugins.map (plugin) ->
+		if typeof(plugin) is 'function'
+			return new plugin
+		plugin
 	
-	app = express plugins
+	for plugin in plugins
+		if plugin.web?
+			plugin.web()
+	
+	new Express().start()

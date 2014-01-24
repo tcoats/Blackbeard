@@ -25,7 +25,7 @@
                     slider.setWrapperOffset();
                     slider.setBounds();
                     return slider.update();
-                  }, 100);
+                  }, 200);
                   if (!slidergroup.length) {
                     slider.animationCallback = function(x, y) {
                       return valueAccessor()(slider.value.target[1]);

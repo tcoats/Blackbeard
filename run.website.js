@@ -13,11 +13,24 @@
     }
   });
 
-  requirejs(['odo/infra/express', 'odo/peek/plugin', 'odo/bower/plugin', 'odo/durandal/plugin', 'odo/handlebars/plugin', 'odo/auth/plugin', 'odo/auth/twitter', 'odo/auth/facebook', 'odo/auth/google', 'odo/auth/local', 'odo/sendcommand/plugin', 'odo/public/plugin', 'local/welcome/plugin', 'local/auth/plugin', 'local/email/plugin', 'local/user/plugin', 'local/feedback/plugin'], function() {
-    var app, express, plugins;
-    express = arguments[0], plugins = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
-    process.env.PORT = 4834;
-    return app = express(plugins);
+  process.env.PORT = 4834;
+
+  requirejs(['odo/express/plugin', 'odo/bower/plugin', 'odo/durandal/plugin', 'odo/auth/plugin', 'odo/auth/twitter', 'odo/auth/facebook', 'odo/auth/google', 'odo/auth/local', 'odo/sendcommand/plugin', 'odo/public/plugin', 'local/welcome/plugin', 'local/auth/plugin', 'local/email/plugin', 'local/user/plugin', 'local/feedback/plugin'], function() {
+    var Express, plugin, plugins, _i, _len;
+    Express = arguments[0], plugins = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+    plugins = plugins.map(function(plugin) {
+      if (typeof plugin === 'function') {
+        return new plugin;
+      }
+      return plugin;
+    });
+    for (_i = 0, _len = plugins.length; _i < _len; _i++) {
+      plugin = plugins[_i];
+      if (plugin.web != null) {
+        plugin.web();
+      }
+    }
+    return new Express().start();
   });
 
 }).call(this);

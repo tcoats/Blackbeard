@@ -1,6 +1,6 @@
-define ['odo/infra/mandrill', 'odo/user/userprofile'], (Mandrill, UserProfile) ->
+define ['odo/infra/hub', 'odo/infra/mandrill', 'odo/user/userprofile'], (hub, Mandrill, UserProfile) ->
 	class Email
-		receive: (hub) =>
+		projection: =>
 			hub.receive 'userHasPasswordResetToken', (event, cb) =>
 				console.log 'Email userHasPasswordResetToken'
 				new UserProfile().get event.payload.id, (err, user) =>

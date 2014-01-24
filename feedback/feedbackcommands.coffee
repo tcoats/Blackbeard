@@ -1,16 +1,16 @@
-define ['odo/infra/eventstore', 'local/feedback/feedback'], (es, Feedback) ->
-	
-	defaultHandler = (command) ->
-		feedback = new Feedback command.payload.id
-		es.extend feedback
-		feedback.applyHistoryThenCommand command
-		
-	handle: (hub) ->
-		commands = [
+define ['odo/infra/hub', 'odo/infra/eventstore', 'local/feedback/feedback'], (hub, es, Feedback) ->
+	class FeedbackCommands
+		commands: [
 			'beginFeedback'
 			'cancelFeedback'
 			'completeFeedback'
 		]
 		
-		for command in commands
-			hub.handle command, defaultHandler
+		defaultHandler: (command) =>
+			feedback = new Feedback command.payload.id
+			es.extend feedback
+			feedback.applyHistoryThenCommand command
+		
+		domain: =>
+			for command in @commands
+				hub.handle command, @defaultHandler

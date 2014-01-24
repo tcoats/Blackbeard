@@ -29,7 +29,7 @@
 								slider.setWrapperOffset()
 								slider.setBounds()
 								slider.update()
-							, 100)
+							, 200)
 							
 							# if we aren't in a group updating is easy
 							if !slidergroup.length

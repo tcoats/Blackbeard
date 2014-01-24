@@ -1,8 +1,27 @@
-define ['module', 'redis'], (module, redis) ->
+define ['module', 'odo/infra/hub', 'odo/express/configure', 'odo/express/app', 'odo/durandal/plugin', 'redis'], (module, hub, configure, app, durandal, redis) ->
 	db = redis.createClient()
 	
 	class Feedback
-		receive: (hub) =>
+		web: =>
+			configure.route '/views/feedback', configure.modulepath(module.uri) + '/public'
+			durandal.register 'views/feedback/give'
+		
+			app.get '/feedbackforreviewer/:id', @feedbackforreviewer
+		
+		feedbackforreviewer: (req, res) =>
+			@get req.params.id, (err, feedback) =>
+				if err?
+					res.send 500, err
+					return
+				
+				if !feedback?
+					res.send 404, err
+					return
+				
+				res.send feedback
+				return
+		
+		projection: =>
 			hub.receive 'feedbackBegun', (event, cb) =>
 				feedback =
 					id: event.payload.id
@@ -24,24 +43,6 @@ define ['module', 'redis'], (module, redis) ->
 				id = event.payload.id
 				db.del "feedbackforreviewer:#{id}", ->
 					cb()
-		
-		configure: (app) ->
-			app.route '/views/feedback', app.modulepath(module.uri) + '/public'
-			app.durandal 'views/feedback/give'
-		
-		init: (app) =>
-			app.get '/feedbackforreviewer/:id', (req, res) =>
-				@get req.params.id, (err, feedback) =>
-					if err?
-						res.send 500, err
-						return
-					
-					if !feedback?
-						res.send 404, err
-						return
-					
-					res.send feedback
-					return
 		
 		get: (id, callback) ->
 			db.get "feedbackforreviewer:#{id}", (err, data) =>

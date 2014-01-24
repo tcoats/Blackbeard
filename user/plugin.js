@@ -2,19 +2,46 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['module', 'redis', 'odo/user/userprofile'], function(module, redis, UserProfile) {
+  define(['module', 'odo/infra/hub', 'odo/express/configure', 'odo/express/app', 'odo/durandal/plugin', 'redis', 'odo/user/userprofile'], function(module, hub, configure, app, durandal, redis, UserProfile) {
     var User, db;
     db = redis.createClient();
     return User = (function() {
       function User() {
-        this.init = __bind(this.init, this);
-        this.receive = __bind(this.receive, this);
+        this.user = __bind(this.user, this);
+        this.projections = __bind(this.projections, this);
+        this.web = __bind(this.web, this);
       }
 
-      User.prototype.receive = function(hub) {
+      User.prototype.web = function() {
+        configure.route('/', configure.modulepath(module.uri) + '/public');
+        durandal.register('user');
+        return app.get('/blackbeard/user', this.user);
+      };
+
+      User.prototype.projections = function() {
         var _this = this;
         return hub.receive('userHasUsername', function(event, cb) {
           return db.hset('blackbeard:username', event.payload.username, event.payload.id, cb);
+        });
+      };
+
+      User.prototype.user = function(req, res) {
+        var _this = this;
+        if (req.query.username == null) {
+          res.send('Username required');
+          return;
+        }
+        return this.get(req.query.username, function(err, user) {
+          if (err != null) {
+            console.log(err);
+            res.send(500, 'Woops');
+            return;
+          }
+          if (user == null) {
+            res.send(404, 'User not found');
+            return;
+          }
+          return res.send(user);
         });
       };
 
@@ -36,33 +63,6 @@
               displayName: user.displayName,
               username: user.username
             });
-          });
-        });
-      };
-
-      User.prototype.configure = function(app) {
-        app.route('/', app.modulepath(module.uri) + '/public');
-        return app.durandal('user');
-      };
-
-      User.prototype.init = function(app) {
-        var _this = this;
-        return app.get('/blackbeard/user', function(req, res) {
-          if (req.query.username == null) {
-            res.send('Username required');
-            return;
-          }
-          return _this.get(req.query.username, function(err, user) {
-            if (err != null) {
-              console.log(err);
-              res.send(500, 'Woops');
-              return;
-            }
-            if (user == null) {
-              res.send(404, 'User not found');
-              return;
-            }
-            return res.send(user);
           });
         });
       };

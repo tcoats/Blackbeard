@@ -2,16 +2,38 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['module', 'redis'], function(module, redis) {
+  define(['module', 'odo/infra/hub', 'odo/express/configure', 'odo/express/app', 'odo/durandal/plugin', 'redis'], function(module, hub, configure, app, durandal, redis) {
     var Feedback, db;
     db = redis.createClient();
     return Feedback = (function() {
       function Feedback() {
-        this.init = __bind(this.init, this);
-        this.receive = __bind(this.receive, this);
+        this.projection = __bind(this.projection, this);
+        this.feedbackforreviewer = __bind(this.feedbackforreviewer, this);
+        this.web = __bind(this.web, this);
       }
 
-      Feedback.prototype.receive = function(hub) {
+      Feedback.prototype.web = function() {
+        configure.route('/views/feedback', configure.modulepath(module.uri) + '/public');
+        durandal.register('views/feedback/give');
+        return app.get('/feedbackforreviewer/:id', this.feedbackforreviewer);
+      };
+
+      Feedback.prototype.feedbackforreviewer = function(req, res) {
+        var _this = this;
+        return this.get(req.params.id, function(err, feedback) {
+          if (err != null) {
+            res.send(500, err);
+            return;
+          }
+          if (feedback == null) {
+            res.send(404, err);
+            return;
+          }
+          res.send(feedback);
+        });
+      };
+
+      Feedback.prototype.projection = function() {
         var _this = this;
         hub.receive('feedbackBegun', function(event, cb) {
           var feedback;
@@ -38,28 +60,6 @@
           id = event.payload.id;
           return db.del("feedbackforreviewer:" + id, function() {
             return cb();
-          });
-        });
-      };
-
-      Feedback.prototype.configure = function(app) {
-        app.route('/views/feedback', app.modulepath(module.uri) + '/public');
-        return app.durandal('views/feedback/give');
-      };
-
-      Feedback.prototype.init = function(app) {
-        var _this = this;
-        return app.get('/feedbackforreviewer/:id', function(req, res) {
-          return _this.get(req.params.id, function(err, feedback) {
-            if (err != null) {
-              res.send(500, err);
-              return;
-            }
-            if (feedback == null) {
-              res.send(404, err);
-              return;
-            }
-            res.send(feedback);
           });
         });
       };

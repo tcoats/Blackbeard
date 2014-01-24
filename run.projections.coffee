@@ -24,15 +24,14 @@ requirejs [
 	'local/user/plugin'
 	'local/feedback/plugin'
 	# add more event listeners here
-], (hub, listeners...) ->
+], (hub, plugins...) ->
 	
 	# construct classes
-	listeners = listeners.map (listener) ->
-		if typeof(listener) is 'function'
-			return new listener
-		listener
+	plugins = plugins.map (plugin) ->
+		if typeof(plugin) is 'function'
+			return new plugin
+		plugin
 	
-	# let listeners bind
-	for listener in listeners
-		if listener.receive?
-			listener.receive hub
+	for plugin in plugins
+		if plugin.projection?
+			plugin.projection()

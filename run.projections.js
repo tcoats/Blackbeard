@@ -14,19 +14,19 @@
   });
 
   requirejs(['odo/infra/hub', 'odo/user/userprofile', 'odo/auth/plugin', 'odo/auth/twitter', 'odo/auth/facebook', 'odo/auth/google', 'odo/auth/local', 'local/email/plugin', 'local/user/plugin', 'local/feedback/plugin'], function() {
-    var hub, listener, listeners, _i, _len, _results;
-    hub = arguments[0], listeners = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
-    listeners = listeners.map(function(listener) {
-      if (typeof listener === 'function') {
-        return new listener;
+    var hub, plugin, plugins, _i, _len, _results;
+    hub = arguments[0], plugins = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+    plugins = plugins.map(function(plugin) {
+      if (typeof plugin === 'function') {
+        return new plugin;
       }
-      return listener;
+      return plugin;
     });
     _results = [];
-    for (_i = 0, _len = listeners.length; _i < _len; _i++) {
-      listener = listeners[_i];
-      if (listener.receive != null) {
-        _results.push(listener.receive(hub));
+    for (_i = 0, _len = plugins.length; _i < _len; _i++) {
+      plugin = plugins[_i];
+      if (plugin.projection != null) {
+        _results.push(plugin.projection());
       } else {
         _results.push(void 0);
       }
