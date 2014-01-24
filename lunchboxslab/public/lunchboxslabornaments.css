@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'LunchBoxSlab Ornaments';
+  src: url('lunchboxslabornaments.eot');
+  src: url('lunchboxslabornaments.eot?#iefix') format('embedded-opentype'), url('lunchboxslabornaments.woff') format('woff'), url('lunchboxslabornaments.ttf') format('truetype'), url('lunchboxslabornaments/lunchboxslabornaments.svg#lunchboxslabornaments') format('svg');
+  font-weight: lighter;
+  font-style: normal;
+}
+.lunchboxicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'LunchBoxSlab Ornaments';
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+}
+.lunchboxicon:empty {
+  width: 1em;
+}
+.lunchboxicon-moustache:before {
+  content: "\00EF";
+}
+.lunchboxicon-forward:before {
+  content: "\004D";
+}
+.lunchboxicon-back:before {
+  content: "\004E";
+}

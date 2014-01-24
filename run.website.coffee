@@ -30,6 +30,7 @@ requirejs [
 	'local/email/plugin'
 	'local/user/plugin'
 	'local/feedback/plugin'
+	'local/lunchboxslab/plugin'
 ], (Express, plugins...) ->
 	
 	# construct plugins
