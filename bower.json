@@ -4,21 +4,23 @@
 	"version": "0.0.1",
 	"private": true,
 	"dependencies": {
-		"durandal": "2.*",
-		"underscore": "1.*",
-		"bootstrap": "3.*",
 		"jquery": "2.*",
+		"durandal": "2.*",
 		"knockout.js": "*",
 		"ko-validation": "*",
 		"requirejs": "2.*",
 		"requirejs-text": "2.*",
-		"animate.css": "2.*",
-		"mousetrap": "*",
+		"require-css": "*",
+		
 		"node-uuid": "*",
 		"q": "*",
+		
+		"bootstrap": "3.*",
+		"font-awesome": "*",
+		"animate.css": "2.*",
+		"mousetrap": "*",
 		"marked": "*",
-		"pace": "*",
-		"font-awesome": "*"
+		"pace": "*"
 	},
 	"ignore": [
 		"node_modules/",

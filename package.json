@@ -5,24 +5,24 @@
 	"private": true,
 	"dependencies": {
 		"express": "3.*",
-		"underscore": "1.*",
-		"consolidate": "0.*",
-		"peekinto": "*",
 		"requirejs": "*",
-		"moment": "*",
+		
 		"passport": "*",
 		"passport-twitter": "*",
 		"passport-local": "*",
 		"passport-facebook": "*",
 		"passport-google": "*",
+		
 		"redis": "*",
-		"handlebars": "*",
 		"eventstore": "*",
 		"eventstore.redis": "*",
+		
 		"node-uuid": "*",
 		"q": "*",
+		
 		"mandrill-api": "*",
 		"async": "*",
+		
 		"odo": "*"
 	}
 }

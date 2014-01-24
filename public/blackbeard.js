@@ -5,36 +5,40 @@
       text: 'requirejs-text/text',
       durandal: 'durandal/js',
       plugins: 'durandal/js/plugins',
+      transitions: 'odo/durandal/transitions',
+      components: 'odo/durandal/components',
       knockout: 'knockout.js/knockout',
       'ko.validation': 'bindings/knockout.validation.min',
       bootstrap: 'bootstrap/dist/js/bootstrap.min',
+      bootstrapcss: 'bootstrap/dist/css/bootstrap.min',
       jquery: 'jquery/jquery.min',
-      underscore: 'underscore/underscore-min',
-      mousetrap: 'mousetrap/mousetrap.min',
+      animatecss: 'animate.css/animate.min',
+      fontawesome: 'font-awesome/css/font-awesome.min',
       uuid: 'node-uuid/uuid',
-      marked: 'marked/lib/marked',
-      transitions: 'odo/durandal/transitions',
-      components: 'odo/durandal/components',
-      odo: 'odo',
       q: 'q/q',
+      odo: 'odo',
+      mousetrap: 'mousetrap/mousetrap.min',
+      marked: 'marked/lib/marked',
       slider: 'bindings/slider'
+    },
+    map: {
+      '*': {
+        css: 'require-css/css.min'
+      }
     },
     shim: {
       bootstrap: {
         deps: ['jquery'],
         exports: 'jQuery'
       },
-      underscore: {
-        exports: '_'
+      'ko.validation': {
+        deps: ['knockout']
       },
       mousetrap: {
         exports: 'Mousetrap'
       },
       marked: {
         exports: 'marked'
-      },
-      'ko.validation': {
-        deps: ['knockout']
       }
     },
     urlArgs: 'v=' + (new Date()).getTime()

@@ -4,39 +4,54 @@
 		text: 'requirejs-text/text'
 		durandal: 'durandal/js'
 		plugins: 'durandal/js/plugins'
+		transitions: 'odo/durandal/transitions'
+		components: 'odo/durandal/components'
 		knockout: 'knockout.js/knockout'
 		# I've made a change to this library so it's copied locally. A pull request is in :)
 		#'ko.validation': 'ko-validation/dist/knockout.validation.min'
 		'ko.validation': 'bindings/knockout.validation.min'
 		bootstrap: 'bootstrap/dist/js/bootstrap.min'
+		bootstrapcss: 'bootstrap/dist/css/bootstrap.min'
 		jquery: 'jquery/jquery.min'
-		underscore: 'underscore/underscore-min'
-		mousetrap: 'mousetrap/mousetrap.min'
+		animatecss: 'animate.css/animate.min'
+		fontawesome: 'font-awesome/css/font-awesome.min'
+		
 		uuid: 'node-uuid/uuid'
-		marked: 'marked/lib/marked'
-		transitions: 'odo/durandal/transitions'
-		components: 'odo/durandal/components'
-		odo: 'odo'
 		q: 'q/q'
+		
+		odo: 'odo'
+		
+		mousetrap: 'mousetrap/mousetrap.min'
+		marked: 'marked/lib/marked'
 		slider: 'bindings/slider'
+
+	map:
+		'*':
+			css: 'require-css/css.min'
 
 	shim:
 		bootstrap:
 			deps: ['jquery']
 			exports: 'jQuery'
-		underscore:
-			exports: '_'
+		'ko.validation':
+			deps: ['knockout']
+			
 		mousetrap:
 			exports: 'Mousetrap'
 		marked:
 			exports: 'marked'
-		'ko.validation':
-			deps: ['knockout']
 	
 	# don't cache in development
 	urlArgs: 'v=' + (new Date()).getTime()
 
-define ['jquery', 'durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal/bindings', 'bindings/blackbeardbindings'], ($, system, app, locator, bindings, blackbeardbindings) ->
+define [
+	'jquery'
+	'durandal/system'
+	'durandal/app'
+	'durandal/viewLocator'
+	'odo/durandal/bindings'
+	'bindings/blackbeardbindings'
+], ($, system, app, locator, bindings, blackbeardbindings) ->
 		system.debug yes
 		app.title = 'Blackbeard'
 		app.configurePlugins
