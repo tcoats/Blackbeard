@@ -13,7 +13,7 @@ requirejs.config {
 }
 
 requirejs [
-	'odo/infra/hub'
+	'odo/messaging/hub'
 	'odo/user/userprofile'
 	'odo/auth/plugin'
 	'odo/auth/twitter'

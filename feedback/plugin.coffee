@@ -1,4 +1,4 @@
-define ['module', 'odo/infra/hub', 'odo/express/configure', 'odo/express/app', 'odo/durandal/plugin', 'redis'], (module, hub, configure, app, durandal, redis) ->
+define ['module', 'odo/messaging/hub', 'odo/express/configure', 'odo/express/app', 'odo/durandal/plugin', 'redis'], (module, hub, configure, app, durandal, redis) ->
 	db = redis.createClient()
 	
 	class Feedback

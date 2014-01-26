@@ -1,4 +1,4 @@
-define ['odo/infra/hub', 'odo/infra/eventstore', 'local/feedback/feedback'], (hub, es, Feedback) ->
+define ['odo/messaging/hub', 'odo/messaging/eventstore', 'local/feedback/feedback'], (hub, es, Feedback) ->
 	class FeedbackCommands
 		commands: [
 			'beginFeedback'

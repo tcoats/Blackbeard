@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['odo/infra/hub', 'odo/infra/eventstore', 'local/feedback/feedback'], function(hub, es, Feedback) {
+  define(['odo/messaging/hub', 'odo/messaging/eventstore', 'local/feedback/feedback'], function(hub, es, Feedback) {
     var FeedbackCommands;
     return FeedbackCommands = (function() {
       function FeedbackCommands() {

@@ -23,7 +23,7 @@ requirejs [
 	'odo/auth/facebook'
 	'odo/auth/google'
 	'odo/auth/local'
-	'odo/sendcommand/plugin'
+	'odo/messaging/plugin'
 	'odo/public/plugin'
 	'local/welcome/plugin'
 	'local/auth/plugin'

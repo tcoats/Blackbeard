@@ -1,4 +1,4 @@
-define ['odo/infra/hub', 'odo/infra/mandrill', 'odo/user/userprofile'], (hub, Mandrill, UserProfile) ->
+define ['odo/messaging/hub', 'odo/email/mandrill', 'odo/user/userprofile'], (hub, Mandrill, UserProfile) ->
 	class Email
 		projection: =>
 			hub.receive 'userHasPasswordResetToken', (event, cb) =>

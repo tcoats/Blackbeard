@@ -1,6 +1,6 @@
 define [
 	'module'
-	'odo/infra/hub'
+	'odo/messaging/hub'
 	'odo/express/configure'
 	'odo/express/app'
 	'odo/durandal/plugin'

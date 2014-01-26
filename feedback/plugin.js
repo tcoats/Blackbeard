@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['module', 'odo/infra/hub', 'odo/express/configure', 'odo/express/app', 'odo/durandal/plugin', 'redis'], function(module, hub, configure, app, durandal, redis) {
+  define(['module', 'odo/messaging/hub', 'odo/express/configure', 'odo/express/app', 'odo/durandal/plugin', 'redis'], function(module, hub, configure, app, durandal, redis) {
     var Feedback, db;
     db = redis.createClient();
     return Feedback = (function() {

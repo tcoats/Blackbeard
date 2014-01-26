@@ -13,7 +13,7 @@
     }
   });
 
-  requirejs(['odo/infra/hub', 'odo/user/userprofile', 'odo/auth/plugin', 'odo/auth/twitter', 'odo/auth/facebook', 'odo/auth/google', 'odo/auth/local', 'local/email/plugin', 'local/user/plugin', 'local/feedback/plugin'], function() {
+  requirejs(['odo/messaging/hub', 'odo/user/userprofile', 'odo/auth/plugin', 'odo/auth/twitter', 'odo/auth/facebook', 'odo/auth/google', 'odo/auth/local', 'local/email/plugin', 'local/user/plugin', 'local/feedback/plugin'], function() {
     var hub, plugin, plugins, _i, _len, _results;
     hub = arguments[0], plugins = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
     plugins = plugins.map(function(plugin) {
