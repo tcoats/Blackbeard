@@ -1,5 +1,6 @@
-﻿define ['q', 'knockout', 'odo/auth', 'user'], (Q, ko, auth, user) ->
+﻿define ['q', 'knockout', 'odo/auth', 'user', 'odo/inject'], (Q, ko, auth, user, inject) ->
 	class UserDashboard
+		widgets: inject.many 'user/dashboard/widgets'
 		title: ko.observable ''
 		user: ko.observable null
 		

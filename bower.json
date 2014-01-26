@@ -12,6 +12,7 @@
 		"requirejs-text": "2.*",
 		"require-css": "*",
 		"requirejs-plugins": "*",
+		"injectinto": "*",
 		
 		"node-uuid": "*",
 		"q": "*",

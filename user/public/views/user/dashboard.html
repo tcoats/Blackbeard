@@ -6,4 +6,8 @@
 	<h1 data-bind="text: user().displayName"></h1>
 	
 	<p data-bind="text: user().username"></p>
+	
+	<div data-bind="foreach: widgets">
+		<div data-bind="compose: $data"></div>
+	</div>
 </div>

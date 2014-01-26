@@ -1,7 +1,9 @@
-﻿define ['knockout', 'plugins/router'], (ko, router) ->
+﻿define ['knockout', 'plugins/router', 'odo/inject'], (ko, router, inject) ->
 	router.map
 		route: 'givefeedback/:id'
 		moduleId: 'views/feedback/give'
+	
+	inject.bind 'user/dashboard/widgets', 'views/feedback/givewidget'
 	
 	class FeedbackGive
 		title: ko.observable ''

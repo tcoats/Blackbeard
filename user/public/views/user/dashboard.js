@@ -2,13 +2,15 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'knockout', 'odo/auth', 'user'], function(Q, ko, auth, user) {
+  define(['q', 'knockout', 'odo/auth', 'user', 'odo/inject'], function(Q, ko, auth, user, inject) {
     var UserDashboard;
     return UserDashboard = (function() {
       function UserDashboard() {
         this.activate = __bind(this.activate, this);
         this.canActivate = __bind(this.canActivate, this);
       }
+
+      UserDashboard.prototype.widgets = inject.many('user/dashboard/widgets');
 
       UserDashboard.prototype.title = ko.observable('');
 

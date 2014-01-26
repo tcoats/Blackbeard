@@ -2,12 +2,13 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['knockout', 'plugins/router'], function(ko, router) {
+  define(['knockout', 'plugins/router', 'odo/inject'], function(ko, router, inject) {
     var FeedbackGive;
     router.map({
       route: 'givefeedback/:id',
       moduleId: 'views/feedback/give'
     });
+    inject.bind('user/dashboard/widgets', 'views/feedback/givewidget');
     return FeedbackGive = (function() {
       FeedbackGive.prototype.title = ko.observable('');
 
