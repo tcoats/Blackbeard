@@ -13,7 +13,6 @@ requirejs.config {
 }
 
 requirejs [
-	'odo/messaging/hub'
 	'odo/user/userprofile'
 	'odo/auth/plugin'
 	'odo/auth/twitter'
@@ -24,7 +23,7 @@ requirejs [
 	'local/user/plugin'
 	'local/feedback/plugin'
 	# add more event listeners here
-], (hub, plugins...) ->
+], (plugins...) ->
 	
 	# construct classes
 	plugins = plugins.map (plugin) ->

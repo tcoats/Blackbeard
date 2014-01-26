@@ -13,11 +13,10 @@ requirejs.config {
 }
 
 requirejs [
-	'odo/messaging/hub'
 	'odo/user/usercommands'
 	'local/feedback/feedbackcommands'
 	# add more command handlers here
-], (hub, plugins...) ->
+], (plugins...) ->
 	
 	# construct classes
 	plugins = plugins.map (plugin) ->

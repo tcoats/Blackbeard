@@ -13,9 +13,9 @@
     }
   });
 
-  requirejs(['odo/messaging/hub', 'odo/user/usercommands', 'local/feedback/feedbackcommands'], function() {
-    var hub, plugin, plugins, _i, _len, _results;
-    hub = arguments[0], plugins = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+  requirejs(['odo/user/usercommands', 'local/feedback/feedbackcommands', 'local/feedback/feedbackopportunitycommands'], function() {
+    var plugin, plugins, _i, _len, _results;
+    plugins = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
     plugins = plugins.map(function(plugin) {
       if (typeof plugin === 'function') {
         return new plugin;
