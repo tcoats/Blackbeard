@@ -13,7 +13,7 @@
     }
   });
 
-  requirejs(['odo/user/usercommands', 'local/feedback/feedbackcommands', 'local/feedback/feedbackopportunitycommands'], function() {
+  requirejs(['odo/user/usercommands', 'local/feedback/feedbackcommands'], function() {
     var plugin, plugins, _i, _len, _results;
     plugins = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
     plugins = plugins.map(function(plugin) {
