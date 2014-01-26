@@ -53,6 +53,11 @@
 	# don't cache in development
 	urlArgs: 'v=' + (new Date()).getTime()
 
+# Interesting - can check for 'loaded' status, but there is no callback. Could use this for cool loading animation - ticking large resources as they load
+#setInterval(->
+#	console.log requirejs.defined 'slider'
+#, 100)
+
 define [
 	'jquery'
 	'durandal/system'
