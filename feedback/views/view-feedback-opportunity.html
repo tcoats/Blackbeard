@@ -4,6 +4,17 @@
 			<h2 data-bind="text: feedback().description"></h2>
 		</div>
 		
-		HELLO!
+		<span class="placeholder">Feedback for:</span>
+		<span data-bind="text: feedback().for"></span>
+		<span class="placeholder">by:</span>
+		<span data-bind="text: feedback().by"></span>
+		<span class="placeholder">with id:</span>
+		<span data-bind="text: feedback().id"></span>
+		
+		<ul class="actions">
+			<li>
+				<a data-bind="attr: { href: '#user/' + user().username }" class="back btn btn-navigation">&larr; Back to dashboard</a>
+			</li>
+		</ul>
 	</div>
 </div>

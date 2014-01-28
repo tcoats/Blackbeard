@@ -11,14 +11,19 @@
         this.activate = __bind(this.activate, this);
       }
 
-      UserFeedbackWidget.prototype.user = ko.observable(null);
+      UserFeedbackWidget.prototype.viewingUser = ko.observable(null);
+
+      UserFeedbackWidget.prototype.dashboardUser = ko.observable(null);
 
       UserFeedbackWidget.prototype.feedback = ko.observable(null);
 
-      UserFeedbackWidget.prototype.activate = function(user) {
-        var _this = this;
-        this.user(user);
-        return $.get("/user-feedback-widget/" + user.id).then(function(feedback) {
+      UserFeedbackWidget.prototype.activate = function(activationData) {
+        var dashboardUser, viewingUser,
+          _this = this;
+        viewingUser = activationData.viewingUser, dashboardUser = activationData.dashboardUser;
+        this.viewingUser(viewingUser);
+        this.dashboardUser(dashboardUser);
+        return $.get("/user-feedback-widget/" + dashboardUser.id).then(function(feedback) {
           console.log(feedback);
           return _this.parseFeedback(feedback);
         });

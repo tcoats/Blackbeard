@@ -1,0 +1,9 @@
+﻿<div class="container">
+	<div id="site-title">
+		<h1><span data-bind="text: dashboardUser().displayName"></span> <small data-bind="text: '@' + dashboardUser().username"></small></h1>
+	</div>
+	
+	<div data-bind="foreach: widgets">
+		<div data-bind="compose: { model: $data, activationData: { viewingUser: $parent.viewingUser(), dashboardUser: $parent.dashboardUser() } }"></div>
+	</div>
+</div>

@@ -2,32 +2,54 @@
 	class UserDashboard
 		widgets: inject.many 'user/dashboard/widgets'
 		title: ko.observable ''
-		user: ko.observable null
+		
+		viewingUser: ko.observable null
+		dashboardUser: ko.observable null
+		
+		dashboardModel: ko.observable null
 		
 		canActivate: (username) =>
 			dfd = Q.defer()
 			
-			user.getUser(username)
-				.then((user) =>
-					dfd.resolve yes
+			auth.getUser()
+				.then((viewingUser) =>
+					user.getUser(username)
+						.then((dashboardUser) =>
+							dfd.resolve yes
+						)
+						.fail((err) =>
+							dfd.resolve no
+						)
 				)
-				.fail((err) =>
+				.fail (err) =>
 					dfd.resolve no
-				)
-				
+					
 			dfd.promise
 			
 		
 		activate: (username) =>
 			dfd = Q.defer()
 			
-			user.getUser(username)
-				.then((user) =>
-					@user user
-					dfd.resolve()
+			
+			auth.getUser()
+				.then((viewingUser) =>
+					user.getUser(username)
+						.then((dashboardUser) =>
+							@viewingUser viewingUser
+							@dashboardUser dashboardUser
+							
+							if viewingUser.id is dashboardUser.id
+								@dashboardModel 'views/user/dashboard-self'
+							else
+								@dashboardModel 'views/user/dashboard-other'
+							
+							dfd.resolve yes
+						)
+						.fail((err) =>
+							dfd.resolve no
+						)
 				)
-				.fail((err) =>
-					dfd.resolve()
-				)
+				.fail (err) =>
+					dfd.resolve no
 				
 			dfd.promise

@@ -19,7 +19,7 @@
       return _results;
     })();
     router.map(routesArray);
-    return inject.bind('user/dashboard/widgets', 'views/feedback/user-feedback-widget');
+    return inject.bind('user/dashboard-self/widgets', 'views/feedback/user-feedback-widget');
   });
 
 }).call(this);

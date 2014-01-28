@@ -60,6 +60,10 @@
               callback(err);
               return;
             }
+            if (user == null) {
+              callback(null, null);
+              return;
+            }
             return callback(null, {
               id: user.id,
               displayName: user.displayName,

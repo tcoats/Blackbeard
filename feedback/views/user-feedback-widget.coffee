@@ -1,12 +1,17 @@
 ﻿define ['knockout', 'components/dialog'], (ko, Dialog) ->
 	class UserFeedbackWidget
-		user: ko.observable null
+		viewingUser: ko.observable null
+		dashboardUser: ko.observable null
 		feedback: ko.observable null
 		
-		activate: (user) =>
-			@user user
+		activate: (activationData) =>
+			{ viewingUser, dashboardUser } = activationData
+			
+			@viewingUser viewingUser
+			@dashboardUser dashboardUser
+			
 			$
-				.get("/user-feedback-widget/#{user.id}")
+				.get("/user-feedback-widget/#{dashboardUser.id}")
 				.then (feedback) =>
 					console.log feedback
 					@parseFeedback feedback

@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['knockout', 'q', 'plugins/router', 'odo/inject'], function(ko, Q, router, inject) {
+  define(['knockout', 'q', 'odo/auth', 'plugins/router', 'odo/inject'], function(ko, Q, auth, router, inject) {
     var ViewFeedbackOpportunity;
     return ViewFeedbackOpportunity = (function() {
       function ViewFeedbackOpportunity() {
@@ -14,6 +14,8 @@
       ViewFeedbackOpportunity.prototype.title = ko.observable('');
 
       ViewFeedbackOpportunity.prototype.feedback = ko.observable(null);
+
+      ViewFeedbackOpportunity.prototype.user = ko.observable(null);
 
       ViewFeedbackOpportunity.prototype.canActivate = function(id) {
         var dfd,
@@ -31,9 +33,12 @@
         var dfd,
           _this = this;
         dfd = Q.defer();
-        this.getFeedback(id).then(function(feedback) {
-          _this.feedback(feedback);
-          return dfd.resolve(true);
+        auth.getUser().then(function(user) {
+          return _this.getFeedback(id).then(function(feedback) {
+            _this.user(user);
+            _this.feedback(feedback);
+            return dfd.resolve(true);
+          });
         });
         return dfd.promise;
       };

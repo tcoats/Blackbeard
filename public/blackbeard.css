@@ -420,6 +420,7 @@ textarea {
 .btn-navigation {
   background-color: none;
   background-color: transparent;
+  color: #333;
 }
 .btn-navigation:hover {
   color: #f80;

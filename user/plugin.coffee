@@ -51,6 +51,10 @@ define [
 						callback err
 						return
 					
+					if !user?
+						callback null, null
+						return
+					
 					callback null,
 						id: user.id
 						displayName: user.displayName

@@ -14,14 +14,22 @@
 
       UserDashboard.prototype.title = ko.observable('');
 
-      UserDashboard.prototype.user = ko.observable(null);
+      UserDashboard.prototype.viewingUser = ko.observable(null);
+
+      UserDashboard.prototype.dashboardUser = ko.observable(null);
+
+      UserDashboard.prototype.dashboardModel = ko.observable(null);
 
       UserDashboard.prototype.canActivate = function(username) {
         var dfd,
           _this = this;
         dfd = Q.defer();
-        user.getUser(username).then(function(user) {
-          return dfd.resolve(true);
+        auth.getUser().then(function(viewingUser) {
+          return user.getUser(username).then(function(dashboardUser) {
+            return dfd.resolve(true);
+          }).fail(function(err) {
+            return dfd.resolve(false);
+          });
         }).fail(function(err) {
           return dfd.resolve(false);
         });
@@ -32,11 +40,21 @@
         var dfd,
           _this = this;
         dfd = Q.defer();
-        user.getUser(username).then(function(user) {
-          _this.user(user);
-          return dfd.resolve();
+        auth.getUser().then(function(viewingUser) {
+          return user.getUser(username).then(function(dashboardUser) {
+            _this.viewingUser(viewingUser);
+            _this.dashboardUser(dashboardUser);
+            if (viewingUser.id === dashboardUser.id) {
+              _this.dashboardModel('views/user/dashboard-self');
+            } else {
+              _this.dashboardModel('views/user/dashboard-other');
+            }
+            return dfd.resolve(true);
+          }).fail(function(err) {
+            return dfd.resolve(false);
+          });
         }).fail(function(err) {
-          return dfd.resolve();
+          return dfd.resolve(false);
         });
         return dfd.promise;
       };
