@@ -12,6 +12,7 @@ define [
 	class User
 		web: =>
 			configure.route '/', configure.modulepath(module.uri) + '/public'
+			configure.route '/views/user', configure.modulepath(module.uri) + '/views'
 			durandal.register 'user'
 			
 			app.get '/blackbeard/user', @user
@@ -51,5 +52,6 @@ define [
 						return
 					
 					callback null,
+						id: user.id
 						displayName: user.displayName
 						username: user.username

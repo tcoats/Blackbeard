@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['odo/messaging/hub', 'odo/messaging/eventstore', 'local/feedback/feedback'], function(hub, es, Feedback) {
+  define(['odo/messaging/hub', 'odo/messaging/eventstore', 'local/feedback/feedback-opportunity'], function(hub, es, FeedbackOpportunity) {
     var FeedbackCommands;
     return FeedbackCommands = (function() {
       function FeedbackCommands() {
@@ -10,11 +10,11 @@
         this.defaultHandler = __bind(this.defaultHandler, this);
       }
 
-      FeedbackCommands.prototype.commands = ['beginFeedback', 'cancelFeedback', 'completeFeedback'];
+      FeedbackCommands.prototype.commands = ['createFeedbackOpportunity', 'cancelFeedbackOpportunity', 'expireFeedbackOpportunity', 'completeFeedbackOpportunity'];
 
       FeedbackCommands.prototype.defaultHandler = function(command) {
         var feedback;
-        feedback = new Feedback(command.payload.id);
+        feedback = new FeedbackOpportunity(command.payload.id);
         es.extend(feedback);
         return feedback.applyHistoryThenCommand(command);
       };

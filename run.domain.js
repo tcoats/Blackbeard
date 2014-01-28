@@ -13,25 +13,10 @@
     }
   });
 
-  requirejs(['odo/user/usercommands', 'local/feedback/feedbackcommands'], function() {
-    var plugin, plugins, _i, _len, _results;
-    plugins = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-    plugins = plugins.map(function(plugin) {
-      if (typeof plugin === 'function') {
-        return new plugin;
-      }
-      return plugin;
-    });
-    _results = [];
-    for (_i = 0, _len = plugins.length; _i < _len; _i++) {
-      plugin = plugins[_i];
-      if (plugin.domain != null) {
-        _results.push(plugin.domain());
-      } else {
-        _results.push(void 0);
-      }
-    }
-    return _results;
+  requirejs(['odo/plugins', 'odo/user/plugin', 'local/feedback/plugin'], function() {
+    var Plugins, plugins;
+    Plugins = arguments[0], plugins = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+    return new Plugins(plugins).domain();
   });
 
 }).call(this);

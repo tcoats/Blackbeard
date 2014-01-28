@@ -1,0 +1,25 @@
+﻿<div class="panel panel-default" data-bind="shortcuts: { 'right': createFeedbackOpportunity, 'enter': createFeedbackOpportunity, 'esc': close }">
+	<div class="panel-heading">
+		<button data-bind="click: close" type="button" class="close btn btn-default">&times;</button>
+		<h2 class="panel-title">Create an opportunity to get feedback</h2>
+	</div>
+	<div class="panel-body">
+		<p>Gathering feedback from others helps you improve and learn about yourself.</p>
+		
+		<p>Try and be specific and include a timeframe, for example: "My performance for the last three months of project X."</p>
+		
+		<form data-bind="submit: createFeedbackOpportunity" role="form" autocomplete="off">
+			<div class="form-group" data-bind="css: {'has-error': description.isModified() && !description.isValid() }">
+				<label class="control-label" for="description">Description <small data-bind="validationMessage: description"></small></label>
+				<textarea data-bind="value: description" class="form-control autofocus" id="description" name="description" placeholder="A description of the situation you want feedback for" autocomplete="off" autocorrect="off" spellcheck="false"></textarea>
+			</div>
+		</form>
+		
+		<ul class="actions">
+			<li>
+				<button data-bind="click: close" class="back btn btn-navigation">&larr; Cancel</button>
+				<button data-bind="click: createFeedbackOpportunity" class="forward btn btn-success">Create feedback opportunity</button>
+			</li>
+		</ul>
+	</div>
+</div>

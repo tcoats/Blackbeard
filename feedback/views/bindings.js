@@ -3,7 +3,8 @@
   define(['plugins/router', 'odo/inject'], function(router, inject) {
     var moduleId, route, routes, routesArray;
     routes = {
-      'givefeedback/:id': 'views/feedback/give'
+      'givefeedback/:id': 'views/feedback/give',
+      'view-feedback-opportunity/:id': 'views/feedback/view-feedback-opportunity'
     };
     routesArray = (function() {
       var _results;

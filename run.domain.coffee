@@ -13,17 +13,10 @@ requirejs.config {
 }
 
 requirejs [
-	'odo/user/usercommands'
-	'local/feedback/feedbackcommands'
+	'odo/plugins'
+	'odo/user/plugin'
+	'local/feedback/plugin'
 	# add more command handlers here
-], (plugins...) ->
+], (Plugins, plugins...) ->
 	
-	# construct classes
-	plugins = plugins.map (plugin) ->
-		if typeof(plugin) is 'function'
-			return new plugin
-		plugin
-	
-	for plugin in plugins
-		if plugin.domain?
-			plugin.domain()
+	new Plugins(plugins).domain()

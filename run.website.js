@@ -15,21 +15,10 @@
 
   process.env.PORT = 4834;
 
-  requirejs(['odo/express/plugin', 'odo/bower/plugin', 'odo/durandal/plugin', 'odo/auth/plugin', 'odo/auth/twitter', 'odo/auth/facebook', 'odo/auth/google', 'odo/auth/local', 'odo/messaging/plugin', 'odo/public/plugin', 'local/welcome/plugin', 'local/auth/plugin', 'local/email/plugin', 'local/user/plugin', 'local/feedback/plugin', 'local/lunchboxslab/plugin'], function() {
-    var Express, plugin, plugins, _i, _len;
-    Express = arguments[0], plugins = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
-    plugins = plugins.map(function(plugin) {
-      if (typeof plugin === 'function') {
-        return new plugin;
-      }
-      return plugin;
-    });
-    for (_i = 0, _len = plugins.length; _i < _len; _i++) {
-      plugin = plugins[_i];
-      if (plugin.web != null) {
-        plugin.web();
-      }
-    }
+  requirejs(['odo/plugins', 'odo/express/plugin', 'odo/bower/plugin', 'odo/durandal/plugin', 'odo/auth/plugin', 'odo/auth/twitter', 'odo/auth/facebook', 'odo/auth/google', 'odo/auth/local', 'odo/messaging/plugin', 'odo/public/plugin', 'local/welcome/plugin', 'local/auth/plugin', 'local/email/plugin', 'local/user/plugin', 'local/feedback/plugin', 'local/lunchboxslab/plugin'], function() {
+    var Express, Plugins, plugins;
+    Plugins = arguments[0], Express = arguments[1], plugins = 3 <= arguments.length ? __slice.call(arguments, 2) : [];
+    new Plugins(plugins).web();
     return new Express().start();
   });
 

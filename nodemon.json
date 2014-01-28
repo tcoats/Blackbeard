@@ -2,6 +2,7 @@
 	"ignore": [
     ".git",
 		"public/*",
+		"views/*",
 		"*-public/*"
 	],
   "watch": [

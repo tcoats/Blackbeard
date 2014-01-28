@@ -13,7 +13,8 @@ requirejs.config {
 }
 
 requirejs [
-	'odo/user/userprofile'
+	'odo/plugins'
+	'odo/user/plugin'
 	'odo/auth/plugin'
 	'odo/auth/twitter'
 	'odo/auth/facebook'
@@ -23,14 +24,6 @@ requirejs [
 	'local/user/plugin'
 	'local/feedback/plugin'
 	# add more event listeners here
-], (plugins...) ->
+], (Plugins, plugins...) ->
 	
-	# construct classes
-	plugins = plugins.map (plugin) ->
-		if typeof(plugin) is 'function'
-			return new plugin
-		plugin
-	
-	for plugin in plugins
-		if plugin.projection?
-			plugin.projection()
+	new Plugins(plugins).projection()

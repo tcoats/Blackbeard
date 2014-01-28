@@ -15,6 +15,7 @@ requirejs.config {
 process.env.PORT = 4834
 
 requirejs [
+	'odo/plugins'
 	'odo/express/plugin'
 	'odo/bower/plugin'
 	'odo/durandal/plugin'
@@ -31,16 +32,7 @@ requirejs [
 	'local/user/plugin'
 	'local/feedback/plugin'
 	'local/lunchboxslab/plugin'
-], (Express, plugins...) ->
+], (Plugins, Express, plugins...) ->
 	
-	# construct plugins
-	plugins = plugins.map (plugin) ->
-		if typeof(plugin) is 'function'
-			return new plugin
-		plugin
-	
-	for plugin in plugins
-		if plugin.web?
-			plugin.web()
-	
+	new Plugins(plugins).web()
 	new Express().start()

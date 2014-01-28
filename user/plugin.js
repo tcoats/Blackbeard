@@ -14,6 +14,7 @@
 
       User.prototype.web = function() {
         configure.route('/', configure.modulepath(module.uri) + '/public');
+        configure.route('/views/user', configure.modulepath(module.uri) + '/views');
         durandal.register('user');
         return app.get('/blackbeard/user', this.user);
       };
@@ -60,6 +61,7 @@
               return;
             }
             return callback(null, {
+              id: user.id,
               displayName: user.displayName,
               username: user.username
             });

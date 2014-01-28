@@ -2,6 +2,7 @@
 	
 	routes =
 		'givefeedback/:id': 'views/feedback/give'
+		'view-feedback-opportunity/:id': 'views/feedback/view-feedback-opportunity'
 	
 	routesArray = for route, moduleId of routes
 		route: route

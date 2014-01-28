@@ -13,25 +13,10 @@
     }
   });
 
-  requirejs(['odo/user/userprofile', 'odo/auth/plugin', 'odo/auth/twitter', 'odo/auth/facebook', 'odo/auth/google', 'odo/auth/local', 'local/email/plugin', 'local/user/plugin', 'local/feedback/plugin'], function() {
-    var plugin, plugins, _i, _len, _results;
-    plugins = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-    plugins = plugins.map(function(plugin) {
-      if (typeof plugin === 'function') {
-        return new plugin;
-      }
-      return plugin;
-    });
-    _results = [];
-    for (_i = 0, _len = plugins.length; _i < _len; _i++) {
-      plugin = plugins[_i];
-      if (plugin.projection != null) {
-        _results.push(plugin.projection());
-      } else {
-        _results.push(void 0);
-      }
-    }
-    return _results;
+  requirejs(['odo/plugins', 'odo/user/plugin', 'odo/auth/plugin', 'odo/auth/twitter', 'odo/auth/facebook', 'odo/auth/google', 'odo/auth/local', 'local/email/plugin', 'local/user/plugin', 'local/feedback/plugin'], function() {
+    var Plugins, plugins;
+    Plugins = arguments[0], plugins = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+    return new Plugins(plugins).projection();
   });
 
 }).call(this);
