@@ -8,6 +8,6 @@
 	<p data-bind="text: user().username"></p>
 	
 	<div data-bind="foreach: widgets">
-		<div data-bind="compose: $data"></div>
+		<div data-bind="compose: { model: $data, activationData: $parent.user() }"></div>
 	</div>
 </div>

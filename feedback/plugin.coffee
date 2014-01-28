@@ -4,7 +4,7 @@ define ['module', 'odo/messaging/hub', 'odo/express/configure', 'odo/express/app
 	class Feedback
 		web: =>
 			configure.route '/views/feedback', configure.modulepath(module.uri) + '/public'
-			durandal.register 'views/feedback/give'
+			durandal.register 'views/feedback/bindings'
 		
 			app.get '/feedbackforreviewer/:id', @feedbackforreviewer
 		

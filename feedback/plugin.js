@@ -14,8 +14,8 @@
 
       Feedback.prototype.web = function() {
         configure.route('/views/feedback', configure.modulepath(module.uri) + '/public');
-        durandal.register('views/feedback/give');
         return app.get('/feedbackforreviewer/:id', this.feedbackforreviewer);
+        durandal.register('views/feedback/bindings');
       };
 
       Feedback.prototype.feedbackforreviewer = function(req, res) {

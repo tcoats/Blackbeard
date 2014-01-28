@@ -2,4 +2,4 @@ define ['module', 'odo/express/configure', 'odo/durandal/plugin'], (module, conf
 	class Auth
 		web: =>
 			configure.route '/views/auth', configure.modulepath(module.uri) + '/public'
-			durandal.register 'views/auth/routes'
+			durandal.register 'views/auth/bindings'

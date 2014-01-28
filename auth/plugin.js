@@ -11,7 +11,7 @@
 
       Auth.prototype.web = function() {
         configure.route('/views/auth', configure.modulepath(module.uri) + '/public');
-        return durandal.register('views/auth/routes');
+        return durandal.register('views/auth/bindings');
       };
 
       return Auth;
