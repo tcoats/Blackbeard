@@ -7,6 +7,7 @@
     db = redis.createClient();
     return UserFeedbackWidget = (function() {
       function UserFeedbackWidget() {
+        this.remove = __bind(this.remove, this);
         this.addOrRemoveValues = __bind(this.addOrRemoveValues, this);
         this.projection = __bind(this.projection, this);
         this.web = __bind(this.web, this);
@@ -29,6 +30,7 @@
             if (data == null) {
               data = {};
             }
+            console.log(data);
             return res.send(data);
           });
         });
@@ -43,24 +45,9 @@
             return data;
           });
         });
-        hub.receive('feedbackOpportunityCancelled', function(event, cb) {
-          return _this.addOrRemoveValues(event, cb, function(data) {
-            delete data[event.payload.id];
-            return data;
-          });
-        });
-        hub.receive('feedbackOpportunityCompleted', function(event, cb) {
-          return _this.addOrRemoveValues(event, cb, function(data) {
-            delete data[event.payload.id];
-            return data;
-          });
-        });
-        return hub.receive('feedbackOpportunityExpired', function(event, cb) {
-          return _this.addOrRemoveValues(event, cb, function(data) {
-            delete data[event.payload.id];
-            return data;
-          });
-        });
+        hub.receive('feedbackOpportunityCancelled', this.remove);
+        hub.receive('feedbackOpportunityCompleted', this.remove);
+        return hub.receive('feedbackOpportunityExpired', this.remove);
       };
 
       UserFeedbackWidget.prototype.addOrRemoveValues = function(event, cb, callback) {
@@ -79,6 +66,16 @@
           return db.hset('blackbeard:userfeedbackwidget', event.payload["for"], JSON.stringify(data), function() {
             return cb();
           });
+        });
+      };
+
+      UserFeedbackWidget.prototype.remove = function(event, cb) {
+        var _this = this;
+        return this.addOrRemoveValues(event, cb, function(data) {
+          delete data[event.payload.id];
+          console.log("Removed " + event.payload.id);
+          console.log(data);
+          return data;
         });
       };
 

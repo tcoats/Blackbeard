@@ -6,6 +6,9 @@
     var ViewFeedbackOpportunity;
     return ViewFeedbackOpportunity = (function() {
       function ViewFeedbackOpportunity() {
+        this.complete = __bind(this.complete, this);
+        this.expire = __bind(this.expire, this);
+        this.cancel = __bind(this.cancel, this);
         this.getFeedback = __bind(this.getFeedback, this);
         this.activate = __bind(this.activate, this);
         this.canActivate = __bind(this.canActivate, this);
@@ -45,6 +48,27 @@
 
       ViewFeedbackOpportunity.prototype.getFeedback = function(id) {
         return $.get("/view-feedback-opportunity/" + id);
+      };
+
+      ViewFeedbackOpportunity.prototype.cancel = function() {
+        var _this = this;
+        return Q($.post('/sendcommand/cancelFeedbackOpportunity', this.feedback())).then(function() {
+          return router.navigate('#user/' + _this.user().username);
+        });
+      };
+
+      ViewFeedbackOpportunity.prototype.expire = function() {
+        var _this = this;
+        return Q($.post('/sendcommand/expireFeedbackOpportunity', this.feedback())).then(function() {
+          return router.navigate('#user/' + _this.user().username);
+        });
+      };
+
+      ViewFeedbackOpportunity.prototype.complete = function() {
+        var _this = this;
+        return Q($.post('/sendcommand/completeFeedbackOpportunity', this.feedback())).then(function() {
+          return router.navigate('#user/' + _this.user().username);
+        });
       };
 
       return ViewFeedbackOpportunity;

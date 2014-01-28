@@ -23,6 +23,8 @@ define [
 					
 					if !data?
 						data = {}
+					
+					console.log data
 						
 					res.send data
 			
@@ -33,20 +35,9 @@ define [
 					data[event.payload.id] = event.payload
 					data
 				
-			hub.receive 'feedbackOpportunityCancelled', (event, cb) =>
-				@addOrRemoveValues event, cb, (data) =>
-					delete data[event.payload.id]
-					data
-			
-			hub.receive 'feedbackOpportunityCompleted', (event, cb) =>
-				@addOrRemoveValues event, cb, (data) =>
-					delete data[event.payload.id]
-					data
-				
-			hub.receive 'feedbackOpportunityExpired', (event, cb) =>
-				@addOrRemoveValues event, cb, (data) =>
-					delete data[event.payload.id]
-					data
+			hub.receive 'feedbackOpportunityCancelled', @remove
+			hub.receive 'feedbackOpportunityCompleted', @remove
+			hub.receive 'feedbackOpportunityExpired', @remove
 				
 		addOrRemoveValues: (event, cb, callback) =>
 			db.hget 'blackbeard:userfeedbackwidget', event.payload.for, (err, data) =>
@@ -61,3 +52,10 @@ define [
 				
 				db.hset 'blackbeard:userfeedbackwidget', event.payload.for, JSON.stringify(data), ->
 					cb()
+		
+		remove: (event, cb) =>
+			@addOrRemoveValues event, cb, (data) =>
+				delete data[event.payload.id]
+				console.log "Removed #{event.payload.id}"
+				console.log data
+				data

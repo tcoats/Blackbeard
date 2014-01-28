@@ -11,6 +11,13 @@
 		<span class="placeholder">with id:</span>
 		<span data-bind="text: feedback().id"></span>
 		
+		
+		<div class="actions">
+			<a data-bind="click: cancel" href="#" class="forward btn btn-danger">Cancel feedback</a>
+			<a data-bind="click: expire" href="#" class="forward btn btn-danger">Expire feedback</a>
+			<a data-bind="click: complete" href="#" class="forward btn btn-danger">Complete feedback</a>
+		</div>
+		
 		<ul class="actions">
 			<li>
 				<a data-bind="attr: { href: '#user/' + user().username }" class="back btn btn-navigation">&larr; Back to dashboard</a>

@@ -31,3 +31,19 @@
 		
 		getFeedback: (id) =>
 			$.get("/view-feedback-opportunity/#{id}")
+		
+		cancel: =>
+			Q($.post '/sendcommand/cancelFeedbackOpportunity', @feedback())
+				.then =>
+					router.navigate '#user/' + @user().username
+			
+		expire: =>
+			Q($.post '/sendcommand/expireFeedbackOpportunity', @feedback())
+				.then =>
+					router.navigate '#user/' + @user().username
+			
+		complete: =>
+			Q($.post '/sendcommand/completeFeedbackOpportunity', @feedback())
+				.then =>
+					router.navigate '#user/' + @user().username
+			
