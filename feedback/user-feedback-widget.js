@@ -7,8 +7,8 @@
     db = redis.createClient();
     return UserFeedbackWidget = (function() {
       function UserFeedbackWidget() {
-        this.remove = __bind(this.remove, this);
         this.addOrRemoveValues = __bind(this.addOrRemoveValues, this);
+        this.remove = __bind(this.remove, this);
         this.projection = __bind(this.projection, this);
         this.web = __bind(this.web, this);
       }
@@ -39,7 +39,6 @@
       UserFeedbackWidget.prototype.projection = function() {
         var _this = this;
         hub.receive('feedbackOpportunityCreated', function(event, cb) {
-          console.log('UserFeedbackWidget feedbackOpportunityCreated');
           return _this.addOrRemoveValues(event, cb, function(data) {
             data[event.payload.id] = event.payload;
             return data;
@@ -48,6 +47,14 @@
         hub.receive('feedbackOpportunityCancelled', this.remove);
         hub.receive('feedbackOpportunityCompleted', this.remove);
         return hub.receive('feedbackOpportunityExpired', this.remove);
+      };
+
+      UserFeedbackWidget.prototype.remove = function(event, cb) {
+        var _this = this;
+        return this.addOrRemoveValues(event, cb, function(data) {
+          delete data[event.payload.id];
+          return data;
+        });
       };
 
       UserFeedbackWidget.prototype.addOrRemoveValues = function(event, cb, callback) {
@@ -66,16 +73,6 @@
           return db.hset('blackbeard:userfeedbackwidget', event.payload["for"], JSON.stringify(data), function() {
             return cb();
           });
-        });
-      };
-
-      UserFeedbackWidget.prototype.remove = function(event, cb) {
-        var _this = this;
-        return this.addOrRemoveValues(event, cb, function(data) {
-          delete data[event.payload.id];
-          console.log("Removed " + event.payload.id);
-          console.log(data);
-          return data;
         });
       };
 

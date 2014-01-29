@@ -29,7 +29,6 @@ define [
 			
 		projection: =>
 			hub.receive 'feedbackOpportunityCreated', (event, cb) =>
-				console.log 'ViewFeedbackOpportunity feedbackOpportunityCreated'
 				db.hset 'blackbeard:viewfeedbackopportunity', event.payload.id, JSON.stringify(event.payload), ->
 					cb()
 				

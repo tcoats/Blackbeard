@@ -38,7 +38,6 @@
       ViewFeedbackOpportunity.prototype.projection = function() {
         var _this = this;
         hub.receive('feedbackOpportunityCreated', function(event, cb) {
-          console.log('ViewFeedbackOpportunity feedbackOpportunityCreated');
           return db.hset('blackbeard:viewfeedbackopportunity', event.payload.id, JSON.stringify(event.payload), function() {
             return cb();
           });

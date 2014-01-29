@@ -30,7 +30,6 @@ define [
 			
 		projection: =>
 			hub.receive 'feedbackOpportunityCreated', (event, cb) =>
-				console.log 'UserFeedbackWidget feedbackOpportunityCreated'
 				@addOrRemoveValues event, cb, (data) =>
 					data[event.payload.id] = event.payload
 					data
@@ -38,6 +37,11 @@ define [
 			hub.receive 'feedbackOpportunityCancelled', @remove
 			hub.receive 'feedbackOpportunityCompleted', @remove
 			hub.receive 'feedbackOpportunityExpired', @remove
+		
+		remove: (event, cb) =>
+			@addOrRemoveValues event, cb, (data) =>
+				delete data[event.payload.id]
+				data
 				
 		addOrRemoveValues: (event, cb, callback) =>
 			db.hget 'blackbeard:userfeedbackwidget', event.payload.for, (err, data) =>
@@ -52,10 +56,3 @@ define [
 				
 				db.hset 'blackbeard:userfeedbackwidget', event.payload.for, JSON.stringify(data), ->
 					cb()
-		
-		remove: (event, cb) =>
-			@addOrRemoveValues event, cb, (data) =>
-				delete data[event.payload.id]
-				console.log "Removed #{event.payload.id}"
-				console.log data
-				data
