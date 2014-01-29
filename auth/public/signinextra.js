@@ -99,7 +99,7 @@
           tasks.push(this.assignEmailAddress());
         }
         return Q.allSettled(tasks).then(function() {
-          return router.navigate('#');
+          return router.navigate("#user/" + (_this.username()));
         });
       };
 

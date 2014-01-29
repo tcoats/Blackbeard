@@ -7,6 +7,8 @@
 		email: ko.observable null
 		token: ko.observable null
 		
+		user: ko.observable null
+		
 		activate: (email, token) =>
 			@email email
 			@token token
@@ -22,7 +24,15 @@
 					auth
 						.assignEmailAddressToUserWithToken(@email(), @token())
 						.then =>
-							dfd.resolve yes
+							
+							auth
+								.getUser()
+								.then((user) =>
+									@user user
+									dfd.resolve yes
+								)
+								.fail =>
+									dfd.resolve yes
 				)
 				.fail =>
 					dfd.resolve no

@@ -20,6 +20,8 @@
 
       VerifyEmail.prototype.token = ko.observable(null);
 
+      VerifyEmail.prototype.user = ko.observable(null);
+
       VerifyEmail.prototype.activate = function(email, token) {
         var dfd,
           _this = this;
@@ -31,7 +33,12 @@
           _this.isTokenValid(result.isValid);
           _this.result(result);
           return auth.assignEmailAddressToUserWithToken(_this.email(), _this.token()).then(function() {
-            return dfd.resolve(true);
+            return auth.getUser().then(function(user) {
+              _this.user(user);
+              return dfd.resolve(true);
+            }).fail(function() {
+              return dfd.resolve(true);
+            });
           });
         }).fail(function() {
           return dfd.resolve(false);

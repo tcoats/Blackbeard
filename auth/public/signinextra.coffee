@@ -80,4 +80,5 @@
 			
 			Q
 				.allSettled(tasks)
-				.then(=> router.navigate '#')
+				.then =>
+					router.navigate "#user/#{@username()}"

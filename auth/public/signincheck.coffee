@@ -7,7 +7,7 @@
 				.then((user) =>
 					if user.email? and user.username?
 						dfd.resolve {
-							redirect: '#'
+							redirect: "#user/#{user.username}"
 						}
 					dfd.resolve {
 						redirect: '#signin/extra'

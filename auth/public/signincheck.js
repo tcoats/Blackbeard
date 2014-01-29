@@ -16,7 +16,7 @@
         auth.getUser().then(function(user) {
           if ((user.email != null) && (user.username != null)) {
             dfd.resolve({
-              redirect: '#'
+              redirect: "#user/" + user.username
             });
           }
           return dfd.resolve({
