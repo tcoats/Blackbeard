@@ -4,29 +4,33 @@
 		<h2 class="panel-title">Sign in with your Blackbeard username and password</h2>
 	</div>
 	<div class="panel-body">
-		<form data-bind="submit: signin" class="signin" role="form" method="post" action="/odo/auth/local" autocomplete="off">
-			<div class="form-group" data-bind="css: {'has-error': username.isModified() && !username.isValid() }">
-				<label class="control-label" for="username">Username <small data-bind="visible: username.isValidating">validating&hellip;</small><small data-bind="validationMessage: username"></small></label>
-				<div class="input-group">
- 					<span class="input-group-addon">@</span>
-					<input data-bind="value: username" type="text" class="form-control autofocus" name="username" placeholder="How you are known in Blackbeard" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-				</div>
+		<div class="row">
+			<div class="col-md-6">
+				<h2>Sign in</h2>
+				<form data-bind="submit: signin" class="signin" role="form" method="post" action="/odo/auth/local" autocomplete="off">
+					<div class="form-group" data-bind="css: {'has-error': username.isModified() && !username.isValid() }">
+						<div class="input-group">
+		 					<span class="input-group-addon">@</span>
+							<input data-bind="value: username" type="text" class="form-control autofocus" name="username" placeholder="How you are known in Blackbeard" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+						</div>
+					</div>
+					<div class="form-group" data-bind="css: {'has-error': password.isModified() && !password.isValid() }">
+						<input data-bind="value: password" type="password" class="form-control" name="password" placeholder="Password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+					</div>
+					<ul class="actions">
+						<li>
+							<a data-bind="click: forgot" type="submit" class="back btn btn-default">Forgot password</a>
+						</li>
+						<li>
+							<button data-bind="click: signin" type="submit" class="forward btn btn-primary">Sign in</button>
+						</li>
+					</ul>
+				</form>
 			</div>
-			<div class="form-group" data-bind="css: {'has-error': password.isModified() && !password.isValid() }">
-				<label class="control-label" for="password">Password <small data-bind="validationMessage: password"></small></label>
-				<input data-bind="value: password" type="password" class="form-control" name="password" placeholder="Password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+			<div class="col-md-6">
+				<h2>Or sign up</h2>
+				<a data-bind="click: signup" class="back btn btn-default btn-lg btn-block" style="height: 140px; line-height: 130px;">Join Blackbeard</a>
 			</div>
-			<ul class="actions">
-				<li>
-					<a data-bind="click: signup" class="back btn btn-default">Join Blackbeard</a>
-				</li>
-				<li>
-					<button data-bind="click: signin" type="submit" class="forward btn btn-primary">Sign in</button>
-				</li>
-				<li>
-					<a data-bind="click: forgot" type="submit" class="forward btn btn-default">Forgot password</a>
-				</li>
-			</ul>
-		</form>
+		</div>
 	</div>
 </div>
