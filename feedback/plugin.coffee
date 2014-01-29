@@ -4,7 +4,8 @@ define [
 	'odo/durandal/plugin'
 	'odo/plugins'
 	'local/feedback/feedback-opportunity-commands'
-	'local/feedback/user-feedback-widget'
+	'local/feedback/user-feedback-in-widget'
+	'local/feedback/user-feedback-out-widget'
 	'local/feedback/view-feedback-opportunity'
 ], (module, configure, durandal, Plugins, plugins...) ->
 	class FeedbackPlugin

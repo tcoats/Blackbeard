@@ -1,6 +1,7 @@
 ﻿define ['knockout', 'odo/inject'], (ko, inject) ->
 	class DashboardSelf
-		widgets: inject.many 'user/dashboard-self/widgets'
+		inwidgets: inject.many 'user/dashboard-self/in-widgets'
+		outwidgets: inject.many 'user/dashboard-self/out-widgets'
 		title: ko.observable ''
 		
 		viewingUser: ko.observable null

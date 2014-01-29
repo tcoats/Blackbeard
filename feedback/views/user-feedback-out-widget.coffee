@@ -1,5 +1,5 @@
 ﻿define ['knockout', 'components/dialog'], (ko, Dialog) ->
-	class UserFeedbackWidget
+	class UserFeedbackOutWidget
 		viewingUser: ko.observable null
 		dashboardUser: ko.observable null
 		feedback: ko.observable []
@@ -11,7 +11,7 @@
 			@dashboardUser dashboardUser
 			
 			$
-				.get("/user-feedback-widget/#{dashboardUser.id}")
+				.get("/user-feedback-out-widget/#{dashboardUser.id}")
 				.then (feedback) =>
 					console.log feedback
 					@parseFeedback feedback
@@ -22,9 +22,9 @@
 				result.push f
 			@feedback result
 		
-		createFeedbackOpportunity: =>
-			options = {
-				model: 'views/feedback/create'
-			}
-			
-			new Dialog(options).show()
+		suggestFeedbackOpportunity: =>
+			#options = {
+			#	model: 'views/feedback/suggest'
+			#}
+			#
+			#new Dialog(options).show()

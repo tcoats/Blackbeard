@@ -3,33 +3,33 @@
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   define(['knockout', 'components/dialog'], function(ko, Dialog) {
-    var UserFeedbackWidget;
-    return UserFeedbackWidget = (function() {
-      function UserFeedbackWidget() {
+    var UserFeedbackInWidget;
+    return UserFeedbackInWidget = (function() {
+      function UserFeedbackInWidget() {
         this.createFeedbackOpportunity = __bind(this.createFeedbackOpportunity, this);
         this.parseFeedback = __bind(this.parseFeedback, this);
         this.activate = __bind(this.activate, this);
       }
 
-      UserFeedbackWidget.prototype.viewingUser = ko.observable(null);
+      UserFeedbackInWidget.prototype.viewingUser = ko.observable(null);
 
-      UserFeedbackWidget.prototype.dashboardUser = ko.observable(null);
+      UserFeedbackInWidget.prototype.dashboardUser = ko.observable(null);
 
-      UserFeedbackWidget.prototype.feedback = ko.observable([]);
+      UserFeedbackInWidget.prototype.feedback = ko.observable([]);
 
-      UserFeedbackWidget.prototype.activate = function(activationData) {
+      UserFeedbackInWidget.prototype.activate = function(activationData) {
         var dashboardUser, viewingUser,
           _this = this;
         viewingUser = activationData.viewingUser, dashboardUser = activationData.dashboardUser;
         this.viewingUser(viewingUser);
         this.dashboardUser(dashboardUser);
-        return $.get("/user-feedback-widget/" + dashboardUser.id).then(function(feedback) {
+        return $.get("/user-feedback-in-widget/" + dashboardUser.id).then(function(feedback) {
           console.log(feedback);
           return _this.parseFeedback(feedback);
         });
       };
 
-      UserFeedbackWidget.prototype.parseFeedback = function(feedback) {
+      UserFeedbackInWidget.prototype.parseFeedback = function(feedback) {
         var f, id, result;
         result = [];
         for (id in feedback) {
@@ -39,7 +39,7 @@
         return this.feedback(result);
       };
 
-      UserFeedbackWidget.prototype.createFeedbackOpportunity = function() {
+      UserFeedbackInWidget.prototype.createFeedbackOpportunity = function() {
         var options;
         options = {
           model: 'views/feedback/create'
@@ -47,7 +47,7 @@
         return new Dialog(options).show();
       };
 
-      return UserFeedbackWidget;
+      return UserFeedbackInWidget;
 
     })();
   });

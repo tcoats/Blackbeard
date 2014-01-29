@@ -9,7 +9,9 @@
         this.activate = __bind(this.activate, this);
       }
 
-      DashboardSelf.prototype.widgets = inject.many('user/dashboard-self/widgets');
+      DashboardSelf.prototype.inwidgets = inject.many('user/dashboard-self/in-widgets');
+
+      DashboardSelf.prototype.outwidgets = inject.many('user/dashboard-self/out-widgets');
 
       DashboardSelf.prototype.title = ko.observable('');
 

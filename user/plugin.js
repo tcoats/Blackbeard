@@ -8,7 +8,7 @@
     return User = (function() {
       function User() {
         this.user = __bind(this.user, this);
-        this.projections = __bind(this.projections, this);
+        this.projection = __bind(this.projection, this);
         this.web = __bind(this.web, this);
       }
 
@@ -19,9 +19,10 @@
         return app.get('/blackbeard/user', this.user);
       };
 
-      User.prototype.projections = function() {
+      User.prototype.projection = function() {
         var _this = this;
         return hub.receive('userHasUsername', function(event, cb) {
+          console.log("Blackbeard knows anout " + event.payload.username);
           return db.hset('blackbeard:username', event.payload.username, event.payload.id, cb);
         });
       };

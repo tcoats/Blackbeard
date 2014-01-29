@@ -17,8 +17,9 @@ define [
 			
 			app.get '/blackbeard/user', @user
 			
-		projections: =>
+		projection: =>
 			hub.receive 'userHasUsername', (event, cb) =>
+				console.log "Blackbeard knows anout #{event.payload.username}"
 				db.hset 'blackbeard:username', event.payload.username, event.payload.id, cb
 		
 		user: (req, res) =>

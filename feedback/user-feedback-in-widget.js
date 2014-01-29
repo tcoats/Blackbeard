@@ -15,12 +15,12 @@
 
       UserFeedbackWidget.prototype.web = function() {
         var _this = this;
-        return app.get('/user-feedback-widget/:id', function(req, res) {
+        return app.get('/user-feedback-in-widget/:id', function(req, res) {
           if (req.user.id !== req.params.id) {
             res.send(403, 'Authentication required');
             return;
           }
-          return db.hget('blackbeard:userfeedbackwidget', req.params.id, function(err, data) {
+          return db.hget('blackbeard:userfeedbackinwidget', req.params.id, function(err, data) {
             if (err != null) {
               console.log(err);
               cb(err);
@@ -59,7 +59,7 @@
 
       UserFeedbackWidget.prototype.addOrRemoveValues = function(event, cb, callback) {
         var _this = this;
-        return db.hget('blackbeard:userfeedbackwidget', event.payload["for"], function(err, data) {
+        return db.hget('blackbeard:userfeedbackinwidget', event.payload["for"], function(err, data) {
           if (err != null) {
             console.log(err);
             cb(err);
@@ -70,7 +70,7 @@
             data = {};
           }
           data = callback(data);
-          return db.hset('blackbeard:userfeedbackwidget', event.payload["for"], JSON.stringify(data), function() {
+          return db.hset('blackbeard:userfeedbackinwidget', event.payload["for"], JSON.stringify(data), function() {
             return cb();
           });
         });

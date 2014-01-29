@@ -8,12 +8,12 @@ define [
 	class UserFeedbackWidget
 		web: =>
 			# setup web services here
-			app.get '/user-feedback-widget/:id', (req, res) =>
+			app.get '/user-feedback-in-widget/:id', (req, res) =>
 				if req.user.id isnt req.params.id
 					res.send 403, 'Authentication required'
 					return
 				
-				db.hget 'blackbeard:userfeedbackwidget', req.params.id, (err, data) =>
+				db.hget 'blackbeard:userfeedbackinwidget', req.params.id, (err, data) =>
 					if err?
 						console.log err
 						cb err
@@ -44,7 +44,7 @@ define [
 				data
 				
 		addOrRemoveValues: (event, cb, callback) =>
-			db.hget 'blackbeard:userfeedbackwidget', event.payload.for, (err, data) =>
+			db.hget 'blackbeard:userfeedbackinwidget', event.payload.for, (err, data) =>
 				if err?
 					console.log err
 					cb err
@@ -54,5 +54,5 @@ define [
 				data = {} if !data?
 				data = callback data
 				
-				db.hset 'blackbeard:userfeedbackwidget', event.payload.for, JSON.stringify(data), ->
+				db.hset 'blackbeard:userfeedbackinwidget', event.payload.for, JSON.stringify(data), ->
 					cb()
