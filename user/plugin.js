@@ -22,7 +22,6 @@
       User.prototype.projection = function() {
         var _this = this;
         return hub.receive('userHasUsername', function(event, cb) {
-          console.log("Blackbeard knows anout " + event.payload.username);
           return db.hset('blackbeard:username', event.payload.username, event.payload.id, cb);
         });
       };

@@ -30,7 +30,6 @@
             if (data == null) {
               data = {};
             }
-            console.log(data);
             return res.send(data);
           });
         });

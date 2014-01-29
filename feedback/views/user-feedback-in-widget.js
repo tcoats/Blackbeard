@@ -24,7 +24,6 @@
         this.viewingUser(viewingUser);
         this.dashboardUser(dashboardUser);
         return $.get("/user-feedback-in-widget/" + dashboardUser.id).then(function(feedback) {
-          console.log(feedback);
           return _this.parseFeedback(feedback);
         });
       };

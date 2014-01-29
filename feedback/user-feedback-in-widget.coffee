@@ -23,8 +23,6 @@ define [
 					
 					if !data?
 						data = {}
-					
-					console.log data
 						
 					res.send data
 			
