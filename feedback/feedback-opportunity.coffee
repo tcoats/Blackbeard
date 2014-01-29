@@ -4,6 +4,8 @@ define [], () ->
 			@id = id
 			@_destroy = no
 			@description = ''
+			@for = null
+			@by = null
 		
 		createFeedbackOpportunity: (command, callback) =>
 			if !command.description? or command.description is ''
@@ -21,25 +23,30 @@ define [], () ->
 			@new 'feedbackOpportunityCancelled',
 				id: @id
 				by: command.by
+				for: @for
 				description: @description
 			callback null
 		
 		expireFeedbackOpportunity: (command, callback) =>
 			@new 'feedbackOpportunityExpired',
 				id: @id
-				description: @description
 				by: command.by
+				for: @for
+				description: @description
 			callback null
 		
 		completeFeedbackOpportunity: (command, callback) =>
 			@new 'feedbackOpportunityCompleted',
 				id: @id
-				description: @description
 				by: command.by
+				for: @for
+				description: @description
 			callback null
 			
 		_feedbackOpportunityCreated: (event) =>
 			@description = event.payload.description
+			@for = event.payload.for
+			@by = event.payload.by
 			
 		_feedbackOpportunityCancelled: (event) =>
 			@_destroy = yes

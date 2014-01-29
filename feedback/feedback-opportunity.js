@@ -17,6 +17,8 @@
         this.id = id;
         this._destroy = false;
         this.description = '';
+        this["for"] = null;
+        this.by = null;
       }
 
       FeedbackOpportunity.prototype.createFeedbackOpportunity = function(command, callback) {
@@ -37,6 +39,7 @@
         this["new"]('feedbackOpportunityCancelled', {
           id: this.id,
           by: command.by,
+          "for": this["for"],
           description: this.description
         });
         return callback(null);
@@ -45,8 +48,9 @@
       FeedbackOpportunity.prototype.expireFeedbackOpportunity = function(command, callback) {
         this["new"]('feedbackOpportunityExpired', {
           id: this.id,
-          description: this.description,
-          by: command.by
+          by: command.by,
+          "for": this["for"],
+          description: this.description
         });
         return callback(null);
       };
@@ -54,14 +58,17 @@
       FeedbackOpportunity.prototype.completeFeedbackOpportunity = function(command, callback) {
         this["new"]('feedbackOpportunityCompleted', {
           id: this.id,
-          description: this.description,
-          by: command.by
+          by: command.by,
+          "for": this["for"],
+          description: this.description
         });
         return callback(null);
       };
 
       FeedbackOpportunity.prototype._feedbackOpportunityCreated = function(event) {
-        return this.description = event.payload.description;
+        this.description = event.payload.description;
+        this["for"] = event.payload["for"];
+        return this.by = event.payload.by;
       };
 
       FeedbackOpportunity.prototype._feedbackOpportunityCancelled = function(event) {
