@@ -2,7 +2,7 @@
 	class UserFeedbackWidget
 		viewingUser: ko.observable null
 		dashboardUser: ko.observable null
-		feedback: ko.observable null
+		feedback: ko.observable []
 		
 		activate: (activationData) =>
 			{ viewingUser, dashboardUser } = activationData

@@ -15,7 +15,7 @@
 
       UserFeedbackWidget.prototype.dashboardUser = ko.observable(null);
 
-      UserFeedbackWidget.prototype.feedback = ko.observable(null);
+      UserFeedbackWidget.prototype.feedback = ko.observable([]);
 
       UserFeedbackWidget.prototype.activate = function(activationData) {
         var dashboardUser, viewingUser,

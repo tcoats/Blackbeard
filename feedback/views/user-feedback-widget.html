@@ -1,12 +1,12 @@
 ﻿<div>
-	<!-- ko if: feedback -->
+	<!-- ko if: feedback().length > 0 -->
 	<h4>Feedback open to others</h4>
 	<div class="list-group" data-bind="foreach: feedback">
 		<a class="list-group-item" href="#" data-bind="text: description, attr: { href: '#view-feedback-opportunity/' + id }"></a>
 	</div>
 	<!-- /ko -->
-	<!-- ko ifnot: feedback -->
-	<p>You have no open feedback opportunities. Create one now!</p>
+	<!-- ko if: feedback().length == 0 -->
+	<p>You have no feedback open to others.</p>
 	<!-- /ko -->
 	<div class="actions">
 		<li>
