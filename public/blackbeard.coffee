@@ -69,6 +69,7 @@ define [
 	'font!google,families:[Coming Soon,Patrick Hand]'
 	'css!fontawesome'
 	'css!odo/durandal/odo'
+	'css!rustic'
 	'css!blackbeard'
 	'css!animatecss'
 ], ($, system, app, locator, bindings, blackbeardbindings) ->

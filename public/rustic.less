@@ -1,0 +1,220 @@
+// new fonts and sizes
+/*
+@font-face {
+	font-family: 'LunchBoxSlab';
+	src: url('lunchboxslabbold/lunchboxslabbold.eot');
+	src: url('lunchboxslabbold/lunchboxslabbold.eot?#iefix') format('embedded-opentype'),
+			 url('lunchboxslabbold/lunchboxslabbold.woff') format('woff'),
+			 url('lunchboxslabbold/lunchboxslabbold.ttf') format('truetype'),
+			 url('lunchboxslabbold/lunchboxslabbold.svg#lunchboxslabbold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'LunchBoxSlab';
+	src: url('lunchboxslab/lunchboxslab.eot');
+	src: url('lunchboxslab/lunchboxslab.eot?#iefix') format('embedded-opentype'),
+			 url('lunchboxslab/lunchboxslab.woff') format('woff'),
+			 url('lunchboxslab/lunchboxslab.ttf') format('truetype'),
+			 url('lunchboxslab/lunchboxslab.svg#lunchboxslab') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'LunchBoxSlab';
+	src: url('lunchboxslablight/lunchboxslablight.eot');
+	src: url('lunchboxslablight/lunchboxslablight.eot?#iefix') format('embedded-opentype'),
+			 url('lunchboxslablight/lunchboxslablight.woff') format('woff'),
+			 url('lunchboxslablight/lunchboxslablight.ttf') format('truetype'),
+			 url('lunchboxslablight/lunchboxslablight.svg#lunchboxslablight') format('svg');
+	font-weight: lighter;
+	font-style: normal;
+}*/
+body,
+small {
+	font-family: 'Coming Soon', serif;
+}
+body {
+	font-size: 18px;
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: 'Patrick Hand', verdana, sans-serif;
+}
+b, strong, dt, label, .badge, .close, th {
+	font-family: 'Patrick Hand', verdana, sans-serif;
+	font-size: 1.3em;
+}
+.tooltip {
+	font-size: 16px;
+}
+.help-block {
+	font-size: 14px;
+}
+// labels keep original font
+.label,
+.input-group-addon {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+small {
+	font-size: 50%;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	small {
+		color: #333;
+	}
+}
+
+// headings are bigger
+h1, .h1 {
+	font-size: 42px;
+}
+h2, .h2 {
+	font-size: 36px;
+}
+h3, .h3 {
+	font-size: 30px;
+}
+h4, .h4 {
+	font-size: 24px;
+}
+h5, .h5 {
+	font-size: 18px;
+}
+h6, .h6 {
+	font-size: 14px;
+}
+
+dd {
+	line-height: 2.1;
+}
+
+// cool underline for links
+a:not(.btn) {
+	background: url('/images/underline-orange.png') repeat-x 0% 100%;
+}
+a:not(.btn):hover {
+	color: inherit;
+	text-decoration: none;
+}
+// special a elements don't get the style
+.nav-pills>li>a,
+.pagination>li>a,
+.breadcrumb a,
+.navbar-brand,
+.navbar-nav>li>a,
+.dropdown-menu > li > a,
+.authentication-mechanisms a,
+a.list-group-item,
+a.unstyled {
+	background: none;
+}
+
+// fix dropdowns
+.dropdown-menu > li > a {
+	padding-bottom: 1px;
+}
+
+// panel title is bigger
+.panel-title,
+.modal-title {
+	font-size: 28px;
+}
+.panel-title {
+	color: rgba(0,0,0,0.4);
+}
+
+// fix components
+.list-group-item,
+.breadcrumb,
+.nav-pills>li>a,
+.btn,
+.form-control,
+.pagination>li>a, .pagination>li>span {
+	padding-bottom: 3px;
+}
+
+.list-group-item .btn {
+	margin-top: -5px;
+}
+
+// fix nav
+.navbar-nav>li>a,
+.navbar-brand {
+	padding-bottom: 10px;
+}
+.navbar {
+	min-height: 45px;
+}
+.navbar-form {
+	margin-top: 6px;
+	margin-bottom: 5px;
+}
+.navbar-text {
+	margin-top: 12px;
+	margin-bottom: 8px;
+}
+
+// fix form items
+input[type="file"]{
+	line-height: 1.2em;
+}
+input[type="checkbox"] {
+	margin-top: 10px;
+}
+
+// larger borders
+.navbar,
+.panel,
+.panel-heading,
+.panel>.panel-body+.table, .panel>.panel-body+.table-responsive,
+.modal-dialog,
+.modal-heading,
+.modal>.modal-body+.table, .modal>.modal-body+.table-responsive,
+.dropdown-menu,
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+	border-width: 2px;
+}
+.dropdown-menu .divider {
+	height: 2px;
+}
+.panel>.list-group .list-group-item,
+.modal>.list-group .list-group-item {
+	border-width: 2px;
+	margin-top: -2px;
+	margin-left: -2px;
+	margin-right: -2px;
+}
+.table>thead>tr>th {
+	border-width: 4px;
+}
+
+// cooler jumbotron
+.jumbotron {
+	background-color: inherit;
+	border: 2px dashed #999;
+	font-size: 24px;
+}
+.well {
+	background-color: inherit;
+	border: 2px dashed #999;
+}
+
+.btn-primary {
+	background-color: none;
+	background-color: transparent;
+	border: 2px dashed #f80;
+	color: #333;
+	
+	&:hover,
+	&:active,
+	&.active,
+	&:focus {
+		color: #f80;
+		border-color: #f80;
+		background-color: rgba(255, 88, 0, 0.05);
+	}
+}
