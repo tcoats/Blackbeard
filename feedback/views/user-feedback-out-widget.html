@@ -1,6 +1,6 @@
 ﻿<div>
-	<!-- ko if: feedback().length > 0 -->
 	<h4>Others waiting for feedback</h4>
+	<!-- ko if: feedback().length > 0 -->
 	<div class="list-group" data-bind="foreach: feedback">
 		<a class="list-group-item" href="#" data-bind="text: description, attr: { href: '#view-feedback-opportunity/' + id }"></a>
 	</div>

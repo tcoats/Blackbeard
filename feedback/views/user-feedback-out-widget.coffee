@@ -13,7 +13,6 @@
 			$
 				.get("/user-feedback-out-widget/#{dashboardUser.id}")
 				.then (feedback) =>
-					console.log feedback
 					@parseFeedback feedback
 		
 		parseFeedback: (feedback) =>
