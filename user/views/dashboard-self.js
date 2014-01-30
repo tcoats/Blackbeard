@@ -2,13 +2,9 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['knockout', 'odo/inject'], function(ko, inject) {
+  define(['knockout', 'q', 'odo/auth', 'odo/inject', 'md5'], function(ko, Q, auth, inject, md5) {
     var DashboardSelf;
     return DashboardSelf = (function() {
-      function DashboardSelf() {
-        this.activate = __bind(this.activate, this);
-      }
-
       DashboardSelf.prototype.inwidgets = inject.many('user/dashboard-self/in-widgets');
 
       DashboardSelf.prototype.outwidgets = inject.many('user/dashboard-self/out-widgets');
@@ -19,11 +15,33 @@
 
       DashboardSelf.prototype.dashboardUser = ko.observable(null);
 
+      DashboardSelf.prototype.user = ko.observable(null);
+
+      function DashboardSelf() {
+        this.activate = __bind(this.activate, this);
+        var _this = this;
+        this.gravatarHash = ko.computed(function() {
+          if ((_this.user() != null) && (_this.user().email != null)) {
+            return md5(_this.user().email.trim().toLowerCase());
+          }
+          return '';
+        }, this);
+      }
+
       DashboardSelf.prototype.activate = function(activationData) {
-        var dashboardUser, viewingUser;
+        var dashboardUser, dfd, viewingUser,
+          _this = this;
         viewingUser = activationData.viewingUser, dashboardUser = activationData.dashboardUser;
         this.viewingUser(viewingUser);
-        return this.dashboardUser(dashboardUser);
+        this.dashboardUser(dashboardUser);
+        dfd = Q.defer();
+        auth.getUser().then(function(user) {
+          _this.user(user);
+          return dfd.resolve();
+        }).fail(function() {
+          return dfd.resolve();
+        });
+        return dfd.promise;
       };
 
       return DashboardSelf;

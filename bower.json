@@ -16,6 +16,7 @@
 		
 		"node-uuid": "*",
 		"q": "*",
+		"js-md5": "*",
 		
 		"bootstrap": "3.*",
 		"font-awesome": "*",

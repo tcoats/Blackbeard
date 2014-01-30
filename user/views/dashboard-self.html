@@ -2,6 +2,14 @@
 	<div id="site-title">
 		<h1><span data-bind="text: dashboardUser().displayName"></span> <small data-bind="text: '@' + dashboardUser().username"></small></h1>
 	</div>
+	
+	<span class="avatar" data-bind="if: user()">
+		<a href="#" data-toggle="dropdown"><img data-bind="attr: { src: 'http://gravatar.com/avatar/' + gravatarHash() + '?d=identicon' }" /></a>
+		<ul class="dropdown-menu" role="menu">
+			<li data-bind="if: user().username"><a data-bind="attr: { href: '#user/' + user().username }"><span class="fa fa-user fa-lg"></span> <span data-bind="text: user().displayName"></span></a></li>
+		</ul>
+	</span>
+	
 	<div class="row">
 		<div class="col-sm-6" data-bind="foreach: inwidgets">
 			<div data-bind="compose: { model: $data, activationData: { viewingUser: $parent.viewingUser(), dashboardUser: $parent.dashboardUser() } }"></div>
