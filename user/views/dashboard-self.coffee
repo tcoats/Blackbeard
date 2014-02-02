@@ -1,4 +1,4 @@
-﻿define ['knockout', 'q', 'odo/auth', 'odo/inject', 'md5'], (ko, Q, auth, inject, md5) ->
+﻿defineQ ['knockout', 'q', 'odo/inject', 'md5', 'odo/auth/current-user'],  (ko, Q, inject, md5, currentUser) ->
 	class DashboardSelf
 		inwidgets: inject.many 'user/dashboard-self/in-widgets'
 		outwidgets: inject.many 'user/dashboard-self/out-widgets'
@@ -17,19 +17,8 @@
 			, @)
 		
 		activate: (activationData) =>
-			{ viewingUser, dashboardUser } = activationData
+			{ dashboardUser } = activationData
 			
-			@viewingUser viewingUser
+			@viewingUser currentUser
 			@dashboardUser dashboardUser
-			
-			dfd = Q.defer()
-			
-			auth
-				.getUser()
-				.then((user) =>
-					@user user
-					dfd.resolve())
-				.fail =>
-					dfd.resolve()
-				
-			dfd.promise
+			@user currentUser

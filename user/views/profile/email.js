@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'jquery', 'knockout', 'odo/auth'], function(Q, $, ko, auth) {
+  defineQ(['q', 'jquery', 'knockout', 'odo/auth', 'odo/auth/current-user'], function(Q, $, ko, auth, user) {
     var ChangeEmail;
     return ChangeEmail = (function() {
       ChangeEmail.prototype.user = ko.observable(null);
@@ -19,20 +19,11 @@
       }
 
       ChangeEmail.prototype.activate = function(options) {
-        var dfd,
-          _this = this;
         this.wizard = options.wizard, this.dialog = options.dialog;
-        dfd = Q.defer();
-        auth.getUser().then(function(user) {
-          _this.user(user);
-          if (user.email != null) {
-            _this.email(user.email);
-          }
-          return dfd.resolve(true);
-        }).fail(function(err) {
-          return dfd.resolve(true);
-        });
-        return dfd.promise;
+        this.user(user);
+        if (user.email != null) {
+          return this.email(user.email);
+        }
       };
 
       ChangeEmail.prototype.back = function() {

@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'jquery', 'knockout', 'odo/auth'], function(Q, $, ko, auth) {
+  defineQ(['jquery', 'knockout', 'odo/auth', 'odo/auth/current-user'], function($, ko, auth, user) {
     var ChangeUsername;
     return ChangeUsername = (function() {
       ChangeUsername.prototype.user = ko.observable(null);
@@ -37,20 +37,11 @@
       }
 
       ChangeUsername.prototype.activate = function(options) {
-        var dfd,
-          _this = this;
         this.wizard = options.wizard, this.dialog = options.dialog;
-        dfd = Q.defer();
-        auth.getUser().then(function(user) {
-          _this.user(user);
-          if (user.username != null) {
-            _this.username(user.username);
-          }
-          return dfd.resolve(true);
-        }).fail(function(err) {
-          return dfd.resolve(true);
-        });
-        return dfd.promise;
+        this.user(user);
+        if (user.username != null) {
+          return this.username(user.username);
+        }
       };
 
       ChangeUsername.prototype.back = function() {

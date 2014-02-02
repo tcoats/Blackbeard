@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['knockout', 'uuid', 'odo/auth', 'plugins/router'], function(ko, uuid, auth, router) {
+  defineQ(['knockout', 'uuid', 'odo/auth/current-user', 'plugins/router'], function(ko, uuid, currentUser, router) {
     var Description;
     return Description = (function() {
       Description.prototype.userid = ko.observable(null);
@@ -18,11 +18,8 @@
       }
 
       Description.prototype.activate = function(options) {
-        var _this = this;
         this.wizard = options.wizard, this.dialog = options.dialog;
-        return auth.getUser().then(function(user) {
-          return _this.userid(user.id);
-        });
+        return this.userid(currentUser.id);
       };
 
       Description.prototype.close = function() {

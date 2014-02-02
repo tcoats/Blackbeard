@@ -1,4 +1,4 @@
-﻿define ['q', 'knockout', 'odo/auth'], (Q, ko, auth) ->
+﻿defineQ ['knockout', 'odo/auth', 'odo/auth/current-user'], (ko, auth, user) ->
 	class LocalSignup
 		user: ko.observable null
 		
@@ -46,20 +46,8 @@
 		activate: (options) =>
 			{ @dialog } = options
 			
-			dfd = Q.defer()
-			
-			auth.getUser()
-				.then((user) =>
-					@user user
-					@setup()
-					dfd.resolve yes
-				)
-				.fail((err) =>
-					@setup()
-					dfd.resolve yes
-				)
-				
-			dfd.promise
+			@user user
+			@setup()
 		
 		close: =>
 			@dialog.close()

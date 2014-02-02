@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['knockout', 'q', 'odo/auth', 'plugins/router', 'odo/inject'], function(ko, Q, auth, router, inject) {
+  defineQ(['knockout', 'q', 'odo/auth/current-user', 'plugins/router', 'odo/inject'], function(ko, Q, currentUser, router, inject) {
     var ViewFeedbackOpportunity;
     return ViewFeedbackOpportunity = (function() {
       function ViewFeedbackOpportunity() {
@@ -33,17 +33,11 @@
       };
 
       ViewFeedbackOpportunity.prototype.activate = function(id) {
-        var dfd,
-          _this = this;
-        dfd = Q.defer();
-        auth.getUser().then(function(user) {
-          return _this.getFeedback(id).then(function(feedback) {
-            _this.user(user);
-            _this.feedback(feedback);
-            return dfd.resolve(true);
-          });
+        var _this = this;
+        return this.getFeedback(id).then(function(feedback) {
+          _this.user(currentUser);
+          return _this.feedback(feedback);
         });
-        return dfd.promise;
       };
 
       ViewFeedbackOpportunity.prototype.getFeedback = function(id) {

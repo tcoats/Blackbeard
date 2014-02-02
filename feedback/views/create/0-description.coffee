@@ -1,4 +1,4 @@
-﻿define ['knockout', 'uuid', 'odo/auth', 'plugins/router'], (ko, uuid, auth, router) ->
+﻿defineQ ['knockout', 'uuid', 'odo/auth/current-user', 'plugins/router'], (ko, uuid, currentUser, router) ->
 	class Description
 		userid: ko.observable null
 		
@@ -11,7 +11,7 @@
 		
 		activate: (options) =>
 			{ @wizard, @dialog } = options
-			auth.getUser().then (user) => @userid user.id
+			@userid currentUser.id
 			
 		close: =>
 			@dialog.close()

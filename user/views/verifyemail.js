@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'knockout', 'odo/auth', 'components/dialog'], function(Q, ko, auth, Dialog) {
+  defineQ(['q', 'knockout', 'odo/auth', 'odo/auth/current-user', 'components/dialog'], function(Q, ko, auth, user, Dialog) {
     var VerifyEmail;
     return VerifyEmail = (function() {
       function VerifyEmail() {
@@ -33,12 +33,8 @@
           _this.isTokenValid(result.isValid);
           _this.result(result);
           return auth.assignEmailAddressToUserWithToken(_this.email(), _this.token()).then(function() {
-            return auth.getUser().then(function(user) {
-              _this.user(user);
-              return dfd.resolve(true);
-            }).fail(function() {
-              return dfd.resolve(true);
-            });
+            _this.user(user);
+            return dfd.resolve(true);
           });
         }).fail(function() {
           return dfd.resolve(false);

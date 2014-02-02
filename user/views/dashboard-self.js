@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['knockout', 'q', 'odo/auth', 'odo/inject', 'md5'], function(ko, Q, auth, inject, md5) {
+  defineQ(['knockout', 'q', 'odo/inject', 'md5', 'odo/auth/current-user'], function(ko, Q, inject, md5, currentUser) {
     var DashboardSelf;
     return DashboardSelf = (function() {
       DashboardSelf.prototype.inwidgets = inject.many('user/dashboard-self/in-widgets');
@@ -29,19 +29,11 @@
       }
 
       DashboardSelf.prototype.activate = function(activationData) {
-        var dashboardUser, dfd, viewingUser,
-          _this = this;
-        viewingUser = activationData.viewingUser, dashboardUser = activationData.dashboardUser;
-        this.viewingUser(viewingUser);
+        var dashboardUser;
+        dashboardUser = activationData.dashboardUser;
+        this.viewingUser(currentUser);
         this.dashboardUser(dashboardUser);
-        dfd = Q.defer();
-        auth.getUser().then(function(user) {
-          _this.user(user);
-          return dfd.resolve();
-        }).fail(function() {
-          return dfd.resolve();
-        });
-        return dfd.promise;
+        return this.user(currentUser);
       };
 
       return DashboardSelf;

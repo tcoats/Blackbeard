@@ -1,5 +1,5 @@
-﻿define ['knockout', 'odo/inject'], (ko, inject) ->
-	class DashboardSelf
+﻿defineQ ['knockout', 'odo/inject', 'odo/auth/current-user'], (ko, inject, currentUser) ->
+	class DashboardOther
 		widgets: inject.many 'user/dashboard-other/widgets'
 		title: ko.observable ''
 		
@@ -7,7 +7,7 @@
 		dashboardUser: ko.observable null
 		
 		activate: (activationData) =>
-			{ viewingUser, dashboardUser } = activationData
+			{ dashboardUser } = activationData
 			
-			@viewingUser viewingUser
+			@viewingUser currentUser
 			@dashboardUser dashboardUser

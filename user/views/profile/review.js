@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'knockout', 'odo/auth', 'components/dialog'], function(Q, ko, auth, Dialog) {
+  defineQ(['knockout', 'odo/auth/current-user', 'components/dialog'], function(ko, user, Dialog) {
     var ReviewProfile;
     return ReviewProfile = (function() {
       function ReviewProfile() {
@@ -14,17 +14,8 @@
       ReviewProfile.prototype.user = ko.observable(null);
 
       ReviewProfile.prototype.activate = function(options) {
-        var dfd,
-          _this = this;
         this.wizard = options.wizard, this.dialog = options.dialog;
-        dfd = Q.defer();
-        auth.getUser().then(function(user) {
-          _this.user(user);
-          return dfd.resolve(true);
-        }).fail(function(err) {
-          return dfd.resolve(true);
-        });
-        return dfd.promise;
+        return this.user(user);
       };
 
       ReviewProfile.prototype.close = function() {

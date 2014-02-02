@@ -1,22 +1,11 @@
-﻿define ['q', 'knockout', 'odo/auth', 'components/dialog'], (Q, ko, auth, Dialog) ->
+﻿defineQ ['knockout', 'odo/auth/current-user', 'components/dialog'], (ko, user, Dialog) ->
 	class ReviewProfile
 		user: ko.observable null
 		
 		activate: (options) =>
 			{ @wizard, @dialog } = options
 			
-			dfd = Q.defer()
-			
-			auth.getUser()
-				.then((user) =>
-					@user user
-					dfd.resolve yes
-				)
-				.fail((err) =>
-					dfd.resolve yes
-				)
-				
-			dfd.promise
+			@user user
 			
 		close: =>
 			@dialog.close()

@@ -1,4 +1,4 @@
-﻿define ['knockout', 'q', 'odo/auth', 'plugins/router', 'odo/inject'], (ko, Q, auth, router, inject) ->
+﻿defineQ ['knockout', 'q', 'odo/auth/current-user', 'plugins/router', 'odo/inject'], (ko, Q, currentUser, router, inject) ->
 	class ViewFeedbackOpportunity
 		title: ko.observable ''
 		feedback: ko.observable null
@@ -16,18 +16,10 @@
 			dfd.promise
 		
 		activate: (id) =>
-			dfd = Q.defer()
-			
-			auth.getUser()
-				.then((user) =>
-					@getFeedback(id)
-						.then (feedback) =>
-							@user user
-							@feedback feedback
-							dfd.resolve yes
-					)
-			
-			dfd.promise
+			@getFeedback(id)
+				.then (feedback) =>
+					@user currentUser
+					@feedback feedback
 		
 		getFeedback: (id) =>
 			$.get("/view-feedback-opportunity/#{id}")

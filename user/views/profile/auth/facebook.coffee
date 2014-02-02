@@ -1,22 +1,11 @@
-﻿define ['q', 'knockout', 'odo/auth'], (Q, ko, auth) ->
+﻿defineQ ['knockout', 'odo/auth', 'odo/auth/current-user'], (ko, auth, user) ->
 	class FacebookProfile
 		user: ko.observable null
 		
 		activate: (options) =>
 			{ @wizard, @dialog } = options
 			
-			dfd = Q.defer()
-			
-			auth.getUser()
-				.then((user) =>
-					@user user
-					dfd.resolve yes
-				)
-				.fail((err) =>
-					dfd.resolve yes
-				)
-				
-			dfd.promise
+			@user user
 			
 		disconnectStarted: ko.observable no
 		

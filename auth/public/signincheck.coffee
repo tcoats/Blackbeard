@@ -1,20 +1,10 @@
-﻿define ['q', 'odo/auth'], (Q, auth) ->
+﻿defineQ ['odo/auth/current-user'], (user) ->
 	class SigninCheck
 		canActivate: =>
-			dfd = Q.defer()
+			if !user?
+				return no
 			
-			auth.getUser()
-				.then((user) =>
-					if user.email? and user.username?
-						dfd.resolve {
-							redirect: "#user/#{user.username}"
-						}
-					dfd.resolve {
-						redirect: '#signin/extra'
-					}
-				)
-				.fail((err) =>
-					dfd.resolve no
-				)
-				
-			dfd.promise
+			if user.email? and user.username?
+				return redirect: "#user/#{user.username}"
+					
+			return redirect: '#signin/extra'

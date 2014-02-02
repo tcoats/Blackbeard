@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'knockout', 'odo/auth', 'user', 'odo/inject'], function(Q, ko, auth, user, inject) {
+  defineQ(['q', 'knockout', 'odo/auth/current-user', 'user', 'odo/inject'], function(Q, ko, currentUser, user, inject) {
     var UserDashboard;
     return UserDashboard = (function() {
       function UserDashboard() {
@@ -14,8 +14,6 @@
 
       UserDashboard.prototype.title = ko.observable('');
 
-      UserDashboard.prototype.viewingUser = ko.observable(null);
-
       UserDashboard.prototype.dashboardUser = ko.observable(null);
 
       UserDashboard.prototype.dashboardModel = ko.observable(null);
@@ -24,12 +22,8 @@
         var dfd,
           _this = this;
         dfd = Q.defer();
-        auth.getUser().then(function(viewingUser) {
-          return user.getUser(username).then(function(dashboardUser) {
-            return dfd.resolve(true);
-          }).fail(function(err) {
-            return dfd.resolve(false);
-          });
+        user.getUser(username).then(function(dashboardUser) {
+          return dfd.resolve(true);
         }).fail(function(err) {
           return dfd.resolve(false);
         });
@@ -40,19 +34,14 @@
         var dfd,
           _this = this;
         dfd = Q.defer();
-        auth.getUser().then(function(viewingUser) {
-          return user.getUser(username).then(function(dashboardUser) {
-            _this.viewingUser(viewingUser);
-            _this.dashboardUser(dashboardUser);
-            if (viewingUser.id === dashboardUser.id) {
-              _this.dashboardModel('views/user/dashboard-self');
-            } else {
-              _this.dashboardModel('views/user/dashboard-other');
-            }
-            return dfd.resolve(true);
-          }).fail(function(err) {
-            return dfd.resolve(false);
-          });
+        user.getUser(username).then(function(dashboardUser) {
+          _this.dashboardUser(dashboardUser);
+          if (currentUser.id === dashboardUser.id) {
+            _this.dashboardModel('views/user/dashboard-self');
+          } else {
+            _this.dashboardModel('views/user/dashboard-other');
+          }
+          return dfd.resolve(true);
         }).fail(function(err) {
           return dfd.resolve(false);
         });

@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['knockout', 'components/dialog'], function(ko, Dialog) {
+  defineQ(['knockout', 'components/dialog', 'odo/auth/current-user'], function(ko, Dialog, user) {
     var UserFeedbackInWidget;
     return UserFeedbackInWidget = (function() {
       function UserFeedbackInWidget() {
@@ -18,10 +18,10 @@
       UserFeedbackInWidget.prototype.feedback = ko.observable([]);
 
       UserFeedbackInWidget.prototype.activate = function(activationData) {
-        var dashboardUser, viewingUser,
+        var dashboardUser,
           _this = this;
-        viewingUser = activationData.viewingUser, dashboardUser = activationData.dashboardUser;
-        this.viewingUser(viewingUser);
+        dashboardUser = activationData.dashboardUser;
+        this.viewingUser(user);
         this.dashboardUser(dashboardUser);
         return $.get("/user-feedback-in-widget/" + dashboardUser.id).then(function(feedback) {
           return _this.parseFeedback(feedback);

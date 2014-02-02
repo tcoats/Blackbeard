@@ -1,4 +1,4 @@
-﻿define ['knockout', 'q', 'odo/auth', 'plugins/router'], (ko, Q, auth, router) ->
+﻿defineQ ['knockout', 'q', 'odo/auth', 'odo/auth/current-user', 'plugins/router'], (ko, Q, auth, user, router) ->
 	title: "Username and email address"
 	class SigninExtra
 		user: ko.observable null
@@ -30,21 +30,13 @@
 			@errors = ko.validation.group @
 		
 		activate: =>
-			dfd = Q.defer()
+			@user user
 			
-			auth.getUser()
-				.then (user) =>
-					@user user
-					
-					if user.google? and user.google.profile.emails.length > 0
-						@email user.google.profile.emails[0].value
-						
-					if user.username?
-						@username user.username
-					
-					dfd.resolve yes
+			if user.google? and user.google.profile.emails.length > 0
+				@email user.google.profile.emails[0].value
 				
-			dfd.promise
+			if user.username?
+				@username user.username
 		
 		shake: =>
 			@shouldShake true
@@ -54,12 +46,10 @@
 			, 1000)
 		
 		assignUsername: =>
-			auth
-				.assignUsernameToUser(@user().id, @username())
+			auth.assignUsernameToUser(@user().id, @username())
 		
 		assignEmailAddress: =>
-			auth
-				.createVerifyEmailAddressToken(@email())
+			auth.createVerifyEmailAddressToken(@email())
 		
 		assignUsernameAndEmailAddress: =>
 			if @isValidating()

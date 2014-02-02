@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['q', 'knockout', 'odo/auth'], function(Q, ko, auth) {
+  defineQ(['knockout', 'odo/auth', 'odo/auth/current-user'], function(ko, auth, user) {
     var LocalSignup;
     return LocalSignup = (function() {
       LocalSignup.prototype.user = ko.observable(null);
@@ -58,19 +58,9 @@
       };
 
       LocalSignup.prototype.activate = function(options) {
-        var dfd,
-          _this = this;
         this.dialog = options.dialog;
-        dfd = Q.defer();
-        auth.getUser().then(function(user) {
-          _this.user(user);
-          _this.setup();
-          return dfd.resolve(true);
-        }).fail(function(err) {
-          _this.setup();
-          return dfd.resolve(true);
-        });
-        return dfd.promise;
+        this.user(user);
+        return this.setup();
       };
 
       LocalSignup.prototype.close = function() {

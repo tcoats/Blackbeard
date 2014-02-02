@@ -1,4 +1,4 @@
-﻿define ['q', 'knockout', 'odo/auth', 'components/dialog'], (Q, ko, auth, Dialog) ->
+﻿defineQ ['q', 'knockout', 'odo/auth', 'odo/auth/current-user', 'components/dialog'], (Q, ko, auth, user, Dialog) ->
 	class VerifyEmail
 		title: ko.observable ''
 		
@@ -24,15 +24,8 @@
 					auth
 						.assignEmailAddressToUserWithToken(@email(), @token())
 						.then =>
-							
-							auth
-								.getUser()
-								.then((user) =>
-									@user user
-									dfd.resolve yes
-								)
-								.fail =>
-									dfd.resolve yes
+							@user user
+							dfd.resolve yes
 				)
 				.fail =>
 					dfd.resolve no

@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['knockout', 'q', 'odo/auth', 'plugins/router'], function(ko, Q, auth, router) {
+  defineQ(['knockout', 'q', 'odo/auth', 'odo/auth/current-user', 'plugins/router'], function(ko, Q, auth, user, router) {
     var SigninExtra;
     ({
       title: "Username and email address"
@@ -48,20 +48,13 @@
       }
 
       SigninExtra.prototype.activate = function() {
-        var dfd,
-          _this = this;
-        dfd = Q.defer();
-        auth.getUser().then(function(user) {
-          _this.user(user);
-          if ((user.google != null) && user.google.profile.emails.length > 0) {
-            _this.email(user.google.profile.emails[0].value);
-          }
-          if (user.username != null) {
-            _this.username(user.username);
-          }
-          return dfd.resolve(true);
-        });
-        return dfd.promise;
+        this.user(user);
+        if ((user.google != null) && user.google.profile.emails.length > 0) {
+          this.email(user.google.profile.emails[0].value);
+        }
+        if (user.username != null) {
+          return this.username(user.username);
+        }
       };
 
       SigninExtra.prototype.shake = function() {

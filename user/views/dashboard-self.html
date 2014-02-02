@@ -12,10 +12,10 @@
 	
 	<div class="row">
 		<div class="col-sm-6" data-bind="foreach: inwidgets">
-			<div data-bind="compose: { model: $data, activationData: { viewingUser: $parent.viewingUser(), dashboardUser: $parent.dashboardUser() } }"></div>
+			<div data-bind="compose: { model: $data, activationData: { dashboardUser: $parent.dashboardUser() } }"></div>
 		</div>
 		<div class="col-sm-6" data-bind="foreach: outwidgets">
-			<div data-bind="compose: { model: $data, activationData: { viewingUser: $parent.viewingUser(), dashboardUser: $parent.dashboardUser() } }"></div>
+			<div data-bind="compose: { model: $data, activationData: { dashboardUser: $parent.dashboardUser() } }"></div>
 		</div>
 	</div>
 </div>

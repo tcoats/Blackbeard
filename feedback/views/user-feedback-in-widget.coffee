@@ -1,13 +1,13 @@
-﻿define ['knockout', 'components/dialog'], (ko, Dialog) ->
+﻿defineQ ['knockout', 'components/dialog', 'odo/auth/current-user'], (ko, Dialog, user) ->
 	class UserFeedbackInWidget
 		viewingUser: ko.observable null
 		dashboardUser: ko.observable null
 		feedback: ko.observable []
 		
 		activate: (activationData) =>
-			{ viewingUser, dashboardUser } = activationData
+			{ dashboardUser } = activationData
 			
-			@viewingUser viewingUser
+			@viewingUser user
 			@dashboardUser dashboardUser
 			
 			$

@@ -1,4 +1,4 @@
-﻿define ['q', 'jquery', 'knockout', 'odo/auth'], (Q, $, ko, auth) ->
+﻿defineQ ['q', 'jquery', 'knockout', 'odo/auth', 'odo/auth/current-user'], (Q, $, ko, auth, user) ->
 	class ChangeEmail
 		user: ko.observable null
 		
@@ -13,20 +13,9 @@
 		activate: (options) =>
 			{ @wizard, @dialog } = options
 			
-			dfd = Q.defer()
-			
-			auth.getUser()
-				.then((user) =>
-					@user user
-					if user.email?
-						@email user.email
-					dfd.resolve yes
-				)
-				.fail((err) =>
-					dfd.resolve yes
-				)
-				
-			dfd.promise
+			@user user
+			if user.email?
+				@email user.email
 		
 		back: =>
 			@wizard.back({ model: 'views/user/profile/review' })()

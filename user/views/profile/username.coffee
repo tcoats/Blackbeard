@@ -1,4 +1,4 @@
-﻿define ['q', 'jquery', 'knockout', 'odo/auth'], (Q, $, ko, auth) ->
+﻿defineQ ['jquery', 'knockout', 'odo/auth', 'odo/auth/current-user'], ($, ko, auth, user) ->
 	class ChangeUsername
 		user: ko.observable null
 		
@@ -25,20 +25,9 @@
 		activate: (options) =>
 			{ @wizard, @dialog } = options
 			
-			dfd = Q.defer()
-			
-			auth.getUser()
-				.then((user) =>
-					@user user
-					if user.username?
-						@username user.username
-					dfd.resolve yes
-				)
-				.fail((err) =>
-					dfd.resolve yes
-				)
-				
-			dfd.promise
+			@user user
+			if user.username?
+				@username user.username
 		
 		back: =>
 			@wizard.back({ model: 'views/user/profile/review' })()

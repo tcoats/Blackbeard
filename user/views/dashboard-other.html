@@ -4,6 +4,6 @@
 	</div>
 	
 	<div data-bind="foreach: widgets">
-		<div data-bind="compose: { model: $data, activationData: { viewingUser: $parent.viewingUser(), dashboardUser: $parent.dashboardUser() } }"></div>
+		<div data-bind="compose: { model: $data, activationData: { dashboardUser: $parent.dashboardUser() } }"></div>
 	</div>
 </div>
