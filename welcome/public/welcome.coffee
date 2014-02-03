@@ -1,4 +1,4 @@
-﻿define ['q', 'knockout', 'plugins/router', 'components/dialog'], (Q, ko, router, Dialog) ->
+﻿defineQ ['q', 'knockout', 'plugins/router', 'components/dialog'], (Q, ko, router, Dialog) ->
 	router.map
 		route: ''
 		moduleId: 'views/welcome'

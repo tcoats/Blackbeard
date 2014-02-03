@@ -1,4 +1,4 @@
-﻿define ['knockout'], (ko) ->
+﻿defineQ ['knockout'], (ko) ->
 	class Introduction
 		feedback: ko.observable null
 		

@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define(['knockout'], function(ko) {
+  defineQ(['knockout'], function(ko) {
     var ChangeEmailResult;
     return ChangeEmailResult = (function() {
       function ChangeEmailResult() {
