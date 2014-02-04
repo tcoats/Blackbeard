@@ -27,7 +27,8 @@
       q: 'q/q',
       md5: 'js-md5/js/md5.min',
       odo: 'odo',
-      local: './',
+      'local/plugins': 'plugins',
+      'local/widgets': 'widgets',
       mousetrap: 'mousetrap/mousetrap.min',
       marked: 'marked/lib/marked'
     },
@@ -54,7 +55,7 @@
     urlArgs: 'v=' + (new Date()).getTime()
   });
 
-  define(['jquery', 'durandal/system', 'durandal/app', 'durandal/viewLocator', 'css!bootstrapcss', 'font!google,families:[Coming Soon,Patrick Hand]', 'css!fontawesome', 'css!odo/durandal/odo', 'css!rustic', 'css!blackbeard', 'css!animatecss'], function($, system, app, locator) {
+  define(['durandal/system', 'durandal/app'], function(system, app) {
     system.debug(true);
     app.title = 'Blackbeard';
     app.configurePlugins({
@@ -62,11 +63,10 @@
       dialog: true,
       widget: true
     });
-    return requirejs(['odo/durandal/plugins/router', 'odo/durandal/plugins/dialog', 'odo/durandal/plugins/bootstrap', 'odo/durandal/plugins/validation', 'odo/durandal/plugins/q', 'odo/durandal/plugins/mousetrap', 'odo/durandal/plugins/marked', 'local/plugins/slider'], function() {
+    return requirejs(['odo/durandal/plugins/router', 'odo/durandal/plugins/dialog', 'odo/durandal/plugins/bootstrap', 'odo/durandal/plugins/validation', 'odo/durandal/plugins/q', 'odo/durandal/plugins/mousetrap', 'odo/durandal/plugins/marked', 'odo/durandal/plugins/viewLocator', 'odo/durandal/plugins/widget', 'local/plugins/slider', 'css!bootstrapcss', 'font!google,families:[Coming Soon,Patrick Hand]', 'css!fontawesome', 'css!odo/durandal/odo', 'css!rustic', 'css!blackbeard', 'css!animatecss'], function() {
       return $.get('/odo/components').then(function(components) {
         return requirejs(components, function() {
           return app.start().then(function() {
-            locator.useConvention('views');
             return app.setRoot('shell');
           });
         });

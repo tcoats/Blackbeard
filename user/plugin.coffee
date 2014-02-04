@@ -13,7 +13,9 @@ define [
 		web: =>
 			configure.route '/', configure.modulepath(module.uri) + '/public'
 			configure.route '/views/user', configure.modulepath(module.uri) + '/views'
+			configure.route '/widgets', configure.modulepath(module.uri) + '/widgets'
 			durandal.register 'user'
+			durandal.register 'local/widgets/avatar'
 			
 			app.get '/blackbeard/user', @user
 			

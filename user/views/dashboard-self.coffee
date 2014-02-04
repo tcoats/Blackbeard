@@ -9,13 +9,6 @@
 		
 		user: ko.observable null
 		
-		constructor: ->
-			@gravatarHash = ko.computed(=>
-				if @user()? and @user().email?
-					return md5 @user().email.trim().toLowerCase()
-				''
-			, @)
-		
 		activate: (activationData) =>
 			{ dashboardUser } = activationData
 			

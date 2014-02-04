@@ -30,7 +30,8 @@
 		md5: 'js-md5/js/md5.min'
 		
 		odo: 'odo'
-		local: './'
+		'local/plugins': 'plugins'
+		'local/widgets': 'widgets'
 		
 		mousetrap: 'mousetrap/mousetrap.min'
 		marked: 'marked/lib/marked'
@@ -60,18 +61,9 @@
 #, 100)
 
 define [
-	'jquery'
 	'durandal/system'
 	'durandal/app'
-	'durandal/viewLocator'
-	'css!bootstrapcss'
-	'font!google,families:[Coming Soon,Patrick Hand]'
-	'css!fontawesome'
-	'css!odo/durandal/odo'
-	'css!rustic'
-	'css!blackbeard'
-	'css!animatecss'
-], ($, system, app, locator) ->
+], (system, app) ->
 		system.debug yes
 		app.title = 'Blackbeard'
 		app.configurePlugins
@@ -79,7 +71,7 @@ define [
 			dialog: yes
 			widget: yes
 		
-		# plugins
+		# components
 		requirejs [
 			'odo/durandal/plugins/router'
 			'odo/durandal/plugins/dialog'
@@ -88,15 +80,18 @@ define [
 			'odo/durandal/plugins/q'
 			'odo/durandal/plugins/mousetrap'
 			'odo/durandal/plugins/marked'
+			'odo/durandal/plugins/viewLocator'
+			'odo/durandal/plugins/widget'
 			'local/plugins/slider'
+			'css!bootstrapcss'
+			'font!google,families:[Coming Soon,Patrick Hand]'
+			'css!fontawesome'
+			'css!odo/durandal/odo'
+			'css!rustic'
+			'css!blackbeard'
+			'css!animatecss'
 		], ->
 			
 			$.get('/odo/components').then (components) ->
 				requirejs components, ->
-					app.start().then ->
-						#Replace 'viewmodels' in the moduleId with 'views' to locate the view.
-						#Look for partial views in a 'views' folder in the root.
-						locator.useConvention 'views'
-						
-						#Show the app by setting the root view model for our application
-						app.setRoot 'shell'
+					app.start().then -> app.setRoot 'shell'
