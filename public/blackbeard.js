@@ -27,9 +27,9 @@
       q: 'q/q',
       md5: 'js-md5/js/md5.min',
       odo: 'odo',
+      local: './',
       mousetrap: 'mousetrap/mousetrap.min',
-      marked: 'marked/lib/marked',
-      slider: 'bindings/slider'
+      marked: 'marked/lib/marked'
     },
     map: {
       '*': {
@@ -54,7 +54,7 @@
     urlArgs: 'v=' + (new Date()).getTime()
   });
 
-  define(['jquery', 'durandal/system', 'durandal/app', 'durandal/viewLocator', 'odo/durandal/bindings', 'bindings/blackbeardbindings', 'css!bootstrapcss', 'font!google,families:[Coming Soon,Patrick Hand]', 'css!fontawesome', 'css!odo/durandal/odo', 'css!rustic', 'css!blackbeard', 'css!animatecss'], function($, system, app, locator, bindings, blackbeardbindings) {
+  define(['jquery', 'durandal/system', 'durandal/app', 'durandal/viewLocator', 'css!bootstrapcss', 'font!google,families:[Coming Soon,Patrick Hand]', 'css!fontawesome', 'css!odo/durandal/odo', 'css!rustic', 'css!blackbeard', 'css!animatecss'], function($, system, app, locator) {
     system.debug(true);
     app.title = 'Blackbeard';
     app.configurePlugins({
@@ -62,23 +62,13 @@
       dialog: true,
       widget: true
     });
-    bindings.init(requirejs, {
-      router: true,
-      dialog: true,
-      bootstrap: true,
-      validation: true,
-      q: true,
-      mousetrap: true,
-      marked: true
-    });
-    blackbeardbindings.init(requirejs, {
-      slider: true
-    });
-    return $.get('/odo/components').then(function(components) {
-      return requirejs(components, function() {
-        return app.start().then(function() {
-          locator.useConvention('views');
-          return app.setRoot('shell');
+    return requirejs(['odo/durandal/plugins/router', 'odo/durandal/plugins/dialog', 'odo/durandal/plugins/bootstrap', 'odo/durandal/plugins/validation', 'odo/durandal/plugins/q', 'odo/durandal/plugins/mousetrap', 'odo/durandal/plugins/marked', 'local/plugins/slider'], function() {
+      return $.get('/odo/components').then(function(components) {
+        return requirejs(components, function() {
+          return app.start().then(function() {
+            locator.useConvention('views');
+            return app.setRoot('shell');
+          });
         });
       });
     });

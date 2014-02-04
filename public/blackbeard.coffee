@@ -30,10 +30,10 @@
 		md5: 'js-md5/js/md5.min'
 		
 		odo: 'odo'
+		local: './'
 		
 		mousetrap: 'mousetrap/mousetrap.min'
 		marked: 'marked/lib/marked'
-		slider: 'bindings/slider'
 
 	map:
 		'*':
@@ -64,8 +64,6 @@ define [
 	'durandal/system'
 	'durandal/app'
 	'durandal/viewLocator'
-	'odo/durandal/bindings'
-	'bindings/blackbeardbindings'
 	'css!bootstrapcss'
 	'font!google,families:[Coming Soon,Patrick Hand]'
 	'css!fontawesome'
@@ -73,7 +71,7 @@ define [
 	'css!rustic'
 	'css!blackbeard'
 	'css!animatecss'
-], ($, system, app, locator, bindings, blackbeardbindings) ->
+], ($, system, app, locator) ->
 		system.debug yes
 		app.title = 'Blackbeard'
 		app.configurePlugins
@@ -81,24 +79,24 @@ define [
 			dialog: yes
 			widget: yes
 		
-		bindings.init requirejs,
-			router: yes
-			dialog: yes
-			bootstrap: yes
-			validation: yes
-			q: yes
-			mousetrap: yes
-			marked: yes
-		
-		blackbeardbindings.init requirejs,
-			slider: yes
-		
-		$.get('/odo/components').then (components) ->
-			requirejs components, ->
-				app.start().then ->
-					#Replace 'viewmodels' in the moduleId with 'views' to locate the view.
-					#Look for partial views in a 'views' folder in the root.
-					locator.useConvention 'views'
-					
-					#Show the app by setting the root view model for our application
-					app.setRoot 'shell'
+		# plugins
+		requirejs [
+			'odo/durandal/plugins/router'
+			'odo/durandal/plugins/dialog'
+			'odo/durandal/plugins/bootstrap'
+			'odo/durandal/plugins/validation'
+			'odo/durandal/plugins/q'
+			'odo/durandal/plugins/mousetrap'
+			'odo/durandal/plugins/marked'
+			'local/plugins/slider'
+		], ->
+			
+			$.get('/odo/components').then (components) ->
+				requirejs components, ->
+					app.start().then ->
+						#Replace 'viewmodels' in the moduleId with 'views' to locate the view.
+						#Look for partial views in a 'views' folder in the root.
+						locator.useConvention 'views'
+						
+						#Show the app by setting the root view model for our application
+						app.setRoot 'shell'
