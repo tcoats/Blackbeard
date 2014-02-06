@@ -3,6 +3,7 @@
     ".git",
 		"public/*",
 		"views/*",
+		"widgets/*",
 		"bower-components/*",
 		"*-public/*"
 	],
