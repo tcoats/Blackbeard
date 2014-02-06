@@ -1,23 +1,17 @@
 ﻿defineQ ['q', 'knockout', 'odo/auth/current-user', 'user', 'odo/inject'], (Q, ko, currentUser, user, inject) ->
 	class UserDashboard
-		widgets: inject.many 'user/dashboard/widgets'
-		title: ko.observable ''
-		
-		dashboardUser: ko.observable null
-		
-		dashboardModel: ko.observable null
+		constructor: ->
+			@dashboardUser = ko.observable null
+			@dashboardModel = ko.observable null
 		
 		canActivate: (username) =>
 			dfd = Q.defer()
 			
 			user
 				.getUser(username)
-				.then((dashboardUser) =>
-					dfd.resolve yes
-				)
-				.fail((err) =>
-					dfd.resolve no
-				)
+				.then((dashboardUser) => dfd.resolve yes )
+				.fail((err) => dfd.resolve no)
+				.done()
 					
 			dfd.promise
 			
@@ -25,7 +19,8 @@
 		activate: (username) =>
 			dfd = Q.defer()
 			
-			user.getUser(username)
+			user
+				.getUser(username)
 				.then((dashboardUser) =>
 					@dashboardUser dashboardUser
 					
@@ -36,8 +31,7 @@
 					
 					dfd.resolve yes
 				)
-				.fail((err) =>
-					dfd.resolve no
-				)
+				.fail((err) => dfd.resolve no)
+				.done()
 				
 			dfd.promise
