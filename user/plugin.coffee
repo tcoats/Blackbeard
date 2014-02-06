@@ -61,3 +61,4 @@ define [
 						id: user.id
 						displayName: user.displayName
 						username: user.username
+						emailHash: user.emailHash

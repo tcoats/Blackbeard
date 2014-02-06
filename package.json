@@ -19,6 +19,7 @@
 		
 		"node-uuid": "*",
 		"q": "*",
+		"js-md5": "*",
 		
 		"mandrill-api": "*",
 		"async": "*",

@@ -27,7 +27,6 @@
 		
 		uuid: 'node-uuid/uuid'
 		q: 'q/q'
-		md5: 'js-md5/js/md5.min'
 		
 		odo: 'odo'
 		'local/plugins': 'plugins'

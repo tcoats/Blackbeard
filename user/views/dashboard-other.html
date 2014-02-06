@@ -3,7 +3,6 @@
 		<h1><span data-bind="text: dashboardUser().displayName"></span> <small data-bind="text: '@' + dashboardUser().username"></small></h1>
 	</div>
 	
-	<div data-bind="foreach: widgets">
-		<div data-bind="compose: { model: $data, activationData: { dashboardUser: $parent.dashboardUser() } }"></div>
+	<div data-bind="avatar: { username: dashboardUser().username }"></div>
 	</div>
 </div>
