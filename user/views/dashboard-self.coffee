@@ -2,10 +2,12 @@
 	class DashboardSelf
 		inwidgets: inject.many 'user/dashboard-self/in-widgets'
 		outwidgets: inject.many 'user/dashboard-self/out-widgets'
-		title: ko.observable ''
 		
-		viewingUser: ko.observable null
-		dashboardUser: ko.observable null
+		constructor: ->
+			@title = ko.observable ''
+			
+			@viewingUser = ko.observable null
+			@dashboardUser = ko.observable null
 		
 		activate: (activationData) =>
 			{ dashboardUser } = activationData

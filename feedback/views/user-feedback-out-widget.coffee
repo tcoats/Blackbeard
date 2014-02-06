@@ -1,8 +1,9 @@
 ﻿defineQ ['knockout', 'components/dialog', 'odo/auth/current-user'], (ko, Dialog, user) ->
 	class UserFeedbackOutWidget
-		viewingUser: ko.observable null
-		dashboardUser: ko.observable null
-		feedback: ko.observable []
+		constructor: ->
+			@viewingUser = ko.observable null
+			@dashboardUser = ko.observable null
+			@feedback = ko.observable []
 		
 		activate: (activationData) =>
 			{ dashboardUser } = activationData

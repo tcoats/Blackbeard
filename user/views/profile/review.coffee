@@ -1,6 +1,7 @@
 ﻿defineQ ['knockout', 'odo/auth/current-user', 'components/dialog'], (ko, user, Dialog) ->
 	class ReviewProfile
-		user: ko.observable null
+		constructor: ->
+			@user = ko.observable null
 		
 		activate: (options) =>
 			{ @wizard, @dialog } = options

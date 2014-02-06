@@ -1,6 +1,6 @@
 ﻿define ['components/dialog'], (Dialog) ->
-	title: "Twitter sign in didn't work"
 	class TwitterFailure
+		title: "Twitter sign in didn't work"
 		signin: =>
 			options = {
 				model: 'views/auth/signin'

@@ -1,10 +1,10 @@
 ﻿defineQ ['knockout', 'q', 'odo/auth', 'odo/auth/current-user', 'plugins/router'], (ko, Q, auth, user, router) ->
-	title: "Username and email address"
 	class SigninExtra
-		user: ko.observable null
-		shouldShake: ko.observable no
+		title: "Username and email address"
 		
 		constructor: ->
+			@user = ko.observable null
+			@shouldShake = ko.observable no
 			@email = ko.observable('')
 				.extend
 					required: yes

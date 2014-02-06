@@ -1,8 +1,7 @@
 ﻿defineQ ['jquery', 'knockout', 'odo/auth', 'odo/auth/current-user'], ($, ko, auth, user) ->
 	class ChangeUsername
-		user: ko.observable null
-		
 		constructor: ->
+			@user = ko.observable null
 			@username = ko.observable('')
 				.extend
 					required: yes

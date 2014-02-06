@@ -1,7 +1,7 @@
 ﻿defineQ ['knockout', 'plugins/router', 'odo/inject'], (ko, router, inject) ->
 	class FeedbackGive
-		title: ko.observable ''
 		constructor: ->
+			@title = ko.observable ''
 			@composeOptions = ko.observable null
 			@feedback = {
 				id: 'testtesttest'

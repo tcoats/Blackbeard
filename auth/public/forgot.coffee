@@ -1,6 +1,7 @@
 ﻿define ['knockout'], (ko) ->
 	class ForgotAuth
-		composeOptions: ko.observable null
+		constructor: ->
+			@composeOptions = ko.observable null
 		
 		activate: (options) =>
 			{ @dialog } = options

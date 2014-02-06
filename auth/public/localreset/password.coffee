@@ -1,10 +1,9 @@
 ﻿define ['q', 'knockout', 'odo/auth', 'components/dialog'], (Q, ko, auth, Dialog) ->
 	class LocalResetPassword
-		isTokenValid: ko.observable no
-		result: ko.observable null
-		token: ko.observable null
-		
 		constructor: ->
+			@isTokenValid = ko.observable no
+			@result = ko.observable null
+			@token = ko.observable null
 			@password = ko.observable('')
 				.extend
 					required: yes

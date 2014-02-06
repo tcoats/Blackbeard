@@ -1,6 +1,7 @@
 ﻿defineQ ['knockout', 'odo/auth', 'odo/auth/current-user'], (ko, auth, user) ->
 	class GoogleProfile
-		user: ko.observable null
+		constructor: ->
+			@user = ko.observable null
 		
 		activate: (options) =>
 			{ @wizard, @dialog } = options

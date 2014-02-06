@@ -1,8 +1,9 @@
 ﻿defineQ ['knockout', 'q', 'odo/auth/current-user', 'plugins/router', 'odo/inject'], (ko, Q, currentUser, router, inject) ->
 	class ViewFeedbackOpportunity
-		title: ko.observable ''
-		feedback: ko.observable null
-		user: ko.observable null
+		constructor: ->
+			@title = ko.observable ''
+			@feedback = ko.observable null
+			@user = ko.observable null
 		
 		canActivate: (id) =>
 			dfd = Q.defer()

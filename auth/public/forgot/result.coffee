@@ -1,7 +1,8 @@
 ﻿define ['knockout', 'odo/auth', 'components/dialog'], (ko, auth, Dialog) ->
 	class ForgotAuthResult
-		email: ko.observable null
-		result: ko.observable null
+		constructor: ->
+			@email = ko.observable null
+			@result = ko.observable null
 		
 		activate: (options) =>
 			{ @wizard, @dialog, activationData } = options

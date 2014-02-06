@@ -1,6 +1,7 @@
 ﻿define ['knockout', 'q', 'odo/auth'], (ko, Q, auth) ->
 	class ForgotAuthReset
-		email: ko.observable null
+		constructor: ->
+			@email = ko.observable null
 		
 		activate: (options) =>
 			{ @wizard, @dialog, activationData } = options

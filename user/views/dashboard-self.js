@@ -5,19 +5,16 @@
   defineQ(['knockout', 'q', 'odo/inject', 'odo/auth/current-user'], function(ko, Q, inject, currentUser) {
     var DashboardSelf;
     return DashboardSelf = (function() {
-      function DashboardSelf() {
-        this.activate = __bind(this.activate, this);
-      }
-
       DashboardSelf.prototype.inwidgets = inject.many('user/dashboard-self/in-widgets');
 
       DashboardSelf.prototype.outwidgets = inject.many('user/dashboard-self/out-widgets');
 
-      DashboardSelf.prototype.title = ko.observable('');
-
-      DashboardSelf.prototype.viewingUser = ko.observable(null);
-
-      DashboardSelf.prototype.dashboardUser = ko.observable(null);
+      function DashboardSelf() {
+        this.activate = __bind(this.activate, this);
+        this.title = ko.observable('');
+        this.viewingUser = ko.observable(null);
+        this.dashboardUser = ko.observable(null);
+      }
 
       DashboardSelf.prototype.activate = function(activationData) {
         var dashboardUser;

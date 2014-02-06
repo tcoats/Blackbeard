@@ -1,8 +1,7 @@
 ﻿defineQ ['knockout', 'odo/auth', 'odo/auth/current-user'], (ko, auth, user) ->
 	class ChangeDisplayName
-		user: ko.observable null
-		
 		constructor: ->
+			@user = ko.observable null
 			@displayName = ko.observable('')
 				.extend
 					required: yes

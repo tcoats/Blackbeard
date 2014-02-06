@@ -1,8 +1,7 @@
 ﻿define ['knockout', 'odo/auth', 'components/dialog'], (ko, auth, Dialog) ->
 	class ForgotEmail
-		message: ko.observable null
-		
 		constructor: ->
+			@message = ko.observable null
 			@email = ko.observable('')
 				.extend
 					required: yes

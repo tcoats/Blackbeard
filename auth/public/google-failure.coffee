@@ -1,6 +1,7 @@
 ﻿define ['components/dialog'], (Dialog) ->
-	title: "Google sign in didn't work"
 	class GoogleFailure
+		title: "Google sign in didn't work"
+		
 		signin: =>
 			options = {
 				model: 'views/auth/signin'

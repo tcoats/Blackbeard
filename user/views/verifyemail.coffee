@@ -1,13 +1,14 @@
 ﻿defineQ ['q', 'knockout', 'odo/auth', 'odo/auth/current-user', 'components/dialog'], (Q, ko, auth, user, Dialog) ->
 	class VerifyEmail
-		title: ko.observable ''
-		
-		isTokenValid: ko.observable no
-		result: ko.observable null
-		email: ko.observable null
-		token: ko.observable null
-		
-		user: ko.observable null
+		constructor: ->
+			@title = ko.observable ''
+			
+			@isTokenValid = ko.observable no
+			@result = ko.observable null
+			@email = ko.observable null
+			@token = ko.observable null
+			
+			@user = ko.observable null
 		
 		activate: (email, token) =>
 			@email email

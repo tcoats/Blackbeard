@@ -1,6 +1,7 @@
 ﻿define ['knockout', 'components/dialog'], (ko, Dialog) ->
 	class LocalResetResult
-		username: ko.observable null
+		constructor: ->
+			@username = ko.observable null
 		
 		activate: (options) =>
 			{ activationData } = options

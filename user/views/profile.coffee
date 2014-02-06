@@ -1,6 +1,7 @@
 ﻿defineQ ['knockout'], (ko) ->
 	class Profile
-		composeOptions: ko.observable null
+		constructor: ->
+			@composeOptions = ko.observable null
 		
 		activate: (options) =>
 			{ @dialog } = options

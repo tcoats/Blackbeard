@@ -1,6 +1,7 @@
 ﻿defineQ ['knockout'], (ko) ->
 	class ChangeEmailResult
-		email: ko.observable null
+		constructor: ->
+			@email = ko.observable null
 		
 		activate: (options) =>
 			{ @wizard, @dialog, activationData } = options

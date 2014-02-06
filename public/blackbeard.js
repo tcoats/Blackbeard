@@ -55,7 +55,6 @@
   });
 
   define(['durandal/system', 'durandal/app'], function(system, app) {
-    system.debug(true);
     app.title = 'Blackbeard';
     app.configurePlugins({
       router: true,

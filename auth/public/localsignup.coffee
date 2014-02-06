@@ -1,8 +1,7 @@
 ﻿defineQ ['knockout', 'odo/auth', 'odo/auth/current-user'], (ko, auth, user) ->
 	class LocalSignup
-		user: ko.observable null
-		
 		constructor: ->
+			@user = ko.observable null
 			@displayName = ko.observable ''
 			@username = ko.observable ''
 			@password = ko.observable ''

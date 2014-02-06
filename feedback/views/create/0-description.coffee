@@ -1,8 +1,7 @@
 ﻿defineQ ['knockout', 'uuid', 'odo/auth/current-user', 'plugins/router'], (ko, uuid, currentUser, router) ->
 	class Description
-		userid: ko.observable null
-		
 		constructor: ->
+			@userid = ko.observable null
 			@description = ko.observable('')
 				.extend
 					required: yes
