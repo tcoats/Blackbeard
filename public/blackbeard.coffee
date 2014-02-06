@@ -63,7 +63,7 @@ define [
 	'durandal/system'
 	'durandal/app'
 ], (system, app) ->
-		system.debug yes
+		#system.debug yes
 		app.title = 'Blackbeard'
 		app.configurePlugins
 			router: yes
