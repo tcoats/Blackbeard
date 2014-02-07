@@ -28,6 +28,13 @@
 					slider.update()
 				, 200)
 				
+				# wait awhile then make sure we've recorded the proper offsets
+				setTimeout(->
+					slider.setWrapperOffset()
+					slider.setBounds()
+					slider.update()
+				, 1000)
+				
 				# if we aren't in a group updating is easy
 				if !slidergroup.length
 					slider.animationCallback = (x, y) ->
