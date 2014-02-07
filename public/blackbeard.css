@@ -11,8 +11,18 @@
 }
 body {
   position: relative;
-  padding-top: 90px;
+  padding-top: 55px;
   padding-bottom: 15px;
+}
+@media (max-width: 991px) {
+  body {
+    padding-top: 55px;
+  }
+}
+@media (max-width: 767px) {
+  body {
+    padding-top: 15px;
+  }
 }
 textarea {
   resize: vertical;
@@ -52,43 +62,62 @@ input[type="checkbox"]:focus,
   outline: none;
   box-shadow: none;
 }
-#site-title {
+#site-title,
+.site-title {
   padding-left: 95px;
   padding-bottom: 20px;
   margin-top: -80px;
   margin-bottom: 30px;
   background: url('/images/double-underline-orange.png') repeat-x 0% 100%;
 }
-#site-title h1 {
+#site-title h1,
+.site-title h1 {
   font-weight: bold;
 }
-#site-title small {
+#site-title small,
+.site-title small {
   line-height: 10px;
   font-size: 22px;
   color: inherit;
 }
+.user-title {
+  padding-top: 40px;
+  padding-bottom: 60px;
+  padding-left: 0;
+}
 @media (max-width: 991px) {
-  body {
-    padding-top: 55px;
-  }
-  #site-title {
+  #site-title,
+  .site-title {
     padding-left: 70px;
     margin-top: -70px;
+  }
+  .user-title {
+    padding-left: 0;
+    padding-bottom: 40px;
+  }
+  .user-title h1 {
+    margin-top: 10px;
   }
 }
 @media (max-width: 767px) {
-  body {
-    padding-top: 15px;
-  }
-  #site-title {
+  #site-title,
+  .site-title {
     padding-left: 70px;
     margin-top: -70px;
   }
+  .user-title {
+    padding-left: 0;
+  }
+  .user-title h1 {
+    margin-top: 10px;
+  }
 }
-#site-nav {
+#site-nav,
+.site-nav {
   position: relative;
 }
-#site-nav button {
+#site-nav button,
+.site-nav button {
   margin: 0;
   padding: 5px;
   margin-left: 5px;
@@ -103,14 +132,16 @@ input[type="checkbox"]:focus,
   background-position: 5px 5px;
   background-repeat: no-repeat;
 }
-#site-nav button.visible-xs {
+#site-nav button.visible-xs,
+.site-nav button.visible-xs {
   background-image: url('/images/blackbeard48.png');
   width: 58px;
   height: 58px;
   margin-top: -5px;
   margin-left: -5px;
 }
-#site-nav button:focus {
+#site-nav button:focus,
+.site-nav button:focus {
   background-color: rgba(0, 0, 0, 0.2);
 }
 .authentication-mechanisms {
@@ -150,7 +181,6 @@ input[type="checkbox"]:focus,
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  border: 1px solid #999;
 }
 .btn-paragraph {
   margin: 0 0 10px;
