@@ -25,5 +25,11 @@
 		"async": "*",
 		
 		"odo": "*"
-	}
+	},
+	"repository":
+	{
+		"type": "git",
+		"url": "http://github.com/tcoats/blackbeard.git"
+	},
+	"readmeFilename": "README.md"
 }
