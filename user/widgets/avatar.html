@@ -1,6 +1,11 @@
-<span class="avatar" data-bind="if: user()">
-	<a href="#" data-toggle="dropdown"><img data-bind="attr: { src: 'http://gravatar.com/avatar/' + gravatarHash() + '?s=180&d=identicon' }" /></a>
+<span class="avatar">
+<!-- ko if: hasMenu() && user() -->
+	<a href="#" data-toggle="dropdown"><img data-bind="attr: { src: src(), width: size(), height: size() }" /></a>
 	<ul class="dropdown-menu" role="menu">
 		<li data-bind="if: user().username"><a data-bind="attr: { href: '#user/' + user().username }"><span class="fa fa-user fa-lg"></span> <span data-bind="text: user().displayName"></span></a></li>
 	</ul>
+<!-- /ko --> 
+<!-- ko if: !hasMenu() -->
+	<img data-bind="attr: { src: src(), width: size(), height: size() }" />
+<!-- /ko -->
 </span>

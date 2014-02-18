@@ -1,31 +1,120 @@
-﻿<div>
-	<div class="container">
-		<div id="site-title">
-			<h2 data-bind="text: feedback().description"></h2>
-		</div>
-		
-		<h4>Feedback participants</h4>
-		
-		<p>No one!</p>
-		
-		<span class="placeholder">Feedback for:</span>
-		<span data-bind="text: feedback().for"></span>
-		<span class="placeholder">by:</span>
-		<span data-bind="text: feedback().by"></span>
-		<span class="placeholder">with id:</span>
-		<span data-bind="text: feedback().id"></span>
-		
-		
-		<div class="actions">
-			<a data-bind="click: cancel" href="#" class="forward btn btn-danger">Cancel feedback</a>
-			<a data-bind="click: expire" href="#" class="forward btn btn-danger">Expire feedback</a>
-			<a data-bind="click: complete" href="#" class="forward btn btn-danger">Complete feedback</a>
-		</div>
-		
-		<ul class="actions">
-			<li>
-				<a data-bind="attr: { href: '#user/' + user().username }" class="back btn btn-navigation">&larr; Back to dashboard</a>
-			</li>
+﻿<div class="container">
+	<div class="site-title text-center user-title">
+		<span data-bind="avatar: { username: user().username, hasMenu: false }"></span>
+		<h1>
+			<span data-bind="text: user().displayName"></span>
+		</h1>
+	</div>
+	
+	<div class="contain">
+		<a class="thumbnail" href="#" data-toggle="dropdown">
+			<div class="caption">
+				<i class="pull-right fa fa-caret-down"></i>
+				
+				<h4 data-bind="text: feedback().description"></h4>
+				
+				<ul class="list-unstyled list-inline">
+					<li>
+						<i class="fa fa-user"></i>
+						20 people participating
+					</li>
+					<li>
+						<i class="fa fa-clock-o"></i>
+						Will close in 6 days
+					</li>
+				</ul>
+				
+				<div class="progress">
+					<div class="progress-bar" style="width: 50%">
+						<span class="sr-only">50% completed</span>
+					</div>
+				</div>
+			</div>
+		</a>
+		<ul class="dropdown-menu dropdown-menu-right" role="menu">
+			<li><a href="#">
+				<span class="fa fa-plus"></span>
+				Invite someone
+			</a></li>
+			<li><a href="#">
+				<span class="fa fa-clock-o"></span>
+				Extend deadline
+			</a></li>
+    	<li class="divider"></li>
+			<li><a data-bind="click: cancel" href="#">
+				<span class="fa fa-times"></span>
+				Cancel feedback
+			</a></li>
 		</ul>
 	</div>
+	
+	<ul class="actions">
+		<li>
+			<a href="#" class="forward btn btn-navigation">
+				<i class="fa fa-plus"></i>
+				Invite someone
+			</a>
+		</li>
+		<li>
+			<a data-bind="attr: { href: '#user/' + user().username }" class="back btn btn-navigation">&larr; Back to dashboard</a>
+		</li>
+	</ul>
+	
+	<hr />
+	
+	<div class="row">
+		<div class="col-sm-2 text-center">
+			<span data-bind="avatar: { image: 'https://s3.amazonaws.com/uifaces/faces/twitter/commadelimited/128.jpg', username: 'commadelimited', size: 72, hasMenu: false }"></span>
+			<span class="label label-success">Complete</span>
+		</div>
+		<div class="col-sm-10">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id neque blandit, porttitor arcu sed, tristique est.</p>
+
+			<p>Praesent porta ipsum tempus tortor rhoncus, non commodo nisl fermentum.</p>
+
+			<p>Donec suscipit consequat libero, eu accumsan velit ullamcorper ac. Nunc scelerisque volutpat felis eu faucibus. Proin vestibulum fringilla ligula vel accumsan.</p>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="col-sm-2 text-center">
+			<span data-bind="avatar: { image: 'https://s3.amazonaws.com/uifaces/faces/twitter/divya/128.jpg', username: 'divya', size: 72, hasMenu: false }"></span>
+			<span class="label label-warning">In progress</span>
+		</div>
+		<div class="col-sm-10">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id neque blandit, porttitor arcu sed, tristique est.</p>
+
+			<p>Praesent porta ipsum tempus tortor rhoncus, non commodo nisl fermentum.</p>
+
+			<p>Donec suscipit consequat libero, eu accumsan velit ullamcorper ac. Nunc scelerisque volutpat felis eu faucibus. Proin vestibulum fringilla ligula vel accumsan.</p>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="col-sm-12 text-center">
+			<span data-bind="avatar: { image: 'https://s3.amazonaws.com/uifaces/faces/twitter/_shahedk/128.jpg', username: '_shahedk', size: 72, hasMenu: false }"></span>
+			<span class="label label-danger">Declined</span>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="col-sm-12 text-center">
+			<span data-bind="avatar: { image: 'https://s3.amazonaws.com/uifaces/faces/twitter/chadengle/128.jpg', username: 'chadengle', size: 72, hasMenu: false }"></span>
+			<span class="label label-info">Invited</span>
+		</div>
+	</div>
+	<hr />
+	
+	<!-- this needs to hide if there is no one invited -->
+	<ul class="actions">
+		<li>
+			<a data-bind="attr: { href: '#user/' + user().username }" class="forward btn btn-navigation">
+				<i class="fa fa-plus"></i>
+				Invite someone
+			</a>
+		</li>
+		<li>
+			<a data-bind="attr: { href: '#user/' + user().username }" class="back btn btn-navigation">&larr; Back to dashboard</a>
+		</li>
+	</ul>
 </div>

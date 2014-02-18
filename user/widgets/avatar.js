@@ -6,10 +6,12 @@
     var Avatar;
     widget.registerKind('avatar');
     return Avatar = (function() {
-      Avatar.prototype.user = ko.observable(null);
-
       function Avatar() {
         this.activate = __bind(this.activate, this);
+        this.user = ko.observable(null);
+        this.size = ko.observable(180);
+        this.hasMenu = ko.observable(true);
+        this.image = ko.observable(null);
         this.gravatarHash = ko.computed((function(_this) {
           return function() {
             if ((_this.user() != null) && (_this.user().emailHash != null)) {
@@ -17,14 +19,33 @@
             }
           };
         })(this), this);
+        this.src = ko.computed((function(_this) {
+          return function() {
+            if (_this.image() != null) {
+              return _this.image();
+            }
+            return 'http://gravatar.com/avatar/' + _this.gravatarHash() + '?s=180&d=identicon';
+          };
+        })(this), this);
       }
 
       Avatar.prototype.activate = function(settings) {
-        return user.getUser(settings.username).then((function(_this) {
-          return function(user) {
-            return _this.user(user);
-          };
-        })(this)).done();
+        if (settings.size != null) {
+          this.size(settings.size);
+        }
+        if (settings.hasMenu != null) {
+          this.hasMenu(settings.hasMenu);
+        }
+        if (settings.image != null) {
+          this.image(settings.image);
+        }
+        if ((this.image() == null) || this.hasMenu()) {
+          return user.getUser(settings.username).then((function(_this) {
+            return function(user) {
+              return _this.user(user);
+            };
+          })(this)).done();
+        }
       };
 
       return Avatar;

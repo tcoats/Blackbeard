@@ -10,6 +10,16 @@
 	overflow: auto;
 }
 
+.contain {
+	position: relative;
+}
+
+a.thumbnail:focus,
+a.thumbnail:active,
+a.thumbnail:hover {
+	text-decoration: none;
+}
+
 // alerts can have floats
 .alert {
 	overflow: auto;
@@ -38,6 +48,33 @@ body {
 
 textarea {
 	resize: vertical;
+}
+
+.list-group {
+  position: relative;
+}
+
+.list-group-unstyled .list-group-item {
+	border: none;
+}
+
+.list-group-item {
+	border-left: none;
+	border-right: none;
+	
+	&:first-child {
+		border-radius: 0;
+		border-top: none;
+	}
+	
+	&:last-child {
+		border-radius: 0;
+		border-bottom: none;
+	}
+}
+
+.list-group-item > .extra {
+	float: right;
 }
 
 // remove animation
@@ -85,8 +122,8 @@ input[type="checkbox"]:focus,
 	padding-left: 95px;
 	padding-bottom: 20px;
 	margin-top: -80px;
-	margin-bottom: 30px;
-	background: url('/images/double-underline-orange.png') repeat-x 0% 100%;
+	//margin-bottom: 30px;
+	//border-bottom: 1px solid #333;
 	
 	small {
 		line-height: 10px;
@@ -211,6 +248,12 @@ input[type="checkbox"]:focus,
 		border-radius: 50%;
 		
 		//border: 1px solid #999;
+	}
+}
+
+.list-avatars {
+	li {
+		padding: 0;
 	}
 }
 

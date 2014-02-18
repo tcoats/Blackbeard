@@ -1,15 +1,10 @@
 ﻿<div class="container">
 	<div class="site-title text-center user-title">
 		<span data-bind="avatar: { username: dashboardUser().username }"></span>
-		<h1 data-bind="text: dashboardUser().displayName"></h1>
+		<h1><span data-bind="text: dashboardUser().displayName"></span></h1>
 	</div>
 	
-	<div class="row">
-		<div class="col-sm-6" data-bind="foreach: inwidgets">
-			<div data-bind="compose: { model: $data, activationData: { dashboardUser: $parent.dashboardUser() } }"></div>
-		</div>
-		<div class="col-sm-6" data-bind="foreach: outwidgets">
-			<div data-bind="compose: { model: $data, activationData: { dashboardUser: $parent.dashboardUser() } }"></div>
-		</div>
+	<div data-bind="foreach: inwidgets">
+		<div data-bind="compose: { model: $data, activationData: { dashboardUser: $parent.dashboardUser() } }"></div>
 	</div>
 </div>

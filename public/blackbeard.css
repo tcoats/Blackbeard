@@ -6,6 +6,14 @@
 .list-group-item {
   overflow: auto;
 }
+.contain {
+  position: relative;
+}
+a.thumbnail:focus,
+a.thumbnail:active,
+a.thumbnail:hover {
+  text-decoration: none;
+}
 .alert {
   overflow: auto;
 }
@@ -26,6 +34,27 @@ body {
 }
 textarea {
   resize: vertical;
+}
+.list-group {
+  position: relative;
+}
+.list-group-unstyled .list-group-item {
+  border: none;
+}
+.list-group-item {
+  border-left: none;
+  border-right: none;
+}
+.list-group-item:first-child {
+  border-radius: 0;
+  border-top: none;
+}
+.list-group-item:last-child {
+  border-radius: 0;
+  border-bottom: none;
+}
+.list-group-item > .extra {
+  float: right;
 }
 .form-control,
 .img-thumbnail,
@@ -67,8 +96,6 @@ input[type="checkbox"]:focus,
   padding-left: 95px;
   padding-bottom: 20px;
   margin-top: -80px;
-  margin-bottom: 30px;
-  background: url('/images/double-underline-orange.png') repeat-x 0% 100%;
 }
 #site-title h1,
 .site-title h1 {
@@ -181,6 +208,9 @@ input[type="checkbox"]:focus,
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
+}
+.list-avatars li {
+  padding: 0;
 }
 .btn-paragraph {
   margin: 0 0 10px;

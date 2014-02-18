@@ -129,46 +129,13 @@ a:not(.btn):hover {
 .dropdown-menu > li > a,
 .authentication-mechanisms a,
 a.list-group-item,
-a.unstyled {
+a.unstyled,
+a.thumbnail,
+a.caption {
   background: none;
 }
 .dropdown-menu > li > a {
   padding-bottom: 1px;
-}
-.form-control,
-.img-thumbnail,
-.collapsing,
-.thumbnail {
-  -webkit-transition: none;
-  transition: none;
-}
-.form-control:focus,
-.has-warning .form-control,
-.has-warning .form-control:focus,
-.has-error .form-control,
-.has-error .form-control:focus,
-.has-success .form-control,
-.has-success .form-control:focus,
-.btn:active,
-.btn.active,
-.navbar-form,
-.navbar-collapse {
-  box-shadow: none;
-  -webkit-box-shadow: none;
-}
-a:focus,
-a:active,
-.btn:focus,
-.btn:active,
-button:focus,
-button:active,
-input[type="file"]:focus,
-input[type="radio"]:focus,
-input[type="checkbox"]:focus,
-.well {
-  -webkit-appearance: none;
-  outline: none;
-  box-shadow: none;
 }
 .panel-title,
 .modal-title {

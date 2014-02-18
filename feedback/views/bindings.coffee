@@ -11,4 +11,3 @@
 	router.map routesArray
 	
 	inject.bind 'user/dashboard-self/in-widgets', 'views/feedback/user-feedback-in-widget'
-	inject.bind 'user/dashboard-self/out-widgets', 'views/feedback/user-feedback-out-widget'
