@@ -20,7 +20,7 @@
       'ko.validation': 'bindings/knockout.validation.min',
       bootstrap: 'bootstrap/dist/js/bootstrap.min',
       bootstrapcss: 'bootstrap/dist/css/bootstrap.min',
-      jquery: 'jquery/jquery.min',
+      jquery: 'jquery/dist/jquery.min',
       animatecss: 'animate.css/animate.min',
       fontawesome: 'font-awesome/css/font-awesome.min',
       uuid: 'node-uuid/uuid',
