@@ -1,4 +1,4 @@
-﻿defineQ ['jquery', 'knockout', 'odo/auth', 'odo/auth/current-user'], ($, ko, auth, user) ->
+﻿define ['jquery', 'knockout', 'odo/auth', 'odo/auth/current-user'], ($, ko, auth, user) ->
 	class ChangeDisplayName
 		constructor: ->
 			@user = ko.observable null

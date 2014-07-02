@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  defineQ(['user', 'plugins/widget', 'knockout'], function(user, widget, ko) {
+  define(['user', 'plugins/widget', 'knockout'], function(user, widget, ko) {
     var Avatar;
     widget.registerKind('avatar');
     return Avatar = (function() {

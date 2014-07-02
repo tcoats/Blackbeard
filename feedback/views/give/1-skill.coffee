@@ -1,4 +1,4 @@
-﻿defineQ ['knockout'], (ko) ->
+﻿define ['knockout'], (ko) ->
 	class Skill
 		constructor: ->
 			@feedback = ko.observable null

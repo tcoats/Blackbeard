@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  defineQ(['knockout', 'plugins/router', 'odo/inject'], function(ko, router, inject) {
+  define(['knockout', 'plugins/router', 'odo/inject'], function(ko, router, inject) {
     var FeedbackGive;
     return FeedbackGive = (function() {
       function FeedbackGive() {

@@ -1,4 +1,4 @@
-﻿defineQ ['knockout', 'odo/auth', 'odo/auth/current-user'], (ko, auth, user) ->
+﻿define ['knockout', 'odo/auth', 'odo/auth/current-user'], (ko, auth, user) ->
 	class GoogleProfile
 		constructor: ->
 			@user = ko.observable null

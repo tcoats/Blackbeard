@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  defineQ(['knockout', 'odo/auth/current-user', 'components/dialog'], function(ko, user, Dialog) {
+  define(['knockout', 'odo/auth/current-user', 'components/dialog'], function(ko, user, Dialog) {
     var ReviewProfile;
     return ReviewProfile = (function() {
       function ReviewProfile() {

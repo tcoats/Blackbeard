@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  defineQ(['knockout', 'q', 'odo/inject', 'odo/auth/current-user'], function(ko, Q, inject, currentUser) {
+  define(['knockout', 'q', 'odo/inject', 'odo/auth/current-user'], function(ko, Q, inject, currentUser) {
     var DashboardSelf;
     return DashboardSelf = (function() {
       DashboardSelf.prototype.inwidgets = inject.many('user/dashboard-self/in-widgets');

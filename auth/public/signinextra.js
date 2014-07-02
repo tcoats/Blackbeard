@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  defineQ(['knockout', 'q', 'odo/auth', 'odo/auth/current-user', 'plugins/router'], function(ko, Q, auth, user, router) {
+  define(['knockout', 'q', 'odo/auth', 'odo/auth/current-user', 'plugins/router'], function(ko, Q, auth, user, router) {
     var SigninExtra;
     return SigninExtra = (function() {
       SigninExtra.prototype.title = "Username and email address";

@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  defineQ(['jquery', 'knockout', 'odo/auth', 'odo/auth/current-user'], function($, ko, auth, user) {
+  define(['jquery', 'knockout', 'odo/auth', 'odo/auth/current-user'], function($, ko, auth, user) {
     var ChangeDisplayName;
     return ChangeDisplayName = (function() {
       function ChangeDisplayName() {

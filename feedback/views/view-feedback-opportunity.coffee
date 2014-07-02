@@ -1,4 +1,4 @@
-﻿defineQ ['knockout', 'q', 'odo/auth/current-user', 'plugins/router', 'odo/inject'], (ko, Q, currentUser, router, inject) ->
+﻿define ['knockout', 'q', 'odo/auth/current-user', 'plugins/router', 'odo/inject'], (ko, Q, currentUser, router, inject) ->
 	class ViewFeedbackOpportunity
 		constructor: ->
 			@title = ko.observable ''

@@ -1,4 +1,4 @@
-﻿defineQ ['q', 'knockout', 'odo/auth/current-user', 'user', 'odo/inject'], (Q, ko, currentUser, user, inject) ->
+﻿define ['q', 'knockout', 'odo/auth/current-user', 'user', 'odo/inject'], (Q, ko, currentUser, user, inject) ->
 	class UserDashboard
 		constructor: ->
 			@dashboardUser = ko.observable null

@@ -1,4 +1,4 @@
-﻿defineQ ['knockout', 'q', 'odo/auth', 'odo/auth/current-user', 'plugins/router'], (ko, Q, auth, user, router) ->
+﻿define ['knockout', 'q', 'odo/auth', 'odo/auth/current-user', 'plugins/router'], (ko, Q, auth, user, router) ->
 	class SigninExtra
 		title: "Username and email address"
 		

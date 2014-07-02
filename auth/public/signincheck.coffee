@@ -1,4 +1,4 @@
-﻿defineQ ['odo/auth/current-user'], (user) ->
+﻿define ['odo/auth/current-user'], (user) ->
 	class SigninCheck
 		canActivate: =>
 			if !user?

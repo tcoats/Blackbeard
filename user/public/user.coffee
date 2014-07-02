@@ -1,4 +1,4 @@
-﻿defineQ ['plugins/router', 'jquery', 'q'], (router, $, Q) ->
+﻿define ['plugins/router', 'jquery', 'q'], (router, $, Q) ->
 	routes =
 		'user/verifyemail/:email/:token': 'views/user/verifyemail'
 		'user/:username':						'views/user/dashboard'

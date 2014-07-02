@@ -1,4 +1,4 @@
-﻿defineQ ['knockout', 'odo/inject', 'odo/auth/current-user'], (ko, inject, currentUser) ->
+﻿define ['knockout', 'odo/inject', 'odo/auth/current-user'], (ko, inject, currentUser) ->
 	class DashboardOther
 		widgets: inject.many 'user/dashboard-other/widgets'
 		

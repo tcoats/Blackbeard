@@ -1,4 +1,4 @@
-﻿defineQ ['knockout', 'uuid', 'odo/auth/current-user', 'plugins/router'], (ko, uuid, currentUser, router) ->
+﻿define ['knockout', 'uuid', 'odo/auth/current-user', 'plugins/router'], (ko, uuid, currentUser, router) ->
 	class Description
 		constructor: ->
 			@userid = ko.observable null
@@ -25,7 +25,7 @@
 				return
 			
 			feedback =
-				id: uuid.v1()
+				id: uuid.v4()
 				for: @userid
 				description: @description()
 				

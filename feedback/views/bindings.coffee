@@ -1,4 +1,4 @@
-﻿defineQ ['plugins/router', 'odo/inject'], (router, inject) ->
+﻿define ['plugins/router', 'odo/inject'], (router, inject) ->
 	
 	routes =
 		'givefeedback/:id': 'views/feedback/give'

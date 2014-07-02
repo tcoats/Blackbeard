@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  defineQ(['q', 'jquery', 'knockout', 'odo/auth', 'odo/auth/current-user'], function(Q, $, ko, auth, user) {
+  define(['q', 'jquery', 'knockout', 'odo/auth', 'odo/auth/current-user'], function(Q, $, ko, auth, user) {
     var ChangeEmail;
     return ChangeEmail = (function() {
       function ChangeEmail() {

@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  defineQ(['knockout', 'uuid', 'odo/auth/current-user', 'plugins/router'], function(ko, uuid, currentUser, router) {
+  define(['knockout', 'uuid', 'odo/auth/current-user', 'plugins/router'], function(ko, uuid, currentUser, router) {
     var Description;
     return Description = (function() {
       function Description() {
@@ -36,7 +36,7 @@
           return;
         }
         feedback = {
-          id: uuid.v1(),
+          id: uuid.v4(),
           "for": this.userid,
           description: this.description()
         };

@@ -1,4 +1,4 @@
-﻿defineQ ['knockout'], (ko) ->
+﻿define ['knockout'], (ko) ->
 	class ChangeEmailResult
 		constructor: ->
 			@email = ko.observable null

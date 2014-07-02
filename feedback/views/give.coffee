@@ -1,4 +1,4 @@
-﻿defineQ ['knockout', 'plugins/router', 'odo/inject'], (ko, router, inject) ->
+﻿define ['knockout', 'plugins/router', 'odo/inject'], (ko, router, inject) ->
 	class FeedbackGive
 		constructor: ->
 			@title = ko.observable ''

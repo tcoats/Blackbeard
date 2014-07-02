@@ -1,4 +1,4 @@
-﻿defineQ ['q', 'knockout', 'odo/auth', 'odo/auth/current-user', 'components/dialog'], (Q, ko, auth, user, Dialog) ->
+﻿define ['q', 'knockout', 'odo/auth', 'odo/auth/current-user', 'components/dialog'], (Q, ko, auth, user, Dialog) ->
 	class VerifyEmail
 		constructor: ->
 			@title = ko.observable ''

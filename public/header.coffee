@@ -1,4 +1,4 @@
-defineQ ['knockout', 'odo/auth/current-user', 'components/dialog'], (ko, user, Dialog) ->
+define ['knockout', 'odo/auth/current-user', 'components/dialog'], (ko, user, Dialog) ->
 	class Header
 		user: ko.observable null
 		

@@ -1,4 +1,4 @@
-﻿defineQ ['knockout'], (ko) ->
+﻿define ['knockout'], (ko) ->
 	class Profile
 		constructor: ->
 			@composeOptions = ko.observable null

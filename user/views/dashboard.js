@@ -2,7 +2,7 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  defineQ(['q', 'knockout', 'odo/auth/current-user', 'user', 'odo/inject'], function(Q, ko, currentUser, user, inject) {
+  define(['q', 'knockout', 'odo/auth/current-user', 'user', 'odo/inject'], function(Q, ko, currentUser, user, inject) {
     var UserDashboard;
     return UserDashboard = (function() {
       function UserDashboard() {

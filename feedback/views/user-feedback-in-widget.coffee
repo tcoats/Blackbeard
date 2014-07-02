@@ -1,4 +1,4 @@
-﻿defineQ ['knockout', 'components/dialog', 'odo/auth/current-user'], (ko, Dialog, user) ->
+﻿define ['knockout', 'components/dialog', 'odo/auth/current-user'], (ko, Dialog, user) ->
 	class UserFeedbackInWidget
 		constructor: ->
 			@viewingUser = ko.observable null

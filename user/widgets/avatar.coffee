@@ -1,4 +1,4 @@
-defineQ ['user', 'plugins/widget', 'knockout'], (user, widget, ko) ->
+define ['user', 'plugins/widget', 'knockout'], (user, widget, ko) ->
 	widget.registerKind 'avatar'
 	
 	class Avatar
